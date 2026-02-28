@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Influencer Marketing Lab: Retention Signals on UGC Platforms | Chung Hy Dai</title>
+<meta content="Influencer marketing lab study on how creator fit, engagement quality, and brand equity influence retention in Vietnam UGC campaigns." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@24..48,600;24..48,700;24..48,800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+<style>
+.page-research-influencer-focus {
+    --inf-ink: #0f172a;
+    --inf-muted: #475569;
+    --inf-accent: #0f766e;
+    --inf-accent-soft: rgba(15, 118, 110, 0.12);
+    --inf-border: rgba(15, 23, 42, 0.14);
+    --inf-border-strong: rgba(15, 23, 42, 0.22);
+    --inf-panel: rgba(255, 255, 255, 0.92);
+    --inf-shadow-soft: 0 12px 24px rgba(15, 23, 42, 0.09);
+    --inf-shadow-strong: 0 16px 30px rgba(15, 23, 42, 0.12);
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--inf-ink);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(14, 165, 233, 0.08), transparent 40%),
+        radial-gradient(circle at 86% 6%, rgba(249, 115, 22, 0.1), transparent 42%),
+        linear-gradient(180deg, #fbfdff 0%, #f4f8fb 100%);
+}
+
+.page-research-influencer-focus h1,
+.page-research-influencer-focus h2,
+.page-research-influencer-focus h3,
+.page-research-influencer-focus h4 {
+    font-family: "Bricolage Grotesque", "Avenir Next Condensed", sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.page-research-influencer-focus .navbar {
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.page-research-influencer-focus .parallax-bg.layer-1 {
+    background: radial-gradient(circle at 22% 24%, rgba(16, 185, 129, 0.18), transparent 58%);
+}
+
+.page-research-influencer-focus .parallax-bg.layer-2 {
+    background: radial-gradient(circle at 80% 22%, rgba(14, 165, 233, 0.15), transparent 56%);
+}
+
+.page-research-influencer-focus .parallax-bg.layer-3 {
+    background: radial-gradient(circle at 60% 72%, rgba(251, 146, 60, 0.12), transparent 58%);
+}
+
+.page-research-influencer-focus .parallax-bg.layer-4 {
+    background: radial-gradient(circle at 74% 58%, rgba(13, 148, 136, 0.1), transparent 62%);
+}
+
+.page-research-influencer-focus .research-detail-hero {
+    padding: 118px 0 56px;
+}
+
+.page-research-influencer-focus .research-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+    gap: clamp(0.9rem, 2vw, 1.35rem);
+    align-items: end;
+}
+
+.page-research-influencer-focus .research-hero-copy {
+    display: grid;
+    gap: 0.78rem;
+}
+
+.page-research-influencer-focus .research-back-link {
+    width: fit-content;
+    border-radius: 999px;
+    border: 1px solid rgba(13, 148, 136, 0.26);
+    background: linear-gradient(135deg, rgba(240, 253, 250, 0.96), rgba(236, 254, 255, 0.9));
+    color: #0f766e;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(15, 118, 110, 0.12);
+}
+
+.page-research-influencer-focus .research-back-link:hover {
+    color: #0f172a;
+    border-color: rgba(15, 118, 110, 0.38);
+}
+
+.page-research-influencer-focus .research-detail-header {
+    max-width: none;
+    padding: clamp(1rem, 2.2vw, 1.4rem);
+    border-radius: 24px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: var(--inf-panel);
+    box-shadow: var(--inf-shadow-soft);
+}
+
+.page-research-influencer-focus .influencer-hero-badge {
+    width: fit-content;
+    margin-bottom: 0.88rem;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 165, 233, 0.28);
+    padding: 0.4rem 0.82rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #075985;
+    background: rgba(224, 242, 254, 0.9);
+}
+
+.page-research-influencer-focus .research-detail-header .section-heading {
+    font-size: clamp(2.15rem, 4.4vw, 3.7rem);
+    margin-bottom: 0.8rem;
+    line-height: 1.05;
+}
+
+.page-research-influencer-focus .research-detail-header .section-desc {
+    max-width: 64ch;
+    font-size: 1.02rem;
+    line-height: 1.62;
+    color: var(--inf-muted);
+}
+
+.page-research-influencer-focus .research-meta-tags {
+    margin-top: 1.16rem;
+    gap: 0.56rem;
+}
+
+.page-research-influencer-focus .research-meta-tags span {
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e293b;
+    font-size: 0.9rem;
+    padding: 0.42rem 0.72rem;
+}
+
+.page-research-influencer-focus .research-meta-tags span i {
+    color: #0284c7;
+}
+
+.page-research-influencer-focus .influencer-hero-stage {
+    position: relative;
+    padding: 0.72rem;
+    border-radius: 22px;
+    border: 1px solid rgba(14, 116, 144, 0.24);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(241, 250, 255, 0.9));
+    box-shadow: var(--inf-shadow-soft);
+    overflow: hidden;
+    animation: inf-float 12s ease-in-out infinite;
+}
+
+.page-research-influencer-focus .influencer-stage-label {
+    margin: 0 0 0.52rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.36rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #0369a1;
+}
+
+.page-research-influencer-focus .influencer-hero-stage img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(14, 116, 144, 0.2);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
+    background: #ffffff;
+}
+
+.page-research-influencer-focus .influencer-stage-metrics {
+    margin-top: 0.68rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.48rem;
+}
+
+.page-research-influencer-focus .influencer-metric {
+    padding: 0.56rem 0.62rem 0.64rem;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.page-research-influencer-focus .influencer-metric-label {
+    margin: 0;
+    font-size: 0.82rem;
+    color: #52627a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+}
+
+.page-research-influencer-focus .influencer-metric-value {
+    margin: 0.24rem 0 0;
+    font-size: 1rem;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.page-research-influencer-focus .section {
+    padding: 64px 0;
+}
+
+.page-research-influencer-focus .bg-light {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 250, 255, 0.92));
+}
+
+.page-research-influencer-focus .section::before {
+    width: min(1140px, 94%);
+    background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.14), transparent);
+}
+
+.page-research-influencer-focus .research-focus-shell {
+    border-radius: 22px;
+    border: 1px solid var(--inf-border);
+    padding: clamp(1rem, 2.1vw, 1.34rem);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--inf-shadow-soft);
+}
+
+.page-research-influencer-focus .badge {
+    border-radius: 999px;
+    border: 1px solid rgba(15, 118, 110, 0.28);
+    color: #0f766e;
+    background: rgba(236, 253, 245, 0.88);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.34rem 0.7rem;
+}
+
+.page-research-influencer-focus .section-heading.section-heading-focus {
+    font-size: clamp(1.84rem, 3.1vw, 2.26rem);
+    margin-bottom: 0.56rem;
+}
+
+.page-research-influencer-focus .research-copy-muted,
+.page-research-influencer-focus .research-focus-shell p,
+.page-research-influencer-focus .research-focus-shell li {
+    color: var(--inf-muted);
+    font-size: 1rem;
+    line-height: 1.66;
+}
+
+.page-research-influencer-focus .section-subtitle {
+    margin: 0.55rem 0 0.7rem;
+    font-size: 1.02rem;
+    color: #1e293b;
+}
+
+.page-research-influencer-focus .research-question-grid,
+.page-research-influencer-focus .construct-grid,
+.page-research-influencer-focus .protocol-grid,
+.page-research-influencer-focus .method-evidence-row,
+.page-research-influencer-focus .figure-pair-grid,
+.page-research-influencer-focus .influencer-case-grid,
+.page-research-influencer-focus .managerial-lane-grid,
+.page-research-influencer-focus .managerial-foot-grid {
+    margin-top: 0.86rem;
+    display: grid;
+    gap: 0.72rem;
+}
+
+.page-research-influencer-focus .research-question-grid,
+.page-research-influencer-focus .construct-grid,
+.page-research-influencer-focus .managerial-lane-grid,
+.page-research-influencer-focus .managerial-foot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-research-influencer-focus .protocol-grid,
+.page-research-influencer-focus .method-evidence-row,
+.page-research-influencer-focus .figure-pair-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.page-research-influencer-focus .influencer-case-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.page-research-influencer-focus .rq-card,
+.page-research-influencer-focus .construct-card,
+.page-research-influencer-focus .protocol-card,
+.page-research-influencer-focus .method-evidence-card,
+.page-research-influencer-focus .figure-card,
+.page-research-influencer-focus .influencer-case-card,
+.page-research-influencer-focus .managerial-lane-card,
+.page-research-influencer-focus .limitations-card,
+.page-research-influencer-focus .source-panel,
+.page-research-influencer-focus .measurement-note,
+.page-research-influencer-focus .results-summary,
+.page-research-influencer-focus .sequence-rule {
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+    padding: 0.84rem 0.88rem;
+}
+
+.page-research-influencer-focus .rq-card h3,
+.page-research-influencer-focus .construct-card h3,
+.page-research-influencer-focus .protocol-card h3,
+.page-research-influencer-focus .figure-card h3,
+.page-research-influencer-focus .influencer-case-card h3,
+.page-research-influencer-focus .managerial-lane-card h3,
+.page-research-influencer-focus .limitations-card h3,
+.page-research-influencer-focus .source-panel h3,
+.page-research-influencer-focus .measurement-note h3,
+.page-research-influencer-focus .results-summary h3,
+.page-research-influencer-focus .sequence-rule h3 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 1.04rem;
+}
+
+.page-research-influencer-focus .rq-card p,
+.page-research-influencer-focus .construct-card p,
+.page-research-influencer-focus .protocol-card p,
+.page-research-influencer-focus .figure-card p,
+.page-research-influencer-focus .managerial-lane-card p,
+.page-research-influencer-focus .limitations-card p,
+.page-research-influencer-focus .source-panel p,
+.page-research-influencer-focus .measurement-note p,
+.page-research-influencer-focus .results-summary p,
+.page-research-influencer-focus .sequence-rule p {
+    margin: 0.42rem 0 0;
+}
+
+.page-research-influencer-focus .construct-code {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0f766e;
+    font-weight: 800;
+}
+
+.page-research-influencer-focus .hypothesis-strip {
+    margin-top: 0.82rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.48rem;
+}
+
+.page-research-influencer-focus .hypothesis-strip span {
+    border-radius: 999px;
+    border: 1px solid rgba(2, 132, 199, 0.24);
+    background: rgba(224, 242, 254, 0.88);
+    color: #075985;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 0.34rem 0.64rem;
+}
+
+.page-research-influencer-focus .method-evidence-card h4 {
+    margin: 0;
+    font-size: 0.86rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0f766e;
+    font-weight: 800;
+}
+
+.page-research-influencer-focus .method-evidence-card p {
+    margin: 0.3rem 0 0;
+    font-size: 0.97rem;
+    color: #334155;
+    line-height: 1.52;
+}
+
+.page-research-influencer-focus .evidence-label {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    border-radius: 999px;
+    padding: 0.24rem 0.58rem;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.page-research-influencer-focus .evidence-reported {
+    color: #075985;
+    background: rgba(224, 242, 254, 0.92);
+    border-color: rgba(2, 132, 199, 0.26);
+}
+
+.page-research-influencer-focus .evidence-reported-inferred {
+    color: #9a3412;
+    background: rgba(255, 237, 213, 0.92);
+    border-color: rgba(234, 88, 12, 0.24);
+}
+
+.page-research-influencer-focus .evidence-external {
+    color: #1d4ed8;
+    background: rgba(219, 234, 254, 0.92);
+    border-color: rgba(59, 130, 246, 0.24);
+}
+
+.page-research-influencer-focus .figure-card-head {
+    margin-bottom: 0.56rem;
+    display: grid;
+    gap: 0.38rem;
+}
+
+.page-research-influencer-focus .research-figure-stage {
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.16);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(243, 248, 252, 0.92));
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.page-research-influencer-focus .research-figure-stage img {
+    width: 100%;
+    height: auto;
+    max-height: clamp(260px, 40vw, 520px);
+    object-fit: contain;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: #ffffff;
+}
+
+.page-research-influencer-focus .research-figure-caption {
+    margin: 0.56rem 0.2rem 0.3rem;
+    padding: 0.58rem 0.68rem;
+    border-radius: 12px;
+    border: 1px dashed rgba(71, 85, 105, 0.34);
+    background: rgba(248, 250, 252, 0.9);
+    color: #334155;
+    font-size: 0.95rem;
+    line-height: 1.58;
+}
+
+.page-research-influencer-focus .draft-disclosure {
+    margin-top: 0.62rem;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(248, 250, 252, 0.88);
+    padding: 0.56rem 0.62rem;
+}
+
+.page-research-influencer-focus .draft-disclosure summary {
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.page-research-influencer-focus .draft-disclosure .research-figure-stage {
+    margin-top: 0.56rem;
+}
+
+.page-research-influencer-focus .draft-disclosure .research-figure-stage img {
+    max-height: clamp(220px, 32vw, 420px);
+}
+
+.page-research-influencer-focus .results-summary ul,
+.page-research-influencer-focus .sequence-rule ol,
+.page-research-influencer-focus .source-panel ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.14rem;
+}
+
+.page-research-influencer-focus .results-summary li,
+.page-research-influencer-focus .source-panel li,
+.page-research-influencer-focus .sequence-rule li {
+    margin: 0.28rem 0;
+    font-size: 0.97rem;
+    line-height: 1.62;
+    color: #334155;
+}
+
+.page-research-influencer-focus .figure-card-head p,
+.page-research-influencer-focus .results-summary p {
+    max-width: 72ch;
+    line-height: 1.62;
+}
+
+.page-research-influencer-focus .case-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.36rem;
+    margin-top: 0.5rem;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #0369a1;
+    text-decoration: none;
+}
+
+.page-research-influencer-focus .case-link:hover {
+    color: #0f172a;
+}
+
+.page-research-influencer-focus .case-media {
+    margin-top: 0.58rem;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.page-research-influencer-focus .case-disclaimer {
+    margin-top: 0.44rem;
+    font-size: 0.9rem;
+    color: #334155;
+}
+
+.page-research-influencer-focus .managerial-lane-card {
+    border-top: 4px solid rgba(15, 118, 110, 0.28);
+}
+
+.page-research-influencer-focus .sequence-rule {
+    margin-top: 0.74rem;
+    background: rgba(236, 253, 245, 0.82);
+    border-color: rgba(15, 118, 110, 0.24);
+}
+
+.page-research-influencer-focus .limitations-card {
+    background: rgba(255, 247, 237, 0.84);
+    border-color: rgba(234, 88, 12, 0.24);
+}
+
+.page-research-influencer-focus .source-panel {
+    background: rgba(239, 246, 255, 0.84);
+    border-color: rgba(2, 132, 199, 0.22);
+}
+
+.page-research-influencer-focus .btn-outline.large {
+    border: 1px solid rgba(15, 23, 42, 0.26);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.page-research-influencer-focus .btn-outline.large:hover {
+    border-color: #0f766e;
+    color: #0f766e;
+}
+
+@keyframes inf-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1080px) {
+    .page-research-influencer-focus .research-hero-grid,
+    .page-research-influencer-focus .protocol-grid,
+    .page-research-influencer-focus .method-evidence-row,
+    .page-research-influencer-focus .figure-pair-grid,
+    .page-research-influencer-focus .influencer-case-grid,
+    .page-research-influencer-focus .research-question-grid,
+    .page-research-influencer-focus .construct-grid,
+    .page-research-influencer-focus .managerial-lane-grid,
+    .page-research-influencer-focus .managerial-foot-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-research-influencer-focus .research-detail-hero {
+        padding-top: 106px;
+    }
+
+    .page-research-influencer-focus .section {
+        padding: 56px 0;
+    }
+
+    .page-research-influencer-focus .influencer-stage-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-influencer-focus .research-meta-tags span {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-research-influencer-focus .influencer-hero-stage {
+        animation: none !important;
+    }
+
+    .page-research-influencer-focus .btn-outline.large,
+    .page-research-influencer-focus .research-back-link {
+        transition: none !important;
+    }
+}
+</style>
+<link href="./research-leveraging-influencer.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Influencer Marketing Lab: Retention Signals on UGC Platforms | Chung Hy Dai" property="og:title"/>
+<meta content="Influencer marketing lab study on how creator fit, engagement quality, and brand equity influence retention in Vietnam UGC campaigns." property="og:description"/>
+<meta content="./research-leveraging-influencer.html" property="og:url"/>
+</head>
+<body class="page-research-detail page-research-non-hotel-fig-refresh page-research-custom page-research-influencer page-research-influencer-focus" data-page="research" data-research-id="influencer-strategy">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a aria-label="Chung Hy Dai home" class="logo magnetic" data-strength="20" href="index.html"><span aria-hidden="true" class="logo-mark">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main>
+<section class="research-detail-hero">
+<div class="section-container">
+<div class="research-hero-grid">
+<div class="research-hero-copy">
+<a class="research-back-link reveal-on-load" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+</a>
+<div class="research-detail-header reveal-on-load">
+<span class="influencer-hero-badge">Reported study summary | Four-E retention logic | SEM</span>
+<h1 class="section-heading">
+Influencer Marketing Lab: Retention Signals on UGC Platforms
+</h1>
+<p class="section-desc max-w-lg">
+This manuscript-aligned page summarizes a UGC influencer study in Vietnam using the Four-E construct logic (CX, CEX, BE, CE) and split-sample validation. The model is estimated with EFA and CFA/SEM (overall n = 565; EFA n = 200; CFA/SEM n = 365), with retention explained primarily through engagement quality.
+</p>
+<div class="research-meta-tags">
+<span><i class="ph ph-users-three"></i> Overall sample: n = 565</span>
+<span><i class="ph ph-chart-line-up"></i> Split: EFA n = 200 | CFA/SEM n = 365</span>
+<span><i class="ph ph-chart-scatter"></i> Cross-sectional survey + SEM workflow</span>
+</div>
+</div>
+</div>
+<aside aria-label="Retention evidence snapshot" class="influencer-hero-stage reveal-on-load">
+<p class="influencer-stage-label"><i class="ph ph-chart-pie-slice"></i> Retention evidence snapshot</p>
+<picture>
+<source sizes="(max-width: 1024px) 95vw, 42vw" srcset="./assets/optimized/leveraging-influencer-dashboard-480.avif 480w, ./assets/optimized/leveraging-influencer-dashboard-768.avif 768w, ./assets/optimized/leveraging-influencer-dashboard-1024.avif 1024w, ./assets/optimized/leveraging-influencer-dashboard-1440.avif 1440w, ./assets/optimized/leveraging-influencer-dashboard-1800.avif 1800w, ./assets/optimized/leveraging-influencer-dashboard-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 1024px) 95vw, 42vw" srcset="./assets/optimized/leveraging-influencer-dashboard-480.webp 480w, ./assets/optimized/leveraging-influencer-dashboard-768.webp 768w, ./assets/optimized/leveraging-influencer-dashboard-1024.webp 1024w, ./assets/optimized/leveraging-influencer-dashboard-1440.webp 1440w, ./assets/optimized/leveraging-influencer-dashboard-1800.webp 1800w, ./assets/optimized/leveraging-influencer-dashboard-2200.webp 2200w" type="image/webp"/>
+<img alt="Dashboard preview highlighting engagement and retention model outputs for the influencer Four-E study" decoding="async" loading="lazy" src="./assets/optimized/leveraging-influencer-dashboard-optimized.webp" width="1600" height="1600"/>
+</picture>
+<div aria-label="Model outcome highlights" class="influencer-stage-metrics">
+<article class="influencer-metric">
+<p class="influencer-metric-label">CE model</p>
+<p class="influencer-metric-value">R<sup>2</sup> = 55%</p>
+</article>
+<article class="influencer-metric">
+<p class="influencer-metric-label">CR model</p>
+<p class="influencer-metric-value">R<sup>2</sup> = 70%</p>
+</article>
+<article class="influencer-metric">
+<p class="influencer-metric-label">Exploratory sample</p>
+<p class="influencer-metric-value">EFA n = 200</p>
+</article>
+<article class="influencer-metric">
+<p class="influencer-metric-label">Validation sample</p>
+<p class="influencer-metric-value">CFA/SEM n = 365</p>
+</article>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Reported</span>
+<h2 class="section-heading section-heading-focus">Background</h2>
+<p class="research-copy-muted">
+Influencer campaigns on UGC platforms often optimize reach metrics before clarifying how trust, experience, and expectation matching translate into retention. The study addresses this gap by testing a structured Four-E logic and by positioning engagement quality as the central bridge between exposure and return behavior.
+</p>
+<div class="research-question-grid">
+<article class="rq-card">
+<h3>RQ1</h3>
+<p>Which antecedent constructs most strongly contribute to consumer engagement quality (CE) in UGC influencer campaigns?</p>
+</article>
+<article class="rq-card">
+<h3>RQ2</h3>
+<p>Does CE act as the direct pathway to customer retention (CR) after influencer exposure?</p>
+</article>
+<article class="rq-card">
+<h3>RQ3</h3>
+<p>How should the reported structural logic be translated into campaign action order without inventing statistical claims?</p>
+</article>
+</div>
+<h3 class="section-subtitle">Construct Development Logic (Paper Order)</h3>
+<div class="construct-grid">
+<article class="construct-card">
+<p class="construct-code">CE</p>
+<h3>Consumer Engagement</h3>
+<p>CE is framed as interaction depth and quality, not only view count. It functions as the model bridge to retention.</p>
+</article>
+<article class="construct-card">
+<p class="construct-code">CX</p>
+<h3>Content Experience</h3>
+<p>CX captures perceived informational and narrative quality of creator content in the UGC stream.</p>
+</article>
+<article class="construct-card">
+<p class="construct-code">CEX</p>
+<h3>Expectation Alignment</h3>
+<p>CEX reflects whether creator claims and audience expectations match delivered product or service experience.</p>
+</article>
+<article class="construct-card">
+<p class="construct-code">BE</p>
+<h3>Brand Equity Transfer</h3>
+<p>BE captures transfer of creator credibility and symbolic value to the promoted brand context.</p>
+</article>
+</div>
+<h3 class="section-subtitle">Hypotheses Summary</h3>
+<div class="hypothesis-strip">
+<span>H1 CE &rarr; CR</span>
+<span>H2 CX &rarr; CE</span>
+<span>H3 CEX &rarr; CE</span>
+<span>H4 BE &rarr; CE</span>
+<span>H5a/H5b/H5c mediation via CE</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Reported</span>
+<h2 class="section-heading section-heading-focus">Method</h2>
+<p class="research-copy-muted">
+The method follows a cross-sectional online survey protocol with split-sample construct validation and structural testing. The workflow keeps exploration and confirmation separate, then estimates path and mediation logic using SEM.
+</p>
+<div class="protocol-grid">
+<article class="protocol-card">
+<h3>Design</h3>
+<p>Cross-sectional online survey targeting active UGC platform users in Vietnam.</p>
+</article>
+<article class="protocol-card">
+<h3>Inclusion Criteria</h3>
+<p>Respondents had to be active users who regularly consume influencer-led UGC content and can evaluate campaign experience and trust signals.</p>
+</article>
+<article class="protocol-card">
+<h3>Collection Period</h3>
+<p>Reported as one online collection wave in the manuscript screenshots. Exact calendar dates are not visible in the available screenshot source set.</p>
+</article>
+<article class="protocol-card">
+<h3>Split-Sample Logic</h3>
+<p>Exploratory factor analysis on n = 200, followed by CFA and SEM on n = 365, with total sample n = 565.</p>
+</article>
+<article class="protocol-card">
+<h3>Modeling Workflow</h3>
+<p>EFA establishes factor structure, CFA confirms measurement consistency, and SEM tests direct and mediated retention pathways.</p>
+</article>
+</div>
+<div class="method-evidence-row">
+<article class="method-evidence-card">
+<h4>Period</h4>
+<p>Single cross-sectional online wave (exact dates not shown in screenshots).</p>
+</article>
+<article class="method-evidence-card">
+<h4>Total Sample</h4>
+<p>Overall n = 565.</p>
+</article>
+<article class="method-evidence-card">
+<h4>Split Samples</h4>
+<p>EFA n = 200; CFA/SEM n = 365.</p>
+</article>
+<article class="method-evidence-card">
+<h4>Model Family</h4>
+<p>Measurement validation (EFA/CFA) and structural equation modeling.</p>
+</article>
+<article class="method-evidence-card">
+<h4>Reported Outcomes</h4>
+<p>CE model R<sup>2</sup> = 55%; CR model R<sup>2</sup> = 70%.</p>
+</article>
+</div>
+<article class="measurement-note">
+<h3>Measurement Note</h3>
+<p>Construct items for CX, CEX, BE, CE, and CR were developed through the study instrument and validated through split-sample factor procedures before structural path interpretation.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Reported + Inferred</span>
+<h2 class="section-heading section-heading-focus">Results</h2>
+<article class="results-summary">
+<h3>Reported Interpretation</h3>
+<ul>
+<li>CE model R<sup>2</sup> = 55% and CR model R<sup>2</sup> = 70% are reported values used consistently on this page.</li>
+<li>CE is the direct bridge to CR in the tested structure.</li>
+<li>H5a/H5b/H5c are interpreted as mediation routes where CX, CEX, and BE contribute to retention through CE.</li>
+<li>Inference is limited to qualitative interpretation and does not claim unavailable coefficient tables.</li>
+</ul>
+</article>
+<div class="figure-pair-grid">
+<article class="figure-card">
+<div class="figure-card-head">
+<span class="evidence-label evidence-reported-inferred">Reported + Inferred</span>
+<h3>Figure 1. Reported Four-E Structural Model</h3>
+<p>Annotated layout showing hypotheses, sample splits, R<sup>2</sup> badges, and qualitative pathway tiers.</p>
+</div>
+<figure class="research-figure-stage" data-evidence-tier="reported-plus-inferred">
+<img alt="Annotated Four-E structure showing reported hypotheses, sample splits, and pathway tiers" decoding="async" loading="lazy" src="./assets/viz-influencer-four-e-reported-enhanced.svg" onerror="this.onerror=null;this.src='./assets/viz-influencer-four-e-reported-enhanced.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Annotated model view of reported Four-E paths with qualitative pathway-strength tiers.</figcaption>
+</figure>
+<details class="draft-disclosure">
+<summary>Open base version</summary>
+<span class="evidence-label evidence-reported">Reported</span>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="Base Four-E structural framework with reported paths from CX, CEX, and BE to CE and from CE to CR" decoding="async" loading="lazy" src="./assets/viz-influencer-four-e-reported-draft.svg" onerror="this.onerror=null;this.src='./assets/viz-influencer-four-e-reported-draft.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Base reported layout showing directional paths from CX, CEX, and BE to CE and from CE to CR.</figcaption>
+</figure>
+</details>
+</article>
+<article class="figure-card">
+<div class="figure-card-head">
+<span class="evidence-label evidence-reported-inferred">Reported + Inferred</span>
+<h3>Figure 2. Hypothesis-to-Action Mapping</h3>
+<p>Action map aligning reported path anchors with operational sequencing lanes.</p>
+</div>
+<figure class="research-figure-stage" data-evidence-tier="reported-plus-inferred">
+<img alt="Annotated hypothesis-to-action map with reported path anchors and staged intervention lanes" decoding="async" loading="lazy" src="./assets/viz-influencer-hypothesis-action-enhanced.svg" onerror="this.onerror=null;this.src='./assets/viz-influencer-hypothesis-action-enhanced.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Annotated action map translating hypothesis paths into an implementation sequence.</figcaption>
+</figure>
+<details class="draft-disclosure">
+<summary>Open base version</summary>
+<span class="evidence-label evidence-reported-inferred">Reported + Inferred</span>
+<figure class="research-figure-stage" data-evidence-tier="reported-plus-inferred">
+<img alt="Base matrix linking hypotheses to pathway anchors and initial action lanes" decoding="async" loading="lazy" src="./assets/viz-influencer-hypothesis-action-draft.svg" onerror="this.onerror=null;this.src='./assets/viz-influencer-hypothesis-action-draft.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Base matrix linking hypothesis labels to preliminary action lanes.</figcaption>
+</figure>
+</details>
+</article>
+</div>
+
+<article class="results-summary" style="margin-top: 0.72rem;">
+<h3>External Creator Cases (Explanatory Only)</h3>
+<p>The following creators are retained as hybrid evidence cards and are explicitly external explanatory cases, not observations from the survey sample.</p>
+</article>
+<div class="influencer-case-grid">
+<article class="influencer-case-card">
+<span class="evidence-label evidence-external">External explanatory case</span>
+<h3>Khoai Lang Thang</h3>
+<a class="case-link" href="https://www.youtube.com/watch?v=KLakTkK82kM" rel="noopener noreferrer" target="_blank"><i class="ph ph-link-simple-horizontal"></i> Platform link: YouTube</a>
+<picture>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/khoai-lang-thang-youtube-maxres-480.avif 480w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-768.avif 768w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-1024.avif 1024w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-1280.avif 1280w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/khoai-lang-thang-youtube-maxres-480.webp 480w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-768.webp 768w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-1024.webp 1024w, ./assets/optimized/external/khoai-lang-thang-youtube-maxres-1280.webp 1280w" type="image/webp"/>
+<img alt="Khoai Lang Thang video frame illustrating story-first travel content style" class="case-media" decoding="async" loading="lazy" src="./assets/external/khoai-lang-thang-youtube-maxres.jpg" width="1280" height="720"/>
+</picture>
+<p><strong>Primary construct:</strong> CX</p>
+<p><strong>Secondary construct:</strong> CE</p>
+<p>Story sequencing and place-based narrative depth map to stronger content experience, then sustain engagement loops in comments and follow-up episodes.</p>
+<p class="case-disclaimer">External explanatory case, not in survey sample.</p>
+</article>
+<article class="influencer-case-card">
+<span class="evidence-label evidence-external">External explanatory case</span>
+<h3>Vo Ha Linh</h3>
+<a class="case-link" href="https://www.youtube.com/watch?v=WMZWaLGLNKA" rel="noopener noreferrer" target="_blank"><i class="ph ph-link-simple-horizontal"></i> Platform link: YouTube</a>
+<picture>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-480.avif 480w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-768.avif 768w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-1024.avif 1024w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-1280.avif 1280w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-480.webp 480w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-768.webp 768w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-1024.webp 1024w, ./assets/optimized/external/vo-ha-linh-affiliate-youtube-maxres-1280.webp 1280w" type="image/webp"/>
+<img alt="Vo Ha Linh review content frame illustrating expectation and affiliate disclosure style" class="case-media" decoding="async" loading="lazy" src="./assets/external/vo-ha-linh-affiliate-youtube-maxres.jpg" width="1280" height="720"/>
+</picture>
+<p><strong>Primary construct:</strong> CEX</p>
+<p><strong>Secondary construct:</strong> CE</p>
+<p>Disclosure and comparison framing support expectation alignment first, then drive engagement through question-answer and product clarification interactions.</p>
+<p class="case-disclaimer">External explanatory case, not in survey sample.</p>
+</article>
+<article class="influencer-case-card">
+<span class="evidence-label evidence-external">External explanatory case</span>
+<h3>Hannah Olala</h3>
+<a class="case-link" href="https://www.youtube.com/watch?v=apFptuaXJqc" rel="noopener noreferrer" target="_blank"><i class="ph ph-link-simple-horizontal"></i> Platform link: YouTube</a>
+<picture>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-480.avif 480w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-768.avif 768w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1024.avif 1024w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1280.avif 1280w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, 31vw" srcset="./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-480.webp 480w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-768.webp 768w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1024.webp 1024w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1280.webp 1280w" type="image/webp"/>
+<img alt="Hannah Olala collaboration content frame illustrating brand association and lifestyle narrative" class="case-media" decoding="async" loading="lazy" src="./assets/external/hannah-olala-brandtrip-youtube-maxres.jpg" width="1280" height="720"/>
+</picture>
+<p><strong>Primary construct:</strong> BE</p>
+<p><strong>Secondary construct:</strong> CX</p>
+<p>Creator-brand association supports brand equity transfer, while narrative packaging maintains content experience quality during sponsored integration.</p>
+<p class="case-disclaimer">External explanatory case, not in survey sample.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Managerial Translation</span>
+<h2 class="section-heading section-heading-focus">Managerial Implications</h2>
+<p class="research-copy-muted">
+Managerial recommendations are derived from reported model logic and constrained qualitative inference. The main implication is to build campaign sequencing around engagement quality as the operational bridge to retention.
+</p>
+<div class="managerial-lane-grid">
+<article class="managerial-lane-card">
+<h3>Engagement-First Optimization</h3>
+<p>Use CE as the operating KPI for campaign diagnostics: improve interaction depth, response quality, and recurring participation before scaling exposure spend.</p>
+</article>
+<article class="managerial-lane-card">
+<h3>Expectation-Alignment and Trust Safeguards</h3>
+<p>Deploy disclosure discipline, claim verification, and message-product matching to reduce expectation gaps before conversion-focused pushes.</p>
+</article>
+<article class="managerial-lane-card">
+<h3>Brand-Equity Transfer Governance</h3>
+<p>Formalize creator-brand fit criteria and monitor spillover risk so BE transfer improves retention instead of creating short-cycle hype only.</p>
+</article>
+</div>
+<article class="sequence-rule">
+<h3>Sequencing Rule</h3>
+<ol>
+<li>Fit and authenticity first.</li>
+<li>Engagement loops second.</li>
+<li>Conversion optimization last.</li>
+</ol>
+</article>
+<div class="managerial-foot-grid">
+<article class="limitations-card">
+<span class="evidence-label evidence-reported-inferred">Reported + Inferred</span>
+<h3>Limitations Note</h3>
+<p>The visual package combines reported structure with explicit qualitative inference to improve managerial readability. Exact public coefficient tables are not visible in the available screenshot source archive, so this page does not claim numeric path coefficients or p-values.</p>
+</article>
+<article class="source-panel">
+<h3>Source Attribution</h3>
+<p><strong>Paper screenshot source:</strong> archived local screenshot evidence set.</p>
+<ul>
+<li>Case source: <a href="https://www.youtube.com/watch?v=KLakTkK82kM" rel="noopener noreferrer" target="_blank">Khoai Lang Thang YouTube video</a></li>
+<li>Case source: <a href="https://www.youtube.com/watch?v=WMZWaLGLNKA" rel="noopener noreferrer" target="_blank">Vo Ha Linh YouTube video</a></li>
+<li>Case source: <a href="https://www.youtube.com/watch?v=apFptuaXJqc" rel="noopener noreferrer" target="_blank">Hannah Olala YouTube video</a></li>
+<li>Figure assets generated from reported structure plus labeled qualitative inference rules.</li>
+</ul>
+</article>
+</div>
+</div>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic" data-strength="15" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+</a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Chung Hy Dai.</p>
+</div>
+</div>
+</footer>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>

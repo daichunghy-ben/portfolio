@@ -1,0 +1,5 @@
+/* CV page specific styling */
+body[data-page="cv"] .print-btn,
+body[data-page="cv"] .js-print {
+    cursor: pointer;
+}

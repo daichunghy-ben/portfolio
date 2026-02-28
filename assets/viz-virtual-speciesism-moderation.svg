@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Peripheral cue lift and speciesism moderation summary</title>
+  <desc id="desc">The figure summarizes one-way ANOVA mean differences for peripheral cue conditions and the reported moderation pattern of speciesism on purchase intention.</desc>
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="panel2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f9ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="980" fill="url(#bg2)"/>
+  <text x="72" y="74" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="700" fill="#0f172a">Figure 2. Peripheral Cue Lift and Speciesism Moderation</text>
+  <text x="72" y="110" font-family="Inter, Arial, sans-serif" font-size="22" fill="#334155">One-way ANOVA mean difference and moderation pattern reported in the discussion</text>
+
+  <rect x="56" y="140" width="734" height="790" rx="24" fill="url(#panel2)" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="92" y="192" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a">A. Peripheral cue mean difference</text>
+  <text x="92" y="224" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569">F(1, 242) = 7.397, p = .007</text>
+
+  <line x1="170" y1="810" x2="650" y2="810" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="170" y1="320" x2="170" y2="810" stroke="#475569" stroke-width="2"/>
+  <text x="136" y="816" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">1</text>
+  <text x="136" y="694" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">2</text>
+  <text x="136" y="572" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">3</text>
+  <text x="136" y="450" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">4</text>
+  <text x="136" y="328" font-family="Inter, Arial, sans-serif" font-size="16" fill="#64748b">5</text>
+  <text x="64" y="356" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569" transform="rotate(-90 64 356)">Purchase intention mean</text>
+
+  <rect x="250" y="546" width="130" height="264" rx="10" fill="#f97316"/>
+  <text x="264" y="536" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#9a3412">M = 2.16</text>
+  <text x="236" y="844" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">Low peripheral</text>
+
+  <rect x="452" y="475" width="130" height="335" rx="10" fill="#14b8a6"/>
+  <text x="466" y="465" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#115e59">M = 2.45</text>
+  <text x="440" y="844" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">High peripheral</text>
+
+  <line x1="315" y1="510" x2="517" y2="438" stroke="#334155" stroke-width="4"/>
+  <polygon points="517,438 500,434 508,449" fill="#334155"/>
+  <text x="236" y="900" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569">Higher peripheral cue strength increased mean purchase intention.</text>
+
+  <rect x="834" y="140" width="710" height="790" rx="24" fill="url(#panel2)" stroke="#bfdbfe" stroke-width="2"/>
+  <text x="870" y="192" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#0f172a">B. Speciesism moderation pattern</text>
+  <text x="870" y="224" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569">Directional summary from the study's reported Figure 3 interpretation</text>
+
+  <line x1="920" y1="760" x2="1488" y2="760" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="920" y1="320" x2="920" y2="760" stroke="#475569" stroke-width="2"/>
+  <text x="1088" y="792" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">Low peripheral cue</text>
+  <text x="1332" y="792" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">High peripheral cue</text>
+  <text x="850" y="336" font-family="Inter, Arial, sans-serif" font-size="18" fill="#475569" transform="rotate(-90 850 336)">Purchase intention</text>
+
+  <polyline points="1110,654 1360,528" fill="none" stroke="#2563eb" stroke-width="6"/>
+  <circle cx="1110" cy="654" r="9" fill="#2563eb"/>
+  <circle cx="1360" cy="528" r="9" fill="#2563eb"/>
+  <text x="1128" y="646" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#1d4ed8">Low speciesism</text>
+  <text x="1132" y="674" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">clear positive response to stronger peripheral cues</text>
+
+  <polyline points="1110,700 1360,688" fill="none" stroke="#dc2626" stroke-width="6"/>
+  <circle cx="1110" cy="700" r="9" fill="#dc2626"/>
+  <circle cx="1360" cy="688" r="9" fill="#dc2626"/>
+  <text x="1128" y="728" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#b91c1c">High speciesism</text>
+  <text x="1132" y="756" font-family="Inter, Arial, sans-serif" font-size="18" fill="#334155">purchase intention remains low across cue levels</text>
+
+  <rect x="870" y="260" width="640" height="172" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="896" y="302" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700" fill="#0f172a">Interpretation from reported results</text>
+  <text x="896" y="340" font-family="Inter, Arial, sans-serif" font-size="19" fill="#334155">Speciesism weakens virtual influencer effectiveness.</text>
+  <text x="896" y="374" font-family="Inter, Arial, sans-serif" font-size="19" fill="#334155">Peripheral cues are more effective for low-speciesism audiences.</text>
+  <text x="896" y="408" font-family="Inter, Arial, sans-serif" font-size="17" fill="#475569">Note: right panel reflects directional pattern described in the paper discussion.</text>
+</svg>

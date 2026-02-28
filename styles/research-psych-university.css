@@ -1,0 +1,929 @@
+/* --------------------------------------------------------------------------
+   University theme: psychological ownership research page only
+   -------------------------------------------------------------------------- */
+.page-research-psych-ownership {
+    --uni-navy: #102a4d;
+    --uni-navy-deep: #091a33;
+    --uni-ink: #1d2f4a;
+    --uni-muted: #4a5f7d;
+    --uni-line: rgba(16, 42, 77, 0.2);
+    --uni-gold: #b78a34;
+    --uni-gold-soft: rgba(183, 138, 52, 0.2);
+    --uni-paper: #fffdf8;
+    --uni-paper-soft: #f7f2e8;
+    --focus-accent: var(--uni-navy);
+    --focus-soft: rgba(16, 42, 77, 0.14);
+    --focus-line: rgba(16, 42, 77, 0.2);
+    --focus-shell-start: rgba(255, 255, 255, 0.96);
+    --focus-shell-end: rgba(250, 245, 236, 0.94);
+    --focus-card-bg: rgba(255, 255, 255, 0.94);
+    --focus-card-shadow: 0 12px 24px rgba(9, 26, 51, 0.09);
+    color: var(--uni-ink);
+    font-family: "Source Sans 3", "Segoe UI", sans-serif;
+    background:
+        linear-gradient(rgba(16, 42, 77, 0.04) 1px, transparent 1px) 0 0 / 100% 38px,
+        linear-gradient(90deg, rgba(16, 42, 77, 0.03) 1px, transparent 1px) 0 0 / 38px 100%,
+        radial-gradient(circle at 12% -10%, rgba(183, 138, 52, 0.2), transparent 42%),
+        radial-gradient(circle at 88% 6%, rgba(16, 42, 77, 0.18), transparent 42%),
+        var(--uni-paper-soft);
+}
+
+.page-research-psych-ownership h1,
+.page-research-psych-ownership h2,
+.page-research-psych-ownership h3,
+.page-research-psych-ownership h4,
+.page-research-psych-ownership .section-heading {
+    font-family: "Merriweather", "Georgia", serif;
+    letter-spacing: -0.02em;
+    color: var(--uni-navy-deep);
+}
+
+.page-research-psych-ownership .research-copy-muted,
+.page-research-psych-ownership .psych-evidence-card p,
+.page-research-psych-ownership .psych-decision-list li,
+.page-research-psych-ownership .psych-industry-card p {
+    color: var(--uni-muted);
+}
+
+.page-research-psych-ownership main {
+    counter-reset: uni-section;
+}
+
+.page-research-psych-ownership main > .section:not(.research-detail-hero) .research-focus-shell {
+    counter-increment: uni-section;
+}
+
+.page-research-psych-ownership .research-detail-hero.psych-hero {
+    padding-top: 116px;
+    padding-bottom: 1.5rem;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0) 64%);
+}
+
+.page-research-psych-ownership .research-detail-hero.psych-hero::before {
+    background: radial-gradient(circle, rgba(183, 138, 52, 0.24) 0%, rgba(183, 138, 52, 0) 72%);
+}
+
+.page-research-psych-ownership .research-detail-hero.psych-hero::after {
+    background: radial-gradient(circle, rgba(16, 42, 77, 0.22) 0%, rgba(16, 42, 77, 0) 72%);
+}
+
+.page-research-psych-ownership .research-back-link {
+    border-radius: 6px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.92);
+    color: #21406e;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    padding-inline: 0.92rem;
+}
+
+.page-research-psych-ownership .research-back-link:hover {
+    background: rgba(255, 255, 255, 0.99);
+    transform: translateX(-2px);
+}
+
+.page-research-psych-ownership .badge {
+    border-radius: 4px;
+    border: 1px solid rgba(16, 42, 77, 0.24);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1d3d6b;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-hero-grid {
+    margin-top: 0.95rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(290px, 0.84fr);
+    gap: clamp(0.95rem, 2vw, 1.45rem);
+    align-items: stretch;
+}
+
+.page-research-psych-ownership .psych-hero-copy {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--uni-line);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.98), rgba(252, 248, 239, 0.94));
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.72),
+        0 20px 32px rgba(9, 26, 51, 0.1);
+    padding: clamp(1rem, 2.2vw, 1.38rem);
+}
+
+.page-research-psych-ownership .psych-hero-copy::before {
+    content: "University research brief";
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 0.84rem;
+    padding: 0.24rem 0.54rem;
+    border-radius: 4px;
+    border: 1px solid rgba(16, 42, 77, 0.28);
+    background: rgba(16, 42, 77, 0.08);
+    color: #224573;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-uni-kicker {
+    margin: 0 0 0.48rem;
+    color: #305485;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-abstract-note {
+    margin-top: 0.78rem;
+    margin-bottom: 0.2rem;
+    border-left: 3px solid rgba(16, 42, 77, 0.38);
+    border-radius: 4px;
+    background: rgba(250, 245, 236, 0.88);
+    padding: 0.54rem 0.66rem 0.58rem 0.72rem;
+}
+
+.page-research-psych-ownership .psych-abstract-label {
+    margin: 0 0 0.24rem;
+    color: #2a4f7f;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-abstract-note p:not(.psych-abstract-label) {
+    margin: 0;
+    color: #435b79;
+    font-size: 0.86rem;
+    line-height: 1.56;
+}
+
+.page-research-psych-ownership .psych-hero-title {
+    margin: 0.24rem 0 0.92rem;
+    max-width: 14ch;
+    font-size: clamp(2.35rem, 4.6vw, 3.9rem);
+    line-height: 1.02;
+}
+
+.page-research-psych-ownership .psych-hero-desc {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 1.03rem;
+    line-height: 1.74;
+}
+
+.page-research-psych-ownership .research-meta-tags {
+    gap: 0.52rem;
+}
+
+.page-research-psych-ownership .research-meta-tags span {
+    border-radius: 6px;
+    border: 1px solid rgba(16, 42, 77, 0.18);
+    background: rgba(255, 255, 255, 0.9);
+    color: #2f4a70;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+}
+
+.page-research-psych-ownership .psych-lens-grid {
+    margin-top: 0.52rem;
+    gap: 0.62rem;
+}
+
+.page-research-psych-ownership .psych-lens-card {
+    border-radius: 8px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 20px rgba(9, 26, 51, 0.08);
+    padding: 0.75rem 0.78rem;
+}
+
+.page-research-psych-ownership .psych-lens-card .kpi-label {
+    margin: 0 0 0.24rem;
+    color: #516583;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-lens-card .kpi-value {
+    margin: 0;
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 0.94rem;
+    color: #122846;
+    line-height: 1.4;
+}
+
+.page-research-psych-ownership .psych-hero-art {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(16, 42, 77, 0.24);
+    background:
+        linear-gradient(150deg, rgba(255, 255, 255, 0.98), rgba(247, 241, 228, 0.9));
+    box-shadow: 0 26px 36px rgba(9, 26, 51, 0.14);
+    padding: clamp(0.9rem, 1.9vw, 1.18rem);
+}
+
+.page-research-psych-ownership .psych-hero-art::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -76px;
+    bottom: -92px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183, 138, 52, 0.24), rgba(183, 138, 52, 0));
+    animation: psychSealFloat 7s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+.page-research-psych-ownership .psych-avatar-stage {
+    border-radius: 8px;
+    border: 1px solid rgba(16, 42, 77, 0.22);
+    background:
+        linear-gradient(162deg, rgba(255, 255, 255, 0.94), rgba(248, 243, 233, 0.9));
+    min-height: 340px;
+}
+
+.page-research-psych-ownership .psych-ring {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(16, 42, 77, 0.2);
+    opacity: 0.72;
+}
+
+.page-research-psych-ownership .psych-ring.ring-a {
+    border-color: rgba(16, 42, 77, 0.34);
+    animation: psychFrameSpin 24s linear infinite;
+}
+
+.page-research-psych-ownership .psych-ring.ring-b {
+    border-color: rgba(183, 138, 52, 0.34);
+    animation: psychFrameSpinReverse 18s linear infinite;
+}
+
+.page-research-psych-ownership .psych-ring.ring-c {
+    border-color: rgba(16, 42, 77, 0.2);
+    animation: psychFrameSpin 30s linear infinite;
+}
+
+.page-research-psych-ownership .psych-avatar-wrap {
+    width: min(62%, 268px);
+    aspect-ratio: 4 / 5;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.94);
+    box-shadow: 0 16px 30px rgba(9, 26, 51, 0.26);
+}
+
+.page-research-psych-ownership .psych-avatar-wrap img {
+    filter: saturate(102%) contrast(103%);
+}
+
+.page-research-psych-ownership .psych-chip {
+    border-radius: 6px;
+    border: 1px solid rgba(16, 42, 77, 0.2);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 16px rgba(9, 26, 51, 0.12);
+    color: #2a446a;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .chip-individual {
+    left: 7%;
+    top: 14%;
+    background: rgba(241, 247, 255, 0.96);
+}
+
+.page-research-psych-ownership .chip-collective {
+    right: 6%;
+    top: 20%;
+    background: rgba(255, 250, 240, 0.96);
+}
+
+.page-research-psych-ownership .chip-commitment {
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
+    background: rgba(248, 244, 235, 0.96);
+}
+
+.page-research-psych-ownership .psych-flow-strip {
+    margin-top: 0.72rem;
+    gap: 0.55rem;
+}
+
+.page-research-psych-ownership .psych-flow-step {
+    border-radius: 6px;
+    border: 1px solid rgba(16, 42, 77, 0.2);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 16px rgba(9, 26, 51, 0.08);
+    padding: 0.57rem 0.62rem;
+}
+
+.page-research-psych-ownership .psych-flow-step .step-label {
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    color: #2752a0;
+    font-size: 0.61rem;
+    letter-spacing: 0.11em;
+}
+
+.page-research-psych-ownership .psych-flow-step p {
+    font-size: 0.76rem;
+    color: #38506f;
+}
+
+.page-research-psych-ownership .section.bg-light {
+    background: linear-gradient(180deg, rgba(247, 242, 233, 0.52), rgba(247, 242, 233, 0.12));
+    border-top: 1px solid rgba(16, 42, 77, 0.08);
+    border-bottom: 1px solid rgba(16, 42, 77, 0.08);
+}
+
+.page-research-psych-ownership .psych-section-kicker {
+    margin: 0 0 0.36rem;
+    color: #2f507b;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-section-kicker::before {
+    content: "Section " counter(uni-section, upper-roman) " · ";
+    color: #8f6323;
+}
+
+.page-research-psych-ownership .research-focus-shell {
+    border-radius: 10px;
+    border: 1px solid var(--uni-line);
+    background:
+        linear-gradient(156deg, rgba(255, 255, 255, 0.97), rgba(252, 247, 238, 0.94));
+    box-shadow: 0 20px 32px rgba(9, 26, 51, 0.1);
+}
+
+.page-research-psych-ownership .research-focus-shell::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(16, 42, 77, 0.95), rgba(183, 138, 52, 0.9));
+}
+
+.page-research-psych-ownership .research-focus-shell::after {
+    display: none;
+}
+
+.page-research-psych-ownership .research-kpi-strip {
+    gap: 0.62rem;
+}
+
+.page-research-psych-ownership .research-kpi {
+    border-radius: 8px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 18px rgba(9, 26, 51, 0.08);
+}
+
+.page-research-psych-ownership .research-kpi::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(16, 42, 77, 0.92), rgba(183, 138, 52, 0.88));
+}
+
+.page-research-psych-ownership .research-kpi .kpi-label {
+    color: #536985;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .research-kpi .kpi-value {
+    color: #152c4c;
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: 0.96rem;
+    line-height: 1.45;
+}
+
+.page-research-psych-ownership .psych-context-layout {
+    gap: 0.84rem;
+}
+
+.page-research-psych-ownership .psych-evidence-note {
+    margin-top: 0.7rem;
+    color: #465d7a;
+    font-size: 0.9rem;
+}
+
+.page-research-psych-ownership .psych-note-card {
+    border-radius: 8px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 14px 24px rgba(9, 26, 51, 0.1);
+}
+
+.page-research-psych-ownership .psych-note-card h3 {
+    font-size: 1.02rem;
+}
+
+.page-research-psych-ownership .psych-note-list li {
+    border-radius: 6px;
+    border: 1px solid rgba(16, 42, 77, 0.18);
+    background: rgba(255, 255, 255, 0.93);
+    color: #3e5371;
+}
+
+.page-research-psych-ownership .psych-note-list i.ph-check-circle {
+    color: #16608b;
+}
+
+.page-research-psych-ownership .psych-note-list i.ph-warning-circle {
+    color: #a56c1a;
+}
+
+.page-research-psych-ownership .psych-evidence-grid {
+    gap: 0.74rem;
+}
+
+.page-research-psych-ownership .psych-evidence-card {
+    border-radius: 8px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 12px 22px rgba(9, 26, 51, 0.09);
+    padding: 0.94rem 0.95rem;
+}
+
+.page-research-psych-ownership .psych-evidence-card::before {
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    width: 4px;
+    height: auto;
+    border-radius: 0;
+    background: linear-gradient(180deg, rgba(16, 42, 77, 0.9), rgba(183, 138, 52, 0.92));
+}
+
+.page-research-psych-ownership .psych-evidence-card h3 {
+    font-size: 1rem;
+    line-height: 1.34;
+}
+
+.page-research-psych-ownership .psych-evidence-grade {
+    border-radius: 4px;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.11em;
+    border-color: rgba(16, 42, 77, 0.28);
+    background: rgba(242, 247, 255, 0.88);
+}
+
+.page-research-psych-ownership .psych-evidence-grade.is-strong {
+    border-color: rgba(22, 96, 139, 0.38);
+    background: rgba(239, 248, 255, 0.92);
+    color: #195d84;
+}
+
+.page-research-psych-ownership .psych-evidence-grade.is-moderate {
+    border-color: rgba(183, 138, 52, 0.4);
+    background: rgba(255, 247, 229, 0.92);
+    color: #9a6218;
+}
+
+.page-research-psych-ownership .psych-evidence-grade.is-emerging {
+    border-color: rgba(16, 42, 77, 0.35);
+    background: rgba(240, 246, 255, 0.92);
+    color: #1f4b83;
+}
+
+.page-research-psych-ownership .psych-evidence-link {
+    color: #1d4f95;
+    border-bottom: 1px solid rgba(29, 79, 149, 0.34);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.74rem;
+}
+
+.page-research-psych-ownership .psych-evidence-link:hover {
+    color: #173f77;
+    border-bottom-color: rgba(23, 63, 119, 0.54);
+}
+
+.page-research-psych-ownership .research-figure-stage {
+    border-radius: 10px;
+    border: 1px solid var(--uni-line);
+    background:
+        linear-gradient(164deg, rgba(255, 255, 255, 0.98), rgba(250, 245, 236, 0.93));
+    box-shadow: 0 14px 26px rgba(9, 26, 51, 0.1);
+    padding: 0.56rem;
+}
+
+.page-research-psych-ownership .research-figure-stage::before {
+    left: 0.72rem;
+    right: 0.72rem;
+    top: 0.56rem;
+    bottom: auto;
+    width: auto;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(16, 42, 77, 0.92), rgba(183, 138, 52, 0.86));
+}
+
+.page-research-psych-ownership .research-figure-stage img {
+    border-radius: 7px;
+    border: 1px solid rgba(16, 42, 77, 0.18);
+}
+
+.page-research-psych-ownership .research-figure-caption {
+    margin: 0.62rem 0.28rem 0.24rem;
+    border-radius: 6px;
+    border: 1px dashed rgba(16, 42, 77, 0.26);
+    background: rgba(250, 247, 239, 0.94);
+    color: #425875;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.72rem;
+}
+
+.page-research-psych-ownership .psych-industry-intro {
+    margin-top: 0.6rem;
+    max-width: 72ch;
+}
+
+.page-research-psych-ownership .psych-industry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.72rem;
+    margin-top: 0.92rem;
+}
+
+.page-research-psych-ownership .psych-industry-card {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid var(--uni-line);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 12px 22px rgba(9, 26, 51, 0.08);
+    padding: 0.9rem 0.88rem 0.94rem;
+}
+
+.page-research-psych-ownership .psych-industry-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(16, 42, 77, 0.92), rgba(183, 138, 52, 0.88));
+}
+
+.page-research-psych-ownership .psych-industry-card.is-critical::before {
+    background: linear-gradient(90deg, rgba(147, 28, 52, 0.92), rgba(183, 138, 52, 0.88));
+}
+
+.page-research-psych-ownership .psych-industry-card.is-opportunity::before {
+    background: linear-gradient(90deg, rgba(16, 42, 77, 0.92), rgba(33, 102, 150, 0.88));
+}
+
+.page-research-psych-ownership .psych-industry-value {
+    margin: 0;
+    font-family: "Merriweather", "Georgia", serif;
+    font-size: clamp(1.55rem, 2.4vw, 2.02rem);
+    line-height: 1;
+    color: #132f55;
+}
+
+.page-research-psych-ownership .psych-industry-card h3 {
+    margin: 0.56rem 0 0.46rem;
+    font-size: 0.94rem;
+    line-height: 1.3;
+}
+
+.page-research-psych-ownership .psych-industry-card .psych-industry-meta {
+    margin-top: 0.5rem;
+    color: #32517f;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-industry-source {
+    margin-top: 0.43rem;
+    color: #1f4e93;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.66rem;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(31, 78, 147, 0.5);
+}
+
+.page-research-psych-ownership .psych-industry-source:hover {
+    color: #15396b;
+    border-bottom-color: rgba(21, 57, 107, 0.62);
+}
+
+.page-research-psych-ownership .psych-industry-track {
+    margin-top: 0.85rem;
+    border-radius: 8px;
+    border: 1px solid rgba(16, 42, 77, 0.2);
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.76);
+    padding: 0.87rem 0.9rem;
+    gap: 0.68rem;
+}
+
+.page-research-psych-ownership .psych-track-head span {
+    color: #355170;
+    font-size: 0.76rem;
+}
+
+.page-research-psych-ownership .psych-track-head strong {
+    color: #17365f;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.78rem;
+}
+
+.page-research-psych-ownership .psych-track-bar {
+    height: 0.56rem;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 42, 77, 0.14);
+    background: rgba(16, 42, 77, 0.1);
+}
+
+.page-research-psych-ownership .psych-track-bar span {
+    background: linear-gradient(90deg, #224f93 0%, #3f67a5 54%, #6d88bb 100%);
+}
+
+.page-research-psych-ownership .psych-track-bar.is-risk span {
+    background: linear-gradient(90deg, #9c5f16 0%, #b78435 54%, #d5ae68 100%);
+}
+
+.page-research-psych-ownership .psych-industry-callout {
+    margin-top: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid rgba(16, 42, 77, 0.2);
+    background:
+        linear-gradient(154deg, rgba(251, 247, 238, 0.96), rgba(255, 255, 255, 0.95));
+    box-shadow: 0 10px 20px rgba(9, 26, 51, 0.08);
+    padding: 0.86rem 0.9rem;
+}
+
+.page-research-psych-ownership .psych-industry-list {
+    margin: 0.62rem 0 0;
+    padding-left: 1.1rem;
+    gap: 0.46rem;
+    color: #3f5472;
+    font-size: 0.84rem;
+}
+
+.page-research-psych-ownership .psych-decision-list {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    counter-reset: psych-actions;
+    gap: 0.58rem;
+}
+
+.page-research-psych-ownership .psych-decision-list li {
+    position: relative;
+    border-radius: 7px;
+    border: 1px solid rgba(16, 42, 77, 0.18);
+    background:
+        linear-gradient(154deg, rgba(255, 255, 255, 0.95), rgba(250, 245, 236, 0.92));
+    box-shadow: 0 10px 20px rgba(9, 26, 51, 0.08);
+    padding: 0.7rem 0.78rem 0.72rem 2.9rem;
+    font-size: 0.86rem;
+    line-height: 1.56;
+}
+
+.page-research-psych-ownership .psych-decision-list li::before {
+    counter-increment: psych-actions;
+    content: "0" counter(psych-actions);
+    position: absolute;
+    left: 0.76rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.64rem;
+    height: 1.64rem;
+    border-radius: 5px;
+    border: 1px solid rgba(16, 42, 77, 0.2);
+    background: linear-gradient(145deg, rgba(16, 42, 77, 0.14), rgba(183, 138, 52, 0.2));
+    color: #1c4174;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-research-psych-ownership .psych-reference-list {
+    margin-top: 0.8rem;
+    list-style: decimal-leading-zero;
+    padding-left: 2.2rem;
+    gap: 0.72rem;
+}
+
+.page-research-psych-ownership .psych-reference-list li {
+    border-radius: 7px;
+    border: 1px solid rgba(16, 42, 77, 0.16);
+    background: rgba(255, 255, 255, 0.92);
+    padding: 0.62rem 0.72rem 0.68rem;
+    color: #2f4668;
+}
+
+.page-research-psych-ownership .psych-reference-list li::marker {
+    color: #294c7c;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.page-research-psych-ownership .psych-reference-list a {
+    color: #1c4d92;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.page-research-psych-ownership .psych-reference-list a:hover {
+    text-decoration: underline;
+}
+
+.page-research-psych-ownership .psych-reference-note {
+    margin-top: 0.82rem;
+    color: #4a607e;
+}
+
+.page-research-psych-ownership .psych-citation-card {
+    margin-top: 0.76rem;
+    border-radius: 7px;
+    border: 1px dashed rgba(16, 42, 77, 0.3);
+    background: rgba(250, 245, 236, 0.85);
+    padding: 0.64rem 0.72rem;
+}
+
+.page-research-psych-ownership .psych-citation-label {
+    margin: 0 0 0.22rem;
+    color: #2c507f;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.61rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .psych-citation-card p:not(.psych-citation-label) {
+    margin: 0;
+    color: #445b79;
+    font-size: 0.82rem;
+    line-height: 1.56;
+}
+
+.page-research-psych-ownership .btn-outline.large {
+    border-radius: 6px;
+    border-color: rgba(16, 42, 77, 0.28);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1b3f71;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.page-research-psych-ownership .btn-outline.large:hover {
+    background: rgba(255, 255, 255, 0.98);
+}
+
+@keyframes psychSealFloat {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+@keyframes psychFrameSpin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes psychFrameSpinReverse {
+    from {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+@media (max-width: 1120px) {
+    .page-research-psych-ownership .psych-hero-grid,
+    .page-research-psych-ownership .psych-context-layout,
+    .page-research-psych-ownership .research-implication-stack {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-psych-ownership .psych-industry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .page-research-psych-ownership .psych-hero-art {
+        max-width: 760px;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-research-psych-ownership .psych-lens-grid,
+    .page-research-psych-ownership .psych-flow-strip,
+    .page-research-psych-ownership .psych-evidence-grid,
+    .page-research-psych-ownership .psych-dual-figure-grid,
+    .page-research-psych-ownership .psych-industry-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-psych-ownership .psych-hero-copy::before {
+        margin-bottom: 0.7rem;
+    }
+
+    .page-research-psych-ownership .psych-uni-kicker,
+    .page-research-psych-ownership .psych-section-kicker {
+        font-size: 0.58rem;
+        letter-spacing: 0.08em;
+    }
+
+    .page-research-psych-ownership .psych-hero-title {
+        font-size: clamp(2rem, 9vw, 2.9rem);
+    }
+
+    .page-research-psych-ownership .psych-abstract-note {
+        padding: 0.48rem 0.55rem 0.52rem 0.6rem;
+    }
+
+    .page-research-psych-ownership .psych-avatar-stage {
+        min-height: 306px;
+    }
+
+    .page-research-psych-ownership .psych-avatar-wrap {
+        width: min(62%, 214px);
+    }
+
+    .page-research-psych-ownership .psych-chip {
+        font-size: 0.6rem;
+        padding: 0.3rem 0.46rem;
+    }
+
+    .page-research-psych-ownership .psych-industry-track,
+    .page-research-psych-ownership .psych-industry-callout {
+        padding: 0.78rem 0.76rem;
+    }
+
+    .page-research-psych-ownership .psych-decision-list li {
+        padding-left: 2.72rem;
+    }
+
+    .page-research-psych-ownership .psych-reference-list {
+        padding-left: 1.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-research-psych-ownership .psych-ring,
+    .page-research-psych-ownership .psych-hero-art::after {
+        animation: none !important;
+    }
+
+    .page-research-psych-ownership .psych-evidence-card,
+    .page-research-psych-ownership .psych-evidence-link,
+    .page-research-psych-ownership .research-back-link {
+        transition: none !important;
+    }
+}

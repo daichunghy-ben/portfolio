@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CH icon">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0a7be0"/>
+      <stop offset="55%" stop-color="#12b888"/>
+      <stop offset="100%" stop-color="#ff6f3c"/>
+    </linearGradient>
+    <radialGradient id="bg" cx="0.28" cy="0.2" r="0.92">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="72%" stop-color="#f5f9ff"/>
+      <stop offset="100%" stop-color="#ebf2ff"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="31" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="30.5" fill="none" stroke="#ffffff" stroke-opacity="0.74"/>
+  <path d="M18 20h8c-4 0-7 3-7 7v10c0 4 3 7 7 7h8v-6h-8c-1 0-1-1-1-1V27c0-1 0-1 1-1h8v-6h-8z" fill="url(#g)"/>
+  <path d="M39 20h6v10h7V20h6v24h-6V36h-7v8h-6z" fill="url(#g)"/>
+</svg>

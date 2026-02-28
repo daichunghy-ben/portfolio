@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Student Nutrition &amp; Activity | Chung Hy Dai</title>
+<meta content="Investigating the impact of nutrition knowledge and physical activity on diet quality among university students." name="description"/>
+<link as="style" href="styles/base.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="assets/vendor/phosphor/regular/style.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<noscript>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+</noscript>
+<link href="./research-nutrition.html" rel="canonical"/><meta content="website" property="og:type"/><meta content="Student Nutrition &amp; Activity | Chung Hy Dai" property="og:title"/><meta content="Investigating the impact of nutrition knowledge and physical activity on diet quality among university students." property="og:description"/><meta content="./research-nutrition.html" property="og:url"/>
+<script>if (location.protocol === 'file:') document.documentElement.classList.add('runtime-file');</script>
+<style>
+.page-research-nutrition.theme-campus-nutrition {
+    --nutrition-ink: #10221f;
+    --nutrition-deep: #1a4f3e;
+    --nutrition-soft: #4b6660;
+    --nutrition-accent: #be5f16;
+    --nutrition-accent-soft: #d07a27;
+    --nutrition-leaf: #2f7f58;
+    --nutrition-cream: #fff9f2;
+    --nutrition-shell: rgba(255, 253, 248, 0.92);
+    --nutrition-line: rgba(26, 79, 62, 0.2);
+    --nutrition-shadow: 0 26px 42px rgba(17, 34, 31, 0.15);
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--nutrition-ink);
+    background:
+        radial-gradient(circle at 8% 8%, rgba(47, 127, 88, 0.22), transparent 34%),
+        radial-gradient(circle at 96% 0, rgba(190, 95, 22, 0.2), transparent 36%),
+        linear-gradient(165deg, #f3f8f1 0%, #f6f2e9 52%, #edf5ef 100%);
+    position: relative;
+    overflow-x: clip;
+}
+
+.page-research-nutrition.theme-campus-nutrition::before {
+    content: "";
+    position: fixed;
+    width: min(55vw, 600px);
+    height: min(55vw, 600px);
+    right: -14vw;
+    top: 8vh;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(47, 127, 88, 0.16), rgba(47, 127, 88, 0));
+}
+
+.page-research-nutrition.theme-campus-nutrition h1,
+.page-research-nutrition.theme-campus-nutrition h2,
+.page-research-nutrition.theme-campus-nutrition h3,
+.page-research-nutrition.theme-campus-nutrition h4 {
+    font-family: "Fraunces", "Georgia", serif;
+    letter-spacing: 0.015em;
+}
+
+.page-research-nutrition.theme-campus-nutrition main,
+.page-research-nutrition.theme-campus-nutrition .navbar,
+.page-research-nutrition.theme-campus-nutrition .footer {
+    position: relative;
+    z-index: 1;
+}
+
+.page-research-nutrition.theme-campus-nutrition .navbar {
+    background: rgba(247, 251, 245, 0.84);
+    border-bottom: 1px solid rgba(26, 79, 62, 0.16);
+    backdrop-filter: blur(12px);
+}
+
+.page-research-nutrition.theme-campus-nutrition .nav-link {
+    color: #1a4f3e;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nav-link:hover,
+.page-research-nutrition.theme-campus-nutrition .nav-link:focus-visible {
+    color: var(--nutrition-accent);
+}
+
+.page-research-nutrition.theme-campus-nutrition .nav-cta {
+    background: linear-gradient(140deg, #1d6c4f, #2f7f58);
+    border-color: rgba(29, 108, 79, 0.28);
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-detail-hero .section-container {
+    border: 1px solid var(--nutrition-line);
+    border-radius: 34px 14px 30px 14px;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.96), rgba(241, 248, 239, 0.92));
+    padding: clamp(1.2rem, 2.5vw, 1.95rem);
+    box-shadow: var(--nutrition-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-detail-hero .section-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 10% -8%, rgba(47, 127, 88, 0.2), transparent 36%),
+        linear-gradient(112deg, rgba(190, 95, 22, 0.09), transparent 45%);
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-back-link,
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-grid {
+    position: relative;
+    z-index: 1;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(290px, 0.95fr);
+    gap: clamp(0.95rem, 2.2vw, 1.45rem);
+    align-items: stretch;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-copy {
+    display: grid;
+    gap: 0.92rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-copy .section-heading {
+    margin-bottom: 0;
+    font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+    line-height: 1.08;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-copy .section-desc {
+    margin: 0;
+    max-width: 58ch;
+    font-size: 1.02rem;
+    line-height: 1.72;
+    color: #2f4c46;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-visual {
+    margin: 0;
+    border-radius: 26px 12px 24px 14px;
+    overflow: hidden;
+    border: 1px solid rgba(26, 79, 62, 0.18);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 20px 36px rgba(17, 34, 31, 0.15);
+    animation: nutritionFloat 8.5s ease-in-out infinite alternate;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: clamp(260px, 35vw, 410px);
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-hero-caption {
+    margin: 0;
+    padding: 0.72rem 0.86rem 0.82rem;
+    font-size: 0.78rem;
+    line-height: 1.46;
+    color: #3f5d56;
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.96), rgba(247, 251, 245, 0.94));
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-meta-tags span {
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    background: rgba(252, 254, 250, 0.9);
+    color: #1d5b47;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-priority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-priority-card {
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    border-radius: 14px 10px 12px 10px;
+    padding: 0.62rem 0.7rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(243, 249, 239, 0.9));
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-priority-card .label {
+    margin: 0 0 0.28rem;
+    font-family: "Fraunces", "Georgia", serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #5f736d;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-priority-card p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #1c3b34;
+    line-height: 1.42;
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-focus-shell {
+    border: 1px solid rgba(26, 79, 62, 0.18);
+    border-radius: 30px 14px 28px 12px;
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(243, 248, 239, 0.92));
+    box-shadow: 0 20px 34px rgba(17, 34, 31, 0.11);
+}
+
+.page-research-nutrition.theme-campus-nutrition .section.bg-light {
+    background: linear-gradient(180deg, rgba(239, 247, 235, 0.84), rgba(249, 252, 246, 0.94));
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-kpi {
+    border: 1px solid rgba(47, 127, 88, 0.25);
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(237, 246, 233, 0.91));
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-figure-stage {
+    border: 1px solid rgba(26, 79, 62, 0.22);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 16px 30px rgba(17, 34, 31, 0.11);
+}
+
+.page-research-nutrition.theme-campus-nutrition .research-figure-caption {
+    border: 1px dashed rgba(47, 127, 88, 0.24);
+    background: rgba(250, 252, 246, 0.94);
+    color: #324f49;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-context-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+    gap: 0.96rem;
+    margin-top: 0.9rem;
+    align-items: start;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-context-copy {
+    display: grid;
+    gap: 0.72rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-source-note {
+    margin: 0;
+    font-size: 0.89rem;
+    color: #3d5953;
+    line-height: 1.62;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-context-support-stage {
+    margin: 0;
+    opacity: 0.92;
+    filter: saturate(0.82) contrast(0.94);
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-online-stage img {
+    width: 100%;
+    min-height: 220px;
+    max-height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-context-support-stage .research-figure-caption {
+    margin-top: 0.56rem;
+    font-size: 0.79rem;
+    color: #4a645c;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-primary-result-stage {
+    margin: 1rem 0 0;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-primary-result-stage img {
+    width: 100%;
+    height: auto;
+    max-height: clamp(370px, 55vw, 820px);
+    object-fit: contain;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-primary-result-stage .research-figure-caption {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-strip-section {
+    padding-top: 0.34rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.74rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-card {
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    border-radius: 20px 10px 18px 10px;
+    background: linear-gradient(155deg, rgba(255, 255, 255, 0.97), rgba(239, 248, 235, 0.91));
+    box-shadow: 0 14px 26px rgba(17, 34, 31, 0.09);
+    padding: 0.88rem 0.9rem;
+    animation: nutritionRise 560ms ease both;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-top {
+    display: flex;
+    align-items: center;
+    gap: 0.44rem;
+    margin: 0 0 0.38rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-icon {
+    width: 1.95rem;
+    height: 1.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.62rem;
+    font-size: 1.05rem;
+    color: #1d5b47;
+    background: linear-gradient(140deg, rgba(47, 127, 88, 0.2), rgba(190, 95, 22, 0.22));
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-card h3 {
+    margin: 0;
+    font-size: 1.02rem;
+    color: #1d4f3f;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-insight-card p {
+    margin: 0;
+    color: #48625b;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-shell {
+    background:
+        radial-gradient(circle at 7% 0, rgba(47, 127, 88, 0.13), transparent 34%),
+        radial-gradient(circle at 97% 16%, rgba(190, 95, 22, 0.15), transparent 36%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(241, 248, 237, 0.92));
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-intro {
+    max-width: 72ch;
+    margin: 0.56rem auto 0;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.86rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-card {
+    margin: 0;
+    border-radius: 22px 12px 18px 12px;
+    overflow: hidden;
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    background: #ffffff;
+    box-shadow: 0 18px 30px rgba(17, 34, 31, 0.13);
+    animation: nutritionRise 640ms ease both;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-card:nth-child(2) {
+    animation-delay: 80ms;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-card:nth-child(3) {
+    animation-delay: 140ms;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-photo {
+    display: block;
+    width: 100%;
+    height: 236px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-gallery-meta {
+    margin: 0;
+    padding: 0.68rem 0.74rem 0.78rem;
+    font-size: 0.84rem;
+    line-height: 1.58;
+    color: #35514b;
+    border-top: 1px solid rgba(26, 79, 62, 0.13);
+    background: linear-gradient(162deg, rgba(255, 255, 255, 0.98), rgba(245, 251, 243, 0.9));
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-lab-shell {
+    --nutrition-border: rgba(26, 79, 62, 0.26);
+    --nutrition-card-bg: rgba(251, 253, 248, 0.95);
+    --nutrition-console-bg: linear-gradient(160deg, rgba(249, 253, 247, 0.98), rgba(239, 248, 234, 0.92));
+    --nutrition-accent: #1d6c4f;
+    --nutrition-accent-strong: #2f7f58;
+    --nutrition-teal: #115f57;
+    --nutrition-text: #10221f;
+    --nutrition-muted: #3b5952;
+    --nutrition-soft: #5a756d;
+    --nutrition-shadow: 0 16px 30px rgba(17, 34, 31, 0.1);
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-shell {
+    background:
+        radial-gradient(circle at 8% 0, rgba(47, 127, 88, 0.12), transparent 34%),
+        radial-gradient(circle at 94% 12%, rgba(190, 95, 22, 0.13), transparent 36%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(241, 248, 237, 0.93));
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-intro {
+    margin: 0.56rem auto 0;
+    max-width: 72ch;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.84rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-card {
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    border-radius: 20px 12px 18px 10px;
+    background: linear-gradient(156deg, rgba(255, 255, 255, 0.98), rgba(238, 247, 234, 0.92));
+    box-shadow: 0 14px 26px rgba(17, 34, 31, 0.1);
+    padding: 0.86rem 0.9rem 0.92rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-metric {
+    margin: 0;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #1d5b47;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-card h3 {
+    margin: 0;
+    font-size: 1.02rem;
+    color: #184337;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-card p {
+    margin: 0;
+    color: #44615a;
+    font-size: 0.88rem;
+    line-height: 1.62;
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-sort-btn.is-active,
+.page-research-nutrition.theme-campus-nutrition .nutrition-focus-chip.is-active {
+    background: linear-gradient(125deg, #2f7f58, #1d6c4f);
+}
+
+.page-research-nutrition.theme-campus-nutrition .nutrition-food-fill {
+    background: linear-gradient(90deg, #2f7f58, #d07a27);
+}
+
+.page-research-nutrition.theme-campus-nutrition .method-step {
+    border: 1px solid rgba(26, 79, 62, 0.2);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(238, 247, 234, 0.9));
+}
+
+.page-research-nutrition.theme-campus-nutrition .method-step .step-tag {
+    color: #1d5b47;
+}
+
+@keyframes nutritionRise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes nutritionFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-6px);
+    }
+}
+
+@media (max-width: 1120px) {
+    .page-research-nutrition.theme-campus-nutrition .nutrition-hero-grid,
+    .page-research-nutrition.theme-campus-nutrition .nutrition-context-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition.theme-campus-nutrition .nutrition-online-stage img {
+        max-height: 280px;
+    }
+
+    .page-research-nutrition.theme-campus-nutrition .nutrition-gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .page-research-nutrition.theme-campus-nutrition .nutrition-priority-grid,
+    .page-research-nutrition.theme-campus-nutrition .nutrition-insight-strip,
+    .page-research-nutrition.theme-campus-nutrition .nutrition-interpretation-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition.theme-campus-nutrition .nutrition-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition.theme-campus-nutrition .nutrition-gallery-photo {
+        height: 225px;
+    }
+
+    .page-research-nutrition.theme-campus-nutrition .nutrition-hero-copy .section-heading {
+        font-size: clamp(2rem, 10vw, 2.7rem);
+    }
+}
+</style>
+</head>
+<body class="page-research-detail page-research-non-hotel-fig-refresh page-research-custom page-research-nutrition page-research-nutrition-focus theme-campus-nutrition" data-page="research" data-research-id="nutrition-diet">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main>
+<section class="research-detail-hero">
+<div class="section-container">
+<a class="research-back-link reveal-on-load" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+                </a>
+<div class="nutrition-hero-grid">
+<div class="research-detail-header reveal-on-load nutrition-hero-copy">
+<span class="badge" style="background: rgba(34, 197, 94, 0.14); color: #166534; border: 1px solid rgba(34, 197, 94, 0.3);">Public health · Linear regression · Student nutrition</span>
+<h1 class="section-heading">
+                        Student Nutrition &amp; Diet Quality
+                    </h1>
+<p class="section-desc max-w-lg">
+                        This research translates nutrition and activity signals into intervention priorities for universities.
+                        The strategic aim is to sequence programs that move student eating behavior from high-risk routines
+                        toward more balanced, practical diet quality gains.
+                    </p>
+<div class="research-meta-tags">
+<span><i class="ph ph-calendar"></i> 2025</span>
+<span><i class="ph ph-certificate"></i> FCBEM Conference</span>
+<span><i class="ph ph-bowl-food"></i> Diet Quality Assessment</span>
+</div>
+<div class="nutrition-priority-grid">
+<article class="nutrition-priority-card">
+<p class="label">Largest Gap</p>
+<p>Dark green and vitamin A vegetables have the weakest intake share.</p>
+</article>
+<article class="nutrition-priority-card">
+<p class="label">Immediate Lever</p>
+<p>Nutrition literacy should launch before more expensive structural programs.</p>
+</article>
+<article class="nutrition-priority-card">
+<p class="label">Execution Rule</p>
+<p>Segment by readiness and schedule constraints, not one-size-fits-all rollout.</p>
+</article>
+</div>
+</div>
+<figure class="nutrition-hero-visual reveal-on-load">
+<picture>
+<source sizes="(max-width: 980px) 96vw, 44vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1440.avif 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1800.avif 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 980px) 96vw, 44vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1440.webp 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-1800.webp 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f-2200.webp 2200w" type="image/webp"/>
+<img alt="High-resolution campus meal tray with balanced foods to represent student nutrition context" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f.jpg" width="2200" height="1650"/>
+</picture>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="section nutrition-insight-strip-section">
+<div class="section-container">
+<div class="nutrition-insight-strip reveal">
+<h2 class="visually-hidden">Field insight highlights</h2>
+<article class="nutrition-insight-card">
+<div class="nutrition-insight-top">
+<span class="nutrition-insight-icon"><i class="ph ph-target"></i></span>
+<h3>Primary Gap</h3>
+</div>
+<p>Vegetables (Dark Green/Vit A) show the weakest reported consumption share, defining the first intervention target.</p>
+</article>
+<article class="nutrition-insight-card">
+<div class="nutrition-insight-top">
+<span class="nutrition-insight-icon"><i class="ph ph-chart-line-up"></i></span>
+<h3>Analytical Signal</h3>
+</div>
+<p>Driver mapping combines knowledge and activity pathways to move from descriptive results to sequenced action.</p>
+</article>
+<article class="nutrition-insight-card">
+<div class="nutrition-insight-top">
+<span class="nutrition-insight-icon"><i class="ph ph-users-three"></i></span>
+<h3>Program Lens</h3>
+</div>
+<p>Campus rollout should be segmented by readiness and routine constraints instead of one-size-fits-all deployment.</p>
+</article>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Strategic Context</span>
+<h2 class="section-heading section-heading-compact">From Findings to Campus Programs</h2>
+<div class="nutrition-context-grid">
+<div class="nutrition-context-copy">
+<p class="research-copy-muted">
+Universities need intervention sequencing, not static reporting. The study links knowledge, activity, and constraint
+patterns to diet-quality behavior so teams can decide which action should be activated first.
+</p>
+<div class="research-kpi-strip kpi-tight" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">Sample Context</p>
+<p class="kpi-value">n = 280 students</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Primary Lens</p>
+<p class="kpi-value">Regression drivers</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Target Outcome</p>
+<p class="kpi-value">Diet quality shift</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Priority Mode</p>
+<p class="kpi-value">Illustrative index</p>
+</article>
+</div>
+<div class="research-chip-row">
+<a class="btn-primary magnetic" data-strength="15" href="./assets/research-files/FCBEM-029-Nutrition.pdf" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-file-pdf"></i> View Nutrition Research PDF
+                        </a>
+</div>
+<p class="nutrition-source-note">
+<strong>Evidence source:</strong> Reported sample framing (<code>n = 280</code>) is documented in
+<a href="./assets/research-files/FCBEM-029-Nutrition.pdf" rel="noopener noreferrer" target="_blank">FCBEM-029-Nutrition.pdf</a>.
+</p>
+</div>
+<figure class="research-figure-stage nutrition-online-stage nutrition-context-support-stage" data-evidence-tier="context">
+<picture>
+<source sizes="(max-width: 980px) 96vw, 44vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1440.avif 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1800.avif 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 980px) 96vw, 44vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1440.webp 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-1800.webp 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8-2200.webp 2200w" type="image/webp"/>
+<img alt="High-resolution students sharing healthy meals in a cafeteria setting" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8.jpg" width="2200" height="1467"/>
+</picture>
+<figcaption class="research-figure-caption">
+Illustrative cafeteria context image used to frame campus food-choice routines.
+</figcaption>
+</figure>
+</div>
+<figure class="research-figure-stage nutrition-primary-result-stage" data-evidence-tier="reported">
+<picture>
+<source sizes="(max-width: 780px) 96vw, (max-width: 1180px) 92vw, 1120px" srcset="./assets/optimized/fcbem-480.avif 480w, ./assets/optimized/fcbem-768.avif 768w, ./assets/optimized/fcbem-1280.avif 1280w" type="image/avif"/>
+<source sizes="(max-width: 780px) 96vw, (max-width: 1180px) 92vw, 1120px" srcset="./assets/optimized/fcbem-480.webp 480w, ./assets/optimized/fcbem-768.webp 768w, ./assets/optimized/fcbem-1280.webp 1280w" type="image/webp"/>
+<img alt="Reported results table from the FCBEM 2025 nutrition study presentation" decoding="async" height="853" loading="lazy" src="./assets/optimized/fcbem-optimized.webp" width="1280"/>
+</picture>
+<figcaption class="research-figure-caption">Primary reported table from FCBEM 2025 used for diet-quality interpretation in this portfolio summary.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal nutrition-gallery-shell">
+<div class="section-header mb-5 text-center">
+<span class="badge">Theme Fit</span>
+<h2 class="section-heading section-heading-focus">Campus Nutrition Field Signals</h2>
+<p class="research-copy-muted nutrition-gallery-intro">
+The gallery below provides campus-context visuals aligned with the behavioral setting discussed in the study.
+</p>
+</div>
+<div class="nutrition-gallery-grid">
+<figure class="nutrition-gallery-card">
+<picture>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1440.avif 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1800.avif 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1440.webp 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-1800.webp 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db-2200.webp 2200w" type="image/webp"/>
+<img alt="Students selecting meals from a healthy food counter" class="nutrition-gallery-photo" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db.jpg" width="2200" height="2933"/>
+</picture>
+<figcaption class="nutrition-gallery-meta">Meal choice is made under time pressure, so intervention design should favor quick decision support.</figcaption>
+</figure>
+<figure class="nutrition-gallery-card">
+<picture>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1440.avif 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1800.avif 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1440.webp 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-1800.webp 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68-2200.webp 2200w" type="image/webp"/>
+<img alt="High-resolution image of balanced bowls prepared for student dining" class="nutrition-gallery-photo" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68.jpg" width="2200" height="3300"/>
+</picture>
+<figcaption class="nutrition-gallery-meta">Practical, visible defaults in dining spaces can make healthier patterns easier to repeat.</figcaption>
+</figure>
+<figure class="nutrition-gallery-card">
+<picture>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1440.avif 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1800.avif 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-2200.avif 2200w" type="image/avif"/>
+<source sizes="(max-width: 900px) 96vw, (max-width: 1280px) 48vw, 30vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1440.webp 1440w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-1800.webp 1800w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4-2200.webp 2200w" type="image/webp"/>
+<img alt="Students walking and running on a school track during daily activity period" class="nutrition-gallery-photo" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4.jpg" width="2200" height="3300"/>
+</picture>
+<figcaption class="nutrition-gallery-meta">Nutrition and physical activity should be activated together to reinforce behavior loops.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal nutrition-lab-shell" data-evidence-tier="reported">
+<div class="section-header mb-5 text-center">
+<span class="badge">Interactive Evidence Lab</span>
+<h2 class="section-heading section-heading-focus">Explore Diet Outcomes and Knowledge Signals</h2>
+<p class="research-copy-muted nutrition-lab-intro">
+This module separates what is reported versus what is not yet reported. Diet outcomes below come from the university student sample
+(<code>n = 280</code>), while knowledge-level distributions are intentionally not estimated on this page.
+</p>
+</div>
+<div class="nutrition-lab-console">
+<p aria-live="polite" class="nutrition-lab-live-region" data-nutrition-live>Diet outcomes loaded.</p>
+<div class="nutrition-file-warning" role="status">
+<p><strong>Local-file mode detected (<code>file://</code>). Fallback interaction is enabled.</strong></p>
+<p><strong>Run:</strong> <code>npm run preview</code></p>
+<p><strong>Open:</strong> <code>http://127.0.0.1:4173/research-nutrition.html</code></p>
+</div>
+<div class="nutrition-evidence-legend" role="note" aria-label="Evidence legend">
+<p><strong>Reported metrics:</strong> directly shown in the source table.</p>
+<p><strong>Derived interpretation:</strong> qualitative interpretation based on the reported context.</p>
+</div>
+<div class="nutrition-workflow-grid">
+<div class="nutrition-diet-control-shell">
+<p class="nutrition-evidence-pill">Reported metrics</p>
+<div aria-label="Sort diet outcomes" class="nutrition-sort-shell" role="group">
+<p class="nutrition-sort-label">Sort by</p>
+<div class="nutrition-sort-row">
+<button aria-pressed="true" class="nutrition-sort-btn is-active" data-sort-key="consumed" type="button">% consumed</button>
+<button aria-pressed="false" class="nutrition-sort-btn" data-sort-key="mean" type="button">Mean score</button>
+<button aria-pressed="false" class="nutrition-sort-btn" data-sort-key="name" type="button">Food group</button>
+</div>
+<div class="nutrition-sort-row">
+<button aria-pressed="true" class="nutrition-sort-btn is-active" data-sort-direction="desc" type="button">High to low</button>
+<button aria-pressed="false" class="nutrition-sort-btn" data-sort-direction="asc" type="button">Low to high</button>
+</div>
+</div>
+<ul class="nutrition-food-list" data-nutrition-food-list>
+<li class="nutrition-food-item">
+<button aria-pressed="true" class="nutrition-food-row is-active" data-food-key="processed-meats" type="button">
+<span class="nutrition-food-top">
+<span class="nutrition-food-name">Processed Meats</span>
+<span class="nutrition-food-value">65.0%</span>
+</span>
+<span class="nutrition-food-meta">
+<span class="nutrition-food-mean">Mean: 0.65 (0.48)</span>
+</span>
+<span class="nutrition-food-track"><span class="nutrition-food-fill" style="width: 65%;"></span></span>
+</button>
+</li>
+</ul>
+</div>
+<aside class="nutrition-detail-card" data-nutrition-detail>
+<p class="nutrition-evidence-pill nutrition-evidence-pill-soft">Reported + derived</p>
+<h3 class="nutrition-detail-title" data-detail-field="name">Processed Meats</h3>
+<dl class="nutrition-detail-metrics">
+<div><dt>Mean (SD)</dt><dd data-detail-field="mean">0.65 (0.48)</dd></div>
+<div><dt>% consumed</dt><dd data-detail-field="consumed">65.0%</dd></div>
+</dl>
+<p class="nutrition-detail-group-label">Reported metrics</p>
+<p class="nutrition-detail-source" data-detail-field="source">Source: FCBEM nutrition slide snapshot (diet quality overview table) shown on this page.</p>
+<p class="nutrition-detail-group-label">Derived interpretation</p>
+<p class="nutrition-detail-note" data-detail-field="note">
+At 65.0% consumed, processed meats are the most frequent limit-group item, indicating convenience-first protein choices. Intervention should target quick swaps (eggs, fish, legumes) in high-traffic meal points before relying on lecture-only education.
+</p>
+</aside>
+</div>
+<details class="nutrition-method-shell" data-nutrition-method>
+<summary class="nutrition-method-summary">
+<span class="nutrition-method-summary-label">Method Pathway (Reported Method)</span>
+<span class="nutrition-method-summary-state" aria-hidden="true">Expand</span>
+</summary>
+<div class="nutrition-method-body">
+<div class="nutrition-knowledge-control-shell">
+<p class="nutrition-evidence-pill nutrition-evidence-pill-qual">Reported method + qualitative interpretation</p>
+<p class="nutrition-missing-note">Knowledge level distribution not reported on this page.</p>
+<div aria-label="Knowledge pathway focus selector" class="nutrition-focus-row" role="group">
+<button aria-pressed="true" class="nutrition-focus-chip is-active" data-knowledge-focus="nutrition-knowledge" type="button">Nutrition Knowledge</button>
+<button aria-pressed="false" class="nutrition-focus-chip" data-knowledge-focus="physical-activity" type="button">Physical Activity</button>
+<button aria-pressed="false" class="nutrition-focus-chip" data-knowledge-focus="control-factors" type="button">Control Factors</button>
+</div>
+<p class="nutrition-method-fallback-label">Visible summary</p>
+<ul class="nutrition-method-fallback-list">
+<li><strong>Nutrition Knowledge:</strong> Captured using validated nutrition-health literacy survey items.</li>
+<li><strong>Physical Activity:</strong> Captured using routine movement indicators to contextualize behavior.</li>
+<li><strong>Control Factors:</strong> Demographic and schedule variables used to adjust regression interpretation.</li>
+</ul>
+</div>
+<article class="nutrition-knowledge-card" data-knowledge-card>
+<h3 data-knowledge-field="title">Nutrition Knowledge</h3>
+<p data-knowledge-field="captured"><strong>What was captured:</strong> Validated nutrition literacy and food-decision understanding items from the student survey instrument.</p>
+<p data-knowledge-field="why"><strong>Why it matters:</strong> Distinguishes whether diet quality constraints are driven by understanding gaps versus context or routine constraints.</p>
+<p data-knowledge-field="action"><strong>Action domain:</strong> First-wave nutrition literacy curriculum and targeted decision-support materials.</p>
+</article>
+</div>
+</details>
+<script id="nutrition-diet-data" type="application/json">[
+  {
+    "key": "processed-snacks-sweets",
+    "label": "Processed Snacks & Sweets",
+    "reported": {
+      "consumed_pct": 53.7,
+      "mean": 2.69,
+      "sd": 1.14,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "With 53.7% consumed and mean 2.69 items, snack and sweet exposure is routine rather than occasional. Priority action is to reset defaults in campus canteens and vending toward fruit or lower-sugar substitutions during peak study hours."
+    }
+  },
+  {
+    "key": "processed-meats",
+    "label": "Processed Meats",
+    "reported": {
+      "consumed_pct": 65.0,
+      "mean": 0.65,
+      "sd": 0.48,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "At 65.0% consumed, processed meats are the most frequent limit-group item, indicating convenience-first protein choices. Intervention should target quick swaps (eggs, fish, legumes) in high-traffic meal points before relying on lecture-only education."
+    }
+  },
+  {
+    "key": "sugar-sweetened-beverages",
+    "label": "Sugar-sweetened Beverages",
+    "reported": {
+      "consumed_pct": 40.0,
+      "mean": 1.20,
+      "sd": 0.87,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "A 40.0% consumption share indicates substantial sugary-drink penetration in daily routines. Beverage-specific nudges such as unsweetened defaults and removal of upsizing prompts are likely higher yield than broad diet messaging."
+    }
+  },
+  {
+    "key": "starchy-staples-grains",
+    "label": "Starchy Staples & Grains",
+    "reported": {
+      "consumed_pct": 51.2,
+      "mean": 1.54,
+      "sd": 0.65,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Staples appear in 51.2% of responses (mean 1.54), showing a diet anchored in grains. The objective is not reducing staples alone but rebalancing plates with vegetables and legumes to lift GDR-Healthy components."
+    }
+  },
+  {
+    "key": "unprocessed-animal-protein",
+    "label": "Unprocessed Animal Protein",
+    "reported": {
+      "consumed_pct": 51.2,
+      "mean": 2.05,
+      "sd": 1.01,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Unprocessed proteins are present (51.2%, mean 2.05), so protein access exists in routine meals. Program design should preserve this strength while reducing processed meat overlap and adding plant-protein diversity."
+    }
+  },
+  {
+    "key": "dairy-eggs",
+    "label": "Dairy & Eggs",
+    "reported": {
+      "consumed_pct": 47.0,
+      "mean": 1.88,
+      "sd": 1.00,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Dairy and eggs sit in the middle range (47.0%, mean 1.88), making them practical vehicles for incremental quality gains. Campus guidance can focus on lower-sugar dairy choices and balanced pairings with fruit or vegetables."
+    }
+  },
+  {
+    "key": "fruits",
+    "label": "Fruits",
+    "reported": {
+      "consumed_pct": 40.2,
+      "mean": 1.21,
+      "sd": 0.82,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Fruit consumption reaches 40.2% but remains below protective-food targets in the sample pattern. High-visibility grab-and-go fruit options near classes can convert partial adoption into repeat daily behavior."
+    }
+  },
+  {
+    "key": "vegetables-dark-green-vit-a",
+    "label": "Vegetables (Dark Green/Vit A)",
+    "reported": {
+      "consumed_pct": 21.2,
+      "mean": 0.64,
+      "sd": 0.75,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Vegetables are the weakest protective group (21.2%, mean 0.64), creating the clearest diet-quality gap in this dataset. First-wave intervention should prioritize vegetable availability and default inclusion in common student meal bundles."
+    }
+  },
+  {
+    "key": "legumes-nuts-seeds",
+    "label": "Legumes, Nuts & Seeds",
+    "reported": {
+      "consumed_pct": 27.7,
+      "mean": 0.55,
+      "sd": 0.60,
+      "source_ref": "FCBEM nutrition slide snapshot (diet quality overview table)"
+    },
+    "derived": {
+      "note": "Legumes, nuts, and seeds remain low (27.7%, mean 0.55), suggesting underuse of affordable plant proteins. Practical cooking prompts and low-cost menu integration can raise diet diversity without large budget escalation."
+    }
+  }
+]</script>
+<script id="nutrition-pathway-data" type="application/json">{
+  "nutrition-knowledge": {
+    "title": "Nutrition Knowledge",
+    "captured": "Validated nutrition literacy and food-decision understanding items from the student survey instrument.",
+    "why": "Clarifies whether diet quality limitations are linked to decision literacy rather than only access or routine constraints.",
+    "action": "Prioritize first-wave literacy curriculum, label-reading practice, and decision prompts in student settings."
+  },
+  "physical-activity": {
+    "title": "Physical Activity",
+    "captured": "Routine movement behavior indicators captured alongside nutrition responses to contextualize student health habits.",
+    "why": "Distinguishes isolated food guidance needs from broader behavior-pattern reinforcement opportunities.",
+    "action": "Pair meal planning prompts with movement programs to reinforce sustained behavior loops."
+  },
+  "control-factors": {
+    "title": "Control Factors",
+    "captured": "Demographic and schedule-related context variables used for covariate adjustment in model interpretation.",
+    "why": "Prevents over-attribution to knowledge alone by accounting for structural constraints affecting eating behavior.",
+    "action": "Segment delivery intensity by readiness and constraints instead of uniform campus-wide rollout."
+  }
+}</script>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal nutrition-interpretation-shell">
+<div class="section-header mb-5 text-center">
+<span class="badge">Results Interpretation</span>
+<h2 class="section-heading section-heading-focus">How to Read the Results</h2>
+<p class="research-copy-muted nutrition-interpretation-intro">
+This summary translates the reported metrics into decision-ready meaning for portfolio reviewers: what the sample shows, what the model signals, and what should be prioritized first.
+</p>
+</div>
+<div class="nutrition-interpretation-grid">
+<article class="nutrition-interpretation-card">
+<p class="nutrition-interpretation-metric">GDR total: 6.76 &plusmn; 3.82 / 18</p>
+<h3>Descriptive Signal</h3>
+<p>Diet quality was weak in this sample: GDR-Healthy averaged 3.9 food groups while GDR-Limit averaged 6.1. High processed-meat (65.0%) and snack/sweet (53.7%) exposure appeared alongside low vegetables (21.2%) and legumes/nuts/seeds (27.7%), indicating an imbalance toward foods to limit.</p>
+</article>
+<article class="nutrition-interpretation-card">
+<p class="nutrition-interpretation-metric">Adjusted model R<sup>2</sup> = 0.538</p>
+<h3>Analytical Signal</h3>
+<p>After adjustment, higher activity (&beta; = 0.0029, p &lt; 0.001), higher nutrition knowledge (&beta; = 0.1102, p = 0.014), and older age (&beta; = 0.1284, p = 0.005) were associated with better diet quality scores, while sex was not significant (p = 0.942). The model supports a behavior-cluster interpretation instead of a single-factor explanation.</p>
+</article>
+<article class="nutrition-interpretation-card">
+<p class="nutrition-interpretation-metric">Cross-sectional: non-causal inference</p>
+<h3>Decision Implication</h3>
+<p>These findings are associative, not causal, and rely on self-reported measures. The pragmatic sequence is to start with low-cost nutrition literacy and rapid meal-decision support, pair it with physical-activity routines, and then scale higher-cost food-environment changes only after semester-by-semester GDR improvement is observed.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Action Priority</span>
+<h2 class="section-heading section-heading-focus">Program Decisions for Diet Quality Improvement</h2>
+</div>
+<p class="research-copy-muted">
+Start with foundational nutrition literacy, then pair it with routine physical-activity programs so behavior reinforcement is
+structural rather than one-off. Delivery intensity should be segmented by readiness instead of uniform campus-wide rollout.
+</p>
+<p class="research-copy-muted" style="margin-top: 0.58rem;">
+Track diet-quality movement iteratively and re-prioritize interventions where progress stalls, so resources stay focused on the
+highest-constraint student groups.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Execution Toolkit</span>
+<h2 class="section-heading section-heading-focus">Operational Methods Used</h2>
+</div>
+<div class="research-method-compact">
+<article class="method-step">
+<p class="step-tag">Step 1</p>
+<h3>Survey architecture</h3>
+<p>Deploy validated instruments for nutrition knowledge and physical activity capture.</p>
+</article>
+<article class="method-step">
+<p class="step-tag">Step 2</p>
+<h3>Diet-quality construction</h3>
+<p>Build outcome scoring structure aligned to global dietary recommendations.</p>
+</article>
+<article class="method-step">
+<p class="step-tag">Step 3</p>
+<h3>Covariate control</h3>
+<p>Account for demographic and routine variation to isolate actionable drivers.</p>
+</article>
+<article class="method-step">
+<p class="step-tag">Step 4</p>
+<h3>Regression estimation</h3>
+<p>Estimate directional associations between drivers and diet-quality outcomes.</p>
+</article>
+<article class="method-step">
+<p class="step-tag">Step 5</p>
+<h3>Program application</h3>
+<p>Convert model outputs into phased campus health intervention priorities.</p>
+</article>
+</div>
+</div>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic" data-strength="15" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+                </a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Chung Hy Dai.</p>
+</div>
+</div>
+</footer>
+<script>
+// file:// pages can block module scripts via CORS; load nutrition fallback only when main module bootstrap is missing.
+document.addEventListener('DOMContentLoaded', () => {
+    window.setTimeout(() => {
+        if (window.__portfolioMainModuleLoaded) return;
+        if (window.__nutritionFallbackBootstrapped) return;
+        window.__nutritionFallbackBootstrapped = true;
+
+        const script = document.createElement('script');
+        script.src = 'js/research-nutrition-fallback.js';
+        script.defer = true;
+        document.body.appendChild(script);
+    }, 120);
+});
+</script>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>

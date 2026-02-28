@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "last_updated": "2026-02-24",
+  "site_url": "",
+  "canonical_base": "",
+  "default_og_image": "./assets/profile-main.png",
+  "same_as": [
+    "https://www.linkedin.com/in/chung-hy-d-17792826b/",
+    "https://orcid.org/0009-0009-6790-8981"
+  ],
+  "owner": {
+    "name": "Chung Hy Dai",
+    "email": "daichunghy@gmail.com",
+    "location": "Ho Chi Minh City, Vietnam"
+  },
+  "notes": "site_url and canonical_base are intentionally blank for local-only auditing and should be set at deployment time."
+}

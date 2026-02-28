@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Motorbike Phase-Out Policy Acceptance | Chung Hy Dai</title>
+<meta content="In-depth policy research on Hanoi's fossil-fuel motorbike phase-out, including baseline pressure, acceptance modeling, global benchmarks, and rollout design for 2026-2030." name="description"/>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+<link href="./research-motorbike-ban.html" rel="canonical"/>
+<link as="image" href="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.webp" imagesizes="(max-width: 900px) 100vw, 38vw" imagesrcset="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-480.webp 480w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-768.webp 768w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.webp 1024w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1440.webp 1440w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1800.webp 1800w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-2816.webp 2816w" rel="preload" type="image/webp"/>
+<meta content="website" property="og:type"/>
+<meta content="Motorbike Phase-Out Policy Acceptance | Chung Hy Dai" property="og:title"/>
+<meta content="In-depth policy research on Hanoi's fossil-fuel motorbike phase-out, including baseline pressure, acceptance modeling, global benchmarks, and rollout design for 2026-2030." property="og:description"/>
+<meta content="./research-motorbike-ban.html" property="og:url"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Bungee&family=Space+Mono:wght@400;700&display=swap');
+
+.page-research-motorbike-street {
+    --street-ink: #1f2937;
+    --street-soft-ink: #41576f;
+    --street-red: #f97363;
+    --street-red-deep: #dc5b4f;
+    --street-gold: #f5b33d;
+    --street-teal: #1099a8;
+    --street-sky: #3ea8d9;
+    --street-paper: #f8fbff;
+    --street-paper-soft: #edf5ff;
+    --street-card: rgba(255, 255, 255, 0.92);
+    --street-line: rgba(62, 115, 162, 0.24);
+    font-family: "Be Vietnam Pro", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--street-ink);
+    background:
+        radial-gradient(circle at 7% 8%, rgba(245, 179, 61, 0.2), transparent 35%),
+        radial-gradient(circle at 88% 7%, rgba(62, 168, 217, 0.18), transparent 34%),
+        radial-gradient(circle at 58% 85%, rgba(249, 115, 99, 0.16), transparent 40%),
+        repeating-linear-gradient(145deg, rgba(62, 168, 217, 0.04) 0 16px, rgba(255, 255, 255, 0) 16px 28px),
+        linear-gradient(180deg, #f8fbff 0%, #edf5ff 50%, #f6fbff 100%);
+}
+
+.page-research-motorbike-street::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.5), transparent 38%),
+        repeating-linear-gradient(90deg, rgba(16, 153, 168, 0.04) 0 1px, transparent 1px 76px);
+}
+
+.page-research-motorbike-street main,
+.page-research-motorbike-street .footer {
+    position: relative;
+    z-index: 1;
+}
+
+.page-research-motorbike-street .navbar,
+.page-research-motorbike-street .research-detail-hero {
+    font-family: var(--font-sans);
+}
+
+.page-research-motorbike-street .parallax-bg.layer-4 {
+    display: none;
+}
+
+.page-research-motorbike-street main > .section:not(:first-of-type) .badge {
+    border: 1px solid rgba(139, 45, 31, 0.24);
+    border-radius: 999px;
+    background: rgba(255, 238, 210, 0.96);
+    color: #9a321f;
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.28rem 0.68rem;
+}
+
+.page-research-motorbike-street main > .section:not(:first-of-type) .section-heading {
+    font-family: "Bungee", "Arial Black", sans-serif;
+    letter-spacing: 0.01em;
+    color: #2f1a13;
+    line-height: 1.06;
+}
+
+.page-research-motorbike-street main > .section:not(:first-of-type) .research-copy-muted {
+    color: var(--street-soft-ink);
+}
+
+.page-research-motorbike-street main > .section:not(:first-of-type) .research-meta-tags span {
+    border-color: rgba(139, 45, 31, 0.2);
+    background: rgba(255, 252, 245, 0.75);
+    color: #4f3128;
+}
+
+.page-research-motorbike-street main > .section[data-street-sign] .section-container {
+    position: relative;
+}
+
+.page-research-motorbike-street main > .section[data-street-sign] .section-container::before {
+    content: attr(data-street-sign);
+    position: absolute;
+    top: -0.74rem;
+    left: 0.5rem;
+    z-index: 2;
+    border: 1px solid rgba(139, 45, 31, 0.24);
+    border-radius: 999px;
+    background: rgba(255, 236, 205, 0.95);
+    color: #983522;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.56rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0.2rem 0.56rem;
+    box-shadow: 0 8px 14px rgba(90, 49, 28, 0.11);
+}
+
+.page-research-motorbike-street .research-detail-hero.street-hero {
+    padding-top: clamp(1.65rem, 3vw, 2.2rem);
+    padding-bottom: 1.18rem;
+}
+
+.page-research-motorbike-street .street-hero-grid {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+    gap: clamp(0.85rem, 2vw, 1.25rem);
+    align-items: stretch;
+}
+
+.page-research-motorbike-street .research-detail-header {
+    border: 1px solid var(--street-line);
+    border-radius: 22px 12px 24px 12px;
+    background:
+        radial-gradient(circle at 90% 12%, rgba(79, 158, 201, 0.16), transparent 42%),
+        linear-gradient(155deg, rgba(255, 255, 255, 0.98), rgba(250, 239, 219, 0.94));
+    box-shadow: 0 18px 30px rgba(92, 52, 30, 0.14);
+    padding: clamp(0.95rem, 2.1vw, 1.35rem);
+    align-content: start;
+    justify-items: start;
+}
+
+.page-research-motorbike-street .research-detail-header .badge {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.page-research-motorbike-street .street-chip-cloud {
+    margin-top: 0.78rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.38rem;
+}
+
+.page-research-motorbike-street .street-chip-cloud span {
+    border: 1px solid rgba(79, 158, 201, 0.35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.82);
+    color: #2f5e7a;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.19rem 0.48rem;
+}
+
+.page-research-motorbike-street .street-sideboard {
+    border: 1px solid rgba(79, 158, 201, 0.25);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 90% 10%, rgba(79, 158, 201, 0.12), transparent 40%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(244, 250, 255, 0.9));
+    box-shadow: 0 18px 30px rgba(92, 52, 30, 0.13);
+    padding: 0.7rem;
+    display: grid;
+    gap: 0.64rem;
+}
+
+.page-research-motorbike-street .street-photo {
+    margin: 0;
+    border-radius: 14px;
+    border: 1px solid rgba(79, 158, 201, 0.24);
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+}
+
+.page-research-motorbike-street .street-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: saturate(1.04) contrast(1.05);
+}
+
+.page-research-motorbike-street .street-pulse-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.42rem;
+}
+
+.page-research-motorbike-street .street-pulse-grid article {
+    position: relative;
+    border: 1px solid rgba(79, 158, 201, 0.24);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.45rem 0.5rem 0.48rem;
+}
+
+.page-research-motorbike-street .street-pulse-grid article::before {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    top: 0.36rem;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444);
+    opacity: 0.84;
+}
+
+.page-research-motorbike-street .street-pulse-grid h3 {
+    margin: 0.44rem 0 0;
+    color: #2f4a5f;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-family: "Space Mono", "Courier New", monospace;
+}
+
+.page-research-motorbike-street .street-pulse-grid p {
+    margin: 0.2rem 0 0;
+    color: #4f6a7d;
+    font-size: 0.66rem;
+    line-height: 1.34;
+}
+
+.page-research-motorbike-street .street-density-rack {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.52rem;
+}
+
+.page-research-motorbike-street .street-density-rack article {
+    border: 1px solid rgba(139, 45, 31, 0.2);
+    border-radius: 12px;
+    background: rgba(255, 255, 252, 0.88);
+    padding: 0.46rem 0.54rem 0.5rem;
+    box-shadow: 0 8px 15px rgba(89, 50, 29, 0.07);
+}
+
+.page-research-motorbike-street .street-density-rack article:nth-child(3n + 1) {
+    transform: rotate(-0.8deg);
+}
+
+.page-research-motorbike-street .street-density-rack article:nth-child(3n + 2) {
+    transform: rotate(0.75deg);
+}
+
+.page-research-motorbike-street .street-density-rack article h3 {
+    margin: 0;
+    color: #2c1c15;
+    font-size: 0.75rem;
+    line-height: 1.26;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-research-motorbike-street .street-density-rack article p {
+    margin: 0.26rem 0 0;
+    color: #5d3e32;
+    font-size: 0.7rem;
+    line-height: 1.34;
+}
+
+.page-research-motorbike-street .street-lane-ribbon {
+    margin-top: 0.74rem;
+    border: 1px dashed rgba(23, 111, 102, 0.3);
+    border-radius: 13px;
+    background: rgba(243, 255, 251, 0.82);
+    padding: 0.52rem 0.6rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.44rem;
+}
+
+.page-research-motorbike-street .street-lane-ribbon article {
+    border: 1px solid rgba(23, 111, 102, 0.21);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.82);
+    padding: 0.36rem 0.44rem;
+}
+
+.page-research-motorbike-street .street-lane-ribbon h3 {
+    margin: 0;
+    color: #1f6058;
+    font-size: 0.67rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-research-motorbike-street .street-lane-ribbon p {
+    margin: 0.2rem 0 0;
+    color: #2f6a61;
+    font-size: 0.66rem;
+    line-height: 1.28;
+}
+
+.page-research-motorbike-street .street-evidence-notes {
+    margin: 0.2rem auto 0.86rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.page-research-motorbike-street .street-evidence-notes article {
+    border: 1px dashed rgba(139, 45, 31, 0.28);
+    border-radius: 12px;
+    background: rgba(255, 246, 229, 0.86);
+    padding: 0.48rem 0.54rem;
+}
+
+.page-research-motorbike-street .street-evidence-notes h3 {
+    margin: 0;
+    color: #8f3624;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-research-motorbike-street .street-evidence-notes p {
+    margin: 0.24rem 0 0;
+    color: #70493a;
+    font-size: 0.69rem;
+    line-height: 1.3;
+}
+
+.page-research-motorbike-street .street-phase-rail {
+    margin-top: 0.75rem;
+    border: 1px dashed rgba(139, 45, 31, 0.28);
+    border-radius: 12px;
+    background: rgba(255, 247, 230, 0.88);
+    padding: 0.5rem 0.56rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.44rem;
+}
+
+.page-research-motorbike-street .street-phase-rail article {
+    border: 1px solid rgba(139, 45, 31, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.86);
+    padding: 0.36rem 0.42rem;
+}
+
+.page-research-motorbike-street .street-phase-rail h3 {
+    margin: 0;
+    color: #8b3525;
+    font-size: 0.67rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.page-research-motorbike-street .street-phase-rail p {
+    margin: 0.2rem 0 0;
+    color: #654538;
+    font-size: 0.66rem;
+    line-height: 1.28;
+}
+
+.page-research-motorbike-street .street-source-strip {
+    margin-top: 0.8rem;
+    border: 1px solid rgba(23, 111, 102, 0.24);
+    border-radius: 12px;
+    background: rgba(242, 255, 251, 0.86);
+    padding: 0.52rem 0.58rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.42rem;
+}
+
+.page-research-motorbike-street .street-source-strip span {
+    border: 1px dashed rgba(23, 111, 102, 0.3);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.84);
+    color: #185f56;
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    padding: 0.2rem 0.48rem;
+}
+
+.page-research-motorbike-street .research-focus-shell {
+    border: 1px solid var(--street-line);
+    border-radius: 24px 12px 22px 14px;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(240, 180, 75, 0.12), transparent 35%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(250, 238, 214, 0.9));
+    box-shadow: 0 22px 34px rgba(92, 52, 30, 0.13);
+    padding: clamp(0.95rem, 2.05vw, 1.25rem);
+}
+
+.page-research-motorbike-street .research-kpi-strip {
+    margin-top: 0.84rem;
+    gap: 0.55rem;
+}
+
+.page-research-motorbike-street .research-kpi {
+    border: 1px solid rgba(139, 45, 31, 0.21);
+    border-radius: 12px;
+    background: rgba(255, 254, 249, 0.88);
+}
+
+.page-research-motorbike-street .kpi-label {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.64rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #8b5436;
+}
+
+.page-research-motorbike-street .kpi-value {
+    color: #2c1a13;
+}
+
+.page-research-motorbike-street .research-callout {
+    border: 1px solid rgba(139, 45, 31, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 253, 247, 0.88);
+    box-shadow: 0 10px 20px rgba(89, 50, 29, 0.08);
+}
+
+.page-research-motorbike-street .research-callout h4 {
+    color: #2b1c15;
+}
+
+.page-research-motorbike-street .research-callout p {
+    color: #614236;
+}
+
+.page-research-motorbike-street .mb-lab-shell {
+    border-radius: 30px 12px 26px 14px;
+}
+
+.page-research-motorbike-street .mb-lab-grid {
+    gap: 0.72rem;
+}
+
+.page-research-motorbike-street .mb-lab-controls,
+.page-research-motorbike-street .mb-live-figure,
+.page-research-motorbike-street .mb-detail-card,
+.page-research-motorbike-street .mb-impact-card {
+    border-color: rgba(139, 45, 31, 0.22);
+    background: rgba(255, 255, 252, 0.9);
+}
+
+.page-research-motorbike-street .mb-control-top label,
+.page-research-motorbike-street .mb-detail-title {
+    color: #2e1e16;
+}
+
+.page-research-motorbike-street .mb-control-note,
+.page-research-motorbike-street .mb-guidance-headline,
+.page-research-motorbike-street .mb-risk-list li {
+    color: #5e3f33;
+}
+
+.page-research-motorbike-street .mb-preset {
+    border-color: rgba(23, 111, 102, 0.25);
+    background: rgba(243, 255, 251, 0.86);
+    color: #186a61;
+}
+
+.page-research-motorbike-street .mb-preset.is-active {
+    background: linear-gradient(145deg, #22796f, #2e9988);
+    color: #fff;
+}
+
+.page-research-motorbike-street .mb-formula-panel {
+    margin: 0.82rem auto 0;
+    max-width: 980px;
+    padding: clamp(0.72rem, 1.75vw, 0.96rem);
+    text-align: left;
+}
+
+.page-research-motorbike-street .mb-formula-panel h4 {
+    margin: 0 0 0.45rem;
+}
+
+.page-research-motorbike-street .mb-calc-grid {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.page-research-motorbike-street .mb-calc-row {
+    border: 1px solid rgba(112, 125, 138, 0.22);
+    border-radius: 9px;
+    background: #f9fbfc;
+    padding: 0.38rem 0.5rem;
+}
+
+.page-research-motorbike-street .mb-calc-label {
+    margin: 0;
+    color: #2f2018;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.page-research-motorbike-street .mb-calc-equation {
+    margin: 0.15rem 0 0;
+    color: #3f2a20;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.69rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.page-research-motorbike-street .mb-calc-note {
+    margin: 0.13rem 0 0;
+    color: #5a6470;
+    font-size: 0.66rem;
+    line-height: 1.3;
+}
+
+.page-research-motorbike-street .mb-inline-defs {
+    margin: 0.5rem 0 0;
+    color: #4f5965;
+    font-size: 0.68rem;
+    line-height: 1.4;
+}
+
+.page-research-motorbike-street .mb-inline-defs strong {
+    color: #2f2018;
+}
+
+.page-research-motorbike-street .mb-derived-line {
+    margin: 0.42rem 0 0;
+    color: #4f5965;
+    font-size: 0.68rem;
+    line-height: 1.4;
+}
+
+.page-research-motorbike-street .mb-limit-note {
+    margin: 0.34rem 0 0;
+    color: #616b76;
+    font-size: 0.65rem;
+    line-height: 1.3;
+    font-style: normal;
+}
+
+.page-research-motorbike-street .evidence-block {
+    border: 1px solid rgba(139, 45, 31, 0.2);
+    border-radius: 16px;
+    background: rgba(255, 255, 252, 0.84);
+    box-shadow: 0 10px 20px rgba(89, 50, 29, 0.08);
+}
+
+.page-research-motorbike-street .evidence-block h3 {
+    color: #2c1c15;
+}
+
+.page-research-motorbike-street .research-figure-stage {
+    border-radius: 16px;
+    border-color: rgba(139, 45, 31, 0.21);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.page-research-motorbike-street .research-figure-caption {
+    background: rgba(255, 249, 235, 0.84);
+    border-color: rgba(139, 45, 31, 0.2);
+    color: #5d3e32;
+}
+
+.page-research-motorbike-street .research-meta-tags i,
+.page-research-motorbike-street .research-copy-muted a,
+.page-research-motorbike-street .research-figure-caption a {
+    color: #166a61;
+}
+
+.page-research-motorbike-street .research-implication-stack .phase {
+    border: 1px solid rgba(139, 45, 31, 0.2);
+    border-radius: 13px;
+    background: rgba(255, 253, 248, 0.9);
+    box-shadow: 0 8px 16px rgba(89, 50, 29, 0.07);
+}
+
+.page-research-motorbike-street .research-implication-stack .phase h4 {
+    color: #2c1c15;
+}
+
+.page-research-motorbike-street .research-implication-stack .phase p {
+    color: #614236;
+}
+
+.page-research-motorbike-street .implication-visual-grid {
+    margin: 0.86rem 0 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.68rem;
+}
+
+.page-research-motorbike-street .implication-visual {
+    margin: 0;
+    overflow: hidden;
+}
+
+.page-research-motorbike-street .implication-visual img {
+    display: block;
+    width: 100%;
+    height: clamp(180px, 21vw, 245px);
+    object-fit: cover;
+}
+
+.page-research-motorbike-street .implication-visual .research-figure-caption {
+    margin: 0;
+    font-size: 0.66rem;
+    line-height: 1.34;
+}
+
+.page-research-motorbike-street .section-managerial {
+    background: linear-gradient(180deg, #f7f8fa 0%, #f2f4f6 100%);
+}
+
+.page-research-motorbike-street .section-managerial .research-focus-shell {
+    border-radius: 16px;
+    border: 1px solid rgba(90, 98, 106, 0.28);
+    background: #fbfcfd;
+    box-shadow: none;
+}
+
+.page-research-motorbike-street .section-managerial .section-header {
+    text-align: left;
+    margin-bottom: 0.75rem;
+}
+
+.page-research-motorbike-street .section-managerial .section-header .research-copy-muted {
+    max-width: 72ch;
+}
+
+.page-research-motorbike-street .section-managerial .research-implication-stack .phase {
+    border: 1px solid rgba(90, 98, 106, 0.24);
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.page-research-motorbike-street .section-managerial .street-phase-rail article {
+    border: 1px solid rgba(90, 98, 106, 0.24);
+    background: #ffffff;
+    box-shadow: none;
+}
+
+.page-research-motorbike-street .section-managerial .street-phase-rail h3 {
+    color: #7a2f21;
+}
+
+.page-research-motorbike-street .section-managerial .street-phase-rail p {
+    color: #4f5965;
+}
+
+.page-research-motorbike-street .section-managerial .implication-visual {
+    border-radius: 12px;
+    border: 1px solid rgba(90, 98, 106, 0.24);
+    background: #ffffff;
+}
+
+.page-research-motorbike-street .section-managerial .implication-visual img {
+    height: clamp(180px, 20vw, 230px);
+    filter: saturate(0.82) contrast(1.03);
+}
+
+.page-research-motorbike-street .section-managerial .implication-visual .research-figure-caption {
+    background: #f4f6f8;
+    border-top: 1px solid rgba(90, 98, 106, 0.18);
+    color: #45505d;
+}
+
+.page-research-motorbike-street .section-managerial .source-note-card {
+    border: 1px solid rgba(90, 98, 106, 0.24);
+    background: #f8fafb;
+    box-shadow: none;
+}
+
+.page-research-motorbike-street .section-managerial .source-note-card p {
+    color: #4a545f;
+}
+
+.page-research-motorbike-street .btn-outline {
+    border-color: rgba(139, 45, 31, 0.36);
+    color: #8b3726;
+    background: rgba(255, 250, 240, 0.86);
+}
+
+.page-research-motorbike-street .btn-outline:hover,
+.page-research-motorbike-street .btn-outline:focus-visible {
+    color: #be4b31;
+    border-color: rgba(190, 75, 49, 0.52);
+}
+
+.page-research-motorbike-street .footer {
+    background: linear-gradient(180deg, #23150f 0%, #1d130e 100%);
+}
+
+@media (max-width: 1100px) {
+    .page-research-motorbike-street .street-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-motorbike-street .street-sideboard {
+        max-width: 760px;
+    }
+
+    .page-research-motorbike-street .street-density-rack,
+    .page-research-motorbike-street .street-lane-ribbon,
+    .page-research-motorbike-street .street-evidence-notes,
+    .page-research-motorbike-street .street-phase-rail {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 720px) {
+    .page-research-motorbike-street .street-pulse-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-motorbike-street .street-density-rack,
+    .page-research-motorbike-street .street-lane-ribbon,
+    .page-research-motorbike-street .street-evidence-notes,
+    .page-research-motorbike-street .street-phase-rail {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-motorbike-street .implication-visual-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+</head>
+<body class="page-research-detail page-research-non-hotel-fig-refresh page-research-custom page-research-motorbike-ban page-research-motorbike-focus page-research-motorbike-street" data-page="research" data-research-id="motorbike-phaseout">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main>
+<section class="research-detail-hero street-hero">
+<div class="section-container">
+<a class="research-back-link reveal-on-load" href="projects.html"><i class="ph ph-arrow-left"></i> Back to All Research</a>
+<div class="street-hero-grid">
+<div class="research-detail-header reveal-on-load">
+<span class="badge">Hanoi mobility transition | discrete choice evidence</span>
+<h1 class="section-heading">Motorbike Phase-Out Policy Acceptance</h1>
+<p class="section-desc max-w-lg">
+Using a discrete choice experiment for Hanoi residents, this study estimates how acceptance changes across policy bundles that combine restriction scope, travel cost changes, public transport improvements, fare relief, green reallocation, park-and-ride, transition support, and revenue governance. The analysis estimates mixed logit models, derives willingness-to-pay values, and identifies heterogeneity by dependency, income, trust, and environmental concern. Results show that a pull-first and support-first pathway is more acceptable than a push-first pathway.
+</p>
+<div class="research-meta-tags">
+<span><i class="ph ph-calendar"></i> Study period context: 2025-2026</span>
+<span><i class="ph ph-map-pin"></i> Study area: Hanoi, Vietnam</span>
+<span><i class="ph ph-flask"></i> Method: DCE + mixed logit</span>
+<span><i class="ph ph-chart-line-up"></i> Realized sample: n = 320</span>
+</div>
+<div class="street-chip-cloud" aria-label="Quick transport policy chips">
+<span>8 attributes</span>
+<span>27 profiles</span>
+<span>3 blocks</span>
+<span>9 tasks per respondent</span>
+<span>Status quo included</span>
+</div>
+</div>
+<aside class="street-sideboard reveal-on-load" aria-label="Transport pressure sideboard">
+<figure class="street-photo">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 38vw" srcset="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-480.avif 480w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-768.avif 768w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.avif 1024w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1440.avif 1440w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1800.avif 1800w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-2816.avif 2816w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 38vw" srcset="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-480.webp 480w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-768.webp 768w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.webp 1024w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1440.webp 1440w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1800.webp 1800w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-2816.webp 2816w" type="image/webp"/>
+<img alt="Dense motorcycle traffic in Hanoi as context for dependency pressure" decoding="async" fetchpriority="high" loading="eager" src="./assets/external/wikimedia/motorbikes-at-hanoi-vietnam.jpg" width="2816" height="2112"/>
+</picture>
+</figure>
+<h2 class="visually-hidden">Transition pressure dimensions</h2>
+<div class="street-pulse-grid">
+<article>
+<h3>Dependency pressure</h3>
+<p>Motorcycles remain the dominant mode, so restrictions without substitutes create mobility risk.</p>
+</article>
+<article>
+<h3>Alternative capacity</h3>
+<p>Public transport quality determines whether residents can absorb a transition away from fossil fuel vehicles.</p>
+</article>
+<article>
+<h3>Equity sensitivity</h3>
+<p>Cost and livelihood effects are stronger for lower-income and dependence-heavy groups.</p>
+</article>
+<article>
+<h3>Trust condition</h3>
+<p>Acceptance increases when households expect credible implementation and fair use of resources.</p>
+</article>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section street-rush-strip-section" aria-label="Transport lane ticker">
+<div class="section-container">
+<div class="street-rush-strip reveal">
+<div class="street-rush-track">
+<span>Push coefficients are negative</span>
+<span>Pull and support coefficients are positive</span>
+<span>Trust weakens status-quo lock-in</span>
+<span>WTP confirms compensation need</span>
+<span>Deploy alternatives before restriction scale-up</span>
+<span>Use gate-based monitoring for rollout control</span>
+<span>Push coefficients are negative</span>
+<span>Pull and support coefficients are positive</span>
+<span>Trust weakens status-quo lock-in</span>
+<span>WTP confirms compensation need</span>
+<span>Deploy alternatives before restriction scale-up</span>
+<span>Use gate-based monitoring for rollout control</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light" data-street-sign="Section 1">
+<div class="section-container" data-street-sign="Section 1">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Section 1</span>
+<h2 class="section-heading section-heading-focus">Background</h2>
+<p class="research-copy-muted">
+Hanoi faces a policy dilemma. Air quality and congestion conditions justify intervention, but motorcycles remain central to household mobility and income generation. The implementation gap appears when restrictions move faster than alternatives.
+</p>
+</div>
+<p class="research-copy-muted">
+This study tests the conditions under which residents accept a fossil-fuel motorcycle phase-out package. It quantifies trade-offs among push, pull, and support attributes, then estimates preference heterogeneity across socioeconomic and attitudinal profiles.
+</p>
+<div class="research-kpi-strip kpi-tight kpi-5" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">Primary mode</p>
+<p class="kpi-value">Motorcycle = 78.3%</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Motorcycle ownership</p>
+<p class="kpi-value">At least one = 85.8%</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Model baseline</p>
+<p class="kpi-value">ASC = +1.621</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Model fit</p>
+<p class="kpi-value">ρ<sup>2</sup> = 0.28</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Core policy signal</p>
+<p class="kpi-value">Pull + support outperform push-first</p>
+</article>
+</div>
+<div class="research-meta-tags" style="margin-top: 0.9rem;">
+<span><i class="ph ph-train"></i> Metro and BRT expansion are policy pull anchors</span>
+<span><i class="ph ph-motorcycle"></i> Restriction design must account for dependence by necessity</span>
+<span><i class="ph ph-hand-heart"></i> Equity support is a central acceptance condition</span>
+<span><i class="ph ph-scales"></i> Distributional and procedural fairness shape support</span>
+</div>
+<div class="dual-figure-grid" style="margin-top: 0.9rem;">
+<figure class="research-figure-stage" data-evidence-tier="illustrative">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-480.avif 480w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-768.avif 768w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.avif 1024w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1440.avif 1440w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1800.avif 1800w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-2816.avif 2816w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-480.webp 480w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-768.webp 768w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1024.webp 1024w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1440.webp 1440w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-1800.webp 1800w, ./assets/optimized/external/wikimedia/motorbikes-at-hanoi-vietnam-2816.webp 2816w" type="image/webp"/>
+<img alt="Street traffic with high motorcycle density in Hanoi" decoding="async" loading="lazy" src="./assets/external/wikimedia/motorbikes-at-hanoi-vietnam.jpg" width="2816" height="2112"/>
+</picture>
+<figcaption class="research-figure-caption">
+Street traffic in Hanoi with high motorcycle density (illustrative context image).
+</figcaption>
+</figure>
+<figure class="research-figure-stage" data-evidence-tier="illustrative">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-480.avif 480w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-768.avif 768w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1024.avif 1024w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1440.avif 1440w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1800.avif 1800w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-4000.avif 4000w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-480.webp 480w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-768.webp 768w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1024.webp 1024w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1440.webp 1440w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-1800.webp 1800w, ./assets/optimized/external/wikimedia/hanoi-metro-train-vanh-dai-3-4000.webp 4000w" type="image/webp"/>
+<img alt="Hanoi urban rail train in operation" decoding="async" loading="lazy" src="./assets/external/wikimedia/hanoi-metro-train-vanh-dai-3.jpg" width="4000" height="3000"/>
+</picture>
+<figcaption class="research-figure-caption">
+Hanoi urban rail corridor used as transition-alternative context (illustrative image).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" data-street-sign="Section 2">
+<div class="section-container" data-street-sign="Section 2">
+<div class="research-focus-shell reveal">
+<span class="badge">Section 2</span>
+<h2 class="section-heading section-heading-compact">Method</h2>
+<p class="research-copy-muted">
+This study uses a stated-preference discrete choice experiment (DCE) under random utility theory. Respondents in Hanoi completed repeated choice tasks. In each task, they chose between policy bundles and a status-quo option.
+</p>
+<p class="research-copy-muted">
+Each bundle was built from eight attributes with three levels each: restriction scope, travel-cost change, alternative transport quality, fare relief, transition support, green-space reallocation, park-and-ride, and revenue governance. The design generated 27 orthogonal profiles, split into 3 blocks; each respondent completed 9 tasks.
+</p>
+<p class="research-copy-muted">
+We estimated mixed logit models for main effects and interaction effects. Interaction terms tested heterogeneity by motorcycle dependency, income, trust, and environmental concern. Willingness-to-pay values were calculated as coefficient ratios to the cost term, WTP<sub>k</sub> = β<sub>k</sub> / (-β<sub>cost</sub>). The design target was n = 400 and the realized sample was n = 320.
+</p>
+<p class="research-copy-muted">
+The scenario simulation in Section 3A is directly linked to these estimated coefficients. It is not a market-share forecast. It is a transparent comparison tool that helps non-technical readers understand direction and relative magnitude across policy bundles.
+</p>
+<div class="research-kpi-strip kpi-tight kpi-5 method-design-strip" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">DCE attributes</p>
+<p class="kpi-value">8 attributes, 3 levels each</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Design profiles</p>
+<p class="kpi-value">27 orthogonal profiles</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Blocking</p>
+<p class="kpi-value">3 survey blocks</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Tasks per respondent</p>
+<p class="kpi-value">9 choice tasks + status quo</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Sample</p>
+<p class="kpi-value">Target n = 400, realized n = 320</p>
+</article>
+</div>
+<h3 class="visually-hidden">Utility equation set</h3>
+<div class="research-decision-grid method-equation-grid">
+<article class="research-callout rule-performance">
+<h4>Utility decomposition</h4>
+<p>U<sub>ni</sub> = V<sub>ni</sub> + ε<sub>ni</sub></p>
+</article>
+<article class="research-callout rule-performance">
+<h4>Systematic utility</h4>
+<p>V<sub>ni</sub> = β'X<sub>ni</sub></p>
+</article>
+<article class="research-callout rule-performance">
+<h4>Monetary trade-off</h4>
+<p>WTP<sub>k</sub> = β<sub>k</sub> / (-β<sub>cost</sub>)</p>
+</article>
+</div>
+<div class="research-callout decision-meta method-note" style="margin-top: 0.8rem;">
+<h4>Method sequence</h4>
+<p>Study area definition, attribute design, orthogonal profile generation, blocked survey fieldwork, mixed logit estimation, interaction estimation, and WTP derivation.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light" data-street-sign="Section 3">
+<div class="section-container" data-street-sign="Section 3">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Section 3</span>
+<h2 class="section-heading section-heading-focus">Results</h2>
+<p class="research-copy-muted">
+The model identifies a strong status quo pull, large disutility for broad restrictions, and strong positive utility for pull and support attributes. Heterogeneity is consistent with dependence, income, trust, and environmental concern channels.
+</p>
+</div>
+<div class="research-kpi-strip kpi-tight kpi-5" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">Model fit</p>
+<p class="kpi-value">ρ<sup>2</sup> = 0.28</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Status-quo preference</p>
+<p class="kpi-value">ASC = +1.621</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Strongest negative β</p>
+<p class="kpi-value">Ban all motorcycles = -1.752</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Strongest positive β</p>
+<p class="kpi-value">Financial support = +0.956</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Heterogeneity signal</p>
+<p class="kpi-value">σ significant on key random terms</p>
+</article>
+</div>
+<div class="evidence-block" style="margin-top: 0.95rem;">
+<article class="evidence-text">
+<h3>Figure 1. Mixed Logit Main Effects</h3>
+<p>Reported coefficients and 95% confidence intervals from Table 3, grouped as push, pull, support-process, and status-quo terms.</p>
+</article>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="Mixed logit main effects from Table 3" decoding="async" loading="lazy" src="./assets/viz-motorbike-main-effects-enhanced.svg" onerror="this.onerror=null;this.src='./assets/viz-motorbike-main-effects-enhanced.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">
+Mixed logit main effects: push coefficients are negative, while pull and support coefficients are positive.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
+<div class="section section-block-inline bg-light" data-street-sign="Section 3A">
+<div class="section-container" data-street-sign="Section 3A">
+<div class="research-focus-shell reveal mb-lab-shell" data-evidence-tier="illustrative">
+<div class="evidence-block" style="margin-bottom: 0.9rem;">
+<article class="evidence-text">
+<h3>Figure 2. WTP and Heterogeneity Effects</h3>
+<p>Reported WTP ordering from Table 5 with selected interaction terms from Table 4. Positive values support acceptance; negative values indicate compensation required.</p>
+</article>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="WTP ranking and heterogeneity interactions from Tables 4 and 5" decoding="async" loading="lazy" src="./assets/viz-motorbike-wtp-heterogeneity-enhanced.svg" onerror="this.onerror=null;this.src='./assets/viz-motorbike-wtp-heterogeneity-enhanced.png';" width="1600" height="980"/>
+<figcaption class="research-figure-caption">
+WTP ranking is led by e-motorcycle grants and stronger public transport quality; interactions show dependency, income, trust, and environmental-concern effects.
+</figcaption>
+</figure>
+</div>
+<div class="research-decision-grid">
+<article class="research-callout rule-performance">
+<h4>Restriction sensitivity</h4>
+<p>Ban intensity produces the strongest negative effect, with substantial heterogeneity in the random term (σ for broad ban is large).</p>
+</article>
+<article class="research-callout rule-performance">
+<h4>Dependency and income effects</h4>
+<p>Motorcycle dependency strengthens opposition to broad bans (β = -0.324). Higher income reduces cost sensitivity (β = +0.005) and lowers grant valuation (β = -0.018).</p>
+</article>
+<article class="research-callout rule-performance">
+<h4>Trust mechanism</h4>
+<p>Trust lowers status-quo pull through the ASC interaction (β = -0.281), supporting a governance-first communication strategy.</p>
+</article>
+<article class="research-callout rule-performance">
+<h4>Environmental preference channel</h4>
+<p>Environmental concern raises support for green-space reallocation (β = +0.217), indicating stronger acceptance of visible co-benefits.</p>
+</article>
+</div>
+<div class="section-header mb-5 text-center">
+<span class="badge">Policy Scenario Simulation</span>
+<h3 class="section-heading section-heading-focus">Coefficient-Based Scenario Simulation</h3>
+<p class="research-copy-muted mb-lab-intro">
+This module converts estimated coefficients into scenario comparisons. It is a communication tool, not a demand forecast. In this index, push has a negative sign, while pull, support, and trust have positive signs.
+</p>
+<div class="research-callout decision-meta mb-formula-panel">
+<h4>Simulation calculation (concise)</h4>
+<div class="mb-calc-grid" aria-label="Simulation steps">
+<article class="mb-calc-row">
+<p class="mb-calc-label">1) Utility index</p>
+<p class="mb-calc-equation">ΔU = (-1.967 × Push) + (2.093 × Pull) + (1.271 × Support) + (0.281 × Trust)</p>
+<p class="mb-calc-note">Inputs are entered on 0-100 sliders and normalized to [0,1].</p>
+</article>
+<article class="mb-calc-row">
+<p class="mb-calc-label">2) Acceptance score</p>
+<p class="mb-calc-equation">Score = clamp(50 + 18 × ΔU, 0, 100)</p>
+</article>
+<article class="mb-calc-row">
+<p class="mb-calc-label">3) High-acceptance chance</p>
+<p class="mb-calc-equation">Chance = 100 / (1 + exp(-2.7 × (ΔU - 0.25)))</p>
+<p class="mb-calc-note">Shown as 1-99 to avoid false certainty.</p>
+</article>
+</div>
+<p class="mb-inline-defs"><strong>Definitions:</strong> Push = restriction scope and direct burden; Pull = alternative transport quality; Support = financial and implementation support; Trust = confidence in delivery and revenue governance.</p>
+<p class="mb-derived-line"><strong>Diagnostics:</strong> Alternative readiness (pull + support), Burden pressure (push with partial support offset), Transition trust (trust with support).</p>
+<p class="mb-limit-note">For scenario comparison only; not a direct adoption forecast.</p>
+</div>
+</div>
+<div class="mb-lab-grid">
+<div aria-label="Policy lever controls" class="mb-lab-controls">
+<div class="mb-control">
+<div class="mb-control-top">
+<label for="mb-push">Push intensity (restriction and cost)</label>
+<output for="mb-push" id="mb-push-output">39%</output>
+</div>
+<input id="mb-push" max="100" min="0" step="1" type="range" value="39"/>
+<p class="mb-control-note">Higher values represent stricter scope and higher burden from push-side policy terms.</p>
+</div>
+<div class="mb-control">
+<div class="mb-control-top">
+<label for="mb-pull">Pull quality (alternatives)</label>
+<output for="mb-pull" id="mb-pull-output">74%</output>
+</div>
+<input id="mb-pull" max="100" min="0" step="1" type="range" value="74"/>
+<p class="mb-control-note">Represents public transport frequency, fare relief, greenery, and park-and-ride quality.</p>
+</div>
+<div class="mb-control">
+<div class="mb-control-top">
+<label for="mb-support">Support and process</label>
+<output for="mb-support" id="mb-support-output">74%</output>
+</div>
+<input id="mb-support" max="100" min="0" step="1" type="range" value="74"/>
+<p class="mb-control-note">Represents transition grants and revenue governance transparency.</p>
+</div>
+<div class="mb-control">
+<div class="mb-control-top">
+<label for="mb-trust">Trust modifier</label>
+<output for="mb-trust" id="mb-trust-output">68%</output>
+</div>
+<input id="mb-trust" max="100" min="0" step="1" type="range" value="68"/>
+<p class="mb-control-note">Higher trust lowers status-quo attraction and improves acceptance feasibility.</p>
+</div>
+<div aria-label="Preset sequencing styles" class="mb-preset-row" role="group">
+<button class="mb-preset" data-preset="pushFirst" type="button">Push-first</button>
+<button class="mb-preset is-active" data-preset="pullSupport" type="button">Pull + support</button>
+<button class="mb-preset" data-preset="supportCalibrated" type="button">Calibrated push</button>
+<button class="mb-preset" data-preset="alternativesFirst" type="button">Alternatives first</button>
+</div>
+</div>
+<figure class="research-figure-stage mb-live-figure" data-evidence-tier="illustrative">
+<div class="mb-stage" id="mb-stage">
+<div class="mb-stage-grid"></div>
+<div class="mb-stage-warning"></div>
+<div class="mb-stage-flow"></div>
+<div class="mb-stage-hud">
+<article class="mb-hud-card">
+<p class="mb-hud-label">Acceptance score</p>
+<p class="mb-hud-value"><span id="mb-score">0</span>/100</p>
+</article>
+<article class="mb-hud-card">
+<p class="mb-hud-label">Rollout status</p>
+<p class="mb-hud-value" id="mb-likelihood">Pending</p>
+</article>
+</div>
+<div class="mb-stage-marker">
+<span class="mb-marker-pulse"></span>
+<span class="mb-marker-core"></span>
+</div>
+<div class="mb-stage-phases">
+<span class="mb-phase-chip mb-phase-pull">Pull</span>
+<span class="mb-phase-chip mb-phase-support">Support</span>
+<span class="mb-phase-chip mb-phase-calibrate">Calibrate</span>
+<span class="mb-phase-chip mb-phase-restrict">Restrict</span>
+</div>
+</div>
+<figcaption class="research-figure-caption">
+Coefficient-based scenario display for comparing policy bundles under different slider settings.
+</figcaption>
+</figure>
+</div>
+<div aria-live="polite" class="mb-impact-grid">
+<article class="mb-impact-card">
+<p class="mb-impact-label">Alternative readiness</p>
+<div class="mb-impact-track"><span class="mb-impact-fill" data-impact="alternativeReadiness" style="width: 0%;"></span></div>
+<p class="mb-impact-value" data-impact-label="alternativeReadiness">0%</p>
+</article>
+<article class="mb-impact-card">
+<p class="mb-impact-label">Burden pressure</p>
+<div class="mb-impact-track"><span class="mb-impact-fill" data-impact="burdenPressure" style="width: 0%;"></span></div>
+<p class="mb-impact-value" data-impact-label="burdenPressure">0%</p>
+</article>
+<article class="mb-impact-card">
+<p class="mb-impact-label">Transition trust</p>
+<div class="mb-impact-track"><span class="mb-impact-fill" data-impact="transitionTrust" style="width: 0%;"></span></div>
+<p class="mb-impact-value" data-impact-label="transitionTrust">0%</p>
+</article>
+</div>
+<div class="mb-detail-grid">
+<article class="mb-detail-card">
+<h3 class="mb-detail-title">Diagnostic gaps</h3>
+<div class="mb-diagnostic-list">
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">Readiness gap</p><p class="mb-diagnostic-value" id="mb-readiness-gap">0 pts</p></div>
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">Compensation gap</p><p class="mb-diagnostic-value" id="mb-comp-gap">0 pts</p></div>
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">Trust buffer</p><p class="mb-diagnostic-value" id="mb-trust-buffer">0 pts</p></div>
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">Utility shift</p><p class="mb-diagnostic-value" id="mb-delta-u">ΔU = 0.00</p></div>
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">High-acceptance chance</p><p class="mb-diagnostic-value" id="mb-high-chance">0%</p></div>
+<div class="mb-diagnostic-item"><p class="mb-diagnostic-label">Primary lever</p><p class="mb-diagnostic-value" id="mb-primary-lever">-</p></div>
+</div>
+</article>
+<article class="mb-detail-card">
+<h3 class="mb-detail-title">Phase readiness</h3>
+<div class="mb-phase-list">
+<div class="mb-phase-row" data-phase-row="pull" data-status="watch">
+<p class="mb-phase-row-label">Pull</p>
+<div class="mb-phase-row-track"><span class="mb-phase-row-fill" data-phase-score="pull" style="width: 0%;"></span></div>
+<p class="mb-phase-row-value" data-phase-label="pull">0%</p>
+</div>
+<div class="mb-phase-row" data-phase-row="support" data-status="watch">
+<p class="mb-phase-row-label">Support</p>
+<div class="mb-phase-row-track"><span class="mb-phase-row-fill" data-phase-score="support" style="width: 0%;"></span></div>
+<p class="mb-phase-row-value" data-phase-label="support">0%</p>
+</div>
+<div class="mb-phase-row" data-phase-row="calibrate" data-status="watch">
+<p class="mb-phase-row-label">Calibrate</p>
+<div class="mb-phase-row-track"><span class="mb-phase-row-fill" data-phase-score="calibrate" style="width: 0%;"></span></div>
+<p class="mb-phase-row-value" data-phase-label="calibrate">0%</p>
+</div>
+<div class="mb-phase-row" data-phase-row="restrict" data-status="watch">
+<p class="mb-phase-row-label">Restrict</p>
+<div class="mb-phase-row-track"><span class="mb-phase-row-fill" data-phase-score="restrict" style="width: 0%;"></span></div>
+<p class="mb-phase-row-value" data-phase-label="restrict">0%</p>
+</div>
+</div>
+</article>
+<article class="mb-detail-card">
+<h3 class="mb-detail-title">Policy guidance</h3>
+<p class="mb-guidance-headline" id="mb-guidance-headline">Adjust policy mix to reduce burden before scale-up.</p>
+<ul class="mb-risk-list" id="mb-risk-list">
+<li>Waiting for scenario input.</li>
+</ul>
+</article>
+</div>
+</div>
+</div>
+</div>
+
+<section class="section section-managerial" data-street-sign="Section 4">
+<div class="section-container" data-street-sign="Section 4">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5">
+<span class="badge">Section 4</span>
+<h2 class="section-heading section-heading-focus">Managerial Implications</h2>
+<p class="research-copy-muted">
+The managerial implication is sequencing discipline. Restriction scale-up should follow measurable readiness, support reach, and trust conditions.
+</p>
+</div>
+<div class="implication-visual-grid" aria-label="Illustrative transition visuals">
+<figure class="research-figure-stage implication-visual" data-evidence-tier="illustrative">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/hanoi-brt-bus-480.avif 480w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-768.avif 768w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1024.avif 1024w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1440.avif 1440w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1800.avif 1800w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-3894.avif 3894w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/hanoi-brt-bus-480.webp 480w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-768.webp 768w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1024.webp 1024w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1440.webp 1440w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-1800.webp 1800w, ./assets/optimized/external/wikimedia/hanoi-brt-bus-3894.webp 3894w" type="image/webp"/>
+<img alt="Hanoi BRT bus in operation as pull-side transport capacity" decoding="async" loading="lazy" src="./assets/external/wikimedia/hanoi-brt-bus.jpg" width="3894" height="2282"/>
+</picture>
+<figcaption class="research-figure-caption">
+Hanoi BRT operation as pull-side transport capacity context.
+</figcaption>
+</figure>
+<figure class="research-figure-stage implication-visual" data-evidence-tier="illustrative">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-480.avif 480w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-768.avif 768w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1024.avif 1024w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1440.avif 1440w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1800.avif 1800w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-4608.avif 4608w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 50vw" srcset="./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-480.webp 480w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-768.webp 768w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1024.webp 1024w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1440.webp 1440w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-1800.webp 1800w, ./assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-4608.webp 4608w" type="image/webp"/>
+<img alt="VinFast charging station infrastructure in Hoa Binh" decoding="async" loading="lazy" src="./assets/external/wikimedia/vinfast-charging-station-hoa-binh-01.jpg" width="4608" height="2592"/>
+</picture>
+<figcaption class="research-figure-caption">
+Public charging infrastructure as transition-support context for cleaner vehicle adoption.
+</figcaption>
+</figure>
+</div>
+<h3 class="visually-hidden">Managerial action themes</h3>
+<div class="research-implication-stack">
+<article class="phase">
+<h4>Pull-first deployment</h4>
+<p>Prioritize frequent and reliable public transport, fare relief, and usable interchange capacity before tightening restriction scope. This aligns with positive pull coefficients and high WTP for quality improvements.</p>
+</article>
+<article class="phase">
+<h4>Targeted equity support</h4>
+<p>Protect dependence-heavy and lower-income groups with e-motorcycle grants and transition subsidies. Interaction terms indicate that dependence strengthens ban opposition and income changes cost and grant valuation.</p>
+</article>
+<article class="phase">
+<h4>Governance and trust architecture</h4>
+<p>Use transparent revenue recycling and public oversight communication. Trust reduces status-quo pull, so implementation credibility is not supplementary; it is part of acceptance design.</p>
+</article>
+</div>
+<div class="street-phase-rail" aria-label="Phase route rail">
+<article>
+<h3>Readiness gate</h3>
+<p>Transit frequency, reliability, and corridor coverage meet threshold.</p>
+</article>
+<article>
+<h3>Support reach gate</h3>
+<p>Grant and subsidy access reaches exposure-heavy households.</p>
+</article>
+<article>
+<h3>Trust and compliance gate</h3>
+<p>Complaint intensity and enforcement disputes remain stable.</p>
+</article>
+<article>
+<h3>Outcome gate</h3>
+<p>Air quality and social burden indicators improve together.</p>
+</article>
+</div>
+<div class="research-callout decision-meta source-note-card" style="margin-top: 0.9rem;">
+<h4>Source and image attribution</h4>
+<p>Model figures are directly based on manuscript Table 3, Table 4, and Table 5 values. Illustrative visuals in this section: <a href="./assets/external/wikimedia/hanoi-brt-bus.jpg">hanoi-brt-bus.jpg</a> (photo by Minseong Kim, CC BY-SA 4.0; source: <a href="https://commons.wikimedia.org/wiki/File:Hanoi_BRT_bus.jpg">Wikimedia Commons</a>) and <a href="./assets/external/wikimedia/vinfast-charging-station-hoa-binh-01.jpg">vinfast-charging-station-hoa-binh-01.jpg</a> (photo by Nguyenvuxe, CC BY-SA 4.0; source: <a href="https://commons.wikimedia.org/wiki/File:Newone_-_VinFast_charging_station_Hoa_Binh_01.jpg">Wikimedia Commons</a>).</p>
+</div>
+</div>
+</div>
+</section>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic" data-strength="15" href="projects.html"><i class="ph ph-arrow-left"></i> Back to All Research</a>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<p class="footer-heading">Build something impactful.</p>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank"><i class="ph ph-linkedin-logo"></i> Connect on LinkedIn</a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom"><p>© 2026 Chung Hy Dai.</p></div>
+</div>
+</footer>
+<script>
+// file:// pages can block module scripts via CORS; load motorbike fallback only when main module bootstrap is missing.
+if (window.location.protocol === 'file:') {
+    window.addEventListener('load', () => {
+        if (window.__portfolioMainModuleLoaded) return;
+        if (window.__motorbikeFallbackBootstrapped) return;
+        window.__motorbikeFallbackBootstrapped = true;
+
+        const script = document.createElement('script');
+        script.src = 'js/research-motorbike-fallback.js';
+        script.defer = true;
+        document.body.appendChild(script);
+    }, { once: true });
+}
+</script>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>

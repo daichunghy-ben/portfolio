@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Buffet Menu Nudging | Chung Hy Dai</title>
+<meta content="Two-study buffet research summary on healthier-first menu sequencing, intended calorie reduction, perceived value, and tier-choice trade-offs." name="description"/>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+<link href="./research-buffet.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Buffet Menu Nudging | Chung Hy Dai" property="og:title"/>
+<meta content="Structured full summary of menu-order intervention effects on intended intake, perceived value, and buffet tier choice." property="og:description"/>
+<meta content="./research-buffet.html" property="og:url"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+
+.page-buffet-restaurant {
+    --buffet-ink: #2a1812;
+    --buffet-soft: #70463a;
+    --buffet-accent: #c4471d;
+    --buffet-accent-deep: #7f2212;
+    --buffet-gold: #c9892f;
+    --buffet-cream: #fff5e5;
+    --buffet-card: rgba(255, 253, 248, 0.9);
+    --buffet-line: rgba(127, 34, 18, 0.16);
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--buffet-ink);
+    background:
+        radial-gradient(circle at 8% 12%, rgba(201, 137, 47, 0.2), transparent 37%),
+        radial-gradient(circle at 92% 8%, rgba(196, 71, 29, 0.16), transparent 39%),
+        repeating-linear-gradient(120deg, rgba(255, 255, 255, 0) 0 20px, rgba(127, 34, 18, 0.03) 20px 22px),
+        linear-gradient(180deg, #fff8ef 0%, #fff3e0 45%, #fce6cc 100%);
+}
+
+.page-buffet-restaurant::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 90%, rgba(42, 24, 18, 0.1), transparent 56%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-buffet-restaurant main,
+.page-buffet-restaurant .footer,
+.page-buffet-restaurant .navbar {
+    position: relative;
+    z-index: 1;
+}
+
+.page-buffet-restaurant .navbar {
+    background: rgba(255, 250, 241, 0.8);
+    border-bottom: 1px solid rgba(127, 34, 18, 0.12);
+    backdrop-filter: blur(16px);
+}
+
+.page-buffet-restaurant .logo-mark {
+    background: linear-gradient(135deg, #7f2212, #c4471d 45%, #c9892f);
+}
+
+.page-buffet-restaurant .nav-link {
+    color: #3d261f;
+}
+
+.page-buffet-restaurant .nav-link:hover,
+.page-buffet-restaurant .nav-link:focus-visible {
+    color: #9a3412;
+}
+
+.page-buffet-restaurant .nav-cta {
+    background: linear-gradient(135deg, #9a3412, #c4471d);
+    border-color: rgba(127, 34, 18, 0.2);
+}
+
+.buffet-main {
+    padding-top: 5.6rem;
+}
+
+.buffet-hero {
+    padding: 1.6rem 0 1rem;
+}
+
+.buffet-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: clamp(1rem, 2.8vw, 1.8rem);
+    align-items: start;
+}
+
+.buffet-back-link {
+    display: inline-flex;
+    gap: 0.46rem;
+    align-items: center;
+    color: #7f2212;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.buffet-back-link:hover,
+.buffet-back-link:focus-visible {
+    color: #c4471d;
+    text-decoration: underline;
+}
+
+.buffet-hero-copy {
+    border: 1px solid rgba(127, 34, 18, 0.16);
+    border-radius: 30px 14px 30px 14px;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 224, 0.9)),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
+    box-shadow: 0 26px 44px rgba(84, 31, 20, 0.18);
+    padding: clamp(1.15rem, 2.4vw, 1.75rem);
+    margin-top: 0.84rem;
+}
+
+.buffet-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.34rem 0.76rem;
+    border-radius: 999px;
+    border: 1px solid rgba(196, 71, 29, 0.24);
+    background: rgba(255, 240, 214, 0.95);
+    color: #9a3412;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+.buffet-title {
+    margin: 0.74rem 0 0.68rem;
+    font-family: "Bodoni Moda", "Didot", "Times New Roman", serif;
+    font-size: clamp(2.2rem, 5.7vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: #3b1f18;
+}
+
+.buffet-title strong {
+    color: #b33612;
+    font-weight: 800;
+}
+
+.buffet-intro {
+    margin: 0;
+    color: #4e3128;
+    font-size: 1rem;
+    line-height: 1.66;
+    max-width: 58ch;
+}
+
+.buffet-hero-actions {
+    margin-top: 1.05rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.62rem;
+}
+
+.buffet-hero-actions .btn-primary {
+    background: linear-gradient(135deg, #9a3412, #d24d1f);
+    border-color: rgba(127, 34, 18, 0.28);
+}
+
+.buffet-hero-actions .btn-outline {
+    border-color: rgba(127, 34, 18, 0.34);
+    color: #7f2212;
+    background: rgba(255, 251, 243, 0.9);
+}
+
+.buffet-meta {
+    margin-top: 1.05rem;
+    padding-top: 0.82rem;
+    border-top: 1px dashed rgba(127, 34, 18, 0.22);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.6rem;
+}
+
+.buffet-meta article {
+    border: 1px solid rgba(127, 34, 18, 0.15);
+    border-radius: 0.82rem;
+    background: rgba(255, 250, 239, 0.86);
+    padding: 0.56rem 0.62rem;
+}
+
+.buffet-meta .label {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #9a3412;
+    font-weight: 700;
+}
+
+.buffet-meta .value {
+    margin: 0.22rem 0 0;
+    color: #3b251f;
+    font-size: 0.93rem;
+    font-weight: 700;
+}
+
+.buffet-meta-note {
+    margin: 0.72rem 0 0;
+    color: #6c4537;
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.buffet-hero-media {
+    position: relative;
+    border-radius: 34px 14px 34px 14px;
+    overflow: hidden;
+    border: 1px solid rgba(127, 34, 18, 0.2);
+    box-shadow: 0 30px 46px rgba(83, 33, 22, 0.22);
+    min-height: 100%;
+}
+
+.buffet-hero-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 0, rgba(255, 246, 221, 0.45), transparent 36%),
+        linear-gradient(165deg, rgba(127, 34, 18, 0.15), transparent 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.buffet-hero-media::after {
+    content: "Study material";
+    position: absolute;
+    left: 0.9rem;
+    bottom: 0.9rem;
+    z-index: 2;
+    color: #fff8f1;
+    background: rgba(42, 24, 18, 0.66);
+    border: 1px solid rgba(255, 216, 171, 0.4);
+    border-radius: 999px;
+    padding: 0.26rem 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.62rem;
+    font-weight: 700;
+}
+
+.buffet-hero-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.02);
+}
+
+.buffet-band {
+    padding: 0.5rem 0 1.2rem;
+}
+
+.buffet-band-strip {
+    border: 1px solid rgba(127, 34, 18, 0.14);
+    border-radius: 999px;
+    background: linear-gradient(120deg, rgba(255, 245, 224, 0.92), rgba(255, 253, 246, 0.9));
+    padding: 0.64rem 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+
+.buffet-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    border: 1px solid rgba(127, 34, 18, 0.16);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.34rem 0.68rem;
+    color: #5c382e;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.buffet-section {
+    padding: 0.8rem 0 1.8rem;
+}
+
+.buffet-shell {
+    border-radius: 28px 14px 26px 12px;
+    border: 1px solid var(--buffet-line);
+    background:
+        linear-gradient(145deg, rgba(255, 252, 247, 0.96), rgba(255, 243, 222, 0.88));
+    box-shadow: 0 24px 40px rgba(86, 33, 21, 0.12);
+    padding: clamp(1rem, 2vw, 1.45rem);
+}
+
+.buffet-section-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.82rem;
+    align-items: flex-end;
+    margin-bottom: 0.9rem;
+}
+
+.buffet-kicker {
+    margin: 0;
+    color: #9a3412;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.73rem;
+    font-weight: 700;
+}
+
+.buffet-heading {
+    margin: 0.22rem 0 0;
+    font-family: "Bodoni Moda", "Didot", serif;
+    font-size: clamp(1.52rem, 3vw, 2.2rem);
+    line-height: 1.1;
+    color: #3d2119;
+}
+
+.buffet-section-head p {
+    margin: 0;
+    color: #5c3b32;
+    max-width: 62ch;
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+.buffet-section-copy p {
+    margin: 0;
+    color: #5a392f;
+    font-size: 0.94rem;
+    line-height: 1.64;
+}
+
+.buffet-section-copy {
+    display: grid;
+    gap: 0.76rem;
+}
+
+.buffet-list {
+    margin: 0;
+    padding-left: 1.08rem;
+    display: grid;
+    gap: 0.42rem;
+    color: #5a392f;
+    font-size: 0.91rem;
+    line-height: 1.54;
+}
+
+.station-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.station-card {
+    border-radius: 18px 10px 18px 10px;
+    border: 1px solid rgba(127, 34, 18, 0.16);
+    background: var(--buffet-card);
+    padding: 0.8rem;
+    box-shadow: 0 10px 24px rgba(86, 33, 21, 0.09);
+}
+
+.station-icon {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.7rem;
+    color: #7f2212;
+    background: linear-gradient(135deg, rgba(201, 137, 47, 0.18), rgba(196, 71, 29, 0.18));
+    font-size: 1.2rem;
+}
+
+.station-card h3 {
+    margin: 0.58rem 0 0.3rem;
+    font-size: 1rem;
+    color: #4a2d25;
+}
+
+.station-card p {
+    margin: 0;
+    color: #6a463b;
+    font-size: 0.87rem;
+    line-height: 1.55;
+}
+
+.buffet-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.62rem;
+}
+
+.buffet-kpi {
+    border-radius: 16px;
+    border: 1px solid rgba(127, 34, 18, 0.16);
+    background: rgba(255, 252, 246, 0.95);
+    padding: 0.7rem;
+    box-shadow: 0 10px 18px rgba(86, 33, 21, 0.08);
+}
+
+.buffet-kpi .label {
+    margin: 0;
+    color: #9a3412;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.67rem;
+    font-weight: 700;
+}
+
+.buffet-kpi .value {
+    margin: 0.4rem 0 0;
+    color: #3d231c;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.buffet-kpi .note {
+    margin: 0.28rem 0 0;
+    color: #6a463b;
+    font-size: 0.76rem;
+    line-height: 1.46;
+}
+
+.buffet-reference-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.4rem;
+    color: #5c3b32;
+    font-size: 0.88rem;
+    line-height: 1.52;
+}
+
+.buffet-reference-list a {
+    color: #7f2212;
+}
+
+.page-buffet-restaurant .footer {
+    margin-top: 2.1rem;
+}
+
+.page-buffet-restaurant .footer .footer-container {
+    background: linear-gradient(135deg, rgba(39, 23, 18, 0.93), rgba(76, 38, 28, 0.93));
+    border-color: rgba(255, 208, 157, 0.24);
+}
+
+@media (max-width: 1120px) {
+    .buffet-kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 960px) {
+    .buffet-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buffet-hero-media {
+        order: -1;
+        max-height: 32rem;
+    }
+
+    .buffet-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .station-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buffet-kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .buffet-main {
+        padding-top: 5.2rem;
+    }
+
+    .buffet-meta,
+    .buffet-kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-buffet-restaurant *,
+    .page-buffet-restaurant *::before,
+    .page-buffet-restaurant *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+<body class="page-buffet-restaurant page-research-detail page-research-non-hotel-fig-refresh page-research-buffet-focus" data-page="research" data-research-id="buffet-nudging">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a aria-label="Chung Hy Dai home" class="logo magnetic" data-strength="20" href="index.html"><span aria-hidden="true" class="logo-mark">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="#experience">Context</a>
+<a class="nav-link magnetic" data-strength="10" href="#background">Background</a>
+<a class="nav-link magnetic" data-strength="10" href="#method">Method</a>
+<a class="nav-link magnetic" data-strength="10" href="#menu">Simulation</a>
+<a class="nav-link magnetic" data-strength="10" href="#study1">Results</a>
+<a class="nav-link magnetic" data-strength="10" href="#references">References</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="projects.html">All Research</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main class="buffet-main">
+<section class="buffet-hero">
+<div class="section-container buffet-hero-grid">
+<div>
+<a class="buffet-back-link reveal-on-load" href="projects.html"><i class="ph ph-arrow-left"></i> Back to All Research</a>
+<div class="buffet-hero-copy reveal-on-load" id="experience">
+<span class="buffet-badge"><i class="ph ph-flask"></i> Behavioral research showcase</span>
+<h1 class="buffet-title">Buffet Menu <strong>Nudging</strong></h1>
+<p class="buffet-intro">
+This study tests whether re-ordering menu information can reduce buffet plate-waste risk without forcing choice removal. Two Vietnamese online experiments compare healthier-options-first (HOF) versus unhealthier-options-first (UOF) menu sequencing across buffet formats and tiered-price contexts.
+</p>
+<div class="buffet-hero-actions">
+<a class="btn-primary large magnetic" data-strength="18" href="#menu"><i class="ph ph-images-square"></i> View Simulation Roles</a>
+<a class="btn-outline large magnetic" data-strength="15" href="#study1"><i class="ph ph-chart-bar"></i> View Key Results</a>
+</div>
+<div class="buffet-meta">
+<article>
+<p class="label">Samples</p>
+<p class="value">Study 1: n = 257<br/>Study 2: n = 147</p>
+</article>
+<article>
+<p class="label">Primary Effect</p>
+<p class="value">Study 1: -146 kcal<br/>HOF 1427 vs UOF 1573</p>
+</article>
+<article>
+<p class="label">Revenue Signal</p>
+<p class="value">Higher-tier odds OR = 0.52<br/>Premium 52.4% &rarr; 23.8%</p>
+</article>
+</div>
+<p class="buffet-meta-note">All intake outcomes are intention-based selections from simulated menus; they are interpreted as a proxy for plate-waste risk rather than direct weighed plate waste.</p>
+</div>
+</div>
+<figure class="buffet-hero-media reveal-on-load">
+<img alt="Buffet menu simulation collage used in sequence-nudging research" decoding="async" fetchpriority="high" src="assets/optimized/buffet-menu-1024.webp" width="1024" height="1449"/>
+</figure>
+</div>
+</section>
+
+<section class="buffet-band">
+<div class="section-container">
+<div class="buffet-band-strip reveal">
+<span class="buffet-chip"><i class="ph ph-sparkle"></i> 14 simulation boards</span>
+<span class="buffet-chip"><i class="ph ph-cooking-pot"></i> 2 menu-order conditions (HOF vs UOF)</span>
+<span class="buffet-chip"><i class="ph ph-bowl-food"></i> Study 1: 2&times;3 design</span>
+<span class="buffet-chip"><i class="ph ph-currency-circle-dollar"></i> Study 2: tiered-price choice</span>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="background">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Problem Framing</p>
+<h2 class="buffet-heading">Background and Gap</h2>
+</div>
+<p>Buffet formats are structurally vulnerable to overserving because fixed pricing reduces marginal cost at the point of diner choice.</p>
+</div>
+<div class="buffet-section-copy">
+<p>The global context is severe: UNEP (2024) reports about 1.05 billion tonnes of food waste per year (about 132 kg per person), linked to roughly 8-10% of greenhouse-gas emissions while hunger still affects hundreds of millions of people.</p>
+<p>Most restaurant food-waste interventions emphasize back-of-house controls, but plate waste is a customer-side behavior problem. Food-service contributes a meaningful share of consumer-level waste, and buffet formats are especially exposed because fixed pricing, visual abundance, and value-seeking behavior can push guests toward higher-calorie and higher-volume selection.</p>
+<p>This research addresses a practical managerial gap: can a low-cost, non-restrictive menu-order intervention reduce plate-waste risk while preserving perceived value and premium-tier demand?</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="method">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Research Design</p>
+<h2 class="buffet-heading">Method and Experimental Design</h2>
+</div>
+<p>Both studies used online simulated buffet menus to estimate planned consumption and value perceptions before real-world rollout.</p>
+</div>
+<div class="station-grid">
+<article class="station-card">
+<div class="station-icon"><i class="ph ph-flask"></i></div>
+<h3>Study 1 Setup</h3>
+<p>2&times;3 between-subjects design: HOF vs UOF across hotpot, Korean tokpokki, and vegetarian buffet contexts (n = 257).</p>
+</article>
+<article class="station-card">
+<div class="station-icon"><i class="ph ph-currency-circle-dollar"></i></div>
+<h3>Study 2 Setup</h3>
+<p>Hotpot-only tiered pricing experiment (219k, 279k, 329k VND) with random HOF/UOF assignment (n = 147).</p>
+</article>
+<article class="station-card">
+<div class="station-icon"><i class="ph ph-chart-line-up"></i></div>
+<h3>Core Measures</h3>
+<p>Intended calorie intake, perceived value, and tier-choice intention; intended calories were computed from menu selections.</p>
+</article>
+<article class="station-card">
+<div class="station-icon"><i class="ph ph-info"></i></div>
+<h3>Interpretation Guardrail</h3>
+<p>Intended intake is intention-based simulation output and treated as a behavioral proxy for likely plate-waste pressure.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="hypotheses">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Theory Testing</p>
+<h2 class="buffet-heading">Hypotheses (H1-H4)</h2>
+</div>
+<p>The model links menu-order nudging, perceived value, and commercial tier-selection behavior.</p>
+</div>
+<ul class="buffet-list">
+<li><strong>H1:</strong> Buffet type and menu order interact significantly on intended calorie intake.</li>
+<li><strong>H2:</strong> Perceived value is lower under HOF than UOF menus.</li>
+<li><strong>H3:</strong> HOF increases probability of lower-tier buffet package choice.</li>
+<li><strong>H4:</strong> Perceived value mediates the relationship between menu order and tier choice.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section buffet-sim-gallery-section" id="menu">
+<div class="section-container">
+<div class="research-focus-shell reveal" data-evidence-tier="illustrative">
+<div class="section-header mb-5 text-center">
+<span class="badge">Simulation Roles</span>
+<h2 class="section-heading section-heading-focus">Simulation Menus Used in the Experiment</h2>
+<p class="research-copy-muted buffet-sim-intro">
+These screens are experimental menu stimuli. Labels identify each screen's function in the sequence and condition.
+</p>
+</div>
+<div class="buffet-sim-groups">
+<article class="buffet-sim-group">
+<div class="buffet-sim-group-head">
+<h3>Entry Screen</h3>
+<p>Condition-neutral opening screen for context and price-tier priming.</p>
+</div>
+<div class="buffet-sim-grid buffet-sim-grid-single">
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Entry anchor board for buffet simulation" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-main-menu.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Entry Screen</span> Condition-neutral opening screen used to introduce menu context and price tiers.</figcaption>
+</figure>
+</div>
+</article>
+<article class="buffet-sim-group">
+<div class="buffet-sim-group-head">
+<h3>Control Sequence (UOF): Korean Grill Menus</h3>
+<p>Protein-first ordering with queue-line completion cues.</p>
+</div>
+<div class="buffet-sim-grid">
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Control UOF appetite hero for Korean grill buffet" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-korean-grill-1.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">UOF Screen 1: Protein Lead</span> Protein-led opening screen in the unhealthier-options-first sequence.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Control UOF protein selection board for Korean grill buffet" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-korean-grill-2.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">UOF Screen 2: Main Protein Choices</span> Meat-first selection screen with supporting side options.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Control UOF queue-line add-ons board for Korean grill buffet" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-korean-grill-3.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">UOF Screen 3: Add-ons and Drinks</span> Completion screen for add-ons, soups, and beverages.</figcaption>
+</figure>
+</div>
+</article>
+<article class="buffet-sim-group">
+<div class="buffet-sim-group-head">
+<h3>Hotpot Sequence Roles</h3>
+<p>Six boards used to guide hotpot flow from base context through tier-specific cues.</p>
+</div>
+<div class="buffet-sim-grid">
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot base-context simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-base.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 1: Base Context</span> Shared hotpot orientation screen shown before tier-specific options.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot premium protein anchor simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-variant-a.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 2: Premium Protein</span> Premium protein emphasis used to frame high-value options.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot tier 219 core simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-variant-b.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 3: Tier 219 Menu</span> Entry-tier menu with broth and combo structure.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot combo and beverage upsell simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-variant-c.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 4: Combo and Beverage</span> Combo and beverage screen used to reinforce value framing.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot tier 279 upgrade simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-variant-d.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 5: Tier 279 Menu</span> Mid-tier upgrade menu with expanded side and premium cues.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Hotpot tier 329 upgrade simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-jp-hotpot-variant-e.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">Hotpot Screen 6: Tier 329 Menu</span> Top-tier upgrade menu with sashimi and maki cues.</figcaption>
+</figure>
+</div>
+</article>
+<article class="buffet-sim-group">
+<div class="buffet-sim-group-head">
+<h3>Treatment Sequence (HOF): Vegetable-Forward</h3>
+<p>Healthy-first ordering variants used to prime lighter early selections.</p>
+</div>
+<div class="buffet-sim-grid">
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Treatment HOF salad primer simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-veg-1.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">HOF Screen 1: Salad Primer</span> Vegetable-first opening screen in the healthier-options-first sequence.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Treatment HOF side and beverage support simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-veg-2.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">HOF Screen 2: Sides and Beverage</span> Support screen for sides and beverages within the healthy-first flow.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Treatment HOF broth and produce integration simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-veg-3.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">HOF Screen 3: Broth and Produce</span> Broth and produce integration screen for continuity with hotpot choices.</figcaption>
+</figure>
+<figure class="research-figure-stage buffet-sim-card" data-evidence-tier="illustrative">
+<img alt="Treatment HOF build-your-own salad lead simulation board" decoding="async" loading="lazy" src="./assets/menu-giao-hy/buffet-sim-veg-4.webp" width="768" height="1086"/>
+<figcaption class="research-figure-caption"><span class="buffet-sim-tag">HOF Screen 4: Build-Your-Own Salad</span> Salad-led screen with the strongest healthy-first visual prominence.</figcaption>
+</figure>
+</div>
+</article>
+</div>
+<p class="buffet-sim-footnote">
+<strong>Evidence note:</strong> These simulation screens are study stimuli used to communicate menu-order logic.
+</p>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="study1">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Experiment One</p>
+<h2 class="buffet-heading">Study 1 Results</h2>
+</div>
+<p>Healthy-first sequencing reduced intended intake overall, with stronger effects in meat-forward buffet formats.</p>
+</div>
+<div class="buffet-kpi-grid">
+<article class="buffet-kpi">
+<p class="label">Sample</p>
+<p class="value">n = 257</p>
+<p class="note">Vietnamese buffet diners in online simulation.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">HOF vs UOF</p>
+<p class="value">1427 vs 1573 kcal</p>
+<p class="note">Independent-samples t-test comparison.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Overall Delta</p>
+<p class="value">-146 kcal</p>
+<p class="note">Lower intended calories under HOF.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Interaction Pattern</p>
+<p class="value">Hotpot +290<br/>Korean +142<br/>Vegetarian +6 (ns)</p>
+<p class="note">UOF minus HOF change by buffet type.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Value Perception</p>
+<p class="value">Lower for hotpot and Korean</p>
+<p class="note">No significant value drop for vegetarian buffet condition.</p>
+</article>
+</div>
+<div class="buffet-section-copy" style="margin-top: 0.9rem;">
+<p>The two-way ANOVA supported H1: menu-order effects depended on buffet type. HOF delivered the strongest reduction in hotpot and Korean contexts, while vegetarian menus showed almost no calorie difference between orders.</p>
+<p>Key test outputs: t(255) = -3.86, p &lt; .001 for overall HOF vs UOF intake; interaction F(2, 251) = 17.79, p &lt; .001 for buffet-type moderation. H2 was also supported in aggregate (t = -4.12, p &lt; .001), with value penalties concentrated in meat-forward formats and no significant vegetarian difference.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="study2">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Experiment Two</p>
+<h2 class="buffet-heading">Study 2 Results</h2>
+</div>
+<p>In tiered pricing, HOF continued reducing intended intake but also shifted demand away from premium bundles.</p>
+</div>
+<div class="buffet-kpi-grid">
+<article class="buffet-kpi">
+<p class="label">Sample</p>
+<p class="value">n = 147</p>
+<p class="note">Hotpot tier-choice simulation participants.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">HOF vs UOF</p>
+<p class="value">1445 vs 1668 kcal</p>
+<p class="note">Significant manipulation check difference.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Premium Share</p>
+<p class="value">52.4% &rarr; 23.8%</p>
+<p class="note">Premium-tier selection dropped under HOF.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Higher-tier Odds</p>
+<p class="value">OR = 0.52</p>
+<p class="note">48% lower odds of choosing higher tier under HOF.</p>
+</article>
+<article class="buffet-kpi">
+<p class="label">Mediation</p>
+<p class="value">Indirect = -0.339</p>
+<p class="note">95% CI [-0.56, -0.15] via perceived value.</p>
+</article>
+</div>
+<div class="buffet-section-copy" style="margin-top: 0.9rem;">
+<p>H3 was supported: participants exposed to HOF were more likely to choose lower-priced packages. Evidence converged across tests (chi-square = 12.79, p = .002; ordinal model likelihood-ratio chi-square = 14.20, p &lt; .001).</p>
+<p>H4 was supported with partial mediation: HOF reduced perceived value (path a = -0.87, p &lt; .001), and perceived value increased odds of higher-tier choice (path b = 0.39, p &lt; .001). The indirect effect was significant (-0.339, 95% CI [-0.56, -0.15]) while the direct path remained weakly significant, indicating both direct and value-mediated pathways.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="discussion">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="derived">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Synthesis</p>
+<h2 class="buffet-heading">Discussion</h2>
+</div>
+<p>The intervention works behaviorally but introduces an economic trade-off when premium cues are weakened.</p>
+</div>
+<div class="buffet-section-copy">
+<p>Menu order functions as a soft default. HOF can reduce high-calorie intended choices in indulgent buffet formats without banning options. This confirms choice-architecture mechanisms such as primacy and salience ordering.</p>
+<p>However, the same intervention can lower perceived value in contexts where diners treat visible meat abundance as the signal of worth. In tiered pricing, that perception channel can reduce premium conversion and pressure revenue-per-guest.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="implications">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="derived">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Operations</p>
+<h2 class="buffet-heading">Managerial Implications</h2>
+</div>
+<p>Managers can deploy HOF, but should pair it with premium-value signaling to protect upgrade intent.</p>
+</div>
+<ul class="buffet-list">
+<li>Deploy HOF in digital and print menus to nudge early selection toward lower-cost, lower-calorie items.</li>
+<li>Protect perceived value by adding premium-quality cues to healthy items (ingredient quality, craftsmanship, sourcing).</li>
+<li>For tiered pricing, highlight premium inclusions at every decision step (exclusive seafood/cuts/special stations).</li>
+<li>Train service staff to verbally reinforce premium station benefits so healthy-first ordering does not read as reduced generosity.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="limitations">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Research Boundaries</p>
+<h2 class="buffet-heading">Limitations and Future Research</h2>
+</div>
+<p>The current findings are decision-intention based and should be validated with operational plate-waste and margin tracking.</p>
+</div>
+<ul class="buffet-list">
+<li>Sample composition is student-heavy and may over-represent price sensitivity and health salience.</li>
+<li>Menu choices are simulated intentions; future field experiments should measure real plate waste and return behavior.</li>
+<li>Study 2 focuses on revenue proxy (tier choice), not contribution margin or profit-based metrics.</li>
+<li>Future work should test broader demographics, richer menu breadth, and cross-cultural buffet norms.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="buffet-section" id="references">
+<div class="section-container">
+<div class="buffet-shell reveal" data-evidence-tier="reported">
+<div class="buffet-section-head">
+<div>
+<p class="buffet-kicker">Documentation</p>
+<h2 class="buffet-heading">Selected References</h2>
+</div>
+<p>Key references used in this research framing and interpretation.</p>
+</div>
+<ol class="buffet-reference-list">
+<li>Brunstrom, J. M. (2014). Mind over platter: pre-meal planning and the control of meal size in humans.</li>
+<li>Dolnicar, S., Juvan, E., and Grun, B. (2020). Reducing the plate waste of families at hotel buffets.</li>
+<li>Juvan, E., Grun, B., and Dolnicar, S. (2017). Biting off more than they can chew: food waste at hotel breakfast buffets.</li>
+<li>Kuo, C. and Shih, Y. (2016). Reducing buffet plate waste through behavioral interventions.</li>
+<li>Thaler, R. H. and Sunstein, C. R. (2021). Nudge: The final edition.</li>
+<li>Wansink, B. and Hanks, A. S. (2013). Serving healthy foods first in buffet lines improves overall meal selection.</li>
+<li>Wansink, B. and Love, K. (2014). Menu strategies for promoting high-margin, healthy foods.</li>
+<li>Ge, L. et al. (2018). Portion-size reduction and restaurant value perception.</li>
+<li>Varian, H. R. (1997). Versioning and self-selection in differentiated pricing.</li>
+<li>United Nations Environment Programme (2024). Food Waste Index Report 2024.</li>
+</ol>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+                </a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Chung Hy Dai.</p>
+</div>
+</div>
+</footer>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>

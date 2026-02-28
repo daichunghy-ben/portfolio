@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "last_updated": "2026-02-24",
+  "status_enum": [
+    "Verified",
+    "Self-Reported",
+    "Unverified"
+  ],
+  "claims": [
+    {
+      "claim_id": "profile-name",
+      "claim": "Public professional name is Chung Hy Dai (Đái Chung Hy).",
+      "where_displayed": [
+        "index.html:123",
+        "cv.html:283",
+        "/Users/macos/Desktop/consulting_profile_hy.md:3"
+      ],
+      "status": "Verified",
+      "evidence_url": "https://orcid.org/0009-0009-6790-8981",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Chung Hy Dai (Đái Chung Hy)."
+    },
+    {
+      "claim_id": "profile-role-target",
+      "claim": "Role positioning: Market Research, Data Analysis, Consumer Insights.",
+      "where_displayed": [
+        "index.html:79",
+        "cv.html:284"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Market research and consumer insights candidate with applied analytics experience."
+    },
+    {
+      "claim_id": "education-graduated",
+      "claim": "Bachelor of Business (Marketing), graduated Dec 2025.",
+      "where_displayed": [
+        "index.html:173",
+        "cv.html:312",
+        "/Users/macos/Desktop/consulting_profile_hy.md:30"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "https://orcid.org/0009-0009-6790-8981",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Bachelor of Business (Marketing), Swinburne University of Technology (self-reported completion: Dec 2025)."
+    },
+    {
+      "claim_id": "hero-project-count",
+      "claim": "Delivered 10 applied research projects.",
+      "where_displayed": [
+        "index.html:82",
+        "index.html:85"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Portfolio currently highlights 10 applied projects."
+    },
+    {
+      "claim_id": "hero-publication-count",
+      "claim": "2 peer-reviewed conference publications.",
+      "where_displayed": [
+        "index.html:82",
+        "index.html:86",
+        "index.html:144"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "https://pub.orcid.org/v3.0/0009-0009-6790-8981/works",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "2 peer-reviewed conference publications."
+    },
+    {
+      "claim_id": "hero-years",
+      "claim": "2+ years in market research.",
+      "where_displayed": [
+        "index.html:84"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "2+ years of project activity in market-research contexts (self-reported)."
+    },
+    {
+      "claim_id": "hotel-review-base",
+      "claim": "Hotel segmentation uses 74,896 reviews.",
+      "where_displayed": [
+        "index.html:525",
+        "research-hotel.html:61",
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Internal project dataset reported as 74,896 reviews."
+    },
+    {
+      "claim_id": "hotel-count-458",
+      "claim": "Hotel segmentation covers 458 hotels.",
+      "where_displayed": [
+        "index.html:525",
+        "research-hotel.html:62",
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Use one canonical scope value across all pages: 458 hotels (if correct)."
+    },
+    {
+      "claim_id": "hotel-count-492-conflict",
+      "claim": "Historical conflict resolved: older draft content listed 492 hotels; canonical scope is 458 hotels.",
+      "where_displayed": [
+        "Historical governance note only (no active page display)."
+      ],
+      "status": "Verified",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Use 458 hotels consistently across visible pages; keep 492 only as a resolved historical conflict note."
+    },
+    {
+      "claim_id": "prca-review-base",
+      "claim": "PRCA study uses 97,014 reviews across ~1,000 properties.",
+      "where_displayed": [
+        "index.html:526",
+        "research-hotel-prca.html:64",
+        "cv.html:370"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Internal PRCA dataset reported as 97,014 reviews across approximately 1,000 properties."
+    },
+    {
+      "claim_id": "virtual-influencer-doi",
+      "claim": "Virtual Influencer work is a Springer chapter with DOI 10.1007/978-981-96-4116-1_9.",
+      "where_displayed": [
+        "index.html:708",
+        "research-virtual-influencers.html:89",
+        "cv.html:491"
+      ],
+      "status": "Verified",
+      "evidence_url": "https://doi.org/10.1007/978-981-96-4116-1_9",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Published Springer chapter (DOI: 10.1007/978-981-96-4116-1_9)."
+    },
+    {
+      "claim_id": "virtual-influencer-date-conflict",
+      "claim": "Springer online date shown as 2025-07-09 on site.",
+      "where_displayed": [
+        "research-virtual-influencers.html:51",
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Unverified",
+      "evidence_url": "https://doi.org/10.1007/978-981-96-4116-1_9",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Use Crossref/DOI first-online date format: published online June 18, 2025; if showing July 9, label source and rationale."
+    },
+    {
+      "claim_id": "springer-2024-label",
+      "claim": "CV labels the Springer output as EEEU 2024 conference context with first online publication on June 18, 2025.",
+      "where_displayed": [
+        "cv.html:522"
+      ],
+      "status": "Verified",
+      "evidence_url": "https://doi.org/10.1007/978-981-96-4116-1_9",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "EEEU 2024 conference context; Springer first online June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)."
+    },
+    {
+      "claim_id": "nutrition-paper-fcbem",
+      "claim": "Nutrition paper appears in FCBEM proceedings context.",
+      "where_displayed": [
+        "index.html:682",
+        "research-nutrition.html:101",
+        "cv.html:501"
+      ],
+      "status": "Verified",
+      "evidence_url": "https://pub.orcid.org/v3.0/0009-0009-6790-8981/works",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Conference-paper record available via ORCID and linked FCBEM proceedings page."
+    },
+    {
+      "claim_id": "nutrition-sample-n280",
+      "claim": "Nutrition study sample is n = 280 students.",
+      "where_displayed": [
+        "research-nutrition.html:72",
+        "research-nutrition.html:137",
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Sample reported as n = 280 on-page; keep wording as reported unless public dataset/paper table is linked directly."
+    },
+    {
+      "claim_id": "influencer-retention-sample-n565",
+      "claim": "Influencer retention study sample is n = 565 active UGC users.",
+      "where_displayed": [
+        "research-leveraging-influencer.html:51",
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Reported sample n = 565 (self-reported unless external paper/proceeding is linked)."
+    },
+    {
+      "claim_id": "hsbc-finalist",
+      "claim": "HSBC Business Case: Champion Round participant / regional finalist.",
+      "where_displayed": [
+        "index.html:246",
+        "cv.html:409",
+        "/Users/macos/Desktop/consulting_profile_hy.md:76"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "https://www.facebook.com/share/p/1BTtuER54x/",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "HSBC Business Case 2024: advanced to Champion Round (regional finalist, self-reported)."
+    },
+    {
+      "claim_id": "swinburne-feature-story",
+      "claim": "Featured by Swinburne Vietnam in official story (Dec 2025).",
+      "where_displayed": [
+        "/Users/macos/Desktop/consulting_profile_hy.md:36"
+      ],
+      "status": "Unverified",
+      "evidence_url": "https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Claim retained as self-reported unless an accessible archival/source copy is attached."
+    },
+    {
+      "claim_id": "portfolio-publication-total-10",
+      "claim": "~10 research papers across 5 conferences.",
+      "where_displayed": [
+        "/Users/macos/Desktop/consulting_profile_hy.md:14",
+        "/Users/macos/Desktop/consulting_profile_hy.md:100"
+      ],
+      "status": "Unverified",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Use explicit split: X externally verifiable outputs + Y additional presentations (self-reported)."
+    },
+    {
+      "claim_id": "orcid-presence",
+      "claim": "ORCID profile exists and is linked.",
+      "where_displayed": [
+        "index.html:868",
+        "cv.html:290"
+      ],
+      "status": "Verified",
+      "evidence_url": "https://orcid.org/0009-0009-6790-8981",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "ORCID: 0009-0009-6790-8981."
+    },
+    {
+      "claim_id": "linkedin-profile",
+      "claim": "LinkedIn profile is active and linked.",
+      "where_displayed": [
+        "index.html:861",
+        "cv.html:289",
+        "projects.html:29"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "https://www.linkedin.com/in/chung-hy-d-17792826b/",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "LinkedIn profile link provided (public scraping blocked by authwall in automated checks)."
+    },
+    {
+      "claim_id": "ciemb-link-availability",
+      "claim": "CIEMB reference links are reachable.",
+      "where_displayed": [
+        "assets/data/research-manifest.json"
+      ],
+      "status": "Unverified",
+      "evidence_url": "https://www.ciemb.org/",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Provide backup citation text or archived source when CIEMB domain is unavailable."
+    },
+    {
+      "claim_id": "profile-location",
+      "claim": "Location: Ho Chi Minh City, Vietnam.",
+      "where_displayed": [
+        "index.html:870",
+        "research-nutrition.html:443",
+        "/Users/macos/Desktop/consulting_profile_hy.md:6"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Ho Chi Minh City, Vietnam."
+    },
+    {
+      "claim_id": "contact-email",
+      "claim": "Primary contact email is daichunghy@gmail.com.",
+      "where_displayed": [
+        "index.html:866",
+        "cv.html:287",
+        "projects.html:297"
+      ],
+      "status": "Self-Reported",
+      "evidence_url": "mailto:daichunghy@gmail.com",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "daichunghy@gmail.com"
+    }
+  ]
+}

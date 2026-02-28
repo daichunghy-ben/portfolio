@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel segmentation method flow</title>
+  <desc id="desc">Compact flow chart showing six pipeline stages from data acquisition to segment insights with key parameters.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6ede0"/>
+      <stop offset="1" stop-color="#f1e6d4"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffdf9"/>
+      <stop offset="1" stop-color="#f7efe3"/>
+    </linearGradient>
+    <linearGradient id="nodeA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#edf7ef"/>
+      <stop offset="1" stop-color="#e5f0e8"/>
+    </linearGradient>
+    <linearGradient id="nodeB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1f6ff"/>
+      <stop offset="1" stop-color="#e8f0fc"/>
+    </linearGradient>
+    <linearGradient id="nodeC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7eb"/>
+      <stop offset="1" stop-color="#f9efdf"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L0 10L9 5Z" fill="#5f5447"/>
+    </marker>
+    <style>
+      text { font-family: "Manrope", "Segoe UI", sans-serif; fill: #2f2922; }
+      .kicker { font-size: 13px; letter-spacing: 0.09em; text-transform: uppercase; fill: #5f5447; font-weight: 700; }
+      .title { font-size: 28px; font-weight: 800; }
+      .subtitle { font-size: 14px; fill: #5f5447; }
+      .num { font-size: 12px; font-weight: 800; fill: #3f5b49; }
+      .node-title { font-size: 16px; font-weight: 800; }
+      .node-copy { font-size: 12px; fill: #4d4338; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <rect x="26" y="20" width="1148" height="720" rx="24" fill="url(#panel)" stroke="#ccb89b"/>
+
+  <text x="54" y="60" class="kicker">Method pipeline</text>
+  <text x="54" y="96" class="title">ABSA to segmentation flow</text>
+  <text x="54" y="120" class="subtitle">Reported sequence used to derive and validate segment findings.</text>
+
+  <line x1="336" y1="244" x2="380" y2="244" stroke="#5f5447" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="700" y1="244" x2="744" y2="244" stroke="#5f5447" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="916" y1="316" x2="916" y2="442" stroke="#5f5447" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="744" y1="516" x2="700" y2="516" stroke="#5f5447" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="380" y1="516" x2="336" y2="516" stroke="#5f5447" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(64,166)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeA)" stroke="#b8c8bb"/>
+    <circle cx="24" cy="24" r="12" fill="#e8f3ea" stroke="#8cab95"/>
+    <text x="20" y="28" class="num">1</text>
+    <text x="18" y="58" class="node-title">Data acquisition</text>
+    <text x="18" y="84" class="node-copy">74,896 reviews, 458 hotels</text>
+    <text x="18" y="104" class="node-copy">27 Nov 2022 to 27 Jan 2026</text>
+  </g>
+
+  <g transform="translate(428,166)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeB)" stroke="#bdc8d9"/>
+    <circle cx="24" cy="24" r="12" fill="#edf2fb" stroke="#95a7c3"/>
+    <text x="20" y="28" class="num">2</text>
+    <text x="18" y="58" class="node-title">Text preprocessing</text>
+    <text x="18" y="84" class="node-copy">Deduplication and cleaning</text>
+    <text x="18" y="104" class="node-copy">Sentence segmentation</text>
+  </g>
+
+  <g transform="translate(792,166)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeC)" stroke="#cebfa2"/>
+    <circle cx="24" cy="24" r="12" fill="#f8efe2" stroke="#b89d73"/>
+    <text x="20" y="28" class="num">3</text>
+    <text x="18" y="58" class="node-title">Aspect + sentiment scoring</text>
+    <text x="18" y="84" class="node-copy">8 aspects, tau = 0.35</text>
+    <text x="18" y="104" class="node-copy">30% section conflict damping</text>
+  </g>
+
+  <g transform="translate(792,438)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeA)" stroke="#b8c8bb"/>
+    <circle cx="24" cy="24" r="12" fill="#e8f3ea" stroke="#8cab95"/>
+    <text x="20" y="28" class="num">4</text>
+    <text x="18" y="58" class="node-title">Experience vectors</text>
+    <text x="18" y="84" class="node-copy">24D vector per review</text>
+    <text x="18" y="104" class="node-copy">Salience, valence, missingness</text>
+  </g>
+
+  <g transform="translate(428,438)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeB)" stroke="#bdc8d9"/>
+    <circle cx="24" cy="24" r="12" fill="#edf2fb" stroke="#95a7c3"/>
+    <text x="20" y="28" class="num">5</text>
+    <text x="18" y="58" class="node-title">Clustering + validation</text>
+    <text x="18" y="84" class="node-copy">K-means and GMM comparison</text>
+    <text x="18" y="104" class="node-copy">Retained K = 10, ARI = 0.94</text>
+  </g>
+
+  <g transform="translate(64,438)">
+    <rect width="272" height="156" rx="18" fill="url(#nodeC)" stroke="#cebfa2"/>
+    <circle cx="24" cy="24" r="12" fill="#f8efe2" stroke="#b89d73"/>
+    <text x="20" y="28" class="num">6</text>
+    <text x="18" y="58" class="node-title">Segment profiling + insights</text>
+    <text x="18" y="84" class="node-copy">10 interpretable segment frames</text>
+    <text x="18" y="104" class="node-copy">Decision use for service priorities</text>
+  </g>
+</svg>

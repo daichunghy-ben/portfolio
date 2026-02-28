@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Reported Four-E retention structure for influencer campaigns</title>
+  <desc id="desc">Framework view showing CX, CEX, and BE feeding CE, with CE driving CR, and the reported variance explained metrics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/>
+      <stop offset="0.52" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#f0fdfa"/>
+    </linearGradient>
+    <linearGradient id="shellStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7dd3fc"/>
+      <stop offset="1" stop-color="#a7f3d0"/>
+    </linearGradient>
+    <linearGradient id="engagementFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0f2fe"/>
+      <stop offset="1" stop-color="#ddd6fe"/>
+    </linearGradient>
+    <linearGradient id="retentionFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dcfce7"/>
+      <stop offset="1" stop-color="#ccfbf1"/>
+    </linearGradient>
+    <filter id="panelShadow" x="-15%" y="-20%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrowA" markerWidth="14" markerHeight="14" refX="9" refY="5" orient="auto">
+      <path d="M0 0L0 10L10 5Z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrowB" markerWidth="16" markerHeight="16" refX="10" refY="6" orient="auto">
+      <path d="M0 0L0 12L12 6Z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+
+  <g font-family="'Manrope', 'Inter', 'Segoe UI', Arial, sans-serif">
+    <g filter="url(#panelShadow)">
+      <rect x="44" y="36" width="1512" height="908" rx="34" fill="#ffffff" stroke="url(#shellStroke)" stroke-width="2"/>
+    </g>
+
+    <text x="86" y="108" font-size="46" font-weight="800" fill="#0f172a">Reported Four-E Retention Structure</text>
+    <text x="86" y="144" font-size="21" fill="#334155">SEM translation for Vietnam UGC influencer campaigns: CX, CEX, and BE load into CE; CE drives CR.</text>
+
+    <rect x="86" y="166" width="250" height="38" rx="12" fill="#ecfeff" stroke="#7dd3fc"/>
+    <text x="106" y="191" font-size="16" font-weight="700" fill="#0369a1">Evidence tier: Reported</text>
+
+    <rect x="354" y="166" width="214" height="38" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="374" y="191" font-size="16" font-weight="700" fill="#334155">n = 565 overall</text>
+
+    <rect x="582" y="166" width="238" height="38" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="602" y="191" font-size="16" font-weight="700" fill="#334155">EFA n = 200</text>
+
+    <rect x="834" y="166" width="252" height="38" rx="12" fill="#f1f5f9" stroke="#cbd5e1"/>
+    <text x="854" y="191" font-size="16" font-weight="700" fill="#334155">CFA/SEM n = 365</text>
+
+    <rect x="120" y="232" width="1360" height="560" rx="24" fill="#f8fafc" stroke="#dbeafe" stroke-width="2"/>
+
+    <text x="158" y="276" font-size="17" font-weight="700" fill="#475569">Upstream constructs</text>
+    <text x="700" y="276" font-size="17" font-weight="700" fill="#475569">Mediator</text>
+    <text x="1160" y="276" font-size="17" font-weight="700" fill="#475569">Outcome</text>
+
+    <g filter="url(#nodeShadow)">
+      <rect x="158" y="302" width="420" height="118" rx="20" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+      <rect x="158" y="444" width="420" height="118" rx="20" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+      <rect x="158" y="586" width="420" height="118" rx="20" fill="#ffffff" stroke="#a7f3d0" stroke-width="2"/>
+
+      <rect x="660" y="394" width="328" height="214" rx="24" fill="url(#engagementFill)" stroke="#60a5fa" stroke-width="2.4"/>
+      <rect x="1060" y="432" width="310" height="138" rx="24" fill="url(#retentionFill)" stroke="#34d399" stroke-width="2.4"/>
+    </g>
+
+    <text x="186" y="347" font-size="28" font-weight="800" fill="#0f172a">CX: Creator Experience</text>
+    <text x="186" y="380" font-size="18" fill="#334155">Immersive storytelling and contextual relevance.</text>
+
+    <text x="186" y="489" font-size="28" font-weight="800" fill="#0f172a">CEX: Expectation Fit</text>
+    <text x="186" y="522" font-size="18" fill="#334155">Message-product alignment and transparent framing.</text>
+
+    <text x="186" y="631" font-size="28" font-weight="800" fill="#0f172a">BE: Brand Equity Transfer</text>
+    <text x="186" y="664" font-size="18" fill="#334155">Trust carried from creator credibility to brand value.</text>
+
+    <text x="696" y="452" font-size="34" font-weight="800" fill="#0f172a">CE: Engagement Quality</text>
+    <text x="696" y="488" font-size="20" fill="#334155">Core bridge variable in the reported model.</text>
+    <text x="696" y="520" font-size="19" fill="#0f766e" font-weight="700">Explained variance: R2 = 55%</text>
+
+    <text x="1094" y="490" font-size="32" font-weight="800" fill="#0f172a">CR: Retention</text>
+    <text x="1094" y="524" font-size="19" fill="#0f766e" font-weight="700">Explained variance: R2 = 70%</text>
+
+    <path d="M 578 360 C 628 360, 636 420, 660 448" fill="none" stroke="#0284c7" stroke-width="5" marker-end="url(#arrowA)"/>
+    <path d="M 578 502 C 628 502, 636 502, 660 502" fill="none" stroke="#0284c7" stroke-width="5" marker-end="url(#arrowA)"/>
+    <path d="M 578 644 C 628 644, 636 584, 660 554" fill="none" stroke="#0284c7" stroke-width="5" marker-end="url(#arrowA)"/>
+    <path d="M 988 500 C 1020 500, 1034 500, 1060 500" fill="none" stroke="#059669" stroke-width="7" marker-end="url(#arrowB)"/>
+
+    <rect x="664" y="624" width="320" height="58" rx="14" fill="#ecfeff" stroke="#67e8f9"/>
+    <text x="688" y="660" font-size="18" font-weight="700" fill="#155e75">Mediation insight: strengthen CE before scale pushes.</text>
+
+    <rect x="120" y="816" width="1360" height="112" rx="20" fill="#f8fafc" stroke="#d1d5db"/>
+    <text x="154" y="854" font-size="19" font-weight="700" fill="#0f172a">Case mapping used in this page</text>
+
+    <text x="154" y="885" font-size="17" fill="#334155">
+      <tspan font-weight="700" fill="#0369a1">Khoai Lang Thang:</tspan>
+      <tspan> CX + CE continuity loop.</tspan>
+    </text>
+    <text x="612" y="885" font-size="17" fill="#334155">
+      <tspan font-weight="700" fill="#0369a1">Vo Ha Linh:</tspan>
+      <tspan> CEX + CE expectation calibration.</tspan>
+    </text>
+    <text x="1048" y="885" font-size="17" fill="#334155">
+      <tspan font-weight="700" fill="#0369a1">Hannah Olala:</tspan>
+      <tspan> BE + CX narrative transfer.</tspan>
+    </text>
+
+    <text x="154" y="914" font-size="15" fill="#64748b">Diagram reflects reported structure and known summary metrics from this study page.</text>
+  </g>
+</svg>

@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Virtual Influencer Cues and Gen Z Purchase Intention | Chung Hy Dai</title>
+<meta content="Research on how central and peripheral virtual influencer cues affect Generation Z purchase intention, with speciesism as a moderator." name="description"/>
+<link as="style" href="styles/base.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="style" href="assets/vendor/phosphor/regular/style.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<link as="image" href="./assets/optimized/external/virtual-influencer-simulation-672.webp" imagesizes="(max-width: 900px) 72vw, 488px" imagesrcset="./assets/optimized/external/virtual-influencer-simulation-480.webp 480w, ./assets/optimized/external/virtual-influencer-simulation-672.webp 672w" rel="preload" type="image/webp"/>
+<noscript>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+</noscript>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+.page-research-virtual-focus {
+    --virtual-bg-0: #0b1220;
+    --virtual-bg-1: #162235;
+    --virtual-bg-2: #22324a;
+    --virtual-surface: rgba(10, 22, 37, 0.78);
+    --virtual-surface-strong: rgba(8, 17, 30, 0.88);
+    --virtual-line: rgba(148, 163, 184, 0.34);
+    --virtual-line-soft: rgba(148, 163, 184, 0.22);
+    --virtual-cyan: #7dd3fc;
+    --virtual-mint: #93c5fd;
+    --virtual-amber: #fbbf24;
+    --virtual-ink: #f1f5f9;
+    --virtual-muted: #c6d3e1;
+    --virtual-shadow: 0 24px 42px rgba(2, 8, 20, 0.44);
+    --focus-accent: #7dd3fc;
+    --focus-soft: rgba(125, 211, 252, 0.16);
+    --focus-line: rgba(148, 163, 184, 0.3);
+    --focus-shell-start: rgba(12, 22, 37, 0.9);
+    --focus-shell-end: rgba(8, 16, 28, 0.95);
+    --focus-card-bg: rgba(12, 23, 39, 0.8);
+    --focus-card-shadow: 0 16px 30px rgba(2, 8, 20, 0.4);
+    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--virtual-ink);
+    background:
+        radial-gradient(circle at 14% 14%, rgba(125, 211, 252, 0.12), transparent 36%),
+        radial-gradient(circle at 86% 10%, rgba(251, 191, 36, 0.08), transparent 34%),
+        radial-gradient(circle at 62% 76%, rgba(96, 165, 250, 0.1), transparent 42%),
+        linear-gradient(165deg, var(--virtual-bg-0) 0%, var(--virtual-bg-1) 52%, var(--virtual-bg-2) 100%);
+}
+
+.page-research-virtual-focus::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-research-virtual-focus::after {
+    content: "";
+    position: fixed;
+    width: 460px;
+    height: 460px;
+    left: -140px;
+    top: 16%;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(125, 211, 252, 0.14), rgba(125, 211, 252, 0));
+    filter: blur(16px);
+    opacity: 0.36;
+    pointer-events: none;
+    z-index: 0;
+    animation: virtualAura 16s ease-in-out infinite alternate;
+}
+
+.page-research-virtual-focus h1,
+.page-research-virtual-focus h2,
+.page-research-virtual-focus h3,
+.page-research-virtual-focus h4 {
+    font-family: "Orbitron", "Space Grotesk", sans-serif;
+    letter-spacing: 0.01em;
+}
+
+.page-research-virtual-focus .navbar {
+    background: rgba(3, 14, 27, 0.82);
+    border-bottom: 1px solid var(--virtual-line);
+    backdrop-filter: blur(14px);
+}
+
+.page-research-virtual-focus .logo {
+    color: #d8f4ff;
+}
+
+.page-research-virtual-focus .logo-mark {
+    background: linear-gradient(132deg, #7dd3fc, #93c5fd);
+    color: #02212e;
+}
+
+.page-research-virtual-focus .nav-link {
+    color: #b7d1e8;
+}
+
+.page-research-virtual-focus .nav-link:hover {
+    color: #dbeafe;
+}
+
+.page-research-virtual-focus .nav-cta.btn-primary {
+    border-color: rgba(125, 211, 252, 0.45);
+    background: linear-gradient(135deg, #7dd3fc, #60a5fa);
+    color: #0f172a;
+    box-shadow: 0 14px 24px rgba(96, 165, 250, 0.22);
+}
+
+.page-research-virtual-focus .parallax-bg {
+    opacity: 0.18;
+    filter: blur(66px) saturate(90%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-1 {
+    background: radial-gradient(circle at 18% 32%, rgba(125, 211, 252, 0.24), transparent 54%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-2 {
+    background: radial-gradient(circle at 82% 20%, rgba(251, 191, 36, 0.14), transparent 56%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-3 {
+    background: radial-gradient(circle at 56% 72%, rgba(96, 165, 250, 0.18), transparent 58%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-4 {
+    background: radial-gradient(circle at 76% 60%, rgba(148, 163, 184, 0.14), transparent 60%);
+}
+
+.page-research-virtual-focus .research-detail-hero {
+    padding: 118px 0 62px;
+}
+
+.page-research-virtual-focus main > .section.bg-light {
+    background: transparent;
+}
+
+.page-research-virtual-focus .virtual-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+    gap: clamp(0.95rem, 2.4vw, 1.5rem);
+    align-items: stretch;
+}
+
+.page-research-virtual-focus .virtual-hero-copy {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.page-research-virtual-focus .research-back-link {
+    width: fit-content;
+    border-radius: 999px;
+    border: 1px solid rgba(94, 234, 212, 0.42);
+    background: rgba(4, 31, 50, 0.7);
+    color: #dbeafe;
+    box-shadow: 0 10px 20px rgba(2, 8, 20, 0.26);
+}
+
+.page-research-virtual-focus .research-back-link:hover {
+    border-color: rgba(125, 211, 252, 0.68);
+    color: #ecfeff;
+    transform: translateX(-2px) translateY(-1px);
+}
+
+.page-research-virtual-focus .research-detail-header {
+    max-width: none;
+    padding: clamp(1.05rem, 2.2vw, 1.45rem);
+    border-radius: 28px;
+    border: 1px solid var(--virtual-line);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(125, 211, 252, 0.12), transparent 46%),
+        linear-gradient(155deg, rgba(8, 29, 49, 0.9), rgba(3, 18, 33, 0.9));
+    box-shadow: var(--virtual-shadow);
+}
+
+.page-research-virtual-focus .virtual-hero-badge {
+    width: fit-content;
+    margin-bottom: 0.82rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    background: linear-gradient(120deg, rgba(30, 58, 138, 0.28), rgba(30, 64, 175, 0.18));
+    color: #e2e8f0;
+    letter-spacing: 0.04em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.4;
+}
+
+.page-research-virtual-focus .research-detail-header .section-heading {
+    margin: 0 0 0.85rem;
+    max-width: 14ch;
+    font-size: clamp(2.2rem, 4.8vw, 3.85rem);
+    line-height: 1.04;
+    color: #ecfeff;
+}
+
+.page-research-virtual-focus .research-detail-header .section-desc {
+    max-width: 62ch;
+    font-size: 1.02rem;
+    color: var(--virtual-muted);
+    line-height: 1.72;
+}
+
+.page-research-virtual-focus .research-meta-tags {
+    margin-top: 1rem;
+    gap: 0.56rem;
+}
+
+.page-research-virtual-focus .research-meta-tags span {
+    border-radius: 13px;
+    border: 1px solid rgba(125, 211, 252, 0.34);
+    background: rgba(5, 30, 50, 0.62);
+    color: #dbeafe;
+    font-size: 0.77rem;
+    padding: 0.4rem 0.7rem;
+}
+
+.page-research-virtual-focus .research-meta-tags i {
+    color: var(--virtual-cyan);
+}
+
+.page-research-virtual-focus .virtual-holo-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 26px;
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    background:
+        radial-gradient(circle at 86% 12%, rgba(251, 191, 36, 0.24), transparent 42%),
+        linear-gradient(160deg, rgba(7, 30, 50, 0.94), rgba(3, 16, 30, 0.92));
+    box-shadow: var(--virtual-shadow);
+    padding: 0.9rem;
+    display: grid;
+    gap: 0.72rem;
+    animation: virtualFloat 11s ease-in-out infinite;
+}
+
+.page-research-virtual-focus .virtual-holo-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    pointer-events: none;
+}
+
+.page-research-virtual-focus .virtual-holo-label {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    padding: 0.3rem 0.62rem;
+    border-radius: 999px;
+    border: 1px solid rgba(125, 211, 252, 0.42);
+    background: rgba(6, 42, 67, 0.66);
+    color: #bdf8ff;
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.page-research-virtual-focus .virtual-holo-preview {
+    display: block;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(125, 211, 252, 0.3);
+    background: rgba(0, 0, 0, 0.36);
+    box-shadow: 0 14px 24px rgba(2, 8, 20, 0.34);
+}
+
+.page-research-virtual-focus .virtual-holo-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: saturate(0.96) contrast(1.02);
+}
+
+.page-research-virtual-focus .virtual-holo-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.52rem;
+}
+
+.page-research-virtual-focus .virtual-holo-metric {
+    border-radius: 12px;
+    border: 1px solid rgba(125, 211, 252, 0.3);
+    background: rgba(6, 29, 47, 0.72);
+    padding: 0.46rem 0.5rem;
+}
+
+.page-research-virtual-focus .virtual-holo-metric:last-child {
+    grid-column: 1 / -1;
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-label {
+    margin: 0 0 0.22rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #89bbd8;
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-value {
+    margin: 0;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #e5fcff;
+}
+
+.page-research-virtual-focus .research-focus-shell {
+    border-radius: 30px 16px 26px 18px;
+    border: 1px solid var(--virtual-line);
+    background: linear-gradient(145deg, var(--focus-shell-start), var(--focus-shell-end));
+    box-shadow: var(--virtual-shadow);
+}
+
+.page-research-virtual-focus .research-focus-shell::after {
+    border-color: rgba(148, 163, 184, 0.42);
+    background: linear-gradient(140deg, rgba(125, 211, 252, 0.12), rgba(147, 197, 253, 0.08));
+    opacity: 0.56;
+}
+
+.page-research-virtual-focus .research-focus-shell .badge {
+    border-color: rgba(148, 163, 184, 0.38);
+    background: linear-gradient(120deg, rgba(59, 130, 246, 0.2), rgba(37, 99, 235, 0.1));
+    color: #dbeafe;
+}
+
+.page-research-virtual-focus .section-heading,
+.page-research-virtual-focus .section-heading-focus {
+    color: #ebfdff;
+}
+
+.page-research-virtual-focus .research-copy-muted {
+    color: var(--virtual-muted);
+}
+
+.page-research-virtual-focus .research-kpi {
+    border-color: rgba(94, 234, 212, 0.34);
+    background: linear-gradient(160deg, rgba(7, 26, 44, 0.88), rgba(3, 17, 31, 0.9));
+    box-shadow: 0 14px 24px rgba(2, 8, 20, 0.4);
+}
+
+.page-research-virtual-focus .research-kpi::before {
+    background: linear-gradient(180deg, #7dd3fc, #60a5fa);
+}
+
+.page-research-virtual-focus .research-kpi .kpi-label {
+    color: #84aec9;
+}
+
+.page-research-virtual-focus .research-kpi .kpi-value {
+    color: #e8fcff;
+}
+
+.page-research-virtual-focus .virtual-citation {
+    margin: 0.86rem 0 0;
+    font-size: 0.9rem;
+    color: #9cc3dc;
+}
+
+.page-research-virtual-focus .virtual-citation a {
+    color: #93c5fd;
+    text-decoration: underline;
+    text-underline-offset: 0.18rem;
+}
+
+.page-research-virtual-focus .virtual-link-row {
+    margin-top: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+}
+
+.page-research-virtual-focus main .btn-primary {
+    border-color: rgba(125, 211, 252, 0.45);
+    background: linear-gradient(135deg, #7dd3fc, #60a5fa);
+    color: #0f172a;
+    box-shadow: 0 14px 24px rgba(96, 165, 250, 0.24);
+}
+
+.page-research-virtual-focus main .btn-primary:hover {
+    border-color: rgba(209, 250, 229, 0.95);
+    box-shadow: 0 18px 28px rgba(96, 165, 250, 0.28);
+}
+
+.page-research-virtual-focus main .btn-outline {
+    border-color: rgba(148, 163, 184, 0.44);
+    background: rgba(6, 27, 43, 0.64);
+    color: #dbeafe;
+}
+
+.page-research-virtual-focus main .btn-outline:hover {
+    border-color: rgba(125, 211, 252, 0.82);
+    background: rgba(7, 34, 54, 0.88);
+    color: #ecfeff;
+}
+
+.page-research-virtual-focus .infographic-mini-card {
+    border-color: rgba(125, 211, 252, 0.3);
+    background: linear-gradient(145deg, rgba(9, 33, 53, 0.9), rgba(6, 24, 40, 0.9));
+    box-shadow: 0 16px 28px rgba(2, 8, 20, 0.34);
+}
+
+.page-research-virtual-focus .infographic-mini-label {
+    color: #d8faff;
+}
+
+.page-research-virtual-focus .infographic-mini-note {
+    color: #9ec3db;
+}
+
+.page-research-virtual-focus .research-figure-stage {
+    border-radius: 28px 14px 24px 16px;
+    border: 1px solid rgba(125, 211, 252, 0.28);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(96, 165, 250, 0.1), transparent 42%),
+        linear-gradient(160deg, rgba(8, 31, 50, 0.94), rgba(3, 17, 31, 0.92));
+    box-shadow: 0 18px 28px rgba(2, 8, 20, 0.42);
+}
+
+.page-research-virtual-focus .research-figure-stage:hover {
+    border-color: rgba(125, 211, 252, 0.5);
+    box-shadow: 0 22px 34px rgba(2, 8, 20, 0.5);
+}
+
+.page-research-virtual-focus .research-figure-stage img,
+.page-research-virtual-focus .research-figure-stage video {
+    border-color: rgba(125, 211, 252, 0.32);
+    background: #010913;
+}
+
+.page-research-virtual-focus .research-figure-caption {
+    border-color: rgba(94, 234, 212, 0.34);
+    background: rgba(6, 29, 47, 0.78);
+    color: #afd3e8;
+}
+
+.page-research-virtual-focus .research-video-stage video {
+    border-color: rgba(148, 163, 184, 0.38);
+    box-shadow: 0 18px 30px rgba(2, 8, 20, 0.46);
+}
+
+.page-research-virtual-focus .research-callout,
+.page-research-virtual-focus .phase {
+    border-color: rgba(125, 211, 252, 0.3);
+    background: linear-gradient(160deg, rgba(9, 34, 54, 0.88), rgba(5, 20, 35, 0.9));
+    box-shadow: 0 14px 24px rgba(2, 8, 20, 0.34);
+}
+
+.page-research-virtual-focus .research-implication-stack {
+    counter-reset: virtualStep;
+}
+
+.page-research-virtual-focus .research-implication-stack .phase {
+    padding: 0.9rem 0.98rem 0.9rem 3.2rem;
+}
+
+.page-research-virtual-focus .research-implication-stack .phase::before {
+    counter-increment: virtualStep;
+    content: counter(virtualStep, decimal-leading-zero);
+    left: 0.86rem;
+    top: 0.84rem;
+    bottom: auto;
+    width: 1.84rem;
+    height: 1.84rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: #eff6ff;
+    background: linear-gradient(135deg, #7dd3fc, #60a5fa);
+    box-shadow: 0 8px 16px rgba(96, 165, 250, 0.26);
+}
+
+.page-research-virtual-focus .virtual-callout {
+    margin-top: 0.88rem;
+}
+
+.page-research-virtual-focus .strategy-callout {
+    border-color: rgba(251, 191, 36, 0.38);
+    background: linear-gradient(160deg, rgba(46, 33, 5, 0.56), rgba(6, 28, 44, 0.9));
+}
+
+.page-research-virtual-focus .ethics-callout {
+    border-color: rgba(94, 234, 212, 0.36);
+    background: linear-gradient(160deg, rgba(6, 45, 39, 0.5), rgba(6, 24, 40, 0.9));
+}
+
+.page-research-virtual-focus .research-callout h4,
+.page-research-virtual-focus .phase h4 {
+    color: #e7fcff;
+}
+
+.page-research-virtual-focus .research-callout p,
+.page-research-virtual-focus .phase p {
+    color: #9dc3dc;
+}
+
+.page-research-virtual-focus .virtual-back-link {
+    border-color: rgba(125, 211, 252, 0.52);
+    color: #d6fbff;
+    background: rgba(5, 30, 48, 0.72);
+}
+
+.page-research-virtual-focus .virtual-back-link:hover {
+    border-color: rgba(209, 250, 229, 0.94);
+    color: #ffffff;
+}
+
+.page-research-virtual-focus .footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(180deg, rgba(4, 14, 24, 0.86), rgba(2, 9, 17, 0.97));
+}
+
+.page-research-virtual-focus .footer-heading {
+    color: #e4fbff;
+}
+
+.page-research-virtual-focus .footer-desc,
+.page-research-virtual-focus .footer-contact-info,
+.page-research-virtual-focus .footer-bottom p {
+    color: #9fc0d8;
+}
+
+@keyframes virtualFloat {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes virtualAura {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(160px, 52px, 0);
+    }
+}
+
+@media (max-width: 1080px) {
+    .page-research-virtual-focus .virtual-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-virtual-focus .virtual-holo-panel {
+        max-width: min(640px, 100%);
+    }
+}
+
+@media (max-width: 900px) {
+    .page-research-virtual-focus .nav-toggle {
+        border-color: rgba(125, 211, 252, 0.38);
+        background: rgba(4, 24, 40, 0.9);
+    }
+
+    .page-research-virtual-focus .nav-toggle-bar {
+        background: #cbfbff;
+    }
+
+    .page-research-virtual-focus .nav-links {
+        border-color: rgba(125, 211, 252, 0.34);
+        background: rgba(4, 20, 35, 0.95);
+        box-shadow: 0 18px 32px rgba(2, 8, 20, 0.46);
+    }
+
+    .page-research-virtual-focus .nav-link {
+        color: #b7d1e8;
+    }
+
+    .page-research-virtual-focus .nav-link:hover {
+        color: #e8fcff;
+        background: rgba(14, 116, 144, 0.24);
+    }
+
+    .page-research-virtual-focus .nav-overlay {
+        background: rgba(1, 8, 18, 0.68);
+    }
+
+    .page-research-virtual-focus .navbar .nav-links .btn-outline {
+        border-color: rgba(148, 163, 184, 0.46);
+        color: #dbeafe;
+        background: rgba(6, 29, 47, 0.74);
+    }
+
+    .page-research-virtual-focus .navbar .nav-links .nav-cta {
+        border-color: rgba(125, 211, 252, 0.62);
+        background: linear-gradient(135deg, #7dd3fc, #60a5fa);
+        color: #052433;
+    }
+
+    .page-research-virtual-focus .research-detail-header .section-heading {
+        max-width: 100%;
+    }
+
+    .page-research-virtual-focus .research-kpi-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .page-research-virtual-focus .virtual-holo-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-virtual-focus .virtual-holo-metric:last-child {
+        grid-column: auto;
+    }
+
+    .page-research-virtual-focus .research-kpi-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-virtual-focus .virtual-hero-badge {
+        font-size: 0.66rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-research-virtual-focus::after,
+    .page-research-virtual-focus .virtual-holo-panel {
+        animation: none;
+    }
+}
+
+/* Light theme override */
+.page-research-virtual-focus {
+    --virtual-bg-0: #f8fbff;
+    --virtual-bg-1: #eef6ff;
+    --virtual-bg-2: #f8fafc;
+    --virtual-surface: rgba(255, 255, 255, 0.9);
+    --virtual-surface-strong: rgba(255, 255, 255, 0.97);
+    --virtual-line: rgba(15, 23, 42, 0.14);
+    --virtual-line-soft: rgba(15, 23, 42, 0.08);
+    --virtual-cyan: #0284c7;
+    --virtual-mint: #0369a1;
+    --virtual-amber: #b45309;
+    --virtual-ink: #0f172a;
+    --virtual-muted: #475569;
+    --virtual-shadow: 0 20px 34px rgba(15, 23, 42, 0.12);
+    --focus-accent: #0a7be0;
+    --focus-soft: rgba(10, 123, 224, 0.14);
+    --focus-line: rgba(10, 123, 224, 0.24);
+    --focus-shell-start: #eff6ff;
+    --focus-shell-end: #f8fafc;
+    --focus-card-bg: rgba(255, 255, 255, 0.92);
+    --focus-card-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    color: var(--virtual-ink);
+    background:
+        radial-gradient(circle at 14% 14%, rgba(14, 116, 144, 0.11), transparent 38%),
+        radial-gradient(circle at 86% 10%, rgba(245, 158, 11, 0.12), transparent 36%),
+        radial-gradient(circle at 62% 76%, rgba(59, 130, 246, 0.08), transparent 44%),
+        linear-gradient(165deg, var(--virtual-bg-0) 0%, var(--virtual-bg-1) 52%, var(--virtual-bg-2) 100%);
+}
+
+.page-research-virtual-focus::before {
+    opacity: 0.18;
+    background:
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+}
+
+.page-research-virtual-focus::after {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.2), rgba(56, 189, 248, 0));
+    opacity: 0.24;
+}
+
+.page-research-virtual-focus h1,
+.page-research-virtual-focus h2,
+.page-research-virtual-focus h3,
+.page-research-virtual-focus h4 {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .navbar {
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid var(--virtual-line);
+}
+
+.page-research-virtual-focus .logo {
+    color: #075985;
+}
+
+.page-research-virtual-focus .logo-mark {
+    background: linear-gradient(132deg, #0ea5e9, #38bdf8);
+    color: #ecfeff;
+}
+
+.page-research-virtual-focus .nav-link {
+    color: #334155;
+}
+
+.page-research-virtual-focus .nav-link:hover {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .nav-cta.btn-primary {
+    border-color: rgba(14, 116, 144, 0.34);
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: #eff6ff;
+    box-shadow: 0 12px 22px rgba(59, 130, 246, 0.2);
+}
+
+.page-research-virtual-focus .parallax-bg {
+    opacity: 0.24;
+    filter: blur(60px) saturate(108%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-1 {
+    background: radial-gradient(circle at 18% 32%, rgba(56, 189, 248, 0.2), transparent 54%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-2 {
+    background: radial-gradient(circle at 82% 20%, rgba(245, 158, 11, 0.18), transparent 56%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-3 {
+    background: radial-gradient(circle at 56% 72%, rgba(59, 130, 246, 0.16), transparent 58%);
+}
+
+.page-research-virtual-focus .parallax-bg.layer-4 {
+    background: radial-gradient(circle at 76% 60%, rgba(148, 163, 184, 0.12), transparent 60%);
+}
+
+.page-research-virtual-focus .research-back-link {
+    border-color: rgba(14, 165, 233, 0.3);
+    background: rgba(255, 255, 255, 0.9);
+    color: #0f172a;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+.page-research-virtual-focus .research-back-link:hover {
+    border-color: rgba(14, 116, 144, 0.46);
+    color: #0369a1;
+}
+
+.page-research-virtual-focus .research-detail-header {
+    border: 1px solid var(--virtual-line);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.16), transparent 46%),
+        linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.92));
+    box-shadow: var(--virtual-shadow);
+}
+
+.page-research-virtual-focus .virtual-hero-badge {
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: linear-gradient(120deg, rgba(224, 242, 254, 0.92), rgba(239, 246, 255, 0.9));
+    color: #155e75;
+}
+
+.page-research-virtual-focus .research-detail-header .section-heading {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .research-detail-header .section-desc,
+.page-research-virtual-focus .research-copy-muted {
+    color: var(--virtual-muted);
+}
+
+.page-research-virtual-focus .research-meta-tags span {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.88);
+    color: #334155;
+}
+
+.page-research-virtual-focus .research-meta-tags i {
+    color: #0284c7;
+}
+
+.page-research-virtual-focus .virtual-holo-panel {
+    border: 1px solid var(--virtual-line);
+    background:
+        radial-gradient(circle at 86% 12%, rgba(245, 158, 11, 0.16), transparent 42%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.92));
+    box-shadow: var(--virtual-shadow);
+}
+
+.page-research-virtual-focus .virtual-holo-panel::before {
+    border: 1px solid rgba(255, 255, 255, 0.72);
+}
+
+.page-research-virtual-focus .virtual-holo-label {
+    border: 1px solid rgba(14, 116, 144, 0.26);
+    background: rgba(224, 242, 254, 0.9);
+    color: #0c4a6e;
+}
+
+.page-research-virtual-focus .virtual-holo-preview {
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 12px 20px rgba(15, 23, 42, 0.12);
+}
+
+.page-research-virtual-focus .virtual-holo-metric {
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-label {
+    color: #64748b;
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-value {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .research-focus-shell {
+    border: 1px solid var(--focus-line);
+    background: linear-gradient(145deg, var(--focus-shell-start), var(--focus-shell-end));
+    box-shadow: 0 24px 38px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.page-research-virtual-focus .research-focus-shell::after {
+    border-color: rgba(255, 255, 255, 0.56);
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.08));
+    opacity: 0.65;
+}
+
+.page-research-virtual-focus .research-focus-shell .badge {
+    border-color: var(--focus-line);
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.94) 0%, var(--focus-soft) 140%);
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .section-heading,
+.page-research-virtual-focus .section-heading-focus {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .research-kpi {
+    border-color: var(--focus-line);
+    background: var(--focus-card-bg);
+    box-shadow: var(--focus-card-shadow);
+}
+
+.page-research-virtual-focus .research-kpi::before {
+    background: linear-gradient(180deg, #0ea5e9, rgba(255, 255, 255, 0));
+}
+
+.page-research-virtual-focus .research-kpi .kpi-label {
+    color: #64748b;
+}
+
+.page-research-virtual-focus .research-kpi .kpi-value {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .virtual-citation {
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-citation a {
+    color: #0369a1;
+}
+
+.page-research-virtual-focus main .btn-primary {
+    border-color: rgba(14, 116, 144, 0.34);
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    color: #eff6ff;
+    box-shadow: 0 14px 24px rgba(59, 130, 246, 0.2);
+}
+
+.page-research-virtual-focus main .btn-primary:hover {
+    border-color: rgba(14, 116, 144, 0.5);
+    box-shadow: 0 16px 26px rgba(59, 130, 246, 0.24);
+}
+
+.page-research-virtual-focus main .btn-outline {
+    border-color: rgba(15, 23, 42, 0.2);
+    background: rgba(255, 255, 255, 0.92);
+    color: #0f172a;
+}
+
+.page-research-virtual-focus main .btn-outline:hover {
+    border-color: rgba(14, 116, 144, 0.44);
+    background: rgba(240, 249, 255, 0.96);
+    color: #0c4a6e;
+}
+
+.page-research-virtual-focus .infographic-mini-card {
+    border-color: rgba(14, 116, 144, 0.2);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9));
+    box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
+}
+
+.page-research-virtual-focus .infographic-mini-label {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .infographic-mini-note {
+    color: #475569;
+}
+
+.page-research-virtual-focus .research-figure-stage {
+    border-color: var(--focus-line);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(59, 130, 246, 0.08), transparent 42%),
+        linear-gradient(160deg, rgba(255, 255, 255, 0.97), rgba(239, 246, 255, 0.92));
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.12);
+}
+
+.page-research-virtual-focus .research-figure-stage:hover {
+    border-color: rgba(14, 116, 144, 0.34);
+    box-shadow: 0 18px 32px rgba(15, 23, 42, 0.14);
+}
+
+.page-research-virtual-focus .research-figure-stage img {
+    border-color: rgba(148, 163, 184, 0.24);
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.page-research-virtual-focus .research-figure-stage video {
+    border-color: rgba(148, 163, 184, 0.24);
+    background: #020617;
+}
+
+.page-research-virtual-focus .research-figure-caption {
+    border-color: rgba(148, 163, 184, 0.28);
+    background: rgba(248, 250, 252, 0.88);
+    color: #475569;
+}
+
+.page-research-virtual-focus .research-video-stage video {
+    box-shadow: 0 12px 22px rgba(15, 23, 42, 0.16);
+}
+
+.page-research-virtual-focus .research-callout,
+.page-research-virtual-focus .phase {
+    border-color: var(--focus-line);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.88));
+    box-shadow: var(--focus-card-shadow);
+}
+
+.page-research-virtual-focus .research-implication-stack .phase::before {
+    color: #eff6ff;
+    background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.22);
+}
+
+.page-research-virtual-focus .strategy-callout {
+    border-color: rgba(245, 158, 11, 0.34);
+    background: linear-gradient(160deg, rgba(255, 251, 235, 0.96), rgba(239, 246, 255, 0.88));
+}
+
+.page-research-virtual-focus .ethics-callout {
+    border-color: rgba(20, 184, 166, 0.3);
+    background: linear-gradient(160deg, rgba(240, 253, 250, 0.96), rgba(239, 246, 255, 0.88));
+}
+
+.page-research-virtual-focus .research-callout h4,
+.page-research-virtual-focus .phase h4 {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .research-callout p,
+.page-research-virtual-focus .phase p {
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-back-link {
+    border-color: rgba(14, 116, 144, 0.34);
+    color: #0f172a;
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.page-research-virtual-focus .virtual-back-link:hover {
+    border-color: rgba(14, 116, 144, 0.5);
+    color: #0c4a6e;
+}
+
+.page-research-virtual-focus .footer {
+    border-top: 1px solid rgba(148, 163, 184, 0.24);
+    background: linear-gradient(180deg, rgba(239, 246, 255, 0.86), rgba(241, 245, 249, 0.96));
+}
+
+.page-research-virtual-focus .footer-heading {
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .footer-desc,
+.page-research-virtual-focus .footer-contact-info,
+.page-research-virtual-focus .footer-bottom p {
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+}
+
+.page-research-virtual-focus .virtual-holo-metric .metric-value {
+    font-size: 1rem;
+}
+
+.page-research-virtual-focus .virtual-concept-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.page-research-virtual-focus .virtual-concept-card {
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+    padding: 0.8rem 0.9rem;
+}
+
+.page-research-virtual-focus .virtual-concept-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1rem;
+    line-height: 1.28;
+}
+
+.page-research-virtual-focus .virtual-concept-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.54;
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-examples-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.page-research-virtual-focus .virtual-example-card {
+    margin: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    background: #ffffff;
+    box-shadow: 0 12px 20px rgba(15, 23, 42, 0.1);
+}
+
+.page-research-virtual-focus .virtual-example-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.page-research-virtual-focus .virtual-example-card figcaption {
+    padding: 0.55rem 0.65rem 0.7rem;
+    font-size: 0.92rem;
+    line-height: 1.44;
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-method-chip-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.page-research-virtual-focus .virtual-method-chip {
+    border-radius: 14px;
+    border: 1px solid rgba(14, 116, 144, 0.22);
+    background: rgba(255, 255, 255, 0.94);
+    padding: 0.6rem 0.7rem;
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.page-research-virtual-focus .virtual-method-chip span {
+    display: block;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    letter-spacing: 0.03em;
+    color: #64748b;
+}
+
+.page-research-virtual-focus .virtual-method-chip strong {
+    display: block;
+    margin-top: 0.16rem;
+    font-size: 0.97rem;
+    line-height: 1.35;
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .virtual-simulation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.page-research-virtual-focus .virtual-sim-card {
+    border: 1px solid rgba(14, 116, 144, 0.2);
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 14px;
+    padding: 0.6rem;
+}
+
+.page-research-virtual-focus .virtual-sim-pill {
+    display: inline-flex;
+    margin-bottom: 0.45rem;
+    padding: 0.26rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(14, 116, 144, 0.26);
+    background: rgba(224, 242, 254, 0.92);
+    font-size: 0.84rem;
+    line-height: 1.28;
+    color: #0c4a6e;
+}
+
+.page-research-virtual-focus .virtual-sim-card img {
+    width: min(100%, 340px);
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    background: #f8fafc;
+    margin: 0 auto;
+}
+
+.page-research-virtual-focus .virtual-sim-card p {
+    margin: 0.52rem 0 0;
+    font-size: 0.94rem;
+    line-height: 1.48;
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-result-note-grid {
+    margin-top: 0.95rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.page-research-virtual-focus .virtual-result-note {
+    border: 1px solid rgba(14, 116, 144, 0.2);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+    padding: 0.7rem 0.75rem;
+}
+
+.page-research-virtual-focus .virtual-result-note h4 {
+    margin: 0 0 0.3rem;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    color: #0f172a;
+}
+
+.page-research-virtual-focus .virtual-result-note p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.52;
+    color: #475569;
+}
+
+.page-research-virtual-focus .research-figure-caption {
+    font-size: 0.95rem;
+}
+
+.page-research-virtual-focus .virtual-cert-outside {
+    padding: 0 0 2.2rem;
+}
+
+.page-research-virtual-focus .virtual-cert-card {
+    border-radius: 18px;
+    border: 1px solid rgba(14, 116, 144, 0.24);
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9));
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+    padding: 0.95rem 1rem;
+}
+
+.page-research-virtual-focus .virtual-cert-label {
+    margin: 0;
+    font-size: 0.83rem;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0c4a6e;
+}
+
+.page-research-virtual-focus .virtual-cert-desc {
+    margin: 0.36rem 0 0;
+    font-size: 0.96rem;
+    line-height: 1.5;
+    color: #475569;
+}
+
+.page-research-virtual-focus .virtual-cert-link {
+    margin-top: 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.96rem;
+    line-height: 1.32;
+    font-weight: 600;
+    color: #075985;
+    text-decoration: none;
+}
+
+.page-research-virtual-focus .virtual-cert-link:hover {
+    color: #0369a1;
+    text-decoration: underline;
+    text-underline-offset: 0.16rem;
+}
+
+@media (max-width: 900px) {
+    .page-research-virtual-focus .nav-toggle {
+        border-color: rgba(15, 23, 42, 0.16);
+        background: rgba(255, 255, 255, 0.92);
+    }
+
+    .page-research-virtual-focus .nav-toggle-bar {
+        background: #0f172a;
+    }
+
+    .page-research-virtual-focus .nav-links {
+        border-color: rgba(15, 23, 42, 0.12);
+        background: rgba(255, 255, 255, 0.96);
+        box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+    }
+
+    .page-research-virtual-focus .nav-link {
+        color: #334155;
+    }
+
+    .page-research-virtual-focus .nav-link:hover {
+        color: #0f172a;
+        background: rgba(14, 165, 233, 0.12);
+    }
+
+    .page-research-virtual-focus .nav-overlay {
+        background: rgba(15, 23, 42, 0.28);
+    }
+
+    .page-research-virtual-focus .navbar .nav-links .btn-outline {
+        border-color: rgba(15, 23, 42, 0.2);
+        color: #0f172a;
+        background: rgba(255, 255, 255, 0.94);
+    }
+
+    .page-research-virtual-focus .navbar .nav-links .nav-cta {
+        border-color: rgba(14, 116, 144, 0.4);
+        background: linear-gradient(135deg, #0ea5e9, #3b82f6);
+        color: #eff6ff;
+    }
+
+    .page-research-virtual-focus .virtual-concept-grid,
+    .page-research-virtual-focus .virtual-examples-grid,
+    .page-research-virtual-focus .virtual-method-chip-grid,
+    .page-research-virtual-focus .virtual-result-note-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .page-research-virtual-focus .virtual-simulation-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .page-research-virtual-focus .virtual-concept-grid,
+    .page-research-virtual-focus .virtual-examples-grid,
+    .page-research-virtual-focus .virtual-method-chip-grid,
+    .page-research-virtual-focus .virtual-result-note-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-virtual-focus .virtual-example-card img {
+        height: 220px;
+    }
+
+    .page-research-virtual-focus .virtual-sim-card img {
+        width: min(100%, 320px);
+        height: auto;
+    }
+}
+</style>
+<link href="./research-virtual-influencers.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Virtual Influencer Cues and Gen Z Purchase Intention | Chung Hy Dai" property="og:title"/>
+<meta content="Research on how central and peripheral virtual influencer cues affect Generation Z purchase intention, with speciesism as a moderator." property="og:description"/>
+<meta content="./research-virtual-influencers.html" property="og:url"/>
+</head>
+<body class="page-research-detail page-research-non-hotel-fig-refresh page-research-custom page-research-virtual page-research-virtual-focus" data-page="research" data-research-id="virtual-influencers">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a aria-label="Chung Hy Dai home" class="logo magnetic" data-strength="20" href="index.html"><span aria-hidden="true" class="logo-mark">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main>
+<section class="research-detail-hero">
+<div class="section-container virtual-hero-grid">
+<div class="virtual-hero-copy">
+<a class="research-back-link reveal-on-load" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+</a>
+<div class="research-detail-header reveal-on-load">
+<span class="badge virtual-hero-badge">EEEU 2024 conference context; Springer first online: June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)</span>
+<h1 class="section-heading">Virtual Influencer Cues and Gen Z Purchase Intention</h1>
+<p class="section-desc max-w-lg">
+This study tests Instagram-style virtual influencer content using a 2 x 2 cue experiment with Gen Z respondents in Vietnam.
+It evaluates central and peripheral cue effects on purchase intention and the moderating role of speciesism.
+</p>
+<div class="research-meta-tags">
+<span><i class="ph ph-calendar"></i> Conference context: 2024</span>
+<span><i class="ph ph-book-open-text"></i> Springer first online: June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)</span>
+<span><i class="ph ph-users"></i> Co-Author</span>
+</div>
+</div>
+</div>
+<aside class="virtual-holo-panel reveal-on-load">
+<p class="virtual-holo-label"><i class="ph ph-cards"></i> Experimental Context Frame</p>
+<picture class="virtual-holo-preview">
+<source sizes="(max-width: 900px) 72vw, 488px" srcset="./assets/optimized/external/virtual-influencer-simulation-480.avif 480w, ./assets/optimized/external/virtual-influencer-simulation-672.avif 672w" type="image/avif"/>
+<source sizes="(max-width: 900px) 72vw, 488px" srcset="./assets/optimized/external/virtual-influencer-simulation-480.webp 480w, ./assets/optimized/external/virtual-influencer-simulation-672.webp 672w" type="image/webp"/>
+<img alt="Instagram simulation screenshot used for context framing in the Gen Z cue experiment" decoding="async" fetchpriority="high" height="1354" loading="eager" src="./assets/external/virtual-influencer-simulation.png" width="672"/>
+</picture>
+<div class="virtual-holo-metrics">
+<article class="virtual-holo-metric">
+<p class="metric-label">Core Theory</p>
+<p class="metric-value">ELM central and peripheral cues</p>
+</article>
+<article class="virtual-holo-metric">
+<p class="metric-label">Key Moderator</p>
+<p class="metric-value">Speciesism in human versus non-human bias</p>
+</article>
+<article class="virtual-holo-metric">
+<p class="metric-label">Simulation Setup</p>
+<p class="metric-value">Instagram post simulation with four cue conditions</p>
+</article>
+</div>
+</aside>
+</div>
+</section>
+
+<section class="section virtual-snapshot-section">
+<div class="section-container">
+<div class="research-focus-shell virtual-snapshot-shell reveal">
+<span class="badge">Background</span>
+<h2 class="section-heading section-heading-compact">Background and Research Question</h2>
+<p class="research-copy-muted">
+Virtual influencers are growing in Vietnam, but evidence on how Gen Z responds to different persuasive cues is still limited.
+This study tests how cue strength in virtual influencer content changes purchase intention, and whether speciesism changes that response.
+</p>
+<div class="research-kpi-strip kpi-tight" data-evidence-tier="derived">
+<article class="research-kpi">
+<p class="kpi-label">Sample</p>
+<p class="kpi-value">N = 244 valid responses</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Design</p>
+<p class="kpi-value">2 x 2 factorial experiment</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Platform Task</p>
+<p class="kpi-value">Simulated Instagram feed post</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Product Context</p>
+<p class="kpi-value">Headphone endorsement scenario</p>
+</article>
+</div>
+<div class="virtual-concept-grid">
+<article class="virtual-concept-card">
+<h3>Virtual influencer</h3>
+<p>
+A virtual influencer is a computer-generated social media persona designed to act like a human influencer.
+It can post content, interact with followers, and endorse products.
+</p>
+</article>
+<article class="virtual-concept-card">
+<h3>Speciesism</h3>
+<p>
+Speciesism is a bias that gives higher moral value to humans than non-human entities.
+In this study, higher speciesism is linked to weaker purchase intention toward virtual influencers.
+</p>
+</article>
+<article class="virtual-concept-card">
+<h3>ELM cue logic</h3>
+<p>
+The central cue is argument quality. Peripheral cues are social attractiveness, physical attractiveness, and attitude homophily.
+The study tests both cue effects and their interaction.
+</p>
+</article>
+</div>
+<div class="virtual-examples-grid" aria-label="Online virtual influencer visual contexts">
+<figure class="virtual-example-card">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-480.avif 480w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-768.avif 768w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-1024.avif 1024w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-1230.avif 1230w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-480.webp 480w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-768.webp 768w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-1024.webp 1024w, ./assets/optimized/external/toc-tien-ai-clear-head-virtual-influencer-1230.webp 1230w" type="image/webp"/>
+<img alt="Photoreal virtual influencer visual context (fashion style)" decoding="async" height="800" loading="lazy" src="./assets/external/toc-tien-ai-clear-head-virtual-influencer.jpg" width="1230"/>
+</picture>
+<figcaption>Example context: photoreal virtual influencer profile.</figcaption>
+</figure>
+<figure class="virtual-example-card">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/nebasei-kokoro-vtuber-480.avif 480w, ./assets/optimized/external/nebasei-kokoro-vtuber-768.avif 768w, ./assets/optimized/external/nebasei-kokoro-vtuber-970.avif 970w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/nebasei-kokoro-vtuber-480.webp 480w, ./assets/optimized/external/nebasei-kokoro-vtuber-768.webp 768w, ./assets/optimized/external/nebasei-kokoro-vtuber-970.webp 970w" type="image/webp"/>
+<img alt="Anime-style virtual influencer avatar context" decoding="async" height="947" loading="lazy" src="./assets/external/nebasei-kokoro-vtuber.png" width="970"/>
+</picture>
+<figcaption>Example context: anime-style virtual influencer profile.</figcaption>
+</figure>
+<figure class="virtual-example-card">
+<picture>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/codemiko-vtuber-480.avif 480w, ./assets/optimized/external/codemiko-vtuber-717.avif 717w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 32vw" srcset="./assets/optimized/external/codemiko-vtuber-480.webp 480w, ./assets/optimized/external/codemiko-vtuber-717.webp 717w" type="image/webp"/>
+<img alt="3D virtual influencer avatar context" decoding="async" height="783" loading="lazy" src="./assets/external/codemiko-vtuber.png" width="717"/>
+</picture>
+<figcaption>Example context: 3D virtual influencer profile.</figcaption>
+</figure>
+</div>
+<p class="virtual-citation">
+<strong>Study source:</strong> Dai Chung Hy et al., <em>Exploring the effect of social media content of virtual influencers on Generation Z purchase intention</em>, EEEU 2024.
+</p>
+<div class="infographic-mini-card">
+<a aria-label="Open EEEU infographic PDF" class="infographic-mini-preview" href="./assets/research-files/EEEU-infographic.pdf" rel="noopener noreferrer" target="_blank">
+<picture>
+<source sizes="(max-width: 900px) 58vw, 260px" srcset="./assets/optimized/eeeu-infographic-preview-320.avif 320w, ./assets/optimized/eeeu-infographic-preview-480.avif 480w, ./assets/optimized/eeeu-infographic-preview-720.avif 720w, ./assets/optimized/eeeu-infographic-preview-900.avif 900w" type="image/avif"/>
+<source sizes="(max-width: 900px) 58vw, 260px" srcset="./assets/optimized/eeeu-infographic-preview-320.webp 320w, ./assets/optimized/eeeu-infographic-preview-480.webp 480w, ./assets/optimized/eeeu-infographic-preview-720.webp 720w, ./assets/optimized/eeeu-infographic-preview-900.webp 900w" type="image/webp"/>
+<img alt="EEEU 2024 one-page infographic preview for virtual influencer study" decoding="async" height="2250" loading="lazy" src="./assets/optimized/eeeu-infographic-preview-optimized.webp" width="900"/>
+</picture>
+</a>
+<div>
+<p class="infographic-mini-label">EEEU 2024 Infographic</p>
+<p class="infographic-mini-note">
+One-page visual summary of the virtual influencer trust study, added in a compact format for quick scan.
+</p>
+<div class="infographic-mini-actions">
+<a class="btn-outline magnetic" data-strength="12" href="./assets/research-files/EEEU-infographic.pdf" rel="noopener noreferrer" target="_blank"><i class="ph ph-eye"></i> Open Infographic</a>
+<a class="btn-primary magnetic" data-strength="12" download="" href="./assets/research-files/EEEU-infographic.pdf"><i class="ph ph-download-simple"></i> Download</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light virtual-method-section">
+<div class="section-container">
+<div class="research-focus-shell virtual-method-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Method</span>
+<h2 class="section-heading section-heading-focus">Method and Instagram Simulation</h2>
+</div>
+<p class="research-copy-muted">
+Participants were randomly assigned to one of four stimulus blocks in a 2 x 2 design: central cue high or low, and peripheral cue high or low.
+The survey asked respondents to imagine scrolling Instagram and evaluate a virtual influencer post that promoted headphones.
+</p>
+<div class="virtual-method-chip-grid" data-evidence-tier="reported">
+<article class="virtual-method-chip"><span>Design</span><strong>2 x 2 factorial</strong></article>
+<article class="virtual-method-chip"><span>Blocks</span><strong>4 randomized blocks</strong></article>
+<article class="virtual-method-chip"><span>Block size</span><strong>60, 62, 62, 60</strong></article>
+<article class="virtual-method-chip"><span>Platform simulation</span><strong>Instagram post + caption</strong></article>
+<article class="virtual-method-chip"><span>Analysis</span><strong>Regression + ANOVA</strong></article>
+<article class="virtual-method-chip"><span>Age profile</span><strong>Mean 20.04 (SD 1.78)</strong></article>
+</div>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<div class="virtual-simulation-grid" role="img" aria-label="Four simulated Instagram cue conditions used in the experiment">
+<article class="virtual-sim-card">
+<span class="virtual-sim-pill">Block 1: High central + High peripheral</span>
+<picture>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-high-high-480.avif 480w, ./assets/optimized/external/vi-sim-high-high-686.avif 686w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-high-high-480.webp 480w, ./assets/optimized/external/vi-sim-high-high-686.webp 686w" type="image/webp"/>
+<img alt="Instagram simulation screenshot for high central and high peripheral cue condition" decoding="async" height="1376" loading="lazy" src="./assets/external/vi-sim-high-high.png" width="686"/>
+</picture>
+<p>Strong message quality plus high attractiveness and homophily cues.</p>
+</article>
+<article class="virtual-sim-card">
+<span class="virtual-sim-pill">Block 2: High central + Low peripheral</span>
+<picture>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-high-low-480.avif 480w, ./assets/optimized/external/vi-sim-high-low-712.avif 712w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-high-low-480.webp 480w, ./assets/optimized/external/vi-sim-high-low-712.webp 712w" type="image/webp"/>
+<img alt="Instagram simulation screenshot for high central and low peripheral cue condition" decoding="async" height="1336" loading="lazy" src="./assets/external/vi-sim-high-low.png" width="712"/>
+</picture>
+<p>Strong message quality with weaker social and visual attraction cues.</p>
+</article>
+<article class="virtual-sim-card">
+<span class="virtual-sim-pill">Block 3: Low central + High peripheral</span>
+<picture>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-low-high-480.avif 480w, ./assets/optimized/external/vi-sim-low-high-768.avif 768w, ./assets/optimized/external/vi-sim-low-high-808.avif 808w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-low-high-480.webp 480w, ./assets/optimized/external/vi-sim-low-high-768.webp 768w, ./assets/optimized/external/vi-sim-low-high-808.webp 808w" type="image/webp"/>
+<img alt="Instagram simulation screenshot for low central and high peripheral cue condition" decoding="async" height="1340" loading="lazy" src="./assets/external/vi-sim-low-high.png" width="808"/>
+</picture>
+<p>Lower argument quality with stronger emotional and appearance cues.</p>
+</article>
+<article class="virtual-sim-card">
+<span class="virtual-sim-pill">Block 4: Low central + Low peripheral</span>
+<picture>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-low-low-480.avif 480w, ./assets/optimized/external/vi-sim-low-low-768.avif 768w, ./assets/optimized/external/vi-sim-low-low-802.avif 802w" type="image/avif"/>
+<source sizes="(max-width: 900px) 100vw, 24vw" srcset="./assets/optimized/external/vi-sim-low-low-480.webp 480w, ./assets/optimized/external/vi-sim-low-low-768.webp 768w, ./assets/optimized/external/vi-sim-low-low-802.webp 802w" type="image/webp"/>
+<img alt="Instagram simulation screenshot for low central and low peripheral cue condition" decoding="async" height="1340" loading="lazy" src="./assets/external/vi-sim-low-low.png" width="802"/>
+</picture>
+<p>Lower message quality and lower peripheral attractiveness cues.</p>
+</article>
+</div>
+<figcaption class="research-figure-caption">
+Questionnaire simulation structure across four cue conditions; Block 1 shows the high-central and high-peripheral condition.
+</figcaption>
+</figure>
+<p class="research-copy-muted">
+Manipulation checks confirmed cue separation: peripheral cue t(242) = -5.44, p &lt; .001 and central cue t(242) = -5.05, p &lt; .001.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section bg-light virtual-evidence-section">
+<div class="section-container">
+<div class="research-focus-shell virtual-evidence-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Results</span>
+<h2 class="section-heading section-heading-focus">Results</h2>
+</div>
+<p class="research-copy-muted">
+Regression results show that social attractiveness, physical attractiveness, and attitude homophily were positive predictors of purchase intention.
+Argument quality was significant but negative in this model (adjusted R<sup>2</sup> = 0.30).
+</p>
+<div class="dual-figure-grid">
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="Reported regression coefficients and ANOVA test summary from the virtual influencer experiment with Generation Z participants" decoding="async" height="980" loading="lazy" src="./assets/viz-virtual-cue-effects.svg" width="1600"/>
+<figcaption class="research-figure-caption">Reported regression coefficients and ANOVA outputs for the study sample (N = 244).</figcaption>
+</figure>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="Peripheral cue mean difference and speciesism moderation pattern from the virtual influencer experiment" decoding="async" height="980" loading="lazy" src="./assets/viz-virtual-speciesism-moderation.svg" width="1600"/>
+<figcaption class="research-figure-caption">Peripheral-cue effect and speciesism moderation pattern from the reported analysis.</figcaption>
+</figure>
+</div>
+<h3 class="visually-hidden">Key result conclusions</h3>
+<div class="virtual-result-note-grid">
+<article class="virtual-result-note">
+<h4>Main effect conclusion</h4>
+<p>Peripheral cues showed an independent positive effect on purchase intention, F(1, 240) = 7.284, p = .007, while central cue main effect was not significant.</p>
+</article>
+<article class="virtual-result-note">
+<h4>Interaction conclusion</h4>
+<p>The central by peripheral interaction was not significant, F(1, 240) = 0.08, p = .779, so the combined interaction hypothesis was not supported.</p>
+</article>
+<article class="virtual-result-note">
+<h4>Speciesism conclusion</h4>
+<p>High-speciesism participants remained low in purchase intention even when peripheral cues were stronger, while low-speciesism participants responded more positively.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section bg-light virtual-ethics-section">
+<div class="section-container">
+<div class="research-focus-shell virtual-ethics-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Managerial Implications</span>
+<h2 class="section-heading section-heading-focus">Managerial Implications</h2>
+</div>
+<h3 class="visually-hidden">Execution principles</h3>
+<article class="research-callout strategy-callout virtual-callout">
+<h4>Cue sequencing rule for campaigns</h4>
+<p>
+Design strong peripheral cues to capture attention, but pair them with clear and credible product claims to sustain trust in later campaign stages.
+</p>
+</article>
+<p class="research-copy-muted">
+Segment strategy should account for speciesism. High-speciesism segments may require additional human reassurance signals rather than aesthetics alone.
+</p>
+<div class="research-implication-stack">
+<article class="phase">
+<h4>Build peripheral cues deliberately</h4>
+<p>Increase social and physical appeal with culturally relevant styling and homophily cues for Gen Z audiences.</p>
+</article>
+<article class="phase">
+<h4>Protect message credibility</h4>
+<p>Maintain argument quality in captions and product claims, especially for higher-involvement categories.</p>
+</article>
+<article class="phase">
+<h4>Segment by speciesism profile</h4>
+<p>For audiences with higher speciesism, combine virtual endorsers with stronger humanized cues and reassurance.</p>
+</article>
+</div>
+<article class="research-callout ethics-callout virtual-callout">
+<h4>Execution guardrail</h4>
+<p>
+Use clear disclosure that the endorser is virtual, and avoid manipulative framing in youth-focused campaigns.
+</p>
+</article>
+</div>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic virtual-back-link" data-strength="15" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+</a>
+</div>
+</div>
+</section>
+</main>
+<section class="virtual-cert-outside" aria-label="Supporting certificate file">
+<div class="section-container">
+<div class="virtual-cert-card reveal">
+<p class="virtual-cert-label">Supporting Certificate</p>
+<p class="virtual-cert-desc">The file below is a conference certificate and is placed outside the research narrative section.</p>
+<a class="virtual-cert-link" href="./assets/research-files/Virtual-Influencer.pdf" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-file-pdf"></i> Virtual Influencer Conference Certificate (PDF)
+</a>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+</a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Chung Hy Dai.</p>
+</div>
+</div>
+</footer>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>

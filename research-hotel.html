@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Booking Review Segmentation for Hotels | Chung Hy Dai</title>
+<meta content="Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation." name="description"/>
+<link href="styles/base.css" rel="stylesheet"/>
+<link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="./research-hotel.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Booking Review Segmentation for Hotels | Chung Hy Dai" property="og:title"/>
+<meta content="Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation." property="og:description"/>
+<meta content="./research-hotel.html" property="og:url"/>
+<script>
+(() => {
+    const canonicalLink = document.querySelector('link[rel="canonical"]');
+    const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+    const absolutePageUrl = new URL('./research-hotel.html', window.location.href).href;
+
+    if (canonicalLink) canonicalLink.setAttribute('href', absolutePageUrl);
+    if (ogUrlMeta) ogUrlMeta.setAttribute('content', absolutePageUrl);
+})();
+</script>
+<style>
+.page-research-hotel-focus {
+    --hotel-ink: #1f2a3d;
+    --hotel-muted: #465975;
+    --hotel-soft: #7288a6;
+    --hotel-line: rgba(95, 121, 167, 0.24);
+    --hotel-line-strong: rgba(77, 100, 144, 0.34);
+    --hotel-shell: rgba(247, 252, 255, 0.95);
+    --hotel-shell-strong: rgba(252, 254, 255, 0.98);
+    --hotel-olive: #2f8b8f;
+    --hotel-copper: #f2aa5a;
+    --hotel-navy: #355f9f;
+    --hotel-terracotta: #dc7b71;
+    --hotel-shadow: 0 22px 36px rgba(44, 69, 108, 0.13);
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    color: var(--hotel-ink);
+    background:
+        radial-gradient(circle at 9% 12%, rgba(132, 186, 255, 0.28), transparent 36%),
+        radial-gradient(circle at 92% 10%, rgba(104, 221, 198, 0.28), transparent 34%),
+        radial-gradient(circle at 76% 88%, rgba(255, 180, 126, 0.24), transparent 36%),
+        linear-gradient(180deg, #f5fbff 0%, #edf7ff 45%, #f8fcff 100%);
+}
+
+.page-research-hotel-focus::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    background:
+        repeating-linear-gradient(90deg, rgba(111, 146, 191, 0.17) 0 1px, transparent 1px 46px),
+        repeating-linear-gradient(0deg, rgba(111, 146, 191, 0.14) 0 1px, transparent 1px 38px);
+}
+
+.page-research-hotel-focus h1,
+.page-research-hotel-focus h2,
+.page-research-hotel-focus h3,
+.page-research-hotel-focus h4,
+.page-research-hotel-focus .section-heading,
+.page-research-hotel-focus .footer-heading {
+    font-family: "Bodoni Moda", "Cormorant Garamond", "Times New Roman", serif;
+    color: #1f314f;
+    letter-spacing: 0.01em;
+}
+
+.page-research-hotel-focus .research-copy-muted,
+.page-research-hotel-focus .section-desc,
+.page-research-hotel-focus .hotel-kpi-note,
+.page-research-hotel-focus .hotel-pulse-desc,
+.page-research-hotel-focus .hotel-pulse-note,
+.page-research-hotel-focus .evidence-text p,
+.page-research-hotel-focus .hotel-impact-item p,
+.page-research-hotel-focus .hotel-playbook-card p:last-child {
+    color: var(--hotel-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.page-research-hotel-focus .navbar {
+    background: rgba(245, 250, 255, 0.9);
+    border-bottom: 1px solid var(--hotel-line);
+    backdrop-filter: blur(10px);
+}
+
+.page-research-hotel-focus .logo {
+    color: #2f678f;
+}
+
+.page-research-hotel-focus .logo-mark {
+    background: linear-gradient(135deg, #2f8b8f 0%, #4d79c4 52%, #f2aa5a 100%);
+    color: #fff8ef;
+}
+
+.page-research-hotel-focus .nav-link {
+    color: #3f5575;
+}
+
+.page-research-hotel-focus .nav-link:hover {
+    color: #2f8b8f;
+}
+
+.page-research-hotel-focus .nav-toggle-bar {
+    background: #3f5f89;
+}
+
+.page-research-hotel-focus .nav-cta.btn-primary {
+    border-color: rgba(66, 115, 184, 0.42);
+    background: linear-gradient(135deg, #2f8b8f 0%, #4d79c4 56%, #f2aa5a 100%);
+    color: #fff8f0;
+    box-shadow: 0 12px 22px rgba(67, 105, 167, 0.22);
+}
+
+.page-research-hotel-focus .parallax-bg {
+    opacity: 0.24;
+    filter: blur(52px) saturate(110%);
+}
+
+.page-research-hotel-focus .parallax-bg.layer-1 {
+    background: radial-gradient(circle at 20% 30%, rgba(76, 140, 216, 0.34), transparent 56%);
+}
+
+.page-research-hotel-focus .parallax-bg.layer-2 {
+    background: radial-gradient(circle at 84% 16%, rgba(76, 203, 181, 0.3), transparent 56%);
+}
+
+.page-research-hotel-focus .parallax-bg.layer-3 {
+    background: radial-gradient(circle at 52% 74%, rgba(243, 164, 114, 0.26), transparent 58%);
+}
+
+.page-research-hotel-focus .parallax-bg.layer-4 {
+    background: radial-gradient(circle at 72% 62%, rgba(134, 113, 226, 0.22), transparent 58%);
+}
+
+.page-research-hotel-focus .research-detail-hero {
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(6.3rem, 7.8vw, 7.7rem);
+    padding-bottom: clamp(2.6rem, 4vw, 3.3rem);
+}
+
+.page-research-hotel-focus .research-detail-hero::before,
+.page-research-hotel-focus .research-detail-hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+}
+
+.page-research-hotel-focus .research-detail-hero::before {
+    width: clamp(230px, 38vw, 500px);
+    height: clamp(230px, 38vw, 500px);
+    right: -115px;
+    top: -180px;
+    background: radial-gradient(circle, rgba(61, 90, 69, 0.24), rgba(61, 90, 69, 0));
+    animation: hotelIndustryFloatA 12s ease-in-out infinite alternate;
+}
+
+.page-research-hotel-focus .research-detail-hero::after {
+    width: clamp(210px, 34vw, 440px);
+    height: clamp(210px, 34vw, 440px);
+    left: -80px;
+    bottom: -220px;
+    background: radial-gradient(circle, rgba(183, 134, 73, 0.24), rgba(183, 134, 73, 0));
+    animation: hotelIndustryFloatB 13s ease-in-out infinite alternate;
+}
+
+.page-research-hotel-focus .research-back-link {
+    border-radius: 999px;
+    border: 1px solid rgba(63, 91, 73, 0.34);
+    background: rgba(255, 250, 243, 0.9);
+    color: #3b5945;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.page-research-hotel-focus .research-back-link:hover {
+    border-color: rgba(63, 91, 73, 0.55);
+    background: rgba(255, 252, 247, 1);
+    color: #2f4d3b;
+}
+
+.page-research-hotel-focus .hotel-hero-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+    gap: clamp(1rem, 2.4vw, 1.8rem);
+    align-items: start;
+}
+
+.page-research-hotel-focus .hotel-hero-copy {
+    gap: 0.92rem;
+}
+
+.page-research-hotel-focus .badge {
+    border-color: rgba(80, 116, 171, 0.32);
+    background: linear-gradient(135deg, rgba(230, 244, 255, 0.9), rgba(240, 253, 249, 0.9));
+    color: #2f5f86;
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.page-research-hotel-focus .research-detail-header .section-heading {
+    margin-bottom: 0.12rem;
+    max-width: 16ch;
+    font-size: clamp(2.2rem, 4.7vw, 4rem);
+    line-height: 0.98;
+}
+
+.page-research-hotel-focus .section-desc.max-w-lg {
+    max-width: 52ch;
+    font-size: 1.02rem;
+    line-height: 1.72;
+}
+
+.page-research-hotel-focus .booking-source-card {
+    margin-top: 0.85rem;
+    gap: 0.8rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 18px;
+    border: 1px solid var(--hotel-line);
+    background:
+        linear-gradient(160deg, rgba(255, 252, 247, 0.96), rgba(246, 238, 226, 0.9));
+    box-shadow: 0 14px 24px rgba(52, 39, 26, 0.11);
+}
+
+.page-research-hotel-focus .booking-source-logo {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+}
+
+.page-research-hotel-focus .booking-source-label {
+    color: #7c6b5a;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .booking-source-name {
+    color: #2e2720;
+    font-size: 0.9rem;
+}
+
+.page-research-hotel-focus .research-meta-tags {
+    gap: 0.5rem;
+}
+
+.page-research-hotel-focus .research-meta-tags span {
+    border-radius: 999px;
+    border: 1px solid rgba(89, 72, 54, 0.25);
+    background: rgba(255, 252, 246, 0.92);
+    color: #4f4337;
+    font-size: 0.71rem;
+}
+
+.page-research-hotel-focus .research-meta-tags span i {
+    color: #3f5b49;
+}
+
+.page-research-hotel-focus .hotel-pulse-card {
+    align-self: start;
+    border-radius: 24px;
+    border: 1px solid var(--hotel-line-strong);
+    background:
+        radial-gradient(circle at 86% 12%, rgba(83, 153, 234, 0.24), rgba(83, 153, 234, 0) 46%),
+        radial-gradient(circle at 16% 98%, rgba(85, 203, 182, 0.19), rgba(85, 203, 182, 0) 42%),
+        linear-gradient(162deg, rgba(252, 254, 255, 0.98), rgba(236, 246, 255, 0.92));
+    box-shadow: var(--hotel-shadow);
+    padding: 1.12rem 1.08rem 1.06rem;
+    gap: 0.82rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-card::before {
+    content: "";
+    position: absolute;
+    left: 1.04rem;
+    right: 1.04rem;
+    top: 0.65rem;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #48654f 0%, #b78649 56%, #8e5644 100%);
+    opacity: 0.78;
+}
+
+.page-research-hotel-focus .hotel-pulse-card::after {
+    width: 172px;
+    height: 172px;
+    right: -66px;
+    bottom: -70px;
+    background: radial-gradient(circle, rgba(54, 85, 67, 0.18), rgba(54, 85, 67, 0));
+    animation: hotelPulseDrift 9s ease-in-out infinite alternate;
+}
+
+.page-research-hotel-focus .hotel-pulse-head {
+    margin-top: 0.22rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-label {
+    margin: 0;
+    border-color: rgba(63, 91, 73, 0.34);
+    background: rgba(237, 245, 238, 0.9);
+    color: #355342;
+    letter-spacing: 0.08em;
+}
+
+.page-research-hotel-focus .hotel-pulse-score {
+    margin: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(63, 91, 73, 0.32);
+    background: rgba(238, 247, 239, 0.9);
+    color: #2f4f3d;
+    padding: 0.22rem 0.56rem;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-card h3 {
+    margin: 0;
+    color: #2e251d;
+    font-size: 1.08rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-title {
+    margin: 0;
+    color: #2e251d;
+    font-family: "Bodoni Moda", "Cormorant Garamond", "Times New Roman", serif;
+    font-size: 1.08rem;
+    line-height: 1.24;
+}
+
+.page-research-hotel-focus .hotel-pulse-desc {
+    margin: 0;
+    line-height: 1.58;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary {
+    border-radius: 14px;
+    border: 1px solid rgba(95, 78, 61, 0.22);
+    background: linear-gradient(152deg, rgba(255, 252, 246, 0.94), rgba(248, 241, 229, 0.9));
+    padding: 0.56rem 0.66rem;
+    display: grid;
+    gap: 0.34rem;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.52);
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-label,
+.page-research-hotel-focus .hotel-pulse-summary-value,
+.page-research-hotel-focus .hotel-pulse-summary-copy,
+.page-research-hotel-focus .hotel-pulse-action {
+    margin: 0;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-label {
+    color: #6f604f;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-value {
+    color: #2e251d;
+    font-size: 0.95rem;
+    font-weight: 800;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-copy {
+    color: #5d5044;
+    font-size: 0.72rem;
+    line-height: 1.45;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-scale {
+    position: relative;
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(210, 193, 168, 0.7);
+    overflow: hidden;
+}
+
+.page-research-hotel-focus .hotel-pulse-summary-scale span {
+    display: block;
+    width: 81%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #496a52 0%, #b78649 52%, #8e5644 100%);
+}
+
+.page-research-hotel-focus .hotel-pulse-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-item {
+    --pulse-accent: #496a52;
+    position: relative;
+    border-color: rgba(95, 78, 61, 0.2);
+    background: rgba(255, 252, 247, 0.9);
+    border-radius: 13px;
+    padding: 0.56rem 0.62rem 0.6rem 0.72rem;
+    display: grid;
+    gap: 0.35rem;
+    overflow: hidden;
+}
+
+.page-research-hotel-focus .hotel-pulse-item::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--pulse-accent);
+    opacity: 0.85;
+}
+
+.page-research-hotel-focus .hotel-pulse-item[data-priority="high"] {
+    --pulse-accent: #8e5644;
+}
+
+.page-research-hotel-focus .hotel-pulse-item[data-priority="medium"] {
+    --pulse-accent: #b78649;
+}
+
+.page-research-hotel-focus .hotel-pulse-item[data-priority="stable"] {
+    --pulse-accent: #496a52;
+}
+
+.page-research-hotel-focus .hotel-pulse-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-top p {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.42rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-rank {
+    width: 1.16rem;
+    height: 1.16rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid rgba(63, 91, 73, 0.28);
+    background: rgba(237, 245, 238, 0.88);
+    color: #355342;
+    font-size: 0.64rem;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-top p,
+.page-research-hotel-focus .hotel-pulse-top > span {
+    color: #302720;
+    font-size: 0.76rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-top > span {
+    min-width: 2.2rem;
+    justify-content: center;
+    padding: 0.14rem 0.38rem;
+    border-radius: 999px;
+    border: 1px solid rgba(63, 91, 73, 0.28);
+    background: rgba(237, 245, 238, 0.84);
+    color: #3e5d49;
+    font-weight: 800;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-track {
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(214, 198, 175, 0.64);
+}
+
+.page-research-hotel-focus .hotel-pulse-track span,
+.page-research-hotel-focus .hotel-signal-fill {
+    background: linear-gradient(90deg, #496a52 0%, #b78649 52%, #8e5644 100%);
+}
+
+.page-research-hotel-focus .hotel-pulse-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.32rem;
+    color: #6d6052;
+    font-size: 0.68rem;
+    line-height: 1.4;
+}
+
+.page-research-hotel-focus .hotel-pulse-action i {
+    color: #3f5b49;
+    font-size: 0.76rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-window {
+    margin: 0;
+    border-radius: 999px;
+    border: 1px solid rgba(95, 78, 61, 0.24);
+    background: rgba(255, 251, 244, 0.86);
+    color: #6e5f50;
+    padding: 0.14rem 0.42rem;
+    font-size: 0.61rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+.page-research-hotel-focus .hotel-pulse-foot {
+    display: grid;
+    gap: 0.22rem;
+}
+
+.page-research-hotel-focus .hotel-pulse-note {
+    margin: 0.1rem 0 0;
+}
+
+.page-research-hotel-focus .hotel-pulse-legend {
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #7a6a59;
+    font-size: 0.63rem;
+    line-height: 1.3;
+}
+
+.page-research-hotel-focus .hotel-pulse-legend span {
+    width: 0.96rem;
+    height: 0.28rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #496a52 0%, #b78649 52%, #8e5644 100%);
+    flex-shrink: 0;
+}
+
+.page-research-hotel-focus .section.bg-light {
+    background:
+        linear-gradient(180deg, rgba(228, 243, 255, 0.58), rgba(240, 250, 255, 0.35));
+    border-block: 1px solid rgba(97, 129, 177, 0.15);
+}
+
+.page-research-hotel-focus .research-focus-shell {
+    border-radius: 26px;
+    border: 1px solid var(--hotel-line);
+    background: linear-gradient(162deg, var(--hotel-shell-strong), var(--hotel-shell));
+    box-shadow: var(--hotel-shadow);
+}
+
+.page-research-hotel-focus .research-focus-shell::before {
+    width: 52%;
+    right: -20%;
+    bottom: -32%;
+    left: auto;
+    background: radial-gradient(circle, rgba(63, 91, 73, 0.18), transparent 70%);
+}
+
+.page-research-hotel-focus .research-focus-shell::after {
+    border-radius: 22px;
+    border-color: rgba(87, 69, 51, 0.22);
+    opacity: 0.62;
+}
+
+.page-research-hotel-focus .section-heading-focus {
+    max-width: 21ch;
+    margin-inline: auto;
+}
+
+.page-research-hotel-focus .research-kpi-strip {
+    gap: 0.72rem;
+}
+
+.page-research-hotel-focus .research-kpi {
+    border-radius: 16px;
+    border: 1px solid rgba(92, 75, 57, 0.2);
+    background: rgba(255, 252, 247, 0.92);
+    box-shadow: 0 12px 20px rgba(52, 39, 27, 0.09);
+}
+
+.page-research-hotel-focus .research-kpi::before {
+    height: 3px;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #45644e 0%, #b78649 54%, #8e5644 100%);
+}
+
+.page-research-hotel-focus .research-kpi .kpi-label {
+    color: #7c6c5b;
+    font-size: 0.66rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.page-research-hotel-focus .research-kpi .kpi-value {
+    color: #2f2720;
+    font-size: 1rem;
+}
+
+.page-research-hotel-focus .hotel-industry-card,
+.page-research-hotel-focus .hotel-playbook-card,
+.page-research-hotel-focus .hotel-impact-item {
+    border: 1px solid rgba(86, 116, 161, 0.2);
+    background:
+        linear-gradient(166deg, rgba(252, 254, 255, 0.97), rgba(237, 246, 255, 0.91));
+    box-shadow: 0 14px 24px rgba(52, 77, 120, 0.1);
+}
+
+.page-research-hotel-focus .hotel-industry-card h3,
+.page-research-hotel-focus .hotel-impact-item h4,
+.page-research-hotel-focus .hotel-playbook-card h3,
+.page-research-hotel-focus .evidence-text h3 {
+    color: #2f261f;
+}
+
+.page-research-hotel-focus .hotel-impact-item h4 i {
+    color: #3f5b49;
+}
+
+.page-research-hotel-focus .hotel-signal-track {
+    background: rgba(207, 193, 171, 0.64);
+}
+
+.page-research-hotel-focus .hotel-signal-value {
+    color: #3f5b49;
+}
+
+.page-research-hotel-focus .hotel-signal-note {
+    margin: 0.52rem 0 0;
+    color: #6d6052;
+    font-size: 0.7rem;
+    line-height: 1.42;
+}
+
+.page-research-hotel-focus .hotel-source-ledger {
+    border-radius: 16px;
+    border: 1px dashed rgba(89, 72, 54, 0.3);
+    background: linear-gradient(162deg, rgba(255, 252, 247, 0.92), rgba(245, 236, 224, 0.86));
+    padding: 0.88rem 0.98rem;
+}
+
+.page-research-hotel-focus .hotel-source-ledger h3 {
+    color: #2f261f;
+}
+
+.page-research-hotel-focus .hotel-source-meta {
+    margin: 0.2rem 0 0.48rem;
+    color: #6d6052;
+    font-size: 0.7rem;
+    line-height: 1.4;
+}
+
+.page-research-hotel-focus .hotel-source-ledger li {
+    color: #574b3e;
+}
+
+.page-research-hotel-focus .hotel-source-ledger a {
+    color: #2c4a5e;
+}
+
+.page-research-hotel-focus .hotel-source-ledger a:hover {
+    color: #1f3848;
+}
+
+.page-research-hotel-focus .hotel-method-figure {
+    margin: 0.82rem auto 0;
+    max-width: 760px;
+}
+
+.page-research-hotel-focus .hotel-method-figure img {
+    width: min(100%, 760px);
+    height: auto;
+    display: block;
+    margin-inline: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(89, 72, 54, 0.24);
+    background: rgba(255, 252, 246, 0.96);
+    padding: 0.38rem;
+}
+
+.page-research-hotel-focus .research-figure-stage {
+    padding: 0.62rem;
+    border-radius: 30px 16px 26px 18px;
+}
+
+.page-research-hotel-focus .research-figure-caption {
+    font-size: 0.95rem;
+    line-height: 1.62;
+}
+
+.page-research-hotel-focus .dual-figure-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.06rem;
+}
+
+.page-research-hotel-focus .dual-figure-grid > :first-child,
+.page-research-hotel-focus .dual-figure-grid > :last-child {
+    margin-top: 0;
+}
+
+.page-research-hotel-focus .hotel-segment-grid {
+    margin-top: 1rem;
+}
+
+.page-research-hotel-focus .hotel-segment-grid:not(.hotel-persona-panel) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.72rem;
+}
+
+.page-research-hotel-focus .hotel-segment-grid:not(.hotel-persona-panel) .hotel-playbook-card {
+    padding: 0.68rem;
+}
+
+.page-research-hotel-focus .hotel-segment-grid:not(.hotel-persona-panel) .hotel-playbook-card h3 {
+    font-size: 1rem;
+}
+
+.page-research-hotel-focus .hotel-segment-grid:not(.hotel-persona-panel) .hotel-playbook-card p:last-child {
+    font-size: 0.9rem;
+}
+
+.page-research-hotel-focus .hotel-completeness-grid {
+    margin-top: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.64rem;
+}
+
+.page-research-hotel-focus .hotel-completeness-grid .hotel-playbook-card {
+    padding: 0.72rem;
+}
+
+.page-research-hotel-focus .hotel-completeness-grid .hotel-playbook-card h3 {
+    font-size: 0.88rem;
+}
+
+.page-research-hotel-focus .hotel-completeness-grid .hotel-playbook-card p:last-child {
+    font-size: 0.76rem;
+}
+
+.page-research-hotel-focus .hotel-playbook-step {
+    color: #3f5b49;
+    letter-spacing: 0.08em;
+}
+
+.page-research-hotel-focus .btn-outline {
+    border-color: rgba(63, 91, 73, 0.42);
+    color: #2f4d3b;
+    background: rgba(249, 241, 230, 0.72);
+}
+
+.page-research-hotel-focus .btn-outline:hover {
+    border-color: rgba(63, 91, 73, 0.58);
+    background: rgba(255, 251, 244, 0.92);
+    color: #21382b;
+}
+
+.page-research-hotel-focus .hotel-motion-row {
+    margin-top: 0.28rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.34rem;
+}
+
+.page-research-hotel-focus .hotel-motion-symbol {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(95, 121, 167, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #2f8b8f;
+    background: rgba(247, 252, 255, 0.9);
+    font-size: 0.58rem;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(74, 108, 160, 0.15);
+    animation: hotelSymbolPulse 2.8s ease-in-out infinite;
+}
+
+.page-research-hotel-focus .hotel-motion-symbol:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+.page-research-hotel-focus .hotel-motion-symbol:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.page-research-hotel-focus .hotel-equation {
+    display: block;
+    margin: 0.52rem 0 0;
+    padding: 0.52rem 0.62rem;
+    border-radius: 12px;
+    border: 1px solid rgba(95, 121, 167, 0.23);
+    background: rgba(247, 252, 255, 0.9);
+    color: #2a456c;
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    font-size: 0.84rem;
+    line-height: 1.62;
+}
+
+.page-research-hotel-focus code {
+    border-radius: 6px;
+    border: 1px solid rgba(95, 121, 167, 0.22);
+    background: rgba(242, 249, 255, 0.92);
+    color: #29496f;
+    padding: 0.02rem 0.3rem;
+    font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.7rem;
+}
+
+.page-research-hotel-focus .hotel-method-detail,
+.page-research-hotel-focus .hotel-figure-protocol {
+    margin-top: 0.74rem;
+    padding: 0.72rem;
+    border-radius: 14px;
+    border: 1px solid rgba(95, 121, 167, 0.22);
+    background: linear-gradient(156deg, rgba(251, 254, 255, 0.95), rgba(240, 248, 255, 0.9));
+}
+
+.page-research-hotel-focus .hotel-figure-protocol .hotel-playbook-step {
+    margin-bottom: 0.22rem;
+}
+
+.page-research-hotel-focus .hotel-figure-steps {
+    margin: 0.46rem 0 0.18rem 1rem;
+    padding: 0;
+    display: grid;
+    gap: 0.24rem;
+}
+
+.page-research-hotel-focus .hotel-figure-steps li {
+    color: #4a5f7f;
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.page-research-hotel-focus .hotel-segment-grid .hotel-playbook-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0.82rem;
+}
+
+.page-research-hotel-focus .hotel-segment-grid .hotel-playbook-card::after {
+    content: "";
+    position: absolute;
+    inset: auto -16% -42% auto;
+    width: 170px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(98, 173, 255, 0.15), rgba(98, 173, 255, 0));
+    pointer-events: none;
+}
+
+.page-research-hotel-focus .persona-chip {
+    margin: 0.08rem 0 0.34rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    border: 1px solid rgba(95, 121, 167, 0.26);
+    background: rgba(246, 251, 255, 0.92);
+    color: #2c5374;
+    padding: 0.18rem 0.48rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.page-research-hotel-focus .persona-trigger {
+    margin: 0.28rem 0 0;
+    color: #4a6a8f;
+    font-size: 0.84rem;
+    line-height: 1.56;
+}
+
+.page-research-hotel-focus .hotel-persona-panel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(320px, 34vw);
+    gap: 0.92rem;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0.24rem 0.2rem 0.82rem;
+    margin-top: 1rem;
+    scroll-snap-type: x mandatory;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-y;
+}
+
+.page-research-hotel-focus .hotel-persona-panel::-webkit-scrollbar {
+    height: 10px;
+}
+
+.page-research-hotel-focus .hotel-persona-panel::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(160, 183, 218, 0.3);
+}
+
+.page-research-hotel-focus .hotel-persona-panel::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(76, 140, 216, 0.7), rgba(76, 203, 181, 0.7));
+}
+
+.page-research-hotel-focus .hotel-persona-panel.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+    scroll-snap-type: none;
+}
+
+.page-research-hotel-focus .hotel-persona-card {
+    --persona-tilt-x: 0deg;
+    --persona-tilt-y: 0deg;
+    --persona-shift-x: 0px;
+    --persona-shift-y: 0px;
+    scroll-snap-align: start;
+    transform-style: preserve-3d;
+    transform: perspective(1100px) rotateX(var(--persona-tilt-x)) rotateY(var(--persona-tilt-y));
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    min-height: 100%;
+}
+
+.page-research-hotel-focus .hotel-persona-panel.is-dragging .hotel-persona-card {
+    transition: none;
+}
+
+.page-research-hotel-focus .hotel-persona-card:hover {
+    border-color: rgba(76, 140, 216, 0.4);
+    box-shadow: 0 20px 34px rgba(39, 72, 114, 0.16);
+}
+
+.page-research-hotel-focus .hotel-persona-card::after {
+    display: none;
+}
+
+.page-research-hotel-focus .hotel-persona-media {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.64rem;
+    border-radius: 14px;
+    border: 1px solid rgba(95, 121, 167, 0.26);
+    background: rgba(232, 241, 250, 0.92);
+    aspect-ratio: 4 / 3;
+}
+
+.page-research-hotel-focus .hotel-persona-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(9, 18, 34, 0.08), rgba(9, 18, 34, 0.28));
+    pointer-events: none;
+}
+
+.page-research-hotel-focus .hotel-persona-media img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transform: translate3d(var(--persona-shift-x), var(--persona-shift-y), 0) scale(1.05);
+    transition: transform 260ms ease;
+}
+
+.page-research-hotel-focus .hotel-persona-card:hover .hotel-persona-media img {
+    transform: translate3d(var(--persona-shift-x), var(--persona-shift-y), 0) scale(1.1);
+}
+
+.page-research-hotel-focus .hotel-persona-share {
+    margin: 0;
+    position: absolute;
+    top: 0.56rem;
+    left: 0.56rem;
+    z-index: 2;
+    border-radius: 999px;
+    border: 1px solid rgba(246, 251, 255, 0.68);
+    background: rgba(22, 42, 73, 0.74);
+    color: #f7fbff;
+    padding: 0.18rem 0.52rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.page-research-hotel-focus .hotel-persona-card h3 {
+    margin: 0.12rem 0 0.22rem;
+    font-size: 1.06rem;
+    line-height: 1.3;
+}
+
+.page-research-hotel-focus .hotel-persona-card p {
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+.page-research-hotel-focus .hotel-persona-card .persona-trigger {
+    margin-top: 0.34rem;
+    font-size: 0.84rem;
+}
+
+.page-research-hotel-focus .hotel-persona-panel-hint {
+    margin: 0.4rem 0 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    color: #2e5478;
+    font-size: 0.84rem;
+    line-height: 1.45;
+}
+
+.page-research-hotel-focus .hotel-persona-panel-hint i {
+    font-size: 0.96rem;
+}
+
+.page-research-hotel-focus .hotel-manager-grid {
+    margin-top: 0.84rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.64rem;
+}
+
+.page-research-hotel-focus .hotel-manager-grid .hotel-playbook-card {
+    padding: 0.78rem;
+}
+
+.page-research-hotel-focus .hotel-manager-grid .hotel-playbook-step {
+    color: #315f86;
+}
+
+.page-research-hotel-focus .footer {
+    border-top: 1px solid rgba(146, 179, 221, 0.3);
+    background:
+        radial-gradient(circle at 18% 0%, rgba(108, 162, 231, 0.2), transparent 36%),
+        linear-gradient(180deg, #1d314f 0%, #152238 100%);
+}
+
+.page-research-hotel-focus .footer-heading {
+    color: #f4e8d3;
+}
+
+.page-research-hotel-focus .footer-desc,
+.page-research-hotel-focus .footer-contact-info,
+.page-research-hotel-focus .footer-bottom p {
+    color: rgba(243, 231, 210, 0.82);
+}
+
+.page-research-hotel-focus .footer .btn-primary {
+    background: linear-gradient(135deg, #355643, #4d725f 58%, #b78549 100%);
+    border-color: rgba(186, 151, 100, 0.52);
+}
+
+.page-research-hotel-focus .footer .btn-outline {
+    border-color: rgba(201, 176, 142, 0.46);
+    color: #f3e3c8;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.page-research-hotel-focus .footer .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(221, 192, 153, 0.7);
+    color: #fff6e8;
+}
+
+@keyframes hotelPulseDrift {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-11px, -15px, 0);
+    }
+}
+
+@keyframes hotelIndustryFloatA {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-14px, 12px, 0);
+    }
+}
+
+@keyframes hotelIndustryFloatB {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(14px, -12px, 0);
+    }
+}
+
+@keyframes hotelSymbolPulse {
+    0% {
+        transform: translateY(0);
+        opacity: 0.78;
+    }
+
+    50% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 0.78;
+    }
+}
+
+@media (max-width: 980px) {
+    .page-research-hotel-focus .research-detail-hero {
+        padding-top: 5.9rem;
+    }
+
+    .page-research-hotel-focus .hotel-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
+    }
+
+    .page-research-hotel-focus .research-detail-header .section-heading {
+        max-width: 20ch;
+    }
+
+    .page-research-hotel-focus .hotel-segment-grid:not(.hotel-persona-panel),
+    .page-research-hotel-focus .hotel-completeness-grid,
+    .page-research-hotel-focus .hotel-manager-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .page-research-hotel-focus .hotel-persona-panel {
+        grid-auto-columns: minmax(290px, 78vw);
+    }
+}
+
+@media (max-width: 620px) {
+    .page-research-hotel-focus .research-focus-shell {
+        border-radius: 22px;
+    }
+
+    .page-research-hotel-focus .research-meta-tags span {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .page-research-hotel-focus .research-kpi {
+        border-radius: 14px;
+    }
+
+    .page-research-hotel-focus .hotel-pulse-card {
+        padding: 0.92rem 0.88rem;
+    }
+
+    .page-research-hotel-focus .hotel-pulse-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .page-research-hotel-focus .hotel-pulse-summary {
+        padding: 0.52rem 0.6rem;
+    }
+
+    .page-research-hotel-focus .hotel-pulse-summary-value {
+        font-size: 0.88rem;
+    }
+
+    .page-research-hotel-focus .hotel-pulse-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
+
+    .page-research-hotel-focus .hotel-persona-panel {
+        grid-auto-columns: minmax(260px, 88vw);
+        padding-bottom: 0.7rem;
+    }
+
+    .page-research-hotel-focus .hotel-persona-card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-research-hotel-focus .research-detail-hero::before,
+    .page-research-hotel-focus .research-detail-hero::after,
+    .page-research-hotel-focus .hotel-pulse-card::after,
+    .page-research-hotel-focus .hotel-motion-symbol {
+        animation: none;
+    }
+
+    .page-research-hotel-focus .hotel-persona-card,
+    .page-research-hotel-focus .hotel-persona-media img {
+        transition: none;
+        transform: none !important;
+    }
+}
+</style>
+</head>
+<body class="page-research-detail page-research-hotel-focus dialect-hospitality" data-page="research" data-research-id="hotel-segmentation">
+<div class="cursor-dot"></div>
+<div class="cursor-outline"></div>
+<nav class="navbar">
+<div class="nav-container">
+<a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<div class="parallax-bg layer-1" data-speed="0.1"></div>
+<div class="parallax-bg layer-2" data-speed="0.25"></div>
+<div class="parallax-bg layer-3" data-speed="-0.15"></div>
+<div class="parallax-bg layer-4" data-speed="0.1"></div>
+<main>
+<section class="research-detail-hero">
+<div class="section-container">
+<a class="research-back-link reveal-on-load" href="projects.html"><i class="ph ph-arrow-left"></i> Back to All Research</a>
+<div class="research-detail-header reveal-on-load hotel-hero-grid">
+<div class="hotel-hero-copy">
+<span class="badge">Booking review analytics · hotel operations</span>
+<h1 class="section-heading">Experience-Based Hotel Segmentation from Aspect-Level Sentiment</h1>
+<p class="section-desc max-w-lg">
+This study analyzes Booking.com reviews of Da Nang hotels from 27 Nov 2022 to 27 Jan 2026. The pipeline maps review sentences to eight service aspects, scores sentiment at aspect level, builds review-level experience vectors, and validates cluster stability before interpretation. The final output is a ten-segment structure used to prioritize service and positioning decisions.
+</p>
+<div class="booking-source-card" aria-label="Review source">
+<img alt="Booking logo example" class="booking-source-logo" decoding="async" loading="lazy" src="./assets/booking-logo-example.svg" width="72" height="72"/>
+<div class="booking-source-copy">
+<p class="booking-source-label">Review source</p>
+<p class="booking-source-name">Booking.com guest reviews</p>
+</div>
+</div>
+<div class="research-meta-tags">
+<span><i class="ph ph-map-pin"></i> Da Nang, Vietnam</span>
+<span><i class="ph ph-calendar"></i> Review window: 27 Nov 2022 - 27 Jan 2026</span>
+<span><i class="ph ph-database"></i> 74,896 reviews</span>
+<span><i class="ph ph-buildings"></i> 458 hotels</span>
+</div>
+<div class="hotel-motion-row" aria-hidden="true">
+<span class="hotel-motion-symbol">&#9675;</span>
+<span class="hotel-motion-symbol">&#9671;</span>
+<span class="hotel-motion-symbol">&#10022;</span>
+</div>
+</div>
+<aside class="hotel-pulse-card" aria-label="Study diagnostics">
+<div class="hotel-pulse-head">
+<p class="hotel-pulse-label">Study diagnostics</p>
+<p class="hotel-pulse-score">Validation layer: active</p>
+</div>
+<p class="hotel-pulse-title">Measurement quality and solution stability</p>
+<p class="hotel-pulse-desc">
+ABSA outputs were audited with schema coverage and sentiment-confidence checks, then segment solutions were stress-tested with model comparison and bootstrap stability analysis.
+</p>
+<div class="hotel-pulse-summary">
+<div class="hotel-pulse-summary-top">
+<p class="hotel-pulse-summary-label">Retained structure</p>
+<p class="hotel-pulse-summary-value">K = 10</p>
+</div>
+<p class="hotel-pulse-summary-copy">Primary solution retained after internal validity checks, model comparison, and robustness diagnostics.</p>
+<div class="hotel-pulse-summary-scale" aria-hidden="true"><span style="width: 81%;"></span></div>
+</div>
+<ul class="hotel-pulse-list">
+<li class="hotel-pulse-item" data-priority="high">
+<div class="hotel-pulse-top"><p><span class="hotel-pulse-rank">1</span>Sentence coverage at aspect layer</p><span>45.3%</span></div>
+<div class="hotel-pulse-track"><span style="width: 45%;"></span></div>
+<div class="hotel-pulse-meta">
+<p class="hotel-pulse-action"><i class="ph ph-check-circle"></i>Coverage retained non-diagnostic text outside aspect scoring to preserve diagnostic precision.</p>
+<p class="hotel-pulse-window">ABSA audit</p>
+</div>
+</li>
+<li class="hotel-pulse-item" data-priority="medium">
+<div class="hotel-pulse-top"><p><span class="hotel-pulse-rank">2</span>Bootstrap stability</p><span>ARI 0.94</span></div>
+<div class="hotel-pulse-track"><span style="width: 94%;"></span></div>
+<div class="hotel-pulse-meta">
+<p class="hotel-pulse-action"><i class="ph ph-check-circle"></i>Repeated subsampling showed high partition consistency for the retained K-means solution.</p>
+<p class="hotel-pulse-window">100 bootstraps</p>
+</div>
+</li>
+<li class="hotel-pulse-item" data-priority="stable">
+<div class="hotel-pulse-top"><p><span class="hotel-pulse-rank">3</span>Language sensitivity agreement</p><span>80.6%</span></div>
+<div class="hotel-pulse-track"><span style="width: 81%;"></span></div>
+<div class="hotel-pulse-meta">
+<p class="hotel-pulse-action"><i class="ph ph-warning-circle"></i>Most segments remained stable in the English-only rerun, with one location-led segment showing boundary sensitivity.</p>
+<p class="hotel-pulse-window">Sensitivity check</p>
+</div>
+</li>
+</ul>
+<div class="hotel-pulse-foot">
+<p class="hotel-pulse-note">Reported diagnostics are used as evidence for interpretation and operational prioritization.</p>
+<p class="hotel-pulse-legend"><span aria-hidden="true"></span>All values in this panel are reported from the study pipeline.</p>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<span class="badge">Section 1</span>
+<h2 class="section-heading section-heading-compact">Background</h2>
+<p class="research-copy-muted">
+This applied study examines heterogeneous guest experience frames in Da Nang hotels using review narratives rather than aggregated rating averages alone. The dataset contains 74,896 reviews across 458 hotels and captures the observed review stream from 27 Nov 2022 to 27 Jan 2026.
+</p>
+<div class="research-kpi-strip kpi-tight" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">Total Reviews</p>
+<p class="kpi-value">74,896</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Hotels Covered</p>
+<p class="kpi-value">458 hotels</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Retained Segments</p>
+<p class="kpi-value">10 segments</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Average Review Score</p>
+<p class="kpi-value">8.42 / 10</p>
+</article>
+</div>
+<p class="research-copy-muted" style="margin-top: 0.62rem;">
+The research gap is practical and methodological: aggregate review indicators are easy to monitor but weak for diagnosis because they compress multi-attribute experiences into single scores. The study objective is to convert narrative reviews into aspect-level experience vectors, derive stable market segments, and interpret those segments as operationally useful experience frames.
+</p>
+<div class="section-header mb-5 text-center" style="margin-top: 1.2rem;">
+<span class="badge">Applied Market Context · Updated February 2026</span>
+</div>
+<div class="research-kpi-strip kpi-tight kpi-5 hotel-industry-kpi-strip" data-evidence-tier="reported">
+<article class="research-kpi">
+<p class="kpi-label">Global International Arrivals (2024)</p>
+<p class="kpi-value">1.4B</p>
+<p class="hotel-kpi-note">UN Tourism reports the market returned to roughly 99% of pre-2019 levels.</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">International Arrivals (Q1 2025)</p>
+<p class="kpi-value">300M</p>
+<p class="hotel-kpi-note">Momentum remained positive at +5% year-over-year in early 2025.</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Global Room-Night Demand (2024)</p>
+<p class="kpi-value">4.8B</p>
+<p class="hotel-kpi-note">JLL estimates demand rose by 102 million room nights from 2023.</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Hotel Investment Volume (2024)</p>
+<p class="kpi-value">$57.3B</p>
+<p class="hotel-kpi-note">Global hotel transactions increased around 7% and liquidity improved.</p>
+</article>
+<article class="research-kpi">
+<p class="kpi-label">Da Nang 2025 Visitor Plan</p>
+<p class="kpi-value">11.9M</p>
+<p class="hotel-kpi-note">Local target includes 4.8 million international overnight visitors.</p>
+</article>
+</div>
+<div class="hotel-industry-grid">
+<article class="hotel-industry-card" data-evidence-tier="reported">
+<h3>Market Signals (2024-2026)</h3>
+<div class="hotel-signal-board" aria-label="Hospitality market signal board" role="img">
+<div class="hotel-signal-row"><span class="hotel-signal-label">Global recovery vs 2019 baseline</span><span class="hotel-signal-track"><span class="hotel-signal-fill" style="width: 99%;"></span></span><span class="hotel-signal-value">99%</span></div>
+<div class="hotel-signal-row"><span class="hotel-signal-label">Q1 2025 arrivals growth (YoY)</span><span class="hotel-signal-track"><span class="hotel-signal-fill" style="width: 68%;"></span></span><span class="hotel-signal-value">+5%</span></div>
+<div class="hotel-signal-row"><span class="hotel-signal-label">2024 global RevPAR growth</span><span class="hotel-signal-track"><span class="hotel-signal-fill" style="width: 62%;"></span></span><span class="hotel-signal-value">+4%</span></div>
+<div class="hotel-signal-row"><span class="hotel-signal-label">2025 investment outlook expansion</span><span class="hotel-signal-track"><span class="hotel-signal-fill" style="width: 78%;"></span></span><span class="hotel-signal-value">+15-25%</span></div>
+<div class="hotel-signal-row"><span class="hotel-signal-label">Da Nang overnight visitor growth target</span><span class="hotel-signal-track"><span class="hotel-signal-fill" style="width: 66%;"></span></span><span class="hotel-signal-value">+9%</span></div>
+</div>
+<p class="hotel-signal-note">Bar lengths are normalized for visual scanning and should not be read as directly proportional across unlike metrics.</p>
+</article>
+<article class="hotel-industry-card hotel-implication-card" data-evidence-tier="derived">
+<h3>Operational Relevance for This Study</h3>
+<div class="hotel-impact-grid">
+<article class="hotel-impact-item">
+<h4><i class="ph ph-lightning"></i> Speed wins conversion</h4>
+<p>In high-growth windows, service-lag penalties rise quickly. Segment playbooks should prioritize response and turnaround metrics.</p>
+</article>
+<article class="hotel-impact-item">
+<h4><i class="ph ph-hand-coins"></i> Capital is returning</h4>
+<p>Improving transaction liquidity supports selective upgrades. Target capex on pain points with both high volume and high severity.</p>
+</article>
+<article class="hotel-impact-item">
+<h4><i class="ph ph-chart-line-up"></i> Margin discipline still matters</h4>
+<p>PwC's U.S. 2026 view points to a moderate cycle (occupancy around 62%, RevPAR +0.9%), so pricing and service quality must move together.</p>
+</article>
+</div>
+</article>
+</div>
+<aside class="hotel-source-ledger" aria-label="Source links for hotel industry figures">
+<h3>Context Sources</h3>
+<p class="hotel-source-meta">Latest external source date in this section: December 2025.</p>
+<ul>
+<li><a href="https://www.unwto.org/news/international-tourism-hit-record-export-revenues-in-2024" rel="noopener noreferrer" target="_blank">UN Tourism (May 2025): International tourism receipts and 2024 recovery</a></li>
+<li><a href="https://www.unwto.org/news/international-tourism-keeps-growing-despite-geopolitical-and-economic-headwinds" rel="noopener noreferrer" target="_blank">UN Tourism (July 2025): Q1 2025 arrivals momentum</a></li>
+<li><a href="https://www.jll.com/en-us/newsroom/2025-global-hotel-investment-outlook-dry-powder-and-increased-liquidity-for-hoteliers" rel="noopener noreferrer" target="_blank">JLL (Jan 2025): Global room-night demand, RevPAR, and investment outlook</a></li>
+<li><a href="https://danangfantasticity.com/en/news/the-da-nang-tourism-industry-had-a-successful-year-in-2024-exceeding-the-planned-target-by-5.html" rel="noopener noreferrer" target="_blank">Da Nang Tourism (Jan 2025): 2024 performance and 2025 visitor targets</a></li>
+<li><a href="https://www.pwc.com/us/en/industries/hospitality-leisure/library/hospitality-directions-us.html" rel="noopener noreferrer" target="_blank">PwC Hospitality Directions U.S. (Dec 2025): 2026 occupancy and RevPAR outlook</a></li>
+</ul>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Section 2</span>
+<h2 class="section-heading section-heading-focus">Method</h2>
+</div>
+<p class="research-copy-muted">
+Data acquisition followed a destination-first crawl of Booking.com Da Nang listings. The collector iterated all destination result pages until no new property appeared, then iterated each selected hotel review page until no unseen review remained. Stored fields included positive and negative review sections, review date, score, hotel URL, and collection logs with timestamp plus canonical property URL.
+</p>
+<p class="research-copy-muted" style="margin-top: 0.46rem;">
+The preprocessing and sentence-construction workflow then parsed dates and scores, normalized hotel URLs, removed duplicates, filtered low-quality reviews (minimum five words), and split positive and negative review text into sentence units tagged by polarity source. Deduplication used a deterministic text-date-property key, then aspect assignment used cosine similarity with threshold <code>&#964; = 0.35</code>.
+</p>
+<div class="hotel-method-detail">
+<p class="research-copy-muted">Polarity adjustment was applied only when section and model direction conflicted. This preserved direction while reducing intensity in structurally inconsistent sentences. Review vectors were then built as salience, valence, and missingness features for each of eight aspects before clustering.</p>
+<span class="hotel-equation">Dedup key: translated review text + hotel URL + review date. If section polarity conflicts with model polarity (&#963;<sub>s</sub>y<sub>s,a</sub> &lt; 0), then y<sub>adj,s,a</sub> = 0.70 &times; y<sub>s,a</sub>; otherwise y<sub>adj,s,a</sub> = y<sub>s,a</sub>. Review vector: x<sub>i</sub> = [salience<sub>j</sub>, valence<sub>j</sub>, missing<sub>j</sub>]<sub>j=1...8</sub>.</span>
+</div>
+<figure class="research-figure-stage hotel-method-figure" data-evidence-tier="reported">
+<img alt="Flow chart of the hotel segmentation methodology from data collection to segment profiling" decoding="async" loading="lazy" src="./assets/viz-hotel-method-flow.svg" width="1200" height="760"/>
+<figcaption class="research-figure-caption">Static process map of the ABSA-to-clustering pipeline used to derive and validate the segment solution.</figcaption>
+</figure>
+<p class="research-copy-muted" style="margin-top: 0.62rem;">
+Segment labels were assigned after profiling dominant aspect attention and valence patterns together with review behavior indicators such as average score, narrative length, and negative-note prevalence. Names such as Minimalists, Room Inspectors, and Gastronomy Travelers therefore reflect observed evaluative frames, interpreted with market understanding and empathy for characteristic customer profiles rather than inferred personality traits.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Section 3</span>
+<h2 class="section-heading section-heading-focus">Results</h2>
+</div>
+<p class="research-copy-muted">
+The final analytical sample includes 74,896 reviews and 260,710 sentences after cleaning. Mean review score is 8.42. Aspect assignment produced 148,846 aspect-sentence pairs, then diagnostics were used to evaluate coverage, confidence, and robustness before interpretation.
+</p>
+<div class="hotel-figure-protocol">
+<p class="hotel-playbook-step">Figure construction protocol</p>
+<p class="research-copy-muted">All result visuals were generated from versioned analytical outputs. Figure 1 uses weekly review-date aggregation with regional grouping logic. Segment-share composition uses final cluster totals. Embedding separation applies fixed UMAP settings (<code>neighbors = 30</code>, <code>minimum distance = 0.1</code>, <code>random seed = 42</code>) with sampled points and centroid overlays.</p>
+<ol class="hotel-figure-steps">
+<li>Prepare analysis tables from cleaned reviews, sentence corpus, and cluster assignments.</li>
+<li>Compute segment-level aggregates for salience, valence, and temporal share by week and month.</li>
+<li>Generate diagnostic projections and centroids from the feature matrix to evaluate separation quality.</li>
+<li>Render publication assets as static PNG and SVG outputs, then map them to responsive portfolio figure blocks.</li>
+</ol>
+<p class="research-copy-muted" style="margin-top: 0.42rem;">The valence heatmap is computed by merging experience vectors with cluster assignments, then averaging salience and valence by aspect and segment. Priority mapping is illustrative and is rendered after reported diagnostics are validated.</p>
+<span class="hotel-equation">Salience<sub>i,j</sub> = n<sub>i,j</sub> / |S<sub>i</sub>|. Valence<sub>i,j</sub> = (&Sigma;c<sub>s,j</sub>y<sub>s,j</sub>) / (&Sigma;c<sub>s,j</sub>). Segment pain points in figure scripts use pain_score = salience_share &times; |negative valence|.</span>
+</div>
+<div class="evidence-block" style="margin-bottom: 0.95rem;">
+<article class="evidence-text">
+<p class="hotel-playbook-step">Figure set 1</p>
+<p>Weekly volume dynamics and observed segment share provide the empirical baseline for the study period and concentration structure.</p>
+</article>
+<div class="dual-figure-grid">
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<picture>
+<source sizes="(max-width: 900px) 92vw, 560px" srcset="./assets/optimized/hotel-segmentation-fig1-480.avif 480w, ./assets/optimized/hotel-segmentation-fig1-768.avif 768w, ./assets/optimized/hotel-segmentation-fig1-1024.avif 1024w, ./assets/optimized/hotel-segmentation-fig1-1440.avif 1440w, ./assets/optimized/hotel-segmentation-fig1-1644.avif 1644w" type="image/avif"/>
+<source sizes="(max-width: 900px) 92vw, 560px" srcset="./assets/optimized/hotel-segmentation-fig1-480.webp 480w, ./assets/optimized/hotel-segmentation-fig1-768.webp 768w, ./assets/optimized/hotel-segmentation-fig1-1024.webp 1024w, ./assets/optimized/hotel-segmentation-fig1-1440.webp 1440w, ./assets/optimized/hotel-segmentation-fig1-1644.webp 1644w" type="image/webp"/>
+<img alt="Weekly review volume trend for the Da Nang hotel market" decoding="async" loading="lazy" src="./assets/optimized/hotel-segmentation-fig1-1644.webp" width="1644" height="1034"/>
+</picture>
+<figcaption class="research-figure-caption">Figure 1. Weekly review volume by reviewer economy group over the observed period.</figcaption>
+</figure>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<img alt="Treemap of observed traveler segment shares" decoding="async" loading="lazy" src="./assets/viz-hotel-segment-share.svg" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Observed segment-share composition showing concentration in the Minimalists segment (43.7%).</figcaption>
+</figure>
+</div>
+</div>
+<div class="evidence-block" style="margin-bottom: 0.95rem;">
+<article class="evidence-text">
+<p class="hotel-playbook-step">Figure set 2</p>
+<p>Embedding-space separation was used as a visual diagnostic that cluster structure is not entirely driven by random overlap.</p>
+</article>
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<picture>
+<source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig04_embedding_scatter-480.avif 480w, ./assets/optimized/fig04_embedding_scatter-768.avif 768w, ./assets/optimized/fig04_embedding_scatter-1024.avif 1024w, ./assets/optimized/fig04_embedding_scatter-1440.avif 1440w, ./assets/optimized/fig04_embedding_scatter-1800.avif 1800w, ./assets/optimized/fig04_embedding_scatter-2100.avif 2100w" type="image/avif"/>
+<source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig04_embedding_scatter-480.webp 480w, ./assets/optimized/fig04_embedding_scatter-768.webp 768w, ./assets/optimized/fig04_embedding_scatter-1024.webp 1024w, ./assets/optimized/fig04_embedding_scatter-1440.webp 1440w, ./assets/optimized/fig04_embedding_scatter-1800.webp 1800w, ./assets/optimized/fig04_embedding_scatter-2100.webp 2100w" type="image/webp"/>
+<img alt="Map showing whether hotel segments overlap or stay separate" decoding="async" loading="lazy" src="./assets/optimized/fig04_embedding_scatter-2100.webp" width="2100" height="1500"/>
+</picture>
+<figcaption class="research-figure-caption">Embedding projection used as a cluster-separation diagnostic alongside internal validity indices.</figcaption>
+</figure>
+</div>
+<div class="evidence-block">
+<article class="evidence-text">
+<p class="hotel-playbook-step">Figure set 3</p>
+<p>Aspect-level valence patterns identify where dissatisfaction concentrates by segment. The final map is illustrative and used only to communicate sequencing logic.</p>
+</article>
+<div class="dual-figure-grid">
+<figure class="research-figure-stage" data-evidence-tier="reported">
+<picture>
+<source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig03_valence_heatmap-480.avif 480w, ./assets/optimized/fig03_valence_heatmap-768.avif 768w, ./assets/optimized/fig03_valence_heatmap-1024.avif 1024w, ./assets/optimized/fig03_valence_heatmap-1440.avif 1440w, ./assets/optimized/fig03_valence_heatmap-1800.avif 1800w, ./assets/optimized/fig03_valence_heatmap-3000.avif 3000w" type="image/avif"/>
+<source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig03_valence_heatmap-480.webp 480w, ./assets/optimized/fig03_valence_heatmap-768.webp 768w, ./assets/optimized/fig03_valence_heatmap-1024.webp 1024w, ./assets/optimized/fig03_valence_heatmap-1440.webp 1440w, ./assets/optimized/fig03_valence_heatmap-1800.webp 1800w, ./assets/optimized/fig03_valence_heatmap-3000.webp 3000w" type="image/webp"/>
+<img alt="Heatmap of positive and negative guest feedback by segment" decoding="async" loading="lazy" src="./assets/optimized/fig03_valence_heatmap-3000.webp" width="3000" height="1200"/>
+</picture>
+<figcaption class="research-figure-caption">Aspect valence heatmap showing concentration of positive and negative signals by segment.</figcaption>
+</figure>
+<figure class="research-figure-stage" data-evidence-tier="illustrative">
+<img alt="Value-risk priority map used for sequencing discussion" decoding="async" loading="lazy" src="./assets/viz-hotel-value-priority-map.svg" width="1600" height="980"/>
+<figcaption class="research-figure-caption">Illustrative value-risk priority map used for communication after reported diagnostics are reviewed.</figcaption>
+</figure>
+</div>
+</div>
+<p class="research-copy-muted" style="margin-top: 0.72rem;">
+ABSA diagnostics indicated generally high sentiment confidence (mean 0.8636), with a low-confidence tail rate of 1.39 percent under descriptive benchmark <code>&#954; = 0.6247</code>. K-means and GMM were compared over <code>K = 3...10</code>, and <code>K = 10</code> was retained because it balanced interpretability and internal validity while showing strong bootstrap stability (mean ARI = 0.94).
+</p>
+<p class="research-copy-muted" style="margin-top: 0.62rem;">
+Cross-segment interpretation separates fundamentals-centered frames (for example room and cleanliness dominated) from experience-centered frames (for example ambiance, food and beverage, and service dominated). In the English-only sensitivity rerun, the overall ten-segment structure remained, with 80.6 percent label agreement and language sensitivity concentrated in the Explorers boundary.
+</p>
+<div aria-label="Persona cards for 10 hotel segments" class="hotel-playbook-grid hotel-segment-grid hotel-persona-panel" data-persona-panel tabindex="0">
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Efficient essentials guest persona portrait in business attire" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/minimalists.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">43.7%</p>
+</div>
+<h3>Minimalists</h3>
+<p class="persona-chip">Persona: Efficient Essentials Guest</p>
+<p>Short narratives with low verbosity and practical expectations. Focus stays on room basics and acceptable breakfast service without extended storytelling.</p>
+<p class="persona-trigger">Managerial trigger: reduce check-in friction, secure room readiness, and keep service steps simple and consistent.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Breakfast buffet service scene representing food-first leisure explorer persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/gastronomy-travelers.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">9.7%</p>
+</div>
+<h3>Gastronomy Travelers</h3>
+<p class="persona-chip">Persona: Food-first Leisure Explorer</p>
+<p>Evaluations are anchored in breakfast and dining operations. Service quality is judged through refill speed, queue flow, and perceived food hygiene cues.</p>
+<p class="persona-trigger">Managerial trigger: protect breakfast flow, replenishment discipline, and dining-area cleanliness at peak periods.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Travelers reading a city map to represent the explorer persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/explorers.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">8.3%</p>
+</div>
+<h3>Explorers</h3>
+<p class="persona-chip">Persona: City and Coast Navigator</p>
+<p>Location and mobility shape satisfaction. This group quickly reports access gaps between listing promises and real travel effort.</p>
+<p class="persona-trigger">Managerial trigger: improve wayfinding support, access transparency, and transport guidance at arrival.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Hotel receptionist portrait representing service assurance persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/hospitality-driven.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">7.6%</p>
+</div>
+<h3>Hospitality-driven</h3>
+<p class="persona-chip">Persona: Service Assurance Seeker</p>
+<p>Staff interaction is the dominant evaluation channel. Satisfaction rises when requests are acknowledged fast and resolved with clear follow-through.</p>
+<p class="persona-trigger">Managerial trigger: enforce recovery protocols for delays, missed requests, and handoff communication.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Elegant traveler portrait in a luxury hotel setting" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/premium-travelers.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">7.1%</p>
+</div>
+<h3>Premium Travelers</h3>
+<p class="persona-chip">Persona: Luxury Experience Curator</p>
+<p>Ambiance and room-finish coherence drive value perception. Small defects can break high-end experience framing even when score remains high.</p>
+<p class="persona-trigger">Managerial trigger: maintain finish quality, noise control, and sensory consistency across touchpoints.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Guest relaxing under a blanket to represent comfort reliability persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/homebodies.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">6.1%</p>
+</div>
+<h3>Homebodies</h3>
+<p class="persona-chip">Persona: Comfort Reliability Guest</p>
+<p>This profile rewards stable basics: clean rooms, quiet nights, and predictable comfort. Novel features matter less than consistency.</p>
+<p class="persona-trigger">Managerial trigger: tighten housekeeping consistency and rapid correction of minor maintenance issues.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Trip planning desk with map and laptop representing structured planner persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/convenience-planners.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">5.9%</p>
+</div>
+<h3>Convenience Planners</h3>
+<p class="persona-chip">Persona: Structured Trip Planner</p>
+<p>Longer reviews and detailed planning logic. Facility availability, operating hours, and process reliability define trust in the stay.</p>
+<p class="persona-trigger">Managerial trigger: publish accurate operating windows and remove uncertainty around facility uptime.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Professional inspector with clipboard representing quality auditor persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/room-inspectors.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">4.3%</p>
+</div>
+<h3>Room Inspectors</h3>
+<p class="persona-chip">Persona: Quality Auditor</p>
+<p>Highly sensitive to room and cleanliness failures. Negative cues in hygiene and upkeep dominate overall judgment and suppress substitution by other strengths.</p>
+<p class="persona-trigger">Managerial trigger: treat hygiene as non-negotiable threshold with daily audits and corrective logs.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Budget-minded traveler scene representing value maximizer persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/deal-hunters.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">3.9%</p>
+</div>
+<h3>Deal Hunters</h3>
+<p class="persona-chip">Persona: Value Maximizer</p>
+<p>Compares delivered value against listing promises. Review sentiment deteriorates when fees, inclusions, or policy terms appear ambiguous.</p>
+<p class="persona-trigger">Managerial trigger: standardize price-inclusion communication before booking and at check-in.</p>
+</article>
+<article class="hotel-playbook-card hotel-persona-card" data-persona-card>
+<div class="hotel-persona-media">
+<img alt="Guests enjoying an indoor resort pool to represent staycation persona" decoding="async" draggable="false" loading="lazy" src="./assets/personas/hotel/staycation-guests.webp" width="1200" height="900"/>
+<p class="hotel-persona-share">3.4%</p>
+</div>
+<h3>Staycation Guests</h3>
+<p class="persona-chip">Persona: Amenity-led Staycationer</p>
+<p>Property facilities are the destination itself. Shared-space uptime, usage rules, and crowding conditions drive review outcomes.</p>
+<p class="persona-trigger">Managerial trigger: coordinate preventive maintenance, occupancy smoothing, and pre-arrival facility status updates.</p>
+</article>
+</div>
+<p class="hotel-persona-panel-hint"><i class="ph ph-hand-swipe-right"></i>Drag the persona panel horizontally and hover cards for depth-parallax motion.</p>
+<p class="research-copy-muted" style="margin-top: 0.68rem;">
+Persona framing follows common online hospitality archetype practice for business, leisure, luxury, value, and amenity-driven guests, then aligns each archetype to the observed segment signals in this dataset. Persona imagery in this panel is representative online reference photography for communication only.
+</p>
+<aside class="hotel-source-ledger" aria-label="Online persona references" style="margin-top: 0.74rem;">
+<h3>Persona Framing References (Online)</h3>
+<ul>
+<li><a href="https://www.siteminder.com/r/hotel-market-segmentation/" rel="noopener noreferrer" target="_blank">SiteMinder: hotel market segmentation and traveler segment logic</a></li>
+<li><a href="https://www.cloudbeds.com/articles/hotel-market-segmentation/" rel="noopener noreferrer" target="_blank">Cloudbeds: hotel segmentation dimensions used in pricing and positioning</a></li>
+<li><a href="https://www.hotelmarketingplaybook.com/hotel-guest-persona-template/" rel="noopener noreferrer" target="_blank">Hotel Marketing Playbook: guest persona template structure for hotel teams</a></li>
+<li><a href="https://www.flickr.com/services/feeds/docs/photos_public/" rel="noopener noreferrer" target="_blank">Flickr public photo feed: representative persona panel imagery source format</a></li>
+</ul>
+</aside>
+</div>
+</div>
+</section>
+
+<section class="section bg-light">
+<div class="section-container">
+<div class="research-focus-shell reveal">
+<div class="section-header mb-5 text-center">
+<span class="badge">Section 4</span>
+<h2 class="section-heading section-heading-focus">Implications</h2>
+</div>
+<p class="research-copy-muted">
+Managerial interpretation is organized by operational control. Segment heterogeneity indicates that hotels should avoid one-size service programs and instead deploy differentiated actions tied to attention and valence signals in each segment.
+</p>
+<div class="hotel-manager-grid">
+<article class="hotel-playbook-card">
+<p class="hotel-playbook-step">Priority 1</p>
+<h3>Protect fundamentals before differentiation</h3>
+<p>For Room Inspectors and Homebodies, enforce strict room-readiness and hygiene standards. Baseline failures in these segments are weakly recoverable through other attributes.</p>
+</article>
+<article class="hotel-playbook-card">
+<p class="hotel-playbook-step">Priority 2</p>
+<h3>Match service process to segment logic</h3>
+<p>For Hospitality-driven and Convenience Planners, reduce process variance across check-in, request handling, and facility operations. Consistency drives satisfaction more than isolated upgrades.</p>
+</article>
+<article class="hotel-playbook-card">
+<p class="hotel-playbook-step">Priority 3</p>
+<h3>Convert experience segments into revenue design</h3>
+<p>For Premium Travelers and Gastronomy Travelers, align package framing with ambiance, room finish, and dining quality. For Deal Hunters, communicate inclusions and fee boundaries with high precision.</p>
+</article>
+<article class="hotel-playbook-card">
+<p class="hotel-playbook-step">Priority 4</p>
+<h3>Institutionalize monthly review analytics</h3>
+<p>Track segment share, negative-signal density, and aspect-level pain points at monthly cadence. Use threshold alerts to trigger corrective action at property and department level.</p>
+</article>
+</div>
+<p class="research-copy-muted" style="margin-top: 0.62rem;">
+Recommended implementation sequence: (1) stabilize room and cleanliness operations, (2) tighten service process reliability, (3) deploy segment-specific value propositions, and (4) monitor monthly drift in segment mix and pain-point patterns.
+</p>
+</div>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic" data-strength="15" href="projects.html"><i class="ph ph-arrow-left"></i> Back to All Research</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank"><i class="ph ph-linkedin-logo"></i> Connect on LinkedIn</a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom"><p>© 2026 Chung Hy Dai.</p></div>
+</div>
+</footer>
+<script>
+(() => {
+    const panel = document.querySelector('[data-persona-panel]');
+    if (!panel) return;
+
+    const cards = Array.from(panel.querySelectorAll('[data-persona-card]'));
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let isPointerDown = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+
+    const resetCardDepth = (card) => {
+        card.style.setProperty('--persona-tilt-x', '0deg');
+        card.style.setProperty('--persona-tilt-y', '0deg');
+        card.style.setProperty('--persona-shift-x', '0px');
+        card.style.setProperty('--persona-shift-y', '0px');
+    };
+
+    const stopDrag = () => {
+        if (!isPointerDown) return;
+        isPointerDown = false;
+        panel.classList.remove('is-dragging');
+    };
+
+    panel.addEventListener('pointerdown', (event) => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        isPointerDown = true;
+        startX = event.clientX;
+        startScrollLeft = panel.scrollLeft;
+        panel.classList.add('is-dragging');
+        if (event.pointerType === 'mouse' && panel.setPointerCapture) {
+            panel.setPointerCapture(event.pointerId);
+        }
+    });
+
+    panel.addEventListener('pointermove', (event) => {
+        if (!isPointerDown) return;
+        const delta = event.clientX - startX;
+        panel.scrollLeft = startScrollLeft - delta;
+    });
+
+    panel.addEventListener('pointerup', stopDrag);
+    panel.addEventListener('pointercancel', stopDrag);
+    panel.addEventListener('lostpointercapture', stopDrag);
+    panel.addEventListener('pointerleave', stopDrag);
+    panel.addEventListener('dragstart', (event) => event.preventDefault());
+
+    if (prefersReducedMotion) return;
+
+    cards.forEach((card) => {
+        const image = card.querySelector('.hotel-persona-media img');
+        if (image) image.setAttribute('draggable', 'false');
+        resetCardDepth(card);
+
+        card.addEventListener('pointermove', (event) => {
+            if (panel.classList.contains('is-dragging')) return;
+            const rect = card.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            const tiltX = (-y * 7).toFixed(2);
+            const tiltY = (x * 8).toFixed(2);
+            const shiftX = (x * 16).toFixed(1);
+            const shiftY = (y * 12).toFixed(1);
+
+            card.style.setProperty('--persona-tilt-x', `${tiltX}deg`);
+            card.style.setProperty('--persona-tilt-y', `${tiltY}deg`);
+            card.style.setProperty('--persona-shift-x', `${shiftX}px`);
+            card.style.setProperty('--persona-shift-y', `${shiftY}px`);
+        });
+
+        card.addEventListener('pointerleave', () => resetCardDepth(card));
+        card.addEventListener('pointerup', () => {
+            if (!panel.classList.contains('is-dragging')) resetCardDepth(card);
+        });
+    });
+})();
+</script>
+<script defer src="js/main.js" type="module"></script>
+</body>
+</html>

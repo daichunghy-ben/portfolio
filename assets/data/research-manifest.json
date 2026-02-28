@@ -1,0 +1,668 @@
+{
+  "version": 1,
+  "generated_at": "2026-02-24",
+  "schema": {
+    "required_fields": [
+      "id",
+      "slug",
+      "title",
+      "study_type",
+      "status",
+      "sample",
+      "model",
+      "key_metrics",
+      "source_links",
+      "visual_modules",
+      "card_image",
+      "card_summary",
+      "verification_status",
+      "last_verified_at",
+      "evidence_strength",
+      "claim_owner"
+    ],
+    "status_enum": [
+      "reported",
+      "derived",
+      "illustrative",
+      "conceptual"
+    ],
+    "verification_status_enum": [
+      "verified",
+      "self-reported",
+      "unverified"
+    ],
+    "evidence_strength_enum": [
+      "strong",
+      "moderate",
+      "limited"
+    ]
+  },
+  "research": [
+    {
+      "id": "hotel-segmentation",
+      "slug": "research-hotel",
+      "title": "Hotel Customer Segmentation from Aspect-Level Sentiment",
+      "study_type": "hospitality",
+      "status": "reported",
+      "sample": "74,896 reviews across 458 Da Nang hotels",
+      "model": "ABSA + K-means (primary) + GMM robustness",
+      "key_metrics": [
+        {
+          "label": "review_base",
+          "value": "74,896",
+          "status": "reported",
+          "source_note": "Da Nang segmentation dataset summary in page and impact snapshot"
+        },
+        {
+          "label": "hotel_coverage",
+          "value": "458",
+          "status": "reported",
+          "source_note": "Da Nang segmentation study scope"
+        },
+        {
+          "label": "segment_count",
+          "value": "10",
+          "status": "reported",
+          "source_note": "Cluster output reported in segmentation story"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-hotel.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "segment-share",
+        "embedding-map",
+        "pain-point-matrix"
+      ],
+      "card_image": "./assets/optimized/hotel-segmentation-fig1-optimized.webp",
+      "card_summary": "Reported (self-reported): Aspect-level sentiment segmentation from 74,896 reviews to map 10 guest segments for hotel decision-making.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "reported"
+      },
+      "figure_tiers": [
+        "reported",
+        "reported",
+        "reported",
+        "reported",
+        "illustrative"
+      ],
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "hotel-prca",
+      "slug": "research-hotel-prca",
+      "title": "Asymmetric Hotel Attribute Impacts (PRCA)",
+      "study_type": "hospitality",
+      "status": "reported",
+      "sample": "97,014 reviews from approximately 1,000 Vietnam properties",
+      "model": "Sentence-BERT mapping + OLS (HC1) + PRCA/Kano",
+      "key_metrics": [
+        {
+          "label": "review_base",
+          "value": "97,014",
+          "status": "reported",
+          "source_note": "PRCA page abstract and method section"
+        },
+        {
+          "label": "model_fit_r2",
+          "value": "0.220",
+          "status": "reported",
+          "source_note": "PRCA headline model-fit value"
+        },
+        {
+          "label": "mean_score",
+          "value": "8.83/10",
+          "status": "reported",
+          "source_note": "PRCA descriptive statistics"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-hotel-prca.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "mirrored-effects",
+        "asymmetry-matrix"
+      ],
+      "card_image": "./assets/optimized/prca-asymmetry-dashboard-optimized.webp",
+      "card_summary": "Reported (self-reported): Penalty-reward asymmetry analysis on 97,014 reviews to classify basic, performance, and excitement attributes.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "reported"
+      },
+      "figure_tiers": [
+        "reported",
+        "reported"
+      ],
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "motorbike-phaseout",
+      "slug": "research-motorbike-ban",
+      "title": "Motorbike Phase-Out Policy Acceptance",
+      "study_type": "policy",
+      "status": "derived",
+      "sample": "Policy-choice framing in Hanoi transition context",
+      "model": "Discrete choice policy sequencing translation",
+      "key_metrics": [
+        {
+          "label": "sample_size",
+          "value": "320",
+          "status": "reported",
+          "source_note": "Displayed in the Hanoi WTP balance evidence graphic"
+        },
+        {
+          "label": "model_fit_rho2",
+          "value": "0.28",
+          "status": "reported",
+          "source_note": "Displayed in the Hanoi WTP balance evidence graphic"
+        },
+        {
+          "label": "asc",
+          "value": "+1.621",
+          "status": "reported",
+          "source_note": "Displayed in the Hanoi WTP balance evidence graphic"
+        },
+        {
+          "label": "restriction_disutility",
+          "value": "-135,220 and -68,450",
+          "status": "reported",
+          "source_note": "WTP values shown in hanoi WTP visualization assets"
+        },
+        {
+          "label": "compensation_values",
+          "value": "+188,120 to +76,920",
+          "status": "reported",
+          "source_note": "Positive WTP values shown in hanoi WTP visualization assets"
+        },
+        {
+          "label": "sequencing_acceptance_indices",
+          "value": "32, 74, 61, 67",
+          "status": "illustrative",
+          "source_note": "Sequencing chart explicitly marked illustrative"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-motorbike-ban.html",
+          "type": "internal"
+        },
+        {
+          "label": "CIEMB directory",
+          "url": "https://www.ciemb.org/",
+          "type": "external"
+        }
+      ],
+      "visual_modules": [
+        "wtp-balance",
+        "policy-tradeoff-map",
+        "sequencing-ladder"
+      ],
+      "card_image": "./assets/optimized/motorbike-ban-optimized.webp",
+      "card_summary": "Derived interpretation: Phase-out acceptance is framed through pull/support-first sequencing before broad restrictions.",
+      "default_tiers": {
+        "kpi": "derived",
+        "figure": "derived"
+      },
+      "figure_tiers": [
+        "reported",
+        "reported",
+        "illustrative"
+      ],
+      "verification_status": "unverified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "ev-choice",
+      "slug": "research-ev",
+      "title": "Consumer Preferences for EV Aesthetic Design and Technology",
+      "study_type": "policy",
+      "status": "reported",
+      "sample": "n = 212 young consumers in Hanoi and Ho Chi Minh City",
+      "model": "Discrete choice experiment with MNL, mixed logit, and 2-class latent class estimation",
+      "key_metrics": [
+        {
+          "label": "sample_size",
+          "value": "212",
+          "status": "reported",
+          "source_note": "Final analytic sample after quality exclusions"
+        },
+        {
+          "label": "segment_split",
+          "value": "65% pragmatic / 35% aesthetic",
+          "status": "reported",
+          "source_note": "Two-class latent class solution (Table 3 basis)"
+        },
+        {
+          "label": "model_fit_loglikelihood",
+          "value": "-1523.26",
+          "status": "reported",
+          "source_note": "Best-fitting reported 2-class latent class model"
+        },
+        {
+          "label": "scenario_bundle_wtp",
+          "value": "480m vs 602m VND",
+          "status": "derived",
+          "source_note": "Segment-specific scenario translation from reported MWTP values"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-ev.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "dce-attribute-table",
+        "latent-class-profile-grid",
+        "mwtp-scenario-calculator"
+      ],
+      "card_image": "./assets/optimized/ev-choice-experiment-optimized.webp",
+      "card_summary": "Reported (self-reported): DCE with n = 212 maps EV function-design trade-offs, with 65% pragmatic and 35% aesthetic segments.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "reported"
+      },
+      "figure_tiers": [
+        "conceptual",
+        "illustrative"
+      ],
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-27",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "influencer-strategy",
+      "slug": "research-leveraging-influencer",
+      "title": "Leveraging Influencer Retention on UGC Platforms",
+      "study_type": "creator",
+      "status": "reported",
+      "sample": "n = 565 active UGC users in Vietnam",
+      "model": "Four-E structural equation model (CX, CEX, BE, CE -> CR)",
+      "key_metrics": [
+        {
+          "label": "sample_size",
+          "value": "565",
+          "status": "reported",
+          "source_note": "Method section reports final analytic sample N = 565"
+        },
+        {
+          "label": "engagement_variance_explained",
+          "value": "55%",
+          "status": "reported",
+          "source_note": "Abstract reports antecedents explain 55% of engagement variance"
+        },
+        {
+          "label": "retention_variance_explained",
+          "value": "70%",
+          "status": "reported",
+          "source_note": "Abstract reports engagement accounts for 70% of retention variance"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-leveraging-influencer.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "four-e-retention-framework",
+        "lever-priority-map"
+      ],
+      "card_image": "./assets/viz-influencer-four-e-retention.svg",
+      "card_summary": "Reported (self-reported): Four-E UGC retention model linking experience, expectations, and brand equity with engagement and retention.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "reported"
+      },
+      "figure_tiers": [
+        "reported",
+        "illustrative"
+      ],
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "virtual-influencers",
+      "slug": "research-virtual-influencers",
+      "title": "Virtual Influencers and Gen Z Trust",
+      "study_type": "creator",
+      "status": "derived",
+      "sample": "Conference publication output",
+      "model": "Trust-pathway quantitative modeling",
+      "key_metrics": [
+        {
+          "label": "publication_year",
+          "value": "EEEU 2024 conference context; Springer first online: June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)",
+          "status": "reported",
+          "source_note": "Springer chapter record and conference framing"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Springer chapter",
+          "url": "https://link.springer.com/chapter/10.1007/978-981-96-4116-1_9",
+          "type": "external"
+        },
+        {
+          "label": "Research detail",
+          "url": "./research-virtual-influencers.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "trust-driver-map",
+        "trust-pathway"
+      ],
+      "card_image": "https://hbr.org/resources/images/article_assets/2024/03/S24033_HWANG.jpg",
+      "card_summary": "Derived interpretation: Virtual influencer trust transfer is interpreted through credibility, relevance, and disclosure guardrails.",
+      "default_tiers": {
+        "kpi": "derived",
+        "figure": "illustrative"
+      },
+      "figure_tiers": [
+        "illustrative",
+        "illustrative"
+      ],
+      "verification_status": "verified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "strong",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "buffet-nudging",
+      "slug": "research-buffet",
+      "title": "Buffet Menu Nudging",
+      "study_type": "health",
+      "status": "reported",
+      "sample": "Study 1 n=257; Study 2 n=147 (Vietnamese diners)",
+      "model": "2x3 between-subjects experiment + ordinal logistic tier-choice model with mediation",
+      "key_metrics": [
+        {
+          "label": "study_1_calorie_delta",
+          "value": "-146 kcal (HOF 1427 vs UOF 1573)",
+          "status": "reported",
+          "source_note": "Study 1 t-test comparison of intended calorie intake"
+        },
+        {
+          "label": "study_2_calorie_delta",
+          "value": "-223 kcal (HOF 1445 vs UOF 1668)",
+          "status": "reported",
+          "source_note": "Study 2 manipulation check"
+        },
+        {
+          "label": "premium_tier_shift",
+          "value": "52.4% to 23.8%",
+          "status": "reported",
+          "source_note": "Premium-tier choice share by menu order in Study 2"
+        },
+        {
+          "label": "higher_tier_odds",
+          "value": "OR = 0.52 (48% lower odds)",
+          "status": "reported",
+          "source_note": "Ordinal logistic estimate for healthier-first menu condition"
+        },
+        {
+          "label": "mediation_effect",
+          "value": "-0.339 (95% CI [-0.56, -0.15])",
+          "status": "reported",
+          "source_note": "Bootstrapped indirect effect via perceived value"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-buffet.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "choice-architecture",
+        "sequencing-impact"
+      ],
+      "card_image": "./assets/optimized/buffet-menu-optimized.webp",
+      "card_summary": "Reported (self-reported): Healthier-first menu sequencing reduced intended calories and shifted choice toward lower-priced buffet bundles.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "illustrative"
+      },
+      "figure_tiers": [
+        "illustrative",
+        "illustrative"
+      ],
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "moderate",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "nutrition-diet",
+      "slug": "research-nutrition",
+      "title": "Student Nutrition and Diet Quality",
+      "study_type": "health",
+      "status": "reported",
+      "sample": "n = 280 students",
+      "model": "Multivariable regression drivers",
+      "key_metrics": [
+        {
+          "label": "sample_size",
+          "value": "280",
+          "status": "reported",
+          "source_note": "Nutrition page and FCBEM paper reference"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "FCBEM conference page",
+          "url": "https://nxbxaydung.com.vn/2025-6th-fpt-conference-on-business-economics-and-management-fcbem-2025-b12364.html",
+          "type": "external"
+        },
+        {
+          "label": "Attached nutrition PDF",
+          "url": "./assets/research-files/FCBEM-029-Nutrition.pdf",
+          "type": "internal"
+        },
+        {
+          "label": "Research detail",
+          "url": "./research-nutrition.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "driver-model",
+        "action-priority"
+      ],
+      "card_image": "./assets/FCBEM.jpg",
+      "card_summary": "Reported: Nutrition knowledge and activity drivers are mapped into phased intervention priorities.",
+      "default_tiers": {
+        "kpi": "reported",
+        "figure": "illustrative"
+      },
+      "figure_tiers": [
+        "illustrative",
+        "illustrative"
+      ],
+      "verification_status": "verified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "moderate",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "psych-ownership",
+      "slug": "research-psych-ownership",
+      "title": "Psychological Ownership",
+      "study_type": "organizational",
+      "status": "conceptual",
+      "sample": "SEM fit/sample not publicly provided in current sources",
+      "model": "Ownership-to-commitment translation framework",
+      "key_metrics": [
+        {
+          "label": "construct_pair",
+          "value": "individual + collective ownership",
+          "status": "conceptual",
+          "source_note": "Framework-level interpretation page"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-psych-ownership.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "ownership-lever-map",
+        "commitment-pathway"
+      ],
+      "card_image": "https://ptehelper.com.au/wp-content/uploads/2022/02/swinburne-viet-nam.jpg",
+      "card_summary": "Conceptual framework: Ownership evidence is translated into practical commitment actions for Vietnam university teams.",
+      "default_tiers": {
+        "kpi": "conceptual",
+        "figure": "illustrative"
+      },
+      "figure_tiers": [
+        "illustrative",
+        "illustrative"
+      ],
+      "verification_status": "unverified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "arts-workshop",
+      "slug": "research-arts-workshop",
+      "title": "Arts Workshop Co-creation",
+      "study_type": "organizational",
+      "status": "conceptual",
+      "sample": "SEM fit/sample not publicly provided in current sources",
+      "model": "Value co-creation service design translation",
+      "key_metrics": [
+        {
+          "label": "core_levers",
+          "value": "hedonic + social + learning",
+          "status": "conceptual",
+          "source_note": "Framework-level service design translation"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Research detail",
+          "url": "./research-arts-workshop.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "value-co-creation-map",
+        "participation-journey"
+      ],
+      "card_image": "./assets/arts-workshop.jpg",
+      "card_summary": "Conceptual framework: Emotional, social, and learning cues are sequenced for repeat participation planning.",
+      "default_tiers": {
+        "kpi": "conceptual",
+        "figure": "illustrative"
+      },
+      "figure_tiers": [
+        "illustrative",
+        "illustrative"
+      ],
+      "verification_status": "unverified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "hotel-value-framework",
+      "slug": "research-hotel-value",
+      "title": "Hotel Value Framework",
+      "study_type": "hospitality",
+      "status": "conceptual",
+      "sample": "Framework explainer linked to Da Nang segmentation stream",
+      "model": "NLP-to-value segmentation framework",
+      "key_metrics": [
+        {
+          "label": "positioning",
+          "value": "framework companion to segmentation study",
+          "status": "conceptual",
+          "source_note": "Positioned as translation layer, not independent dataset"
+        }
+      ],
+      "source_links": [
+        {
+          "label": "Related segmentation study",
+          "url": "./research-hotel.html",
+          "type": "internal"
+        },
+        {
+          "label": "Research detail",
+          "url": "./research-hotel-value.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [
+        "text-to-value-segments"
+      ],
+      "card_image": "./assets/viz-hotel-value-segments.svg",
+      "card_summary": "Conceptual framework: Review text signals are translated into value-led hospitality segments.",
+      "default_tiers": {
+        "kpi": "conceptual",
+        "figure": "conceptual"
+      },
+      "figure_tiers": [
+        "conceptual"
+      ],
+      "verification_status": "unverified",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    },
+    {
+      "id": "legacy-hanoi-phaseout",
+      "slug": "research-hanoi-phaseout",
+      "title": "Legacy Alias: Hanoi Phase-Out",
+      "study_type": "policy",
+      "status": "conceptual",
+      "sample": "Deprecated alias",
+      "model": "redirect",
+      "key_metrics": [],
+      "source_links": [
+        {
+          "label": "Canonical page",
+          "url": "./research-motorbike-ban.html",
+          "type": "internal"
+        }
+      ],
+      "visual_modules": [],
+      "card_image": "./assets/viz-hanoi-wtp-balance.svg",
+      "card_summary": "Conceptual framework: Deprecated route; redirects to the canonical phase-out study.",
+      "deprecated": true,
+      "redirect_to": "research-motorbike-ban",
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-02-24",
+      "evidence_strength": "limited",
+      "claim_owner": "chung-hy-dai"
+    }
+  ]
+}

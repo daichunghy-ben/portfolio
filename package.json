@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-hy-resources",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build:images": "node scripts/build-images.mjs",
+    "build:social": "node scripts/build-social-preview.mjs",
+    "build:css": "mkdir -p dist/styles && cleancss -o dist/styles/base.min.css styles/base.css && cleancss -o dist/styles/home.min.css styles/home.css && cleancss -o dist/styles/projects.min.css styles/projects.css && cleancss -o dist/styles/research.min.css styles/research.css && cleancss -o dist/styles/cv.min.css styles/cv.css",
+    "build:js": "mkdir -p dist/js && terser js/main.js js/core.js js/carousel.js js/modal.js js/parallax.js js/research-detail.js --module --compress --mangle --output dist/js/app.min.js",
+    "build": "npm run build:images && npm run build:css && npm run build:js",
+    "preview": "python3 -m http.server 4173",
+    "audit:lighthouse": "node scripts/audit-lighthouse.mjs",
+    "audit:externals": "node scripts/audit-external-links.mjs",
+    "mirror:externals": "node scripts/mirror-external-media.mjs",
+    "evidence:linkedin": "node scripts/collect-linkedin-evidence.mjs",
+    "stage:pages": "node scripts/stage-pages.mjs",
+    "stage:github": "SITE_URL=\"${GITHUB_PAGES_URL:-}\" LEGACY_PAGES_HOSTS=\"${LEGACY_PAGES_HOSTS:-}\" node scripts/stage-pages.mjs",
+    "check:github": "npm run stage:github && node scripts/check-site-local.mjs",
+    "check:local": "node scripts/check-site-local.mjs",
+    "deploy:pages": "CFP=\"${CF_PAGES_PROJECT:-$PROJECT}\"; test -n \"$CFP\" || (echo 'CF_PAGES_PROJECT (or PROJECT) is required' && exit 1); npx wrangler pages deploy .deploy/public --project-name \"$CFP\" --branch main --commit-dirty=true",
+    "check:remote": "node scripts/check-site-remote.mjs",
+    "publish": "npm run mirror:externals && npm run stage:pages && npm run check:local && npm run deploy:pages && npm run check:remote"
+  },
+  "devDependencies": {
+    "@phosphor-icons/web": "^2.1.2",
+    "clean-css-cli": "^5.6.3",
+    "lighthouse": "^12.8.2",
+    "sharp": "^0.34.4",
+    "terser": "^5.43.1"
+  }
+}

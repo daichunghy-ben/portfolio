@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Public Preferences for Fossil-Fuel Vehicle Phase-Out in Hanoi</title>
+  <desc id="desc">Dashboard of key discrete choice experiment outputs including model fit and monthly willingness to pay values.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="55%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="neg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="pos" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+
+  <g font-family="'Space Grotesk', Inter, Arial, sans-serif" fill="#0f172a">
+    <text x="80" y="84" font-size="40" font-weight="700">Hanoi Fossil-Fuel Vehicle Phase-Out: Public Preference Map</text>
+    <text x="80" y="118" font-size="21" fill="#334155">Discrete Choice Experiment and Mixed Logit Results (n = 320)</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="80" y="150" width="320" height="92" rx="18" fill="#ffffff"/>
+      <rect x="420" y="150" width="240" height="92" rx="18" fill="#ffffff"/>
+      <rect x="680" y="150" width="270" height="92" rx="18" fill="#ffffff"/>
+      <rect x="970" y="150" width="550" height="92" rx="18" fill="#ffffff"/>
+    </g>
+
+    <text x="104" y="184" font-size="14" fill="#64748b" letter-spacing="1">RESPONDENTS</text>
+    <text x="104" y="220" font-size="34" font-weight="700">320</text>
+
+    <text x="444" y="184" font-size="14" fill="#64748b" letter-spacing="1">MODEL FIT</text>
+    <text x="444" y="220" font-size="34" font-weight="700">rho2 = 0.28</text>
+
+    <text x="704" y="184" font-size="14" fill="#64748b" letter-spacing="1">STATUS QUO BIAS</text>
+    <text x="704" y="220" font-size="34" font-weight="700">ASC = +1.621</text>
+
+    <text x="994" y="184" font-size="14" fill="#64748b" letter-spacing="1">TOP ACCEPTANCE DRIVERS</text>
+    <text x="994" y="220" font-size="31" font-weight="700">PT improvements + targeted grants</text>
+
+    <g filter="url(#cardShadow)">
+      <rect x="80" y="272" width="1440" height="620" rx="24" fill="#ffffff"/>
+    </g>
+
+    <text x="132" y="322" font-size="20" font-weight="600">Negative WTP (monthly compensation required)</text>
+    <text x="1028" y="322" font-size="20" font-weight="600">Positive WTP (monthly value in VND)</text>
+
+    <line x1="800" y1="338" x2="800" y2="846" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 6"/>
+    <text x="800" y="336" font-size="14" text-anchor="middle" fill="#64748b">0</text>
+
+    <!-- Negative -->
+    <rect x="562" y="360" width="238" height="32" rx="16" fill="url(#neg)"/>
+    <text x="552" y="382" text-anchor="end" font-size="15" fill="#b91c1c">-135,220</text>
+    <text x="805" y="382" font-size="18" font-weight="600">Restrict all fossil-fuel vehicles</text>
+
+    <rect x="679" y="428" width="121" height="32" rx="16" fill="url(#neg)"/>
+    <text x="669" y="450" text-anchor="end" font-size="15" fill="#b91c1c">-68,450</text>
+    <text x="805" y="450" font-size="18" font-weight="600">Restrict all fossil-fuel motorcycles</text>
+
+    <!-- Positive -->
+    <rect x="800" y="496" width="331" height="32" rx="16" fill="url(#pos)"/>
+    <text x="1140" y="518" font-size="15" fill="#047857">+188,120</text>
+    <text x="805" y="518" font-size="18" font-weight="600">E-motorcycle purchase grant</text>
+
+    <rect x="800" y="564" width="271" height="32" rx="16" fill="url(#pos)"/>
+    <text x="1080" y="586" font-size="15" fill="#047857">+153,830</text>
+    <text x="805" y="586" font-size="18" font-weight="600">40% more road space reallocated to greenery</text>
+
+    <rect x="800" y="632" width="181" height="32" rx="16" fill="url(#pos)"/>
+    <text x="990" y="654" font-size="15" fill="#047857">+102,550</text>
+    <text x="805" y="654" font-size="18" font-weight="600">Revenue reinvestment with citizen oversight</text>
+
+    <rect x="800" y="700" width="149" height="32" rx="16" fill="url(#pos)"/>
+    <text x="958" y="722" font-size="15" fill="#047857">+84,150</text>
+    <text x="805" y="722" font-size="18" font-weight="600">30% improvement in PT frequency and coverage</text>
+
+    <rect x="800" y="768" width="136" height="32" rx="16" fill="url(#pos)"/>
+    <text x="944" y="790" font-size="15" fill="#047857">+76,920</text>
+    <text x="805" y="790" font-size="18" font-weight="600">50% reduction in public transport fares</text>
+
+    <rect x="132" y="846" width="16" height="16" rx="8" fill="url(#neg)"/>
+    <text x="158" y="859" font-size="15" fill="#475569">Push-only restrictions face strong resistance, especially for mobility-constrained households.</text>
+    <rect x="840" y="846" width="16" height="16" rx="8" fill="url(#pos)"/>
+    <text x="866" y="859" font-size="15" fill="#475569">A pull-first package with grants and better transit is the most acceptable pathway.</text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+/*
+ * Legacy compatibility shim.
+ * Active pages now load scoped stylesheets directly from /styles.
+ */
+@import url('styles/base.css');
+@import url('styles/home.css');
+@import url('styles/projects.css');
+@import url('styles/research.css');
+@import url('styles/cv.css');

@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<title>Investigating Factors Impacting Customer Interest in Art and Entertainment Events</title>
+<meta content="Full research synthesis on Ladder Art Space: consumption values, attitude mediation, SEM findings, and managerial implications for participatory art edutainment venues." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles/base.css" rel="stylesheet"/><link href="styles/research.css" rel="stylesheet"/>
+<link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+<link href="./research-arts-workshop.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Investigating Factors Impacting Customer Interest in Art and Entertainment Events" property="og:title"/>
+<meta content="Expanded research page with hypotheses, SEM results, mediation analysis, and implications for Ladder Art Space workshops." property="og:description"/>
+<meta content="./research-arts-workshop.html" property="og:url"/>
+<style>
+:root {
+    --museum-ink: #1f170f;
+    --museum-paper: #f6efdf;
+    --museum-paper-soft: #efe4cd;
+    --museum-gold: #8d6a38;
+    --museum-clay: #af5838;
+    --museum-teal: #1f5b64;
+    --museum-border: rgba(79, 49, 25, 0.24);
+    --museum-shadow: 0 18px 44px rgba(46, 23, 5, 0.16);
+}
+
+body.museum-lab-page {
+    background: linear-gradient(180deg, #ece0c8 0%, var(--museum-paper) 36%, #f3e6cf 100%);
+    color: var(--museum-ink);
+    font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+}
+
+body.museum-lab-page .navbar {
+    background: rgba(246, 239, 223, 0.9);
+    border-bottom: 1px solid rgba(141, 106, 56, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+body.museum-lab-page .logo-mark {
+    background: linear-gradient(135deg, #e4cca0, #9e7340);
+    color: #1d130c;
+}
+
+body.museum-lab-page .nav-link,
+body.museum-lab-page .logo {
+    color: #2e2114;
+}
+
+.museum-main {
+    position: relative;
+    overflow: hidden;
+}
+
+.museum-main::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.55), transparent 36%), radial-gradient(circle at 82% 30%, rgba(173, 108, 67, 0.2), transparent 28%), radial-gradient(circle at 50% 85%, rgba(39, 83, 92, 0.13), transparent 32%);
+    mix-blend-mode: multiply;
+}
+
+.museum-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 84vh;
+    padding: 8rem 0 4rem;
+    background: linear-gradient(115deg, rgba(25, 16, 9, 0.86), rgba(25, 16, 9, 0.56) 45%, rgba(19, 44, 53, 0.55)), url("./assets/optimized/arts-workshop-1800.avif") center/cover no-repeat;
+    border-bottom: 1px solid rgba(141, 106, 56, 0.35);
+}
+
+.museum-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.18;
+    background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.09) 0 2px, transparent 2px 4px);
+}
+
+.museum-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.35fr 0.95fr;
+    gap: 1.4rem;
+    align-items: start;
+}
+
+.museum-panel {
+    background: rgba(246, 239, 223, 0.93);
+    border: 1px solid rgba(141, 106, 56, 0.4);
+    border-radius: 24px;
+    padding: 1.65rem;
+    box-shadow: var(--museum-shadow);
+    animation: riseIn 0.8s ease both;
+}
+
+.museum-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 1rem;
+    color: #593c1e;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.museum-back-link:hover {
+    color: #2e1f0e;
+}
+
+.museum-kicker {
+    margin: 0 0 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #6e4d28;
+}
+
+.museum-intro h1 {
+    margin: 0;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    line-height: 1.04;
+    color: #1b120b;
+}
+
+.museum-lead {
+    margin: 1rem 0 0;
+    max-width: 40rem;
+    font-size: 1.03rem;
+    line-height: 1.7;
+    color: #362719;
+}
+
+.museum-context-primer {
+    margin-top: 1.25rem;
+    padding: 1rem 1rem 0.95rem;
+    border-radius: 14px;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    background: rgba(255, 255, 255, 0.62);
+}
+
+.museum-context-title {
+    margin: 0;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #694824;
+}
+
+.museum-context-primer ul {
+    margin: 0.7rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.museum-context-primer li {
+    color: #3a2b1c;
+    line-height: 1.55;
+    font-size: 0.94rem;
+}
+
+.museum-ticket-row {
+    margin-top: 1.45rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.museum-ticket {
+    padding: 0.9rem 0.85rem;
+    border: 1px dashed rgba(84, 54, 26, 0.36);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(228, 205, 164, 0.26));
+}
+
+.museum-ticket span {
+    display: block;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    color: #6b4d2a;
+}
+
+.museum-ticket strong {
+    display: block;
+    margin-top: 0.32rem;
+    font-size: 1rem;
+    color: #26180f;
+}
+
+.museum-curator-note {
+    color: #f7efde;
+    background: linear-gradient(165deg, rgba(32, 24, 16, 0.92), rgba(26, 64, 74, 0.9));
+    border-color: rgba(241, 216, 172, 0.35);
+}
+
+.museum-note-label {
+    margin: 0;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: #f0ce98;
+    font-weight: 700;
+}
+
+.museum-curator-note h2 {
+    margin: 0.8rem 0 0.7rem;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+    line-height: 1.24;
+    color: #fff6e9;
+}
+
+.museum-curator-note p {
+    margin: 0;
+    color: rgba(255, 247, 230, 0.9);
+    line-height: 1.7;
+}
+
+.museum-note-list {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.7rem;
+}
+
+.museum-note-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.95rem;
+    color: rgba(255, 246, 227, 0.95);
+}
+
+.museum-note-flow {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.museum-note-flow p {
+    margin: 0;
+    padding: 0.72rem 0.86rem;
+    border-radius: 12px;
+    border: 1px solid rgba(241, 216, 172, 0.34);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 247, 230, 0.95);
+    line-height: 1.6;
+}
+
+.museum-note-flow strong {
+    color: #ffe4b7;
+}
+
+.museum-gallery {
+    padding: 5.4rem 0 4.6rem;
+}
+
+.museum-section-header {
+    margin: 0 auto 1.8rem;
+    max-width: 52rem;
+    text-align: center;
+}
+
+.museum-section-header h2 {
+    margin: 0.45rem 0 0.75rem;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: clamp(1.9rem, 3vw, 3.05rem);
+    line-height: 1.15;
+    color: #23170e;
+}
+
+.museum-section-header p {
+    margin: 0;
+    color: #3a2c1e;
+    line-height: 1.7;
+}
+
+.museum-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.15rem;
+}
+
+.museum-art-card {
+    grid-column: span 6;
+    margin: 0;
+    padding: 0.82rem;
+    border-radius: 22px;
+    border: 1px solid var(--museum-border);
+    background: rgba(255, 249, 238, 0.82);
+    box-shadow: var(--museum-shadow);
+    animation: frameFloat 7s ease-in-out infinite;
+}
+
+.museum-art-card:nth-child(2) {
+    animation-delay: 0.75s;
+}
+
+.museum-art-card:nth-child(3) {
+    animation-delay: 1.3s;
+}
+
+.museum-art-card:nth-child(4) {
+    animation-delay: 1.8s;
+}
+
+.museum-art-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid rgba(57, 36, 19, 0.14);
+}
+
+.museum-art-card figcaption {
+    padding: 0.86rem 0.35rem 0.3rem;
+}
+
+.museum-art-card h3 {
+    margin: 0;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: 1.42rem;
+    color: #281a11;
+}
+
+.museum-art-card p {
+    margin: 0.55rem 0 0.5rem;
+    color: #473626;
+    font-size: 0.95rem;
+    line-height: 1.62;
+}
+
+.museum-art-card a {
+    color: #235769;
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.museum-art-card a:hover {
+    text-decoration: underline;
+}
+
+.museum-route {
+    padding: 4.9rem 0;
+    background: linear-gradient(180deg, #1f1811 0%, #132f39 72%, var(--museum-paper) 72.1%);
+}
+
+.museum-route-shell {
+    background: rgba(246, 236, 216, 0.96);
+    border: 1px solid rgba(141, 106, 56, 0.34);
+    border-radius: 26px;
+    padding: 2rem;
+    box-shadow: var(--museum-shadow);
+}
+
+.museum-route-shell h2 {
+    margin: 0.25rem 0 0.7rem;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: clamp(1.75rem, 2.7vw, 2.5rem);
+    color: #20150c;
+}
+
+.museum-route-shell p {
+    margin: 0;
+    line-height: 1.72;
+    color: #3d2f1f;
+}
+
+.museum-route-note {
+    margin-top: 0.95rem !important;
+    padding: 0.72rem 0.86rem;
+    border-radius: 12px;
+    border: 1px solid rgba(141, 106, 56, 0.3);
+    background: rgba(255, 255, 255, 0.72);
+    color: #3a2d20;
+    font-size: 0.93rem;
+}
+
+.museum-route-track {
+    margin-top: 1.45rem;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.museum-route-track::before {
+    content: "";
+    position: absolute;
+    left: 2%;
+    right: 2%;
+    top: 1.15rem;
+    height: 2px;
+    background: linear-gradient(90deg, var(--museum-gold), var(--museum-clay), var(--museum-teal));
+}
+
+.museum-stop {
+    position: relative;
+    padding: 2rem 1rem 1rem;
+    border-radius: 18px;
+    border: 1px solid rgba(73, 47, 25, 0.25);
+    background: rgba(255, 255, 255, 0.73);
+}
+
+.museum-stop span {
+    position: absolute;
+    top: 0.58rem;
+    left: 1rem;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #6d4e2d;
+    font-weight: 700;
+}
+
+.museum-stop h3 {
+    margin: 0 0 0.45rem;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    color: #23160e;
+    font-size: 1.2rem;
+}
+
+.museum-stop p {
+    margin: 0;
+    color: #473626;
+    font-size: 0.93rem;
+    line-height: 1.58;
+}
+
+.museum-route-text {
+    margin-top: 1.35rem;
+    display: grid;
+    gap: 0.78rem;
+}
+
+.museum-route-text p {
+    margin: 0;
+    padding: 0.86rem 0.95rem;
+    border-left: 3px solid rgba(141, 106, 56, 0.8);
+    border-radius: 0 12px 12px 0;
+    background: rgba(255, 255, 255, 0.73);
+    color: #403021;
+    line-height: 1.65;
+}
+
+.route-label {
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-weight: 700;
+    color: #2a1a10;
+}
+
+.museum-signature {
+    padding: 4.5rem 0 5.5rem;
+}
+
+.museum-signature-shell {
+    border-radius: 28px;
+    border: 1px solid var(--museum-border);
+    padding: 2rem;
+    box-shadow: var(--museum-shadow);
+    background: linear-gradient(160deg, rgba(255, 250, 240, 0.94), rgba(233, 220, 192, 0.85));
+}
+
+.museum-signature-shell h2 {
+    margin: 0.25rem 0 0.7rem;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: clamp(1.8rem, 2.9vw, 2.7rem);
+    color: #24170f;
+}
+
+.museum-signature-shell p {
+    margin: 0;
+    color: #3c2d1f;
+    line-height: 1.72;
+}
+
+.museum-pillar-grid {
+    margin-top: 1.45rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.museum-pillar {
+    border-radius: 16px;
+    border: 1px solid rgba(75, 50, 29, 0.28);
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.museum-pillar .pillar-label {
+    display: inline-block;
+    margin-bottom: 0.45rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(99, 64, 35, 0.4);
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5f4122;
+}
+
+.museum-pillar h3 {
+    margin: 0;
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-size: 1.16rem;
+    color: #2c1d12;
+}
+
+.museum-pillar p {
+    margin: 0.52rem 0 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #4a3826;
+}
+
+.museum-signature-flow {
+    margin-top: 1.45rem;
+    display: grid;
+    gap: 0.78rem;
+}
+
+.museum-signature-flow p {
+    margin: 0;
+    padding: 0.92rem 1rem;
+    border-radius: 14px;
+    border: 1px solid rgba(75, 50, 29, 0.27);
+    background: rgba(255, 255, 255, 0.72);
+    color: #413021;
+    line-height: 1.66;
+}
+
+.flow-label {
+    font-family: "Bodoni Moda", "Fraunces", serif;
+    font-weight: 700;
+    color: #2b1b11;
+}
+
+.museum-evidence-note {
+    margin-top: 1.3rem;
+    padding: 0.95rem 1rem;
+    border-left: 4px solid var(--museum-clay);
+    background: rgba(255, 255, 255, 0.68);
+    border-radius: 0 10px 10px 0;
+    color: #3b2a1a;
+    font-size: 0.95rem;
+}
+
+.museum-focus-nav {
+    position: sticky;
+    top: 4.6rem;
+    z-index: 8;
+    padding: 0.65rem 0;
+    border-top: 1px solid rgba(141, 106, 56, 0.25);
+    border-bottom: 1px solid rgba(141, 106, 56, 0.25);
+    background: rgba(246, 239, 223, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.museum-focus-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.museum-focus-links a {
+    padding: 0.4rem 0.72rem;
+    border-radius: 999px;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    background: rgba(255, 255, 255, 0.64);
+    color: #2d1f12;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: background 0.22s ease, transform 0.22s ease;
+}
+
+.museum-focus-links a:hover {
+    background: rgba(255, 255, 255, 0.92);
+    transform: translateY(-1px);
+}
+
+.museum-section-block {
+    padding: 4.8rem 0;
+    scroll-margin-top: 7.2rem;
+}
+
+.museum-section-shell {
+    border-radius: 26px;
+    border: 1px solid rgba(73, 47, 25, 0.26);
+    padding: 1.65rem;
+    background: rgba(255, 249, 238, 0.82);
+    box-shadow: var(--museum-shadow);
+}
+
+.museum-two-col {
+    display: grid;
+    grid-template-columns: minmax(0, 1.14fr) minmax(250px, 0.86fr);
+    gap: 1rem;
+}
+
+.museum-chip-row {
+    margin-top: 0.95rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.48rem;
+}
+
+.museum-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.58rem;
+    border-radius: 999px;
+    border: 1px solid rgba(99, 64, 35, 0.34);
+    background: rgba(255, 255, 255, 0.75);
+    color: #50361f;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.museum-meta-box {
+    border-radius: 16px;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    padding: 0.95rem;
+    background: rgba(255, 255, 255, 0.76);
+}
+
+.museum-meta-box ul {
+    margin: 0.7rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.museum-meta-box li {
+    color: #3a2b1c;
+    line-height: 1.56;
+    font-size: 0.92rem;
+}
+
+.museum-author-note {
+    margin-top: 1rem;
+    padding: 0.9rem 0.95rem;
+    border-radius: 14px;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.museum-author-note p {
+    margin: 0;
+    color: #3a2a1a;
+    line-height: 1.58;
+    font-size: 0.92rem;
+}
+
+.museum-author-note p + p {
+    margin-top: 0.42rem;
+}
+
+.museum-hypothesis-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.museum-hypothesis-card {
+    border-radius: 14px;
+    border: 1px solid rgba(73, 47, 25, 0.23);
+    background: rgba(255, 255, 255, 0.76);
+    padding: 0.8rem;
+}
+
+.museum-hypothesis-card h3 {
+    margin: 0;
+    color: #2a1a10;
+    font-size: 0.97rem;
+}
+
+.museum-hypothesis-card p {
+    margin: 0.4rem 0 0;
+    color: #463526;
+    font-size: 0.9rem;
+    line-height: 1.52;
+}
+
+.museum-method-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.78rem;
+}
+
+.museum-method-card {
+    border-radius: 14px;
+    border: 1px solid rgba(73, 47, 25, 0.23);
+    background: rgba(255, 255, 255, 0.76);
+    padding: 0.86rem;
+}
+
+.museum-method-card h3 {
+    margin: 0;
+    color: #2a1a10;
+    font-size: 0.98rem;
+}
+
+.museum-method-card p {
+    margin: 0.46rem 0 0;
+    color: #453424;
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.museum-data-table {
+    width: 100%;
+    margin-top: 0.95rem;
+    border-collapse: collapse;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.museum-data-table th,
+.museum-data-table td {
+    border: 1px solid rgba(73, 47, 25, 0.18);
+    padding: 0.56rem 0.6rem;
+    text-align: left;
+    vertical-align: top;
+    color: #3f2f20;
+    font-size: 0.88rem;
+    line-height: 1.46;
+}
+
+.museum-data-table th {
+    background: rgba(229, 209, 167, 0.42);
+    color: #2d1d11;
+    font-size: 0.84rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.museum-caption-note {
+    margin: 0.65rem 0 0;
+    color: #4a3928;
+    font-size: 0.84rem;
+    line-height: 1.55;
+}
+
+.museum-results-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.78rem;
+}
+
+.museum-results-card {
+    border-radius: 14px;
+    border: 1px solid rgba(73, 47, 25, 0.24);
+    background: rgba(255, 255, 255, 0.76);
+    padding: 0.9rem;
+}
+
+.museum-results-card h3 {
+    margin: 0;
+    color: #2a1a10;
+    font-size: 1.01rem;
+}
+
+.museum-results-card p,
+.museum-results-card li {
+    color: #433222;
+    font-size: 0.9rem;
+    line-height: 1.56;
+}
+
+.museum-results-card ul {
+    margin: 0.55rem 0 0;
+    padding-left: 1.05rem;
+    display: grid;
+    gap: 0.36rem;
+}
+
+.museum-insight-grid {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.78rem;
+}
+
+.museum-reference-list {
+    margin: 0.75rem 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.46rem;
+}
+
+.museum-reference-list li {
+    color: #3f2f20;
+    font-size: 0.9rem;
+    line-height: 1.56;
+}
+
+.museum-main a:focus-visible,
+.museum-main button:focus-visible {
+    outline: 3px solid #1f5b64;
+    outline-offset: 2px;
+    border-radius: 10px;
+}
+
+body.museum-lab-page .btn-outline {
+    border-color: rgba(43, 31, 20, 0.5);
+    color: #2b1f14;
+    background: rgba(255, 255, 255, 0.22);
+}
+
+body.museum-lab-page .btn-outline:hover {
+    color: #fdf6ea;
+    background: #2b1f14;
+}
+
+@keyframes riseIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes frameFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateY(-5px) rotate(0.45deg);
+    }
+}
+
+@media (max-width: 1024px) {
+    .museum-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .museum-focus-nav {
+        top: 4.2rem;
+    }
+
+    .museum-ticket-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .museum-two-col,
+    .museum-hypothesis-grid,
+    .museum-method-grid,
+    .museum-results-grid,
+    .museum-insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .museum-route-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .museum-route-track::before {
+        display: none;
+    }
+
+    .museum-pillar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .museum-hero {
+        padding: 6.8rem 0 3rem;
+    }
+
+    .museum-focus-nav {
+        top: 3.95rem;
+    }
+
+    .museum-focus-links {
+        gap: 0.42rem;
+    }
+
+    .museum-focus-links a {
+        font-size: 0.76rem;
+    }
+
+    .museum-section-block {
+        padding: 3.8rem 0;
+    }
+
+    .museum-panel,
+    .museum-section-shell,
+    .museum-route-shell,
+    .museum-signature-shell {
+        padding: 1.25rem;
+    }
+
+    .museum-gallery-grid,
+    .museum-ticket-row,
+    .museum-route-track,
+    .museum-pillar-grid,
+    .museum-hypothesis-grid,
+    .museum-method-grid,
+    .museum-results-grid,
+    .museum-insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .museum-art-card {
+        grid-column: 1 / -1;
+        animation-duration: 5.5s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .museum-panel,
+    .museum-art-card {
+        animation: none;
+    }
+}
+</style>
+</head>
+<body class="page-research-detail page-research-custom page-research-arts page-research-arts-focus museum-lab-page" data-page="research" data-research-id="arts-workshop">
+<nav class="navbar">
+<div class="nav-container">
+<a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
+<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+<div class="nav-links" id="site-nav-links">
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+<a class="btn-primary nav-cta magnetic" data-strength="15" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">Connect on LinkedIn</a>
+</div>
+</div>
+</nav>
+<div class="nav-overlay" hidden></div>
+<main class="museum-main">
+<section class="museum-hero" id="top">
+<div aria-hidden="true" class="museum-grain"></div>
+<div class="section-container museum-hero-grid">
+<article class="museum-panel museum-intro reveal-on-load">
+<a class="museum-back-link" href="projects.html"><i class="ph ph-arrow-left"></i> Return to Research Hall</a>
+<p class="museum-kicker">Full Paper Synthesis | Ladder Art Space (Australia)</p>
+<h1>Investigating Factors Impacting Customer Interest in Art and Entertainment Events</h1>
+<p class="museum-lead">
+                        This page has been expanded to reflect the full research narrative: theoretical framing, hypothesis
+                        development, methodology, reliability and structural results, mediation mechanisms, and implications
+                        for hybrid participatory art venues.
+                    </p>
+<div class="museum-ticket-row">
+<div class="museum-ticket">
+<span>Dataset</span>
+<strong>N = 216 valid responses</strong>
+</div>
+<div class="museum-ticket">
+<span>Context</span>
+<strong>Ladder Art Space, Kew (Melbourne, Australia)</strong>
+</div>
+<div class="museum-ticket">
+<span>Methods</span>
+<strong>SEM + PROCESS Model 4 (5,000 bootstrap samples)</strong>
+</div>
+</div>
+<div class="museum-author-note">
+<p><strong>Authors:</strong> Thuan Thi Nhu Nguyen<sup>a</sup>, Hy Chung Dai<sup>a*</sup>, Thuan Thi Nhu Nguyen<sup>b</sup>, Phuoc Tan Le<sup>c</sup></p>
+<p><sup>a</sup> Swinburne Vietnam, FPT University, Department of Business, Ho Chi Minh City 700000, Vietnam</p>
+<p><sup>c</sup> Swinburne Vietnam, Department of Media, Ho Chi Minh City 700000, Vietnam</p>
+<p>* Corresponding author: <a href="mailto:hydcsws00482@fpt.edu.vn">hydcsws00482@fpt.edu.vn</a></p>
+</div>
+</article>
+<aside class="museum-panel museum-curator-note reveal-on-load">
+<p class="museum-note-label">Focus Lens</p>
+<h2>Attitude is the mechanism that converts value into participation</h2>
+<p>
+                            The study shows full mediation: perceived values alone do not directly drive workshop booking.
+                            They first shape attitude, and attitude then drives intention.
+                        </p>
+<ul class="museum-note-list">
+<li><i class="ph ph-check-circle"></i> Strongest antecedent of attitude: epistemic value (&beta; = 0.35, p &lt; .001)</li>
+<li><i class="ph ph-check-circle"></i> Explained variance in attitude: R<sup>2</sup> = 0.571 (F(4,211) = 70.07, p &lt; .001)</li>
+<li><i class="ph ph-check-circle"></i> Attitude to intention: &beta; = 0.59 (R<sup>2</sup> = 0.352, p &lt; .001)</li>
+</ul>
+<div class="museum-note-flow">
+<p><strong>Mediation insight:</strong> indirect effects were significant for HV, SV, EV, and FV while direct effects became non-significant.</p>
+<p><strong>Strategic implication:</strong> emphasize learning confidence and social-emotional safety, not entertainment-only messaging.</p>
+</div>
+</aside>
+</div>
+</section>
+
+<section aria-label="Research section navigation" class="museum-focus-nav">
+<div class="section-container">
+<div class="museum-focus-links">
+<a href="#overview">Overview</a>
+<a href="#framework">Framework</a>
+<a href="#method">Methodology</a>
+<a href="#results">Results</a>
+<a href="#discussion">Discussion</a>
+<a href="#limitations">Limitations</a>
+<a href="#references">References</a>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="overview">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 1</p>
+<h2>Study Positioning</h2>
+</header>
+<div class="museum-two-col">
+<div>
+<p class="museum-lead">
+                                    This study examines Ladder Art Space participation using Consumption Values and Service-Dominant Logic. SEM results from 216 responses show full mediation: values shape participation intention through attitude, not through direct effects.
+                                </p>
+<p class="museum-lead">
+                                    Epistemic value is the strongest attitude driver, and the model explains 57.1% of attitude variance and 35.2% of intention variance. Practical priority: position workshops around learning confidence and supportive social settings.
+                                </p>
+<div class="museum-chip-row">
+<span class="museum-chip">Participatory arts</span>
+<span class="museum-chip">Consumption values</span>
+<span class="museum-chip">Epistemic value</span>
+<span class="museum-chip">Customer attitude</span>
+<span class="museum-chip">Edutainment</span>
+<span class="museum-chip">Co-creation</span>
+</div>
+</div>
+<aside class="museum-meta-box">
+<p class="museum-context-title">Research Metadata</p>
+<ul>
+<li><strong>Research aim:</strong> identify drivers of customer interest in hybrid art-event participation.</li>
+<li><strong>Core logic:</strong> Value beliefs &rarr; Attitude &rarr; Participation intention.</li>
+<li><strong>Primary context:</strong> Ladder Art Space (LAS), Kew, Melbourne.</li>
+<li><strong>Behavioral criterion:</strong> participation in an LAS workshop within the next 3 months.</li>
+<li><strong>Analytical techniques:</strong> CFA-informed measurement checks, path analysis, bootstrap mediation.</li>
+</ul>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="framework">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 2</p>
+<h2>Research Background and Hypothesis Development</h2>
+<p>
+                                The framework combines experiential consumption, Service-Dominant Logic, servicescape, and reasoned-action perspectives to explain co-created workshop participation.
+                            </p>
+</header>
+<div class="museum-two-col">
+<div class="museum-meta-box">
+<p class="museum-context-title">Conceptual Foundation</p>
+<ul>
+<li><strong>Experience economy:</strong> value comes from participation, not ownership.</li>
+<li><strong>Service-Dominant Logic:</strong> provider offers resources; value is realized by participant use.</li>
+<li><strong>Consumption values:</strong> functional, hedonic, social, and epistemic dimensions jointly shape evaluation.</li>
+<li><strong>Cognitive hierarchy:</strong> values influence intention through attitude as an evaluative bridge.</li>
+</ul>
+</div>
+<div class="museum-meta-box">
+<p class="museum-context-title">Core Constructs</p>
+<ul>
+<li><strong>Hedonic value:</strong> pleasure, fun, aesthetic and emotional restoration.</li>
+<li><strong>Social value:</strong> belonging, relational support, and social self-concept benefits.</li>
+<li><strong>Epistemic value:</strong> novelty, curiosity, and knowledge/skill acquisition.</li>
+<li><strong>Functional value:</strong> quality of materials, instruction, and physical suitability.</li>
+</ul>
+</div>
+</div>
+<div class="museum-hypothesis-grid">
+<article class="museum-hypothesis-card">
+<h3>H1a</h3>
+<p>Perceived hedonic value positively influences attitude toward the workshop.</p>
+</article>
+<article class="museum-hypothesis-card">
+<h3>H1b</h3>
+<p>Perceived social value positively influences attitude toward the workshop.</p>
+</article>
+<article class="museum-hypothesis-card">
+<h3>H1c</h3>
+<p>Perceived epistemic value positively influences attitude toward the workshop.</p>
+</article>
+<article class="museum-hypothesis-card">
+<h3>H1d</h3>
+<p>Perceived functional value positively influences attitude toward the workshop.</p>
+</article>
+<article class="museum-hypothesis-card">
+<h3>H2</h3>
+<p>Attitude toward the workshop positively influences participation intention.</p>
+</article>
+<article class="museum-hypothesis-card">
+<h3>H3</h3>
+<p>Attitude mediates the relationship between consumption values and participation intention (H3a-H3d).</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="method">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 3</p>
+<h2>Methodology and Measurement Design</h2>
+</header>
+<div class="museum-method-grid">
+<article class="museum-method-card">
+<h3>Research Design</h3>
+<p>
+                                        Quantitative cross-sectional survey administered through Google Forms to respondents in
+                                        Australian art/creative communities. Screening rules excluded inattentive responses
+                                        (attention-check failure) and speeders (&lt; 4 minutes).
+                                    </p>
+</article>
+<article class="museum-method-card">
+<h3>Sample and Adequacy</h3>
+<p>
+                                        Final valid sample: 216. This satisfies common CFA and SEM guidance (minimum
+                                        n = 200 and parameter-to-sample ratio around 10:1) for stable estimation and
+                                        hypothesis testing.
+                                    </p>
+</article>
+<article class="museum-method-card">
+<h3>Instruments</h3>
+<p>
+                                        Consumption values and intention were measured on 7-point Likert scales. Attitude used
+                                        semantic-differential items. All attitude and intention items were aligned to a T-A-C-T
+                                        criterion: participating in LAS workshops within the next 3 months.
+                                    </p>
+</article>
+</div>
+<table class="museum-data-table">
+<thead>
+<tr>
+<th>Demographic Variable</th>
+<th>Result (N = 216)</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gender</td>
+<td>Female 73%, Male 26%, Non-binary/Prefer not to say 1%</td>
+<td>Sample skewed toward female participants, matching active LAS audience profile.</td>
+</tr>
+<tr>
+<td>Age</td>
+<td>Mean 32.5 (SD 11.7), Median 30, Range 18-67</td>
+<td>Predominantly young-to-middle-aged adults.</td>
+</tr>
+<tr>
+<td>Education</td>
+<td>Bachelor 47%, Postgraduate 31%, Diploma/Certificate 19%, High School 2%</td>
+<td>Highly educated cohort, with strong tertiary representation.</td>
+</tr>
+</tbody>
+</table>
+<p class="museum-caption-note">
+                                Common method bias check (Harman single-factor test): first factor explained 26.79% variance,
+                                below the 50% threshold, indicating no dominant common-method threat.
+                            </p>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="results">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 4</p>
+<h2>Empirical Results</h2>
+<p>
+                                Findings support all direct value-to-attitude hypotheses (H1a-H1d), attitude-to-intention
+                                (H2), and full mediation paths (H3a-H3d).
+                            </p>
+</header>
+<div class="museum-chip-row">
+<span class="museum-chip">R<sup>2</sup> Attitude = 0.571</span>
+<span class="museum-chip">R<sup>2</sup> Intention = 0.352</span>
+<span class="museum-chip">VIF range = 1.06 to 1.21</span>
+<span class="museum-chip">No multicollinearity concern</span>
+</div>
+<div class="museum-results-grid">
+<article class="museum-results-card">
+<h3>Structural Paths</h3>
+<ul>
+<li>Epistemic value &rarr; Attitude: &beta; = 0.35, p &lt; .001</li>
+<li>Hedonic value &rarr; Attitude: &beta; = 0.28, p &lt; .001</li>
+<li>Social value &rarr; Attitude: &beta; = 0.27, p &lt; .001</li>
+<li>Functional value &rarr; Attitude: &beta; = 0.25, p &lt; .001</li>
+<li>Attitude &rarr; Intention: &beta; = 0.59, p &lt; .001</li>
+</ul>
+</article>
+<article class="museum-results-card">
+<h3>Correlations (Key Links)</h3>
+<ul>
+<li>ATT with EV: r = 0.575, p &lt; .001</li>
+<li>ATT with HV: r = 0.512, p &lt; .001</li>
+<li>ATT with SV: r = 0.484, p &lt; .001</li>
+<li>ATT with FV: r = 0.394, p &lt; .001</li>
+<li>ATT with INT: r = 0.593, p &lt; .001</li>
+</ul>
+</article>
+</div>
+<table class="museum-data-table">
+<thead>
+<tr>
+<th>Construct</th>
+<th>Cronbach's alpha</th>
+<th>Composite reliability</th>
+<th>AVE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Functional Value (FV)</td>
+<td>0.745</td>
+<td>0.801</td>
+<td>0.503</td>
+</tr>
+<tr>
+<td>Hedonic Value (HV)</td>
+<td>0.717</td>
+<td>0.719</td>
+<td>0.392</td>
+</tr>
+<tr>
+<td>Social Value (SV)</td>
+<td>0.788</td>
+<td>0.788</td>
+<td>0.482</td>
+</tr>
+<tr>
+<td>Epistemic Value (EV)</td>
+<td>0.720</td>
+<td>0.724</td>
+<td>0.401</td>
+</tr>
+<tr>
+<td>Attitude (ATT)</td>
+<td>0.770</td>
+<td>0.771</td>
+<td>0.457</td>
+</tr>
+<tr>
+<td>Intention (INT)</td>
+<td>0.733</td>
+<td>0.733</td>
+<td>0.407</td>
+</tr>
+</tbody>
+</table>
+<p class="museum-caption-note">
+                                Reliability is acceptable across constructs; convergent validity is mixed because several AVE
+                                values are below 0.50, so interpretation should be paired with additional validity evidence.
+                            </p>
+<table class="museum-data-table">
+<thead>
+<tr>
+<th>Mediation Path (via Attitude)</th>
+<th>Indirect Effect</th>
+<th>Mediated Share</th>
+<th>95% CI</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hedonic value &rarr; ATT &rarr; INT</td>
+<td>0.120</td>
+<td>57.1%</td>
+<td>[0.061, 0.190]</td>
+<td>Supported (full mediation)</td>
+</tr>
+<tr>
+<td>Social value &rarr; ATT &rarr; INT</td>
+<td>0.091</td>
+<td>54.6%</td>
+<td>[0.050, 0.144]</td>
+<td>Supported (full mediation)</td>
+</tr>
+<tr>
+<td>Epistemic value &rarr; ATT &rarr; INT</td>
+<td>0.167</td>
+<td>64.0%</td>
+<td>[0.087, 0.257]</td>
+<td>Supported (full mediation)</td>
+</tr>
+<tr>
+<td>Functional value &rarr; ATT &rarr; INT</td>
+<td>0.086</td>
+<td>67.4%</td>
+<td>[0.042, 0.138]</td>
+<td>Supported (full mediation)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="discussion">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 5</p>
+<h2>Discussion, Theoretical and Managerial Implications</h2>
+</header>
+<div class="museum-insight-grid">
+<article class="museum-results-card">
+<h3>Theoretical Implications</h3>
+<ul>
+<li>Extends Service-Dominant Logic into hybrid workshop venues where value is co-created through active learning.</li>
+<li>Supports the cognitive hierarchy sequence: value beliefs require attitude formation before behavioral enactment.</li>
+<li>Shows epistemic value can dominate in high-involvement creative leisure, challenging entertainment-only assumptions.</li>
+<li>Reinforces the role of social servicescape and emotional safety in lowering participation anxiety.</li>
+</ul>
+</article>
+<article class="museum-results-card">
+<h3>Managerial Implications for LAS</h3>
+<ul>
+<li>Reposition workshop marketing around beginner learning outcomes and skill gain, not drink-led messaging.</li>
+<li>Train instructors for autonomy-supportive facilitation to reduce creative anxiety and increase confidence.</li>
+<li>Design layouts for social interaction and belonging to strengthen social value and reduce urban isolation.</li>
+<li>Show process-oriented visuals (beginners in progress) rather than only polished final artwork.</li>
+</ul>
+</article>
+</div>
+<p class="museum-evidence-note">
+<strong>Industry signal:</strong> the paper notes Australia's cultural and creative sector contributed
+                                $67.4 billion in 2023-24 while many live performance venues have closed post-pandemic.
+                                For LAS-like venues, conversion from interest to participation is now a central competitive task.
+                            </p>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="limitations">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">Section 6 and 7</p>
+<h2>Limitations, Future Research, and Conclusion</h2>
+</header>
+<div class="museum-insight-grid">
+<article class="museum-results-card">
+<h3>Limitations</h3>
+<ul>
+<li>Cross-sectional design captures initial intention, not long-term retention or loyalty trajectories.</li>
+<li>Sample composition (largely educated women) limits generalization to broader/non-participant segments.</li>
+<li>Model centers on current participants, so entry barriers for non-participants are less visible.</li>
+<li>Instructor-level effects were not explicitly modeled despite likely influence on creative self-efficacy.</li>
+</ul>
+</article>
+<article class="museum-results-card">
+<h3>Future Research Directions</h3>
+<ul>
+<li>Apply longitudinal designs to test shifts from novelty-driven motives to belonging/identity motives over time.</li>
+<li>Model instructor behavior, autonomy support, and creative self-efficacy as boundary conditions.</li>
+<li>Include non-participants to map creative anxiety and perceived exclusivity barriers at entry.</li>
+<li>Test replicability across other hybrid edutainment and micro-venue contexts beyond LAS.</li>
+</ul>
+</article>
+</div>
+<p class="museum-evidence-note">
+<strong>Conclusion:</strong> hybrid art consumers are not primarily seeking passive fun. They seek productive leisure with
+                                learning, confidence, and social connection. Participation occurs when value perceptions are
+                                translated into a positive attitude toward the workshop experience.
+                            </p>
+</div>
+</div>
+</section>
+
+<section class="museum-section-block" id="references">
+<div class="section-container">
+<div class="museum-section-shell reveal">
+<header class="museum-section-header">
+<p class="museum-kicker">References Snapshot</p>
+<h2>Key Sources Used in the Study Framework</h2>
+<p>
+                                Selected foundational sources below reflect the manuscript's theoretical spine and measurement logic.
+                            </p>
+</header>
+<ul class="museum-reference-list">
+<li>Ajzen, I. (1991). The theory of planned behavior. <em>Organizational Behavior and Human Decision Processes</em>.</li>
+<li>Bitner, M. J. (1992). Servicescapes: the impact of physical surroundings on customers and employees. <em>Journal of Marketing</em>.</li>
+<li>Holbrook, M. B., &amp; Hirschman, E. C. (1982). The experiential aspects of consumption. <em>Journal of Consumer Research</em>.</li>
+<li>Homer, P. M., &amp; Kahle, L. R. (1988). Value-attitude-behavior hierarchy. <em>Journal of Personality and Social Psychology</em>.</li>
+<li>Hwang, J., &amp; Griffiths, M. A. (2017). Values, attitude, and intent in collaborative consumption. <em>Journal of Consumer Marketing</em>.</li>
+<li>Pine, B. J., &amp; Gilmore, J. H. (1999). <em>The Experience Economy</em>.</li>
+<li>Sheth, J. N., Newman, B. I., &amp; Gross, B. L. (1991). Why we buy what we buy. <em>Journal of Business Research</em>.</li>
+<li>Sweeney, J. C., &amp; Soutar, G. N. (2001). Consumer perceived value scale. <em>Journal of Retailing</em>.</li>
+<li>Vargo, S. L., &amp; Lusch, R. F. (2004, 2008). Service-dominant logic. <em>Journal of Marketing</em>; <em>Journal of the Academy of Marketing Science</em>.</li>
+<li>Wang, H.-Y., Liao, C., &amp; Yang, L.-H. (2013). Consumption values in mobile application use. <em>International Journal of Marketing Studies</em>.</li>
+</ul>
+</div>
+<div class="text-center mt-5 reveal">
+<a class="btn-outline large magnetic" data-strength="15" href="projects.html">
+<i class="ph ph-arrow-left"></i> Back to All Research
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="footer-glow glow-1"></div>
+<div class="footer-glow glow-2"></div>
+<div class="footer-glow glow-3"></div>
+<div class="footer-container layer-above-bg reveal active">
+<h2 class="footer-heading">Build something impactful.</h2>
+<p class="footer-desc">Review the full background or reach out to explore how this work can support your team.</p>
+<div class="footer-actions">
+<a class="btn-outline large border-light magnetic" data-strength="25" href="https://www.linkedin.com/in/chung-hy-d-17792826b/" rel="noopener noreferrer" target="_blank">
+<i class="ph ph-linkedin-logo"></i> Connect on LinkedIn
+                </a>
+</div>
+<div class="footer-contact-info reveal active">
+<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<span class="divider">|</span>
+<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span class="divider">|</span>
+<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+</div>
+<div class="footer-bottom">
+<p>© 2026 Chung Hy Dai.</p>
+</div>
+</div>
+</footer>
+<script defer="" src="js/main.js" type="module"></script>
+</body>
+</html>
