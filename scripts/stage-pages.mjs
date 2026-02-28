@@ -182,7 +182,7 @@ const resolveAbsoluteAssetUrl = (value, siteUrl, legacyHosts) => {
 
 const absolutePageUrlForFile = (siteUrl, htmlFileName) => {
   const isIndex = htmlFileName.toLowerCase() === 'index.html';
-  const relativePath = isIndex ? '/' : `/${htmlFileName}`;
+  const relativePath = isIndex ? '.' : htmlFileName;
   return new URL(relativePath, siteUrl).href;
 };
 
@@ -202,7 +202,7 @@ const applyMetadataForSiteUrl = async (siteUrl, legacyHosts) => {
 
     for (const legacyHost of legacyHosts) {
       const from = `https://${legacyHost}`;
-      const to = new URL(siteUrl).origin;
+      const to = new URL(siteUrl).href.replace(/\/$/, '');
       html = html.split(from).join(to);
     }
 
