@@ -19,7 +19,14 @@ const decodeEntities = (value) =>
     .replace(/&#39;/g, "'")
     .replace(/&quot;/g, '"');
 
-const normalizeRef = (raw, currentUrl, baseOrigin) => {
+const normalizeBasePath = (pathname) => {
+  const clean = (pathname || '/').trim();
+  if (!clean || clean === '/') return '/';
+  const withLeading = clean.startsWith('/') ? clean : `/${clean}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+};
+
+const normalizeRef = (raw, currentUrl, baseOrigin, basePath) => {
   if (!raw) return null;
   const cleaned = decodeEntities(raw.trim());
   if (!cleaned || cleaned.startsWith('#')) return null;
@@ -35,7 +42,12 @@ const normalizeRef = (raw, currentUrl, baseOrigin) => {
 
   if (resolved.origin !== baseOrigin) return null;
   resolved.hash = '';
-  if (resolved.pathname === '/') resolved.pathname = '/index.html';
+  const basePathNoSlash = basePath === '/' ? '/' : basePath.replace(/\/$/, '');
+  if (resolved.pathname === basePath || resolved.pathname === basePathNoSlash) {
+    resolved.pathname = `${basePath}index.html`;
+  } else if (resolved.pathname === '/' && basePath === '/') {
+    resolved.pathname = '/index.html';
+  }
   return `${resolved.pathname}${resolved.search}`;
 };
 
@@ -116,7 +128,7 @@ const fetchWithTimeout = async (url) => {
   }
 };
 
-const listSeedPages = async () => {
+const listSeedPages = async (basePath) => {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
   return entries
     .filter((entry) => entry.isFile())
@@ -125,15 +137,17 @@ const listSeedPages = async () => {
     .filter((name) => !name.includes('.report.html'))
     .filter((name) => !HTML_EXCLUDE.has(name))
     .sort()
-    .map((name) => `/${name}`);
+    .map((name) => `${basePath}${name}`);
 };
 
 const crawl = async (baseUrl) => {
   const base = new URL(baseUrl);
   const origin = base.origin;
-  const queue = await listSeedPages();
-  if (!queue.includes('/index.html')) queue.unshift('/index.html');
-  if (!queue.includes('/')) queue.unshift('/');
+  const basePath = normalizeBasePath(base.pathname);
+  const basePathNoSlash = basePath === '/' ? '/' : basePath.replace(/\/$/, '');
+  const queue = await listSeedPages(basePath);
+  if (!queue.includes(`${basePath}index.html`)) queue.unshift(`${basePath}index.html`);
+  if (!queue.includes(basePathNoSlash)) queue.unshift(basePathNoSlash);
 
   const visited = new Set();
   const failures = [];
@@ -176,7 +190,7 @@ const crawl = async (baseUrl) => {
     else if (isJs) refs = extractRefsFromJs(body);
 
     for (const ref of refs) {
-      const normalized = normalizeRef(ref, absoluteUrl.href, origin);
+      const normalized = normalizeRef(ref, absoluteUrl.href, origin, basePath);
       if (!normalized || visited.has(normalized)) continue;
       queue.push(normalized);
     }
