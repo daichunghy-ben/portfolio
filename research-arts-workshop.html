@@ -4,17 +4,19 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
-<title>Investigating Factors Impacting Customer Interest in Art and Entertainment Events</title>
+<title>Investigating Factors Affecting Customer Interest in Art and Entertainment Events</title>
 <meta content="Full research synthesis on Ladder Art Space: consumption values, attitude mediation, SEM findings, and managerial implications for participatory art edutainment venues." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,900&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="styles/base.css" rel="stylesheet"/><link href="styles/research.css" rel="stylesheet"/>
+<link href="styles/base.css" rel="stylesheet"/>
+<link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
 <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
 <link href="./research-arts-workshop.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="Investigating Factors Impacting Customer Interest in Art and Entertainment Events" property="og:title"/>
+<meta content="Investigating Factors Affecting Customer Interest in Art and Entertainment Events" property="og:title"/>
 <meta content="Expanded research page with hypotheses, SEM results, mediation analysis, and implications for Ladder Art Space workshops." property="og:description"/>
 <meta content="./research-arts-workshop.html" property="og:url"/>
 <style>
@@ -61,16 +63,16 @@ body.museum-lab-page .logo {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    background-image: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.55), transparent 36%), radial-gradient(circle at 82% 30%, rgba(173, 108, 67, 0.2), transparent 28%), radial-gradient(circle at 50% 85%, rgba(39, 83, 92, 0.13), transparent 32%);
+    background-image: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.44), transparent 36%), radial-gradient(circle at 82% 30%, rgba(173, 108, 67, 0.14), transparent 28%), radial-gradient(circle at 50% 85%, rgba(39, 83, 92, 0.08), transparent 32%);
     mix-blend-mode: multiply;
 }
 
 .museum-hero {
     position: relative;
     isolation: isolate;
-    min-height: 84vh;
-    padding: 8rem 0 4rem;
-    background: linear-gradient(115deg, rgba(25, 16, 9, 0.86), rgba(25, 16, 9, 0.56) 45%, rgba(19, 44, 53, 0.55)), url("./assets/optimized/arts-workshop-1800.avif") center/cover no-repeat;
+    min-height: 74vh;
+    padding: 7.2rem 0 3.2rem;
+    background: linear-gradient(115deg, rgba(25, 16, 9, 0.78), rgba(25, 16, 9, 0.48) 45%, rgba(19, 44, 53, 0.42)), url("./assets/optimized/arts-workshop-1800.avif") center/cover no-repeat;
     border-bottom: 1px solid rgba(141, 106, 56, 0.35);
 }
 
@@ -78,7 +80,7 @@ body.museum-lab-page .logo {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.18;
+    opacity: 0.1;
     background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.09) 0 2px, transparent 2px 4px);
 }
 
@@ -92,11 +94,11 @@ body.museum-lab-page .logo {
 }
 
 .museum-panel {
-    background: rgba(246, 239, 223, 0.93);
-    border: 1px solid rgba(141, 106, 56, 0.4);
-    border-radius: 24px;
-    padding: 1.65rem;
-    box-shadow: var(--museum-shadow);
+    background: rgba(246, 239, 223, 0.96);
+    border: 1px solid rgba(141, 106, 56, 0.32);
+    border-radius: 20px;
+    padding: 1.45rem;
+    box-shadow: 0 14px 32px rgba(46, 23, 5, 0.12);
     animation: riseIn 0.8s ease both;
 }
 
@@ -126,7 +128,7 @@ body.museum-lab-page .logo {
 .museum-intro h1 {
     margin: 0;
     font-family: "Bodoni Moda", "Fraunces", serif;
-    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-size: clamp(2.05rem, 3.6vw, 3.5rem);
     line-height: 1.04;
     color: #1b120b;
 }
@@ -134,8 +136,8 @@ body.museum-lab-page .logo {
 .museum-lead {
     margin: 1rem 0 0;
     max-width: 40rem;
-    font-size: 1.03rem;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1.66;
     color: #362719;
 }
 
@@ -178,9 +180,9 @@ body.museum-lab-page .logo {
 
 .museum-ticket {
     padding: 0.9rem 0.85rem;
-    border: 1px dashed rgba(84, 54, 26, 0.36);
+    border: 1px solid rgba(84, 54, 26, 0.22);
     border-radius: 14px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5), rgba(228, 205, 164, 0.26));
+    background: rgba(255, 255, 255, 0.62);
 }
 
 .museum-ticket span {
@@ -201,7 +203,7 @@ body.museum-lab-page .logo {
 
 .museum-curator-note {
     color: #f7efde;
-    background: linear-gradient(165deg, rgba(32, 24, 16, 0.92), rgba(26, 64, 74, 0.9));
+    background: linear-gradient(165deg, rgba(32, 24, 16, 0.88), rgba(26, 64, 74, 0.84));
     border-color: rgba(241, 216, 172, 0.35);
 }
 
@@ -217,7 +219,7 @@ body.museum-lab-page .logo {
 .museum-curator-note h2 {
     margin: 0.8rem 0 0.7rem;
     font-family: "Bodoni Moda", "Fraunces", serif;
-    font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+    font-size: clamp(1.22rem, 1.8vw, 1.7rem);
     line-height: 1.24;
     color: #fff6e9;
 }
@@ -255,7 +257,7 @@ body.museum-lab-page .logo {
     padding: 0.72rem 0.86rem;
     border-radius: 12px;
     border: 1px solid rgba(241, 216, 172, 0.34);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 247, 230, 0.95);
     line-height: 1.6;
 }
@@ -892,7 +894,8 @@ body.museum-lab-page .btn-outline:hover {
 
 @media (max-width: 720px) {
     .museum-hero {
-        padding: 6.8rem 0 3rem;
+        min-height: 0;
+        padding: 6.2rem 0 2.2rem;
     }
 
     .museum-focus-nav {
@@ -966,7 +969,7 @@ body.museum-lab-page .btn-outline:hover {
 <article class="museum-panel museum-intro reveal-on-load">
 <a class="museum-back-link" href="projects.html"><i class="ph ph-arrow-left"></i> Return to Research Hall</a>
 <p class="museum-kicker">Full Paper Synthesis | Ladder Art Space (Australia)</p>
-<h1>Investigating Factors Impacting Customer Interest in Art and Entertainment Events</h1>
+<h1>Investigating Factors Affecting Customer Interest in Art and Entertainment Events</h1>
 <p class="museum-lead">
                         This page has been expanded to reflect the full research narrative: theoretical framing, hypothesis
                         development, methodology, reliability and structural results, mediation mechanisms, and implications
@@ -987,7 +990,7 @@ body.museum-lab-page .btn-outline:hover {
 </div>
 </div>
 <div class="museum-author-note">
-<p><strong>Authors:</strong> Thuan Thi Nhu Nguyen<sup>a</sup>, Hy Chung Dai<sup>a*</sup>, Thuan Thi Nhu Nguyen<sup>b</sup>, Phuoc Tan Le<sup>c</sup></p>
+<p><strong>Authors:</strong> Thuan Thi Nhu Nguyen<sup>a</sup>, Chung Hy Dai<sup>a*</sup>, Phuoc Tan Le<sup>c</sup></p>
 <p><sup>a</sup> Swinburne Vietnam, FPT University, Department of Business, Ho Chi Minh City 700000, Vietnam</p>
 <p><sup>c</sup> Swinburne Vietnam, Department of Media, Ho Chi Minh City 700000, Vietnam</p>
 <p>* Corresponding author: <a href="mailto:hydcsws00482@fpt.edu.vn">hydcsws00482@fpt.edu.vn</a></p>

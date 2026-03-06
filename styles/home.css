@@ -21,7 +21,47 @@ body[data-page="home"] .parallax-bg {
 }
 
 body[data-page="home"] .hero .hero-content {
-    max-width: 750px;
+    max-width: 680px;
+}
+
+body[data-page="home"] .about-grid {
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    gap: 1.6rem;
+}
+
+body[data-page="home"] .profile-card {
+    padding: 1.8rem 1.1rem 1.45rem;
+    box-shadow: 0 10px 24px rgba(16, 26, 42, 0.08);
+}
+
+body[data-page="home"] .profile-card:hover {
+    transform: translateY(-2px);
+}
+
+body[data-page="home"] .profile-image-container {
+    width: 146px;
+    height: 146px;
+    margin-bottom: 1rem;
+}
+
+body[data-page="home"] .profile-glow {
+    filter: blur(14px);
+    opacity: 0.36;
+}
+
+body[data-page="home"] .profile-avatar-img {
+    width: 136px;
+    height: 136px;
+}
+
+body[data-page="home"] .profile-card .profile-name {
+    font-size: 1.42rem;
+    margin-bottom: 0.3rem;
+}
+
+body[data-page="home"] .profile-card .subtitle {
+    font-size: 0.93rem;
+    line-height: 1.5;
 }
 
 body[data-page="home"] .hero .hero-badge {
@@ -217,6 +257,50 @@ body[data-page="home"] .research-carousel .rc-skills {
 }
 
 @media (max-width: 700px) {
+    body[data-page="home"] .hero .hero-badge {
+        max-width: 18rem;
+    }
+
+    body[data-page="home"] .hero .hero-outcome-item {
+        padding: 0.56rem 0.72rem;
+    }
+
+    body[data-page="home"] .hero .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body[data-page="home"] .hero .hero-buttons .btn-primary.large,
+    body[data-page="home"] .hero .hero-buttons .btn-outline.large {
+        width: 100%;
+        justify-content: center;
+    }
+
+    body[data-page="home"] .hero .tool-chip:nth-child(n + 4) {
+        display: none;
+    }
+
+    body[data-page="home"] .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    body[data-page="home"] .profile-card {
+        padding: 1.25rem 1rem;
+        text-align: left;
+    }
+
+    body[data-page="home"] .profile-image-container {
+        width: 118px;
+        height: 118px;
+        margin: 0 0 0.85rem;
+    }
+
+    body[data-page="home"] .profile-avatar-img {
+        width: 108px;
+        height: 108px;
+    }
+
     body[data-page="home"] .about-feature-card {
         grid-template-columns: 1fr;
         padding: 0.85rem;

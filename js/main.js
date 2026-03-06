@@ -17,6 +17,7 @@ document.documentElement.classList.add('js');
 
 document.addEventListener('DOMContentLoaded', async () => {
     const page = document.body.getAttribute('data-page') || 'home';
+    const researchId = document.body.getAttribute('data-research-id') || '';
     const env = createEnv();
 
     initSeoMetaNormalization();
@@ -62,12 +63,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     if (page === 'research') {
-        const [detailModule, motionModule, evModule, motorbikeModule, nutritionModule] = await Promise.allSettled([
+        const pageModules = [];
+
+        if (researchId === 'ev-choice') {
+            pageModules.push({
+                label: 'EV interaction',
+                importPromise: import('./research-ev-interaction.js'),
+                init(module) {
+                    if (typeof module.initEvChoiceInteraction === 'function') {
+                        module.initEvChoiceInteraction();
+                    }
+                }
+            });
+        }
+
+        if (researchId === 'motorbike-phaseout') {
+            pageModules.push({
+                label: 'Motorbike interaction',
+                importPromise: import('./research-motorbike-interaction.js'),
+                init(module) {
+                    if (typeof module.initMotorbikePolicyInteraction === 'function') {
+                        module.initMotorbikePolicyInteraction();
+                    }
+                }
+            });
+        }
+
+        if (researchId === 'nutrition-diet') {
+            pageModules.push({
+                label: 'Nutrition interaction',
+                importPromise: import('./research-nutrition-interaction.js'),
+                init(module) {
+                    if (typeof module.initNutritionInteraction === 'function') {
+                        module.initNutritionInteraction();
+                    }
+                }
+            });
+        }
+
+        const [detailModule, motionModule, ...pageModuleResults] = await Promise.allSettled([
             import('./research-detail.js'),
             import('./research-motion.js'),
-            import('./research-ev-interaction.js'),
-            import('./research-motorbike-interaction.js'),
-            import('./research-nutrition-interaction.js')
+            ...pageModules.map((entry) => entry.importPromise)
         ]);
 
         if (detailModule.status === 'fulfilled' && typeof detailModule.value.initResearchDetail === 'function') {
@@ -87,22 +124,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             console.error('Research motion initialization failed:', motionModule.reason);
         }
 
-        if (evModule.status === 'fulfilled' && typeof evModule.value.initEvChoiceInteraction === 'function') {
-            evModule.value.initEvChoiceInteraction();
-        } else if (evModule.status === 'rejected') {
-            console.error('EV interaction initialization failed:', evModule.reason);
-        }
+        pageModuleResults.forEach((result, index) => {
+            const config = pageModules[index];
+            if (!config) return;
 
-        if (motorbikeModule.status === 'fulfilled' && typeof motorbikeModule.value.initMotorbikePolicyInteraction === 'function') {
-            motorbikeModule.value.initMotorbikePolicyInteraction();
-        } else if (motorbikeModule.status === 'rejected') {
-            console.error('Motorbike interaction initialization failed:', motorbikeModule.reason);
-        }
-
-        if (nutritionModule.status === 'fulfilled' && typeof nutritionModule.value.initNutritionInteraction === 'function') {
-            nutritionModule.value.initNutritionInteraction();
-        } else if (nutritionModule.status === 'rejected') {
-            console.error('Nutrition interaction initialization failed:', nutritionModule.reason);
-        }
+            if (result.status === 'fulfilled') {
+                config.init(result.value);
+            } else {
+                console.error(`${config.label} initialization failed:`, result.reason);
+            }
+        });
     }
 });

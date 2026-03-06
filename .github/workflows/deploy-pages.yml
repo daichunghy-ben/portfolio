@@ -25,13 +25,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Stage static site
         env:
           SITE_URL: ${{ vars.SITE_URL }}
           LEGACY_PAGES_HOSTS: ${{ vars.LEGACY_PAGES_HOSTS }}
-        run: |
-          node scripts/stage-pages.mjs
+        run: npm run stage:pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

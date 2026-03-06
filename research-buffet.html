@@ -7,7 +7,8 @@
 <title>Buffet Menu Nudging | Chung Hy Dai</title>
 <meta content="Two-study buffet research summary on healthier-first menu sequencing, intended calorie reduction, perceived value, and tier-choice trade-offs." name="description"/>
 <link href="styles/base.css" rel="stylesheet"/>
-<link href="styles/research.css" rel="stylesheet"/>
+<link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+<noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
 <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
 <link href="./research-buffet.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
@@ -464,8 +465,7 @@
     }
 
     .buffet-hero-media {
-        order: -1;
-        max-height: 32rem;
+        max-height: 26rem;
     }
 
     .buffet-meta {

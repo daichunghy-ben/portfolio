@@ -3,10 +3,24 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, '.deploy', 'public');
-const SOURCE_DIRS = ['assets', 'js', 'styles'];
-const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects', '.nojekyll'];
+const SOURCE_DIRS = ['assets', 'dist'];
+const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
+const STAGED_ASSET_REFS = new Map([
+  ['styles/base.css', 'dist/styles/base.css'],
+  ['styles/home.css', 'dist/styles/home.css'],
+  ['styles/projects.css', 'dist/styles/projects.css'],
+  ['styles/research.css', 'dist/styles/research.css'],
+  ['styles/research-ev-immersive.css', 'dist/styles/research-ev-immersive.css'],
+  ['styles/research-psych-university.css', 'dist/styles/research-psych-university.css'],
+  ['styles/cv.css', 'dist/styles/cv.css'],
+  ['js/main.js', 'dist/js/main.js'],
+  ['js/carousel-fallback.js', 'dist/js/carousel-fallback.js'],
+  ['js/research-ev-fallback.js', 'dist/js/research-ev-fallback.js'],
+  ['js/research-motorbike-fallback.js', 'dist/js/research-motorbike-fallback.js'],
+  ['js/research-nutrition-fallback.js', 'dist/js/research-nutrition-fallback.js']
+]);
 
 const shouldSkipFile = (name) => {
   if (name.startsWith('.')) return true;
@@ -36,6 +50,39 @@ const ensureCleanOutDir = async () => {
 const copyFile = async (from, to) => {
   await fs.mkdir(path.dirname(to), { recursive: true });
   await fs.copyFile(from, to);
+};
+
+const normalizeRefKey = (value) => {
+  if (!value) return '';
+  return value.startsWith('./') ? value.slice(2) : value;
+};
+
+const replaceQuotedAssetRef = (html, from, to) =>
+  html
+    .split(`"${from}"`)
+    .join(`"${to}"`)
+    .split(`'${from}'`)
+    .join(`'${to}'`);
+
+const rewriteAssetRefsInHtml = (html) => {
+  let rewritten = html.replace(
+    /\b(href|src)\s*=\s*("([^"]*)"|'([^']*)')/gi,
+    (match, attr, quotedValue, dquote, squote) => {
+      const quote = quotedValue[0];
+      const rawValue = dquote ?? squote ?? '';
+      const replacement = STAGED_ASSET_REFS.get(normalizeRefKey(rawValue));
+      if (!replacement) return match;
+      const nextValue = rawValue.startsWith('./') ? `./${replacement}` : replacement;
+      return `${attr}=${quote}${nextValue}${quote}`;
+    }
+  );
+
+  for (const [sourceRef, distRef] of STAGED_ASSET_REFS) {
+    rewritten = replaceQuotedAssetRef(rewritten, sourceRef, distRef);
+    rewritten = replaceQuotedAssetRef(rewritten, `./${sourceRef}`, `./${distRef}`);
+  }
+
+  return rewritten;
 };
 
 const copyTree = async (sourceDir, targetDir, counters) => {
@@ -182,7 +229,7 @@ const resolveAbsoluteAssetUrl = (value, siteUrl, legacyHosts) => {
 
 const absolutePageUrlForFile = (siteUrl, htmlFileName) => {
   const isIndex = htmlFileName.toLowerCase() === 'index.html';
-  const relativePath = isIndex ? '.' : htmlFileName;
+  const relativePath = isIndex ? '/' : `/${htmlFileName}`;
   return new URL(relativePath, siteUrl).href;
 };
 
@@ -202,7 +249,7 @@ const applyMetadataForSiteUrl = async (siteUrl, legacyHosts) => {
 
     for (const legacyHost of legacyHosts) {
       const from = `https://${legacyHost}`;
-      const to = new URL(siteUrl).href.replace(/\/$/, '');
+      const to = new URL(siteUrl).origin;
       html = html.split(from).join(to);
     }
 
@@ -247,6 +294,21 @@ const updateDeploySiteConfig = async (siteUrl) => {
   await fs.writeFile(configPath, `${JSON.stringify(parsed, null, 2)}\n`, 'utf8');
 };
 
+const rewriteStagedHtmlAssetRefs = async () => {
+  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
+    .map((entry) => entry.name);
+
+  for (const htmlFile of htmlFiles) {
+    const filePath = path.join(OUT_DIR, htmlFile);
+    const html = await fs.readFile(filePath, 'utf8');
+    const rewritten = rewriteAssetRefsInHtml(html);
+    if (rewritten !== html) {
+      await fs.writeFile(filePath, rewritten, 'utf8');
+    }
+  }
+};
+
 const main = async () => {
   await ensureCleanOutDir();
 
@@ -270,6 +332,8 @@ const main = async () => {
     await copyFile(sourcePath, path.join(OUT_DIR, staticFile));
     counters.files += 1;
   }
+
+  await rewriteStagedHtmlAssetRefs();
 
   const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
   const legacyHosts = parseLegacyHosts(process.env.LEGACY_PAGES_HOSTS);
