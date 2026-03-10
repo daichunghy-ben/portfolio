@@ -42,6 +42,34 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .cv-header-text {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .cv-header-photo {
+            flex: 0 0 112px;
+        }
+
+        .cv-header-photo picture {
+            display: block;
+            width: 112px;
+            height: 112px;
+        }
+
+        .cv-header-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 28px;
+            object-fit: cover;
+            object-position: 40% center;
+            border: 3px solid #ffffff;
+            background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
         }
 
         .cv-header-text h1 {
@@ -246,6 +274,10 @@
                 flex-direction: column;
             }
 
+            .cv-header-photo {
+                margin-top: 1rem;
+            }
+
             .cv-item-header {
                 flex-direction: column;
                 justify-content: flex-start;
@@ -351,7 +383,9 @@
 <span><i class="ph ph-phone"></i> Phone available on request</span>
 </div>
 </div>
-<!-- Profile image intentionally omitted -->
+<div class="cv-header-photo">
+<picture><source sizes="112px" srcset="./assets/optimized/profile-main-480.avif 480w, ./assets/optimized/profile-main-768.avif 768w, ./assets/optimized/profile-main-1024.avif 1024w, ./assets/optimized/profile-main-1248.avif 1248w" type="image/avif"/><source sizes="112px" srcset="./assets/optimized/profile-main-480.webp 480w, ./assets/optimized/profile-main-768.webp 768w, ./assets/optimized/profile-main-1024.webp 1024w, ./assets/optimized/profile-main-1248.webp 1248w" type="image/webp"/><img alt="Portrait of Chung Hy Dai" decoding="async" height="832" loading="eager" src="./assets/optimized/profile-main-optimized.webp" width="1248"/></picture>
+</div>
 </header>
 <!-- Summary -->
 <section class="cv-section">
