@@ -5,7 +5,7 @@ import {
 
 export function initResearchCarousel(env) {
     const carousel = document.querySelector('.research-carousel');
-    if (!carousel) return;
+    if (!carousel || carousel.dataset.layout === 'grid') return;
 
     const track = carousel.querySelector('.carousel-track');
     const carouselSection = carousel.closest('section');

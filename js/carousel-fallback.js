@@ -1,6 +1,6 @@
 (function () {
     function initCarouselFallback(carousel) {
-        if (!carousel || carousel.dataset.fallbackInit === 'true') return;
+        if (!carousel || carousel.dataset.fallbackInit === 'true' || carousel.dataset.layout === 'grid') return;
 
         const section = carousel.closest('section') || document;
         const prevBtn = section.querySelector('.carousel-btn-prev');
