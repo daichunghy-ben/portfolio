@@ -14,7 +14,6 @@ const STAGED_ASSET_REFS = new Map([
   ['styles/research.css', 'dist/styles/research.css'],
   ['styles/research-ev-immersive.css', 'dist/styles/research-ev-immersive.css'],
   ['styles/research-psych-university.css', 'dist/styles/research-psych-university.css'],
-  ['styles/cv.css', 'dist/styles/cv.css'],
   ['js/main.js', 'dist/js/main.js'],
   ['js/carousel-fallback.js', 'dist/js/carousel-fallback.js'],
   ['js/research-ev-fallback.js', 'dist/js/research-ev-fallback.js'],

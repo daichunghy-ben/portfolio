@@ -9,20 +9,17 @@ ROOT = Path(__file__).resolve().parents[1]
 HTML_FILES = [
     ROOT / "index.html",
     ROOT / "projects.html",
-    ROOT / "cv.html",
     *sorted(ROOT.glob("research-*.html")),
 ]
 
 PAGE_TYPE = {
     "index.html": "home",
     "projects.html": "projects",
-    "cv.html": "cv",
 }
 
 CSS_FILE = {
     "home": "styles/home.css",
     "projects": "styles/projects.css",
-    "cv": "styles/cv.css",
     "research": "styles/research.css",
 }
 

@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const HTML_EXCLUDE = new Set(['index_patched.html', 'cv.html']);
+const HTML_EXCLUDE = new Set(['index_patched.html']);
 
 const SKIP_PROTOCOL_RE = /^(mailto:|tel:|javascript:|data:)/i;
 const HTML_ATTR_RE = /\b(?:href|src|poster)\s*=\s*("([^"]*)"|'([^']*)')/gi;

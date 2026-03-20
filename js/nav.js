@@ -12,25 +12,6 @@ export function initNav() {
 
     const isMobile = () => mobileQuery.matches;
 
-    const ensureCvLink = () => {
-        const hasCvLink = links.querySelector('a[href="cv.html"], a[href="./cv.html"]');
-        if (hasCvLink) return;
-
-        const cvLink = document.createElement('a');
-        cvLink.className = 'nav-link';
-        cvLink.href = 'cv.html';
-        cvLink.textContent = 'CV';
-
-        const cta = links.querySelector('.nav-cta');
-        if (cta) {
-            links.insertBefore(cvLink, cta);
-        } else {
-            links.appendChild(cvLink);
-        }
-    };
-
-    ensureCvLink();
-
     const setExpanded = (expanded) => {
         toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     };

@@ -9,13 +9,13 @@ new_footer_html = """
         <div class="footer-glow glow-2"></div>
         <div class="footer-glow glow-3"></div>
 
-        <div class="footer-container reveal active" style="position: relative; z-index: 10; transition-delay: 100ms;">
-            <h2 class="footer-heading">Let's build something.</h2>
-            <p class="footer-desc">Review my complete background or reach out to explore how I can help your team.</p>
+        <div class="footer-container layer-above-bg reveal active">
+            <h2 class="footer-heading">Review the work, then get in touch.</h2>
+            <p class="footer-desc">Email for market research or insights roles, or review credentials and publications directly on the site.</p>
 
             <div class="footer-actions">
-                <a href="cv.html" class="btn-primary large shadow-glow magnetic" data-strength="25">
-                    <i class="ph-bold ph-download-simple"></i> Download Full Resume (CV)
+                <a class="btn-primary large magnetic" data-strength="25" href="mailto:daichunghy@gmail.com?subject=Market%20Research%20Role%20Inquiry">
+                    <i class="ph ph-paper-plane-tilt"></i> Email Dai
                 </a>
                 <a href="https://www.linkedin.com/in/chung-hy-d-17792826b/" target="_blank" rel="noopener"
                     class="btn-outline large border-light magnetic" data-strength="25">

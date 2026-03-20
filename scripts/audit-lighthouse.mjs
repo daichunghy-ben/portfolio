@@ -3,7 +3,6 @@ import { spawn } from 'node:child_process';
 const pages = [
   'index.html',
   'projects.html',
-  'cv.html',
   'research-hotel.html',
   'research-ev.html',
   'research-hanoi-phaseout.html',

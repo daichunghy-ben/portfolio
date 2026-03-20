@@ -50,7 +50,7 @@ def translate_index():
         "High School Diploma": "Bằng Tốt nghiệp Trung học Phổ thông",
         "Trường THPT Việt Anh (Viet Anh High School)": "Trường THPT Nội trú Việt Anh",
         "<strong>SAT:</strong> Top-percentile scoring (Math + Evidence-Based Reading & Writing)": "<strong>SAT:</strong> Điểm số thuộc top cao nhất (Toán + Đọc hiểu & Viết Dựa trên Chứng cứ)",
-        "<strong>IELTS Academic:</strong> Band 6.0+": "<strong>IELTS Academic:</strong> 6.0+",
+        "<strong>IELTS Academic:</strong> 6.0": "<strong>IELTS Academic:</strong> 6.0",
         
         # Experience
         "PROFESSIONAL TIMELINE": "TIẾN TRÌNH CÔNG VIỆC",
@@ -134,7 +134,7 @@ def translate_index():
         "Exploring Nutrition Knowledge, Physical Activity, and Dietary Intake among Vietnamese University Students": "Khám phá Mối quan hệ giữa Kiến thức Dinh dưỡng, Hoạt động Thể chất, và Lượng Thực phẩm Tiêu thụ ở Sinh viên Đại học Việt Nam",
         "Exploring the Effect of Social Media Content of Virtual Influencers on Generation Z's Purchase Intention: An Elaboration Likelihood Model Approach": "Đánh giá Tác động của Nội dung Mạng Xã hội từ KOL Ảo lên Ý định Tiêu dùng: Cách tiếp cận theo Mô hình Khả năng Mở rộng (ELM)",
         "Certifications": "Các loại Chứng chỉ",
-        "IELTS Academic (6.0+)": "IELTS Academic (6.0+)",
+        "IELTS Academic (6.0)": "IELTS Academic (6.0)",
         "SAT Top-Percentile": "SAT Top-Percentile Điểm Số",
         "ICDL Digital Literacy": "ICDL Thông thạo Máy tính Căn bản",
         

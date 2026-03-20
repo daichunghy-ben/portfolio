@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-02-24",
+  "last_updated": "2026-03-19",
   "status_enum": [
     "Verified",
     "Self-Reported",
@@ -12,7 +12,6 @@
       "claim": "Public professional name is Chung Hy Dai (Đái Chung Hy).",
       "where_displayed": [
         "index.html:123",
-        "cv.html:283",
         "/Users/macos/Desktop/consulting_profile_hy.md:3"
       ],
       "status": "Verified",
@@ -24,8 +23,7 @@
       "claim_id": "profile-role-target",
       "claim": "Role positioning: Market Research, Data Analysis, Consumer Insights.",
       "where_displayed": [
-        "index.html:79",
-        "cv.html:284"
+        "index.html:79"
       ],
       "status": "Self-Reported",
       "evidence_url": "",
@@ -37,7 +35,6 @@
       "claim": "Bachelor of Business (Marketing), graduated Dec 2025.",
       "where_displayed": [
         "index.html:173",
-        "cv.html:312",
         "/Users/macos/Desktop/consulting_profile_hy.md:30"
       ],
       "status": "Self-Reported",
@@ -47,7 +44,7 @@
     },
     {
       "claim_id": "hero-project-count",
-      "claim": "Delivered 10 applied research projects.",
+      "claim": "Delivered 11 applied research projects.",
       "where_displayed": [
         "index.html:82",
         "index.html:85"
@@ -55,7 +52,7 @@
       "status": "Self-Reported",
       "evidence_url": "",
       "last_checked": "2026-02-24",
-      "recommended_wording": "Portfolio currently highlights 10 applied projects."
+      "recommended_wording": "Portfolio currently highlights 11 applied projects."
     },
     {
       "claim_id": "hero-publication-count",
@@ -123,8 +120,7 @@
       "claim": "PRCA study uses 97,014 reviews across ~1,000 properties.",
       "where_displayed": [
         "index.html:526",
-        "research-hotel-prca.html:64",
-        "cv.html:370"
+        "research-hotel-prca.html:64"
       ],
       "status": "Self-Reported",
       "evidence_url": "",
@@ -136,8 +132,7 @@
       "claim": "Virtual Influencer work is a Springer chapter with DOI 10.1007/978-981-96-4116-1_9.",
       "where_displayed": [
         "index.html:708",
-        "research-virtual-influencers.html:89",
-        "cv.html:491"
+        "research-virtual-influencers.html:89"
       ],
       "status": "Verified",
       "evidence_url": "https://doi.org/10.1007/978-981-96-4116-1_9",
@@ -157,23 +152,11 @@
       "recommended_wording": "Use Crossref/DOI first-online date format: published online June 18, 2025; if showing July 9, label source and rationale."
     },
     {
-      "claim_id": "springer-2024-label",
-      "claim": "CV labels the Springer output as EEEU 2024 conference context with first online publication on June 18, 2025.",
-      "where_displayed": [
-        "cv.html:522"
-      ],
-      "status": "Verified",
-      "evidence_url": "https://doi.org/10.1007/978-981-96-4116-1_9",
-      "last_checked": "2026-02-24",
-      "recommended_wording": "EEEU 2024 conference context; Springer first online June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)."
-    },
-    {
       "claim_id": "nutrition-paper-fcbem",
       "claim": "Nutrition paper appears in FCBEM proceedings context.",
       "where_displayed": [
         "index.html:682",
-        "research-nutrition.html:101",
-        "cv.html:501"
+        "research-nutrition.html:101"
       ],
       "status": "Verified",
       "evidence_url": "https://pub.orcid.org/v3.0/0009-0009-6790-8981/works",
@@ -210,7 +193,6 @@
       "claim": "HSBC Business Case: Champion Round participant / regional finalist.",
       "where_displayed": [
         "index.html:246",
-        "cv.html:409",
         "/Users/macos/Desktop/consulting_profile_hy.md:76"
       ],
       "status": "Self-Reported",
@@ -245,8 +227,7 @@
       "claim_id": "orcid-presence",
       "claim": "ORCID profile exists and is linked.",
       "where_displayed": [
-        "index.html:868",
-        "cv.html:290"
+        "index.html:868"
       ],
       "status": "Verified",
       "evidence_url": "https://orcid.org/0009-0009-6790-8981",
@@ -258,7 +239,6 @@
       "claim": "LinkedIn profile is active and linked.",
       "where_displayed": [
         "index.html:861",
-        "cv.html:289",
         "projects.html:29"
       ],
       "status": "Self-Reported",
@@ -295,7 +275,6 @@
       "claim": "Primary contact email is daichunghy@gmail.com.",
       "where_displayed": [
         "index.html:866",
-        "cv.html:287",
         "projects.html:297"
       ],
       "status": "Self-Reported",

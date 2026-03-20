@@ -75,7 +75,7 @@ credentials_new = """
                     <h3 class="dashboard-subheading"><i class="ph ph-certificate"></i> Certifications</h3>
                     <div class="cert-tight-grid">
                         <div class="cert-item-mini glass-panel"><i class="ph-fill ph-medal"></i> Swinburne Scholarship (2022)</div>
-                        <div class="cert-item-mini glass-panel"><i class="ph-fill ph-translate"></i> IELTS Academic (7.5+)</div>
+                        <div class="cert-item-mini glass-panel"><i class="ph-fill ph-translate"></i> IELTS Academic (6.0)</div>
                         <div class="cert-item-mini glass-panel"><i class="ph-fill ph-exam"></i> SAT Top-Percentile</div>
                         <div class="cert-item-mini glass-panel"><i class="ph-fill ph-desktop"></i> ICDL Digital Literacy</div>
                     </div>

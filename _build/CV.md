@@ -1,63 +1,76 @@
 # Chung Hy Dai
 
-**Data Analyst & Researcher**
-Ho Chi Minh City, Vietnam | <daichunghy@gmail.com> | [LinkedIn](https://www.linkedin.com/in/chung-hy-d-17792826b/)
+**Market Research & Consumer Insights**
+Ho Chi Minh City, Vietnam | <daichunghy@gmail.com> | [LinkedIn](https://www.linkedin.com/in/chung-hy-d-17792826b/) | [Portfolio](https://daichunghy-ben.github.io/portfolio/)
 
 ## PROFESSIONAL SUMMARY
 
-Business graduate with a "Data as a Product" mindset, specializing in quantitative analytics and data strategy. Proven ability to architect reliable data pipelines, write complex SQL, and extract actionable business insights from large-scale datasets (handling 100,000+ rows). Experienced in collaborating cross-functionally to turn raw data into strategic metrics and dashboards. Eager to leverage strong learning agility to master workflow orchestration tools (Airflow, n8n) and semantic modeling within MoMo's Corporate Data Office.
+Early-career market research and consumer insights candidate with applied experience in quantitative research, consumer behavior analysis, and large-scale text analytics. Turns ambiguous business questions into structured research plans, interpretable analysis, and recommendations teams can use. Comfortable with Python, SQL basics, Excel, statistical modeling, segmentation, and insight storytelling. Interested in roles that combine audience understanding, analytical rigor, and cross-functional decision support.
 
 ## CORE COMPETENCIES
 
-* **Data & Analytics Stack:** Python (Pandas, Numpy), SQL / ETL Pipelines, NLP (RoBERTa, BERT), Clustering (GMM, K-Means), PowerBI, Tableau, Git.
-* **Data Strategy & Products:** Dashboards & Metrics Definition, Large Dataset Preprocessing, "Data as a Product" design, Issue Trees / MECE Frameworks.
-* **Advanced Analytics:** A/B Testing, Quantitative Survey Design, Discrete Choice Experiments, Statistical Testing (ANOVA, Logit Models).
+* **Research & Consumer Understanding:** Quantitative survey design, experiment design, discrete choice studies, segmentation, audience synthesis, consumer behavior analysis.
+* **Analytics & Tools:** Python (Pandas, NumPy), SQL basics, Excel, NLP, clustering, statistical testing, reproducible reporting.
+* **Insight Delivery:** Insight storytelling, stakeholder decks, issue trees, scenario analysis, recommendation development.
+* **Workflow Discipline:** Data cleaning, QA checks, documentation, cross-functional coordination, deadline-driven project execution.
 
-## WORK EXPERIENCE
+## RESEARCH EXPERIENCE
 
 **Da Nang Tourism Project Core** | Da Nang, Vietnam
-*Data Analyst & Strategist* | Nov 2022 - Jan 2026
+*Research Analyst & Strategist* | Nov 2022 - Jan 2026
 
-* Engineered a robust, automated ETL data pipeline to scrape and process over 100,000 raw hospitality records.
-* Developed an 11-step preprocessing workflow to clean, structure, and standardize complex textual data for downstream analytical models, ensuring dataset reliability and reusability.
-* Executed advanced NLP analysis and BERT-based clustering to extract semantic features and monitor key performance metrics of the tourism market.
-* Collaborated with strategic teams to translate quantitative insights into reliable, well-documented data solutions and regional strategy recommendations.
+* Analyzed 74,896 to 97,014 hotel reviews to identify service attributes and traveler segments shaping satisfaction in Vietnam hospitality.
+* Built reusable workflows for text cleaning, aspect mapping, clustering, and regression so unstructured customer feedback could be translated into clear driver summaries.
+* Synthesized findings into business-facing recommendations on service priorities, segment differences, and tourism strategy discussions.
+* Maintained structured documentation to keep methods transparent and outputs reusable across related analyses.
+
+**FPT Education** | Ho Chi Minh City, Vietnam
+*AI Chatbot Project Assistant* | 2023 - 2024
+
+* Supported the development and testing of an AI chatbot, organizing prompt sets, edge cases, and iteration notes.
+* Prepared method notes and presentation materials so outputs could be reviewed and reported clearly.
+
+## SELECTED RESEARCH PROJECTS
+
+**EV Design & Technology Preferences** | Discrete Choice Modeling
+
+* Ran DCE analysis on `n = 212` young consumers in Hanoi and Ho Chi Minh City to map trade-offs between vehicle design, technology, and value expectations.
+* Compared pragmatic and aesthetic-led segments to translate model results into clearer positioning implications.
+
+**Buffet Menu Nudging** | Consumer Behavior Experiment
+
+* Analyzed two experiments (`n = 257`; `n = 147`) to examine how menu sequence shifts intended calorie intake and meal-choice patterns.
+* Translated behavioral findings into simple intervention ideas that could inform service design and healthier choice architecture.
+
+## LEADERSHIP AND AUDIENCE UNDERSTANDING
 
 **HSBC Business Case Competition 2024 (Swinburne Round)** | Ho Chi Minh City, Vietnam
 *Top Regional Finalist* | Dec 2024
 
-* Evaluated complex corporate expansion scenarios within strict 24-hour constraints, actively applying issue trees and structural models to drive data-informed decisions.
-* Developed targeted growth plans that successfully balanced aggressive revenue metrics with real-world operational capacity limits.
-* Synthesized dense analytical findings into high-impact, cross-functional executive pitch decks.
+* Reached the regional finalist round by turning ambiguous business questions into structured recommendations through issue-based analysis, scenario comparison, and clear presentation logic.
 
-**University of Economics Ho Chi Minh City (UEH)** | Ho Chi Minh City, Vietnam
-*Academic Data Assistant* | 2023 - 2024
+**Swinburne Business Club (SUS)** | Ho Chi Minh City, Vietnam
+*Human Resources* | Jan 2024 - Dec 2025
 
-* Spearheaded quantitative research modeling focusing on experimental pricing and consumer behavior.
-* Structured controlled A/B pricing datasets to accurately evaluate consumer willingness-to-pay margins.
-* Maintained strict documentation of methodologies and data lineage, culminating in formal publications for international conference proceedings.
+* Supported orientation programs and competitions by coordinating across teams, tracking participant needs, and improving activity flow for a smoother member experience.
+* Worked across departments to identify operational gaps and participant support needs, then followed through on logistics and coordination tasks.
 
-## FEATURED DATA PROJECTS
+**VietPride 2022** | Ho Chi Minh City, Vietnam
+*Volunteer Coordinator* | Jun 2022 - Sep 2022
 
-**Hotel Satisfaction Drivers in Vietnam (Deep Learning & PRCA)**
-
-* Leveraged Deep Learning (NLLB-200 and Sentence Transformer models) to process a massive dataset of 97,000+ unstructured user reviews.
-* Built analytical models to successfully quantify the asymmetric impacts of specific semantic service attributes on overall customer satisfaction metrics.
-
-**Hotel Market Segmentation in Da Nang (NLP & Clustering)**
-
-* Designed and executed a programmatic data workflow utilizing RoBERTa and Gaussian Mixture Modeling (GMM) on 74,000+ records.
-* Extracted distinct, actionable traveler segments to directly inform targeted hospitality marketing strategies and business decisions.
+* Coordinated 30+ volunteers for a public event and adjusted on-site support based on participant flow and operational needs.
+* Observed participant movement and support bottlenecks during event operations, then helped align volunteer deployment to improve responsiveness across activity points.
 
 ## EDUCATION
 
 **Swinburne University of Technology** | Ho Chi Minh City, Vietnam
 *Bachelor of Business (Major: Marketing)* | Sep 2022 - Dec 2025
 
+* **Focus:** Consumer analytics, statistical modeling, research methods, and A/B testing.
 * **Awards:** Swinburne Academic Scholarship, Best Performance Awards, Top Regional Finalist (HSBC).
-* **Focus:** Statistical Modeling, Consumer Analytics, A/B Testing. Graduated with 2 peer-reviewed data-focused conference publications.
+* **Academic Output:** 2 peer-reviewed conference publications.
 
 **Trường THPT Việt Anh (Viet Anh High School)** | Ho Chi Minh City, Vietnam
 *High School Diploma* | 2019 - 2022
 
-* **Credentials:** SAT Top-percentile scoring (Math + Evidence-Based Reading & Writing), IELTS Academic (Band 7.5+).
+* **Credentials:** SAT 1320/1600, IELTS Academic 6.0, ICDL Digital Literacy.

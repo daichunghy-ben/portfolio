@@ -179,7 +179,7 @@ def translate():
         "EV Adoption - Choice Experiments": "Thúc đẩy Chấp nhận xe Điện - Các Nhu cầu Ưu tiên",
         "Virtual Influencers & Gen Z Trust": "Sự Tín nhiệm Đối với Người có Sức Ảnh hưởng Ảo ở Gen Z",
         "Swinburne Scholarship": "Học bổng Xuất sắc Swinburne",
-        "IELTS Academic (7.5+)": "IELTS Academic (7.5+)",
+        "IELTS Academic (6.0)": "IELTS Academic (6.0)",
         "SAT Top-Percentile": "SAT Nhóm Top Cao nhất",
         "ICDL Digital Literacy": "ICDL Chuyên môn Máy tính",
         "View SAT Score Report": "Xem Phiếu Điểm SAT",
