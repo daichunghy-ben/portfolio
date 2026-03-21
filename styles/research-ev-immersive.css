@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 .page-research-ev {
     --ev-ink: #112031;
@@ -13,7 +13,7 @@
     --ev-lime: #a4df4f;
     --ev-amber: #f2aa3d;
     --ev-shadow: 0 18px 34px rgba(10, 24, 44, 0.12);
-    font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+    font-family: var(--font-sans);
     color: var(--ev-ink);
     background:
         radial-gradient(circle at 8% 8%, rgba(93, 184, 235, 0.18), transparent 32%),

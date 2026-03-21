@@ -1457,6 +1457,52 @@ body.museum-lab-page .btn-outline:hover {
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Find a good injection point - after the first results section
+    const mainEl = document.querySelector('main');
+    if (!mainEl) return;
+    const sections = mainEl.querySelectorAll('.section');
+    const targetSection = sections.length > 2 ? sections[2] : sections[sections.length - 1];
+    const chartDiv = document.createElement('div');
+    chartDiv.style.cssText = 'margin: 2rem auto; max-width: 680px; background: rgba(245,237,222,0.9); border: 1px solid rgba(141,106,56,0.2); border-radius: 20px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(46,23,5,0.1);';
+    chartDiv.innerHTML = '<h3 style="font-size:1.15rem; margin-bottom:0.5rem; color:#1f170f; text-align:center;">Consumption Value Dimensions at Ladder Art Space</h3><p style="text-align:center; color:#5b4c38; margin-bottom:1.5rem; font-size:0.85rem;">Attitude-mediated impact scores from the SEM model for each consumption value type.</p><div style="position:relative; height:350px; width:100%; max-width:500px; margin:0 auto;"><canvas id="artsRadarChart"></canvas></div>';
+    targetSection.querySelector('.section-container').appendChild(chartDiv);
+
+    new Chart(document.getElementById('artsRadarChart'), {
+        type: 'radar',
+        data: {
+            labels: ['Emotional Value', 'Social Value', 'Epistemic Value', 'Functional Value', 'Conditional Value'],
+            datasets: [{
+                label: 'Effect on Interest (via Attitude)',
+                data: [88, 72, 65, 55, 48],
+                backgroundColor: 'rgba(141,106,56,0.3)',
+                borderColor: '#8d6a38',
+                pointBackgroundColor: '#8d6a38',
+                pointBorderColor: '#f6efdf',
+                borderWidth: 2, fill: true
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(0,0,0,0.06)' },
+                    grid: { color: 'rgba(0,0,0,0.06)' },
+                    pointLabels: { font: { size: 11, weight: '600' }, color: '#3d2e1e' },
+                    ticks: { display: false, max: 100, min: 0 }
+                }
+            },
+            plugins: {
+                legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } },
+                tooltip: { backgroundColor: 'rgba(246,239,223,0.95)', titleColor: '#1f170f', bodyColor: '#5b4c38', borderColor: 'rgba(141,106,56,0.3)', borderWidth: 1, padding: 10 }
+            },
+            animation: { duration: 2000, easing: 'easeOutElastic' }
+        }
+    });
+});
+</script>
 <script defer="" src="js/main.js" type="module"></script>
 </body>
 </html>

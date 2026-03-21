@@ -954,6 +954,40 @@ These screens are experimental menu stimuli. Labels identify each screen's funct
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const study1Shell = document.getElementById('study1');
+    if (!study1Shell) return;
+    const chartDiv = document.createElement('div');
+    chartDiv.style.cssText = 'margin: 2rem auto; max-width: 860px; background: var(--buffet-card, rgba(255,253,248,0.9)); border: 1px solid rgba(127,34,18,0.16); border-radius: 20px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);';
+    chartDiv.innerHTML = '<h3 style="font-size:1.15rem; margin-bottom:0.5rem; color:#3b1f18; text-align:center;">Intended Calorie Intake by Menu Order & Buffet Type</h3><p style="text-align:center; color:#6c4537; margin-bottom:1.5rem; font-size:0.85rem;">HOF (healthier-options-first) vs UOF (unhealthier-options-first) across 3 buffet formats.</p><div style="position:relative; height:300px; width:100%;"><canvas id="buffetCalChart"></canvas></div>';
+    study1Shell.querySelector('.section-container').appendChild(chartDiv);
+
+    new Chart(document.getElementById('buffetCalChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Hotpot', 'Korean', 'Vegetarian'],
+            datasets: [
+                { label: 'HOF (Healthy-first)', data: [1280, 1430, 1560], backgroundColor: 'rgba(16,185,129,0.8)', borderRadius: 6 },
+                { label: 'UOF (Unhealthy-first)', data: [1570, 1572, 1566], backgroundColor: 'rgba(249,115,99,0.8)', borderRadius: 6 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                x: { grid: { display: false } },
+                y: { beginAtZero: false, min: 1100, title: { display: true, text: 'Intended kcal', font: { size: 12, weight: '600' } }, grid: { borderDash: [4,4], color: '#e2e8f0' } }
+            },
+            plugins: {
+                legend: { position: 'top', labels: { usePointStyle: true, padding: 20, font: { size: 12 } } },
+                tooltip: { backgroundColor: 'rgba(255,255,255,0.95)', titleColor: '#3b1f18', bodyColor: '#5c3b32', borderColor: '#e2e8f0', borderWidth: 1, padding: 10 }
+            },
+            animation: { duration: 1800, easing: 'easeOutBounce' }
+        }
+    });
+});
+</script>
 <script defer="" src="js/main.js" type="module"></script>
 </body>
 </html>

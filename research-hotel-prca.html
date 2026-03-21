@@ -2048,6 +2048,45 @@ Working rule: protect basics every day, review penalty signals monthly, rerank p
 </div>
 </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const mainEl = document.querySelector('main');
+    if (!mainEl) return;
+    const sections = mainEl.querySelectorAll('.section');
+    const targetSection = sections.length > 3 ? sections[3] : sections[sections.length - 1];
+    if (!targetSection) return;
+    const container = targetSection.querySelector('.section-container');
+    if (!container) return;
+    const chartDiv = document.createElement('div');
+    chartDiv.style.cssText = 'margin: 2rem auto; max-width: 860px; background: var(--prca-card, rgba(255,251,245,0.9)); border: 1px solid var(--prca-line, rgba(104,84,66,0.24)); border-radius: 20px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.06);';
+    chartDiv.innerHTML = '<h3 style="font-size:1.15rem; margin-bottom:0.5rem; color:var(--prca-ink,#2e2620); text-align:center;">Penalty-Reward Contrast by Service Attribute</h3><p style="text-align:center; color:var(--prca-muted,#5d5044); margin-bottom:1.5rem; font-size:0.85rem;">Positive bars = reward for exceeding expectations; Negative bars = penalty for falling short.</p><div style="position:relative; height:340px; width:100%;"><canvas id="prcaContrastChart"></canvas></div>';
+    container.appendChild(chartDiv);
+
+    new Chart(document.getElementById('prcaContrastChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Cleanliness', 'Staff Service', 'Location', 'Comfort', 'Facilities', 'Value for Money', 'WiFi'],
+            datasets: [
+                { label: 'Reward (+)', data: [0.52, 0.48, 0.38, 0.35, 0.28, 0.22, 0.15], backgroundColor: 'rgba(61,90,69,0.8)', borderRadius: 6 },
+                { label: 'Penalty (−)', data: [-0.85, -0.42, -0.18, -0.55, -0.32, -0.72, -0.65], backgroundColor: 'rgba(175,88,56,0.8)', borderRadius: 6 }
+            ]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            scales: {
+                x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+                y: { title: { display: true, text: 'Impact on Satisfaction', font: { size: 12, weight: '600' } }, grid: { borderDash: [4,4], color: 'rgba(104,84,66,0.12)' } }
+            },
+            plugins: {
+                legend: { position: 'top', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } },
+                tooltip: { backgroundColor: 'rgba(251,244,234,0.95)', titleColor: '#2e2620', bodyColor: '#5d5044', borderColor: 'rgba(104,84,66,0.24)', borderWidth: 1, padding: 10 }
+            },
+            animation: { duration: 1800, easing: 'easeOutQuart' }
+        }
+    });
+});
+</script>
 <script defer="" src="js/main.js" type="module"></script>
 </body>
 </html>

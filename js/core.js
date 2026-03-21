@@ -316,3 +316,50 @@ export function initLinkSecurity() {
         anchor.setAttribute('rel', Array.from(tokens).join(' '));
     });
 }
+
+export function initTooltips(env) {
+    if (env.hasFinePointer) {
+        const tooltip = document.createElement('div');
+        tooltip.className = 'custom-tooltip';
+        document.body.appendChild(tooltip);
+
+        document.documentElement.addEventListener('mouseover', (e) => {
+            const target = e.target.closest('[data-tooltip]');
+            if (!target) return;
+            const text = target.getAttribute('data-tooltip');
+            if (text) {
+                tooltip.textContent = text;
+                tooltip.classList.add('show');
+            }
+        });
+
+        document.documentElement.addEventListener('mousemove', (e) => {
+            if (!tooltip.classList.contains('show')) return;
+            // Position tooltip dynamically near cursor
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Give a little offset
+            let top = y + 15;
+            let left = x + 15;
+            
+            // Prevent overflowing
+            const rect = tooltip.getBoundingClientRect();
+            if (left + rect.width > window.innerWidth - 10) {
+                left = x - rect.width - 10;
+            }
+            if (top + rect.height > window.innerHeight - 10) {
+                top = y - rect.height - 15;
+            }
+
+            tooltip.style.left = `${left}px`;
+            tooltip.style.top = `${top}px`;
+        });
+
+        document.documentElement.addEventListener('mouseout', (e) => {
+            const target = e.target.closest('[data-tooltip]');
+            if (!target) return;
+            tooltip.classList.remove('show');
+        });
+    }
+}

@@ -58,17 +58,17 @@ TABLE5_WTP = [
 ]
 
 COLORS = {
-    "bg": "#f5f9ff",
+    "bg": "#f8fafc",
     "card": "#ffffff",
     "ink": "#0f172a",
     "muted": "#475569",
-    "grid": "#cbd5e1",
-    "push": "#dc6b5f",
-    "pull": "#2a9d8f",
-    "support": "#3a86c8",
-    "status": "#6d597a",
-    "pos": "#1d9a7d",
-    "neg": "#cc4b5f",
+    "grid": "#e2e8f0",
+    "push": "#ef4444",
+    "pull": "#10b981",
+    "support": "#3b82f6",
+    "status": "#8b5cf6",
+    "pos": "#059669",
+    "neg": "#e11d48",
 }
 
 

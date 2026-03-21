@@ -7,7 +7,8 @@ import {
     initReveal,
     initImageDefaults,
     initPrintButtons,
-    initLinkSecurity
+    initLinkSecurity,
+    initTooltips
 } from './core.js';
 import { initNav } from './nav.js';
 
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initImageDefaults(page);
     initPrintButtons();
     initLinkSecurity();
+    initTooltips(env);
     initNav(env);
 
     try {
