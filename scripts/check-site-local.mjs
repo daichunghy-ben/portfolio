@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
+import { collectSeoIssues } from './seo-checks.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, '.deploy', 'public');
@@ -132,6 +133,43 @@ const waitForServer = async (baseUrl) => {
   throw new Error('Local server did not start within 10 seconds.');
 };
 
+const normalizeSiteUrl = (value) => {
+  const raw = (value || '').trim();
+  if (!raw) return '';
+  try {
+    const url = new URL(raw);
+    url.hash = '';
+    url.search = '';
+    url.pathname = url.pathname && url.pathname !== '/' ? `${url.pathname.replace(/\/+$/, '')}/` : '/';
+    return url.href;
+  } catch {
+    return '';
+  }
+};
+
+const getLintBaseUrl = async () => {
+  const explicit = normalizeSiteUrl(process.env.SITE_URL);
+  if (explicit) return explicit;
+
+  const configPath = path.join(PUBLIC_DIR, 'assets', 'data', 'site-config.json');
+  try {
+    const config = JSON.parse(await fs.readFile(configPath, 'utf8'));
+    return normalizeSiteUrl(config.site_url || config.canonical_base || '');
+  } catch {
+    return '';
+  }
+};
+
+const resolveSeoLintUrl = (siteUrl, requestUrl) => {
+  if (!siteUrl) return requestUrl;
+  const requested = new URL(requestUrl);
+  const relativePath =
+    requested.pathname === '/' || requested.pathname === '/index.html'
+      ? ''
+      : `${requested.pathname.replace(/^\/+/, '')}${requested.search}`;
+  return new URL(relativePath, siteUrl).href;
+};
+
 const getFreePort = async () => {
   const net = await import('node:net');
   return await new Promise((resolve, reject) => {
@@ -165,7 +203,7 @@ const listSeedPages = async () => {
     .map((name) => `/${name}`);
 };
 
-const crawl = async (baseUrl) => {
+const crawl = async (baseUrl, lintBaseUrl) => {
   const base = new URL(baseUrl);
   const origin = base.origin;
   const queue = await listSeedPages();
@@ -208,7 +246,20 @@ const crawl = async (baseUrl) => {
 
     const body = await response.text();
     let refs = [];
-    if (isHtml) refs = extractRefsFromHtml(body);
+    if (isHtml) {
+      const seoIssues = collectSeoIssues({
+        html: body,
+        url: resolveSeoLintUrl(lintBaseUrl, absoluteUrl.href)
+      });
+      if (seoIssues.length) {
+        failures.push({
+          url: absoluteUrl.href,
+          status,
+          reason: `SEO lint: ${seoIssues.join('; ')}`
+        });
+      }
+      refs = extractRefsFromHtml(body);
+    }
     else if (isCss) refs = extractRefsFromCss(body);
     else if (isJs) refs = extractRefsFromJs(body);
 
@@ -249,6 +300,22 @@ const validateSeoArtifacts = async (baseUrl) => {
   if (locMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
     throw new Error('sitemap.xml contains a non-absolute URL.');
   }
+
+  const imageSitemapUrl = new URL('/image-sitemap.xml', baseUrl);
+  const imageSitemapResponse = await fetchWithTimeout(imageSitemapUrl.href);
+  if (!imageSitemapResponse.ok) {
+    throw new Error(`image-sitemap.xml returned ${imageSitemapResponse.status} at ${imageSitemapUrl.href}`);
+  }
+
+  const imageSitemapText = await imageSitemapResponse.text();
+  const imageMatches = [...imageSitemapText.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1].trim());
+  if (!imageMatches.length) {
+    throw new Error('image-sitemap.xml does not contain any <image:loc> entries.');
+  }
+
+  if (imageMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
+    throw new Error('image-sitemap.xml contains a non-absolute image URL.');
+  }
 };
 
 const main = async () => {
@@ -266,11 +333,12 @@ const main = async () => {
   });
 
   const baseUrl = `http://127.0.0.1:${port}`;
+  const lintBaseUrl = await getLintBaseUrl();
 
   try {
     await waitForServer(baseUrl);
     await validateSeoArtifacts(baseUrl);
-    const result = await crawl(baseUrl);
+    const result = await crawl(baseUrl, lintBaseUrl);
     if (result.failures.length) {
       console.error(`Found ${result.failures.length} failing local URLs:`);
       for (const failure of result.failures.slice(0, 60)) {

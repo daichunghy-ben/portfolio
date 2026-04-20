@@ -1,5 +1,4 @@
 /* Projects page specific performance and layout tuning */
-body[data-page="projects"] #research,
 body[data-page="projects"] #case-study,
 body[data-page="projects"] #contact {
     content-visibility: auto;
@@ -18,6 +17,93 @@ body[data-page="projects"] .research-header {
 
 body[data-page="projects"] .research-header .section-desc {
     max-width: 58ch;
+}
+
+body[data-page="projects"] .research-route-map {
+    margin-top: 1.5rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+body[data-page="projects"] .research-route-copy {
+    max-width: 760px;
+}
+
+body[data-page="projects"] .research-route-kicker {
+    margin: 0;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+}
+
+body[data-page="projects"] .research-route-heading {
+    margin: 0.44rem 0 0;
+    font-size: clamp(1.18rem, 2vw, 1.52rem);
+    line-height: 1.24;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+}
+
+body[data-page="projects"] .research-route-summary {
+    margin: 0.62rem 0 0;
+    color: rgba(30, 41, 59, 0.9);
+    font-size: 0.92rem;
+    line-height: 1.58;
+}
+
+body[data-page="projects"] .discovery-updated {
+    margin: 0.75rem 0 0;
+    color: var(--text-light);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+body[data-page="projects"] .research-route-grid {
+    margin-top: 1.2rem;
+}
+
+body[data-page="projects"] .research-route-links {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+body[data-page="projects"] .research-route-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0.64rem 0.96rem;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.92);
+    color: rgba(15, 23, 42, 0.9);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+body[data-page="projects"] .research-route-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(10, 123, 224, 0.3);
+}
+
+body[data-page="projects"] .research-cluster-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+body[data-page="projects"] .research-cluster-link:hover,
+body[data-page="projects"] .research-cluster-link:focus-visible {
+    color: var(--accent-primary);
+    text-decoration: underline;
 }
 
 body[data-page="projects"] .parallax-bg {
@@ -297,6 +383,15 @@ body[data-page="projects"] .lab-collab-actions .btn-outline:hover {
         grid-template-columns: 1fr;
     }
 
+    body[data-page="projects"] .research-route-links {
+        flex-direction: column;
+    }
+
+    body[data-page="projects"] .research-route-link {
+        width: 100%;
+        justify-content: center;
+    }
+
     body[data-page="projects"] .research-card .rc-image {
         height: 178px;
         margin: 0.52rem;
@@ -337,6 +432,14 @@ body[data-page="projects"] .lab-collab-actions .btn-outline:hover {
     body[data-page="projects"] .research-card .rc-image img,
     body[data-page="projects"] .research-card-link:hover .rc-image img {
         transform: none;
+        transition: none;
+    }
+
+    body[data-page="projects"] .research-route-link {
+        transition: none;
+    }
+
+    body[data-page="projects"] .research-cluster-link {
         transition: none;
     }
 

@@ -225,8 +225,8 @@ export async function initResearchManifest(page) {
 
     const maps = indexManifest(manifest);
 
-    if (page === 'home' || page === 'projects') {
-        applyCards(maps, { normalizeSummary: page === 'projects' });
+    if (page === 'home' || page === 'projects' || page === 'topic') {
+        applyCards(maps, { normalizeSummary: page === 'projects' || page === 'topic' });
     }
 
     if (page === 'research') {

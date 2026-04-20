@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { collectSeoIssues } from './seo-checks.mjs';
 
 const ROOT = process.cwd();
 const HTML_EXCLUDE = new Set(['index_patched.html']);
@@ -193,7 +194,17 @@ const crawl = async (baseUrl) => {
 
     const body = await response.text();
     let refs = [];
-    if (isHtml) refs = extractRefsFromHtml(body);
+    if (isHtml) {
+      const seoIssues = collectSeoIssues({ html: body, url: effectiveUrl.href });
+      if (seoIssues.length) {
+        failures.push({
+          url: effectiveUrl.href,
+          status,
+          reason: `SEO lint: ${seoIssues.join('; ')}`
+        });
+      }
+      refs = extractRefsFromHtml(body);
+    }
     else if (isCss) refs = extractRefsFromCss(body);
     else if (isJs) refs = extractRefsFromJs(body);
 
@@ -233,6 +244,22 @@ const validateSeoArtifacts = async (baseUrl) => {
 
   if (locMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
     throw new Error('sitemap.xml contains a non-absolute URL.');
+  }
+
+  const imageSitemapUrl = new URL('image-sitemap.xml', baseUrl);
+  const imageSitemapResponse = await fetchWithTimeout(imageSitemapUrl.href);
+  if (!imageSitemapResponse.ok) {
+    throw new Error(`image-sitemap.xml returned ${imageSitemapResponse.status} at ${imageSitemapUrl.href}`);
+  }
+
+  const imageSitemapText = await imageSitemapResponse.text();
+  const imageMatches = [...imageSitemapText.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1].trim());
+  if (!imageMatches.length) {
+    throw new Error('image-sitemap.xml does not contain any <image:loc> entries.');
+  }
+
+  if (imageMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
+    throw new Error('image-sitemap.xml contains a non-absolute image URL.');
   }
 };
 

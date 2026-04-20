@@ -4,3 +4,4 @@ node_modules/
 dist/
 venv/
 *.report.html
+.DS_Store
