@@ -172,14 +172,22 @@ const crawl = async (baseUrl) => {
       continue;
     }
 
+    const effectiveUrl = (() => {
+      try {
+        return new URL(response.url || absoluteUrl.href);
+      } catch {
+        return absoluteUrl;
+      }
+    })();
+
     const contentType = (response.headers.get('content-type') || '').toLowerCase();
-    const isHtml = contentType.includes('text/html') || absoluteUrl.pathname.endsWith('.html');
-    const isCss = contentType.includes('text/css') || absoluteUrl.pathname.endsWith('.css');
+    const isHtml = contentType.includes('text/html') || effectiveUrl.pathname.endsWith('.html');
+    const isCss = contentType.includes('text/css') || effectiveUrl.pathname.endsWith('.css');
     const isJs =
       contentType.includes('javascript') ||
       contentType.includes('ecmascript') ||
-      absoluteUrl.pathname.endsWith('.js') ||
-      absoluteUrl.pathname.endsWith('.mjs');
+      effectiveUrl.pathname.endsWith('.js') ||
+      effectiveUrl.pathname.endsWith('.mjs');
 
     if (!isHtml && !isCss && !isJs) continue;
 
@@ -190,7 +198,7 @@ const crawl = async (baseUrl) => {
     else if (isJs) refs = extractRefsFromJs(body);
 
     for (const ref of refs) {
-      const normalized = normalizeRef(ref, absoluteUrl.href, origin, basePath);
+      const normalized = normalizeRef(ref, effectiveUrl.href, origin, basePath);
       if (!normalized || visited.has(normalized)) continue;
       queue.push(normalized);
     }
