@@ -199,6 +199,35 @@ const crawl = async (baseUrl) => {
   return { visitedCount: visited.size, failures };
 };
 
+const validateSeoArtifacts = async (baseUrl) => {
+  const robotsUrl = new URL('robots.txt', baseUrl);
+  const robotsResponse = await fetchWithTimeout(robotsUrl.href);
+  if (!robotsResponse.ok) {
+    throw new Error(`robots.txt returned ${robotsResponse.status} at ${robotsUrl.href}`);
+  }
+
+  const robotsText = await robotsResponse.text();
+  if (!/^\s*Sitemap:\s+/im.test(robotsText)) {
+    throw new Error('robots.txt is missing a Sitemap declaration.');
+  }
+
+  const sitemapUrl = new URL('sitemap.xml', baseUrl);
+  const sitemapResponse = await fetchWithTimeout(sitemapUrl.href);
+  if (!sitemapResponse.ok) {
+    throw new Error(`sitemap.xml returned ${sitemapResponse.status} at ${sitemapUrl.href}`);
+  }
+
+  const sitemapText = await sitemapResponse.text();
+  const locMatches = [...sitemapText.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
+  if (!locMatches.length) {
+    throw new Error('sitemap.xml does not contain any <loc> entries.');
+  }
+
+  if (locMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
+    throw new Error('sitemap.xml contains a non-absolute URL.');
+  }
+};
+
 const main = async () => {
   const explicitUrl = process.env.SITE_URL?.trim();
   const project = (process.env.CF_PAGES_PROJECT || process.env.PROJECT || '').trim();
@@ -208,6 +237,7 @@ const main = async () => {
     throw new Error('Set CF_PAGES_PROJECT or SITE_URL before running remote checks.');
   }
 
+  await validateSeoArtifacts(baseUrl);
   const result = await crawl(baseUrl);
   if (result.failures.length) {
     console.error(`Found ${result.failures.length} failing remote URLs on ${baseUrl}:`);

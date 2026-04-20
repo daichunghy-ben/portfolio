@@ -6,6 +6,8 @@ const OUT_DIR = path.join(ROOT, '.deploy', 'public');
 const SOURCE_DIRS = ['assets', 'dist'];
 const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
+const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const DEFAULT_PRIMARY_SITE_URL = 'https://chunghy.pages.dev/';
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
 const STAGED_ASSET_REFS = new Map([
   ['styles/base.css', 'dist/styles/base.css'],
@@ -159,6 +161,14 @@ const normalizeSiteUrl = (value) => {
   }
 };
 
+const escapeXml = (value) =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
 const parseLegacyHosts = (raw) => {
   const fromEnv = (raw || '')
     .split(',')
@@ -173,6 +183,12 @@ const replaceCanonicalTag = (html, canonicalUrl) =>
     /<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*>/i,
     `<link href="${canonicalUrl}" rel="canonical"/>`
   );
+
+const extractCanonicalHref = (html) => {
+  const tag = html.match(/<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*>/i)?.[0];
+  if (!tag) return '';
+  return tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1] || '';
+};
 
 const replaceMetaContentTag = (html, selectorAttr, selectorValue, contentValue) => {
   const escapedSelector = selectorValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -228,8 +244,69 @@ const resolveAbsoluteAssetUrl = (value, siteUrl, legacyHosts) => {
 
 const absolutePageUrlForFile = (siteUrl, htmlFileName) => {
   const isIndex = htmlFileName.toLowerCase() === 'index.html';
-  const relativePath = isIndex ? '/' : `/${htmlFileName}`;
+  const relativePath = isIndex ? '.' : htmlFileName;
   return new URL(relativePath, siteUrl).href;
+};
+
+const resolvePageUrlForFile = (siteUrl, htmlFileName, html) => {
+  const fallbackUrl = absolutePageUrlForFile(siteUrl, htmlFileName);
+  const canonicalHref = extractCanonicalHref(html);
+  if (!canonicalHref) return fallbackUrl;
+
+  try {
+    const resolvedUrl = new URL(canonicalHref, fallbackUrl).href;
+    if (htmlFileName.toLowerCase() === 'index.html') {
+      const indexFileUrl = new URL('index.html', siteUrl).href;
+      if (resolvedUrl === indexFileUrl || resolvedUrl === fallbackUrl) {
+        return fallbackUrl;
+      }
+    }
+    return resolvedUrl;
+  } catch {
+    return fallbackUrl;
+  }
+};
+
+const generateRobotsTxt = async (siteUrl) => {
+  const robotsPath = path.join(OUT_DIR, 'robots.txt');
+  const sitemapUrl = new URL('sitemap.xml', siteUrl).href;
+  const content = `User-agent: *\nAllow: /\nSitemap: ${sitemapUrl}\n`;
+  await fs.writeFile(robotsPath, content, 'utf8');
+};
+
+const generateSitemapXml = async (siteUrl) => {
+  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
+    .map((entry) => entry.name)
+    .sort();
+
+  const pages = [];
+
+  for (const htmlFile of htmlFiles) {
+    if (SITEMAP_EXCLUDE.has(htmlFile)) continue;
+
+    const filePath = path.join(OUT_DIR, htmlFile);
+    const html = await fs.readFile(filePath, 'utf8');
+    const pageUrl = absolutePageUrlForFile(siteUrl, htmlFile);
+    const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
+
+    if (canonicalUrl !== pageUrl) continue;
+
+    const stats = await fs.stat(filePath);
+    pages.push({
+      lastmod: stats.mtime.toISOString().slice(0, 10),
+      url: pageUrl
+    });
+  }
+
+  const entries = pages
+    .map(
+      ({ lastmod, url }) => `  <url>\n    <loc>${escapeXml(url)}</loc>\n    <lastmod>${escapeXml(lastmod)}</lastmod>\n  </url>`
+    )
+    .join('\n');
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+  await fs.writeFile(path.join(OUT_DIR, 'sitemap.xml'), xml, 'utf8');
 };
 
 const applyMetadataForSiteUrl = async (siteUrl, legacyHosts) => {
@@ -242,7 +319,7 @@ const applyMetadataForSiteUrl = async (siteUrl, legacyHosts) => {
     const filePath = path.join(OUT_DIR, htmlFile);
     let html = await fs.readFile(filePath, 'utf8');
 
-    const canonicalUrl = absolutePageUrlForFile(siteUrl, htmlFile);
+    const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
     html = replaceCanonicalTag(html, canonicalUrl);
     html = replaceMetaContentTag(html, 'property', 'og:url', canonicalUrl);
 
@@ -334,16 +411,23 @@ const main = async () => {
 
   await rewriteStagedHtmlAssetRefs();
 
-  const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
+  const explicitSiteUrl = normalizeSiteUrl(process.env.SITE_URL);
+  const fallbackHost = (process.env.CF_PAGES_PROJECT || process.env.PROJECT || '').trim();
+  const fallbackSiteUrl = normalizeSiteUrl(
+    fallbackHost ? `https://${fallbackHost}.pages.dev/` : DEFAULT_PRIMARY_SITE_URL
+  );
+  const siteUrl = explicitSiteUrl || fallbackSiteUrl;
   const legacyHosts = parseLegacyHosts(process.env.LEGACY_PAGES_HOSTS);
 
-  if (siteUrl) {
-    await applyMetadataForSiteUrl(siteUrl, legacyHosts);
-    await updateDeploySiteConfig(siteUrl);
-    console.log(`Applied deployment metadata base URL: ${siteUrl}`);
-  } else {
-    console.log('SITE_URL not set; keeping source canonical/OG URLs unchanged.');
+  if (!explicitSiteUrl) {
+    console.log(`SITE_URL not set; using fallback deployment base URL: ${siteUrl}`);
   }
+
+  await applyMetadataForSiteUrl(siteUrl, legacyHosts);
+  await updateDeploySiteConfig(siteUrl);
+  await generateRobotsTxt(siteUrl);
+  await generateSitemapXml(siteUrl);
+  console.log(`Applied deployment metadata base URL: ${siteUrl}`);
 
   const finalFiles = await listFilesRecursive(OUT_DIR);
   const totalBytes = (
