@@ -1271,3 +1271,22 @@ Notes:
 
 - This is a discoverability boost, not a guarantee of instant indexing.
 - The next best free step after this is to let Google recrawl the site and repo, then inspect Search Console URL coverage if available.
+
+---
+
+### 2026-04-21 - Visible GitHub entity link pass
+
+Goal:
+
+- Make the GitHub profile visible inside the portfolio itself, not only in schema and repo metadata.
+
+Changes made:
+
+- `about.html`
+  - Added a public GitHub profile link to the external references section.
+  - Added the GitHub profile to the footer contact row alongside LinkedIn and ORCID.
+
+Notes:
+
+- This is a small but useful reinforcement for entity matching and branded search.
+- It does not guarantee immediate indexing, but it strengthens the network of crawlable references around the site.
