@@ -1093,3 +1093,96 @@ Notes:
 
 - The live site still needs the current source revision to be pushed before Google can see the newest metadata.
 - The repository still contains generated asset outputs from the build pipeline; those are intentionally left uncommitted for now because GitHub Actions regenerates them during deploy.
+
+---
+
+### 2026-04-21 - Entity clarity and crawl-dilution pass
+
+Goal:
+
+- Improve Google's understanding of the site name, person identity, and high-value portfolio routes.
+- Reduce crawl/index dilution from support pages and non-content routes.
+- Tighten visible copy so name queries and role queries match the site more directly.
+
+Changes made:
+
+- `assets/data/site-config.json`
+  - Changed `site_alternate_name` to the concise site-name variant `Chung Hy Dai Portfolio`.
+  - Added `site_tagline` as `Market Research, Consumer Insights & Applied Analytics Portfolio`.
+  - Expanded the supporting keyword set with role and geography variants such as `consumer insights analyst` and `Vietnam market research`.
+
+- `scripts/seo-page-data.mjs`
+  - Added a shared `WebSite` + `Person` graph and prepend it across about, projects, hub, and research pages so entity references are self-contained on more ranking URLs.
+  - Moved the profile-page emphasis to the about page and kept the homepage centered on `WebSite` / `WebPage` / `Person`.
+  - Added a `noindex` path for thin support content (`research-hotel-value.html`) and for `404.html`.
+  - Added a dedicated 404 description path so the 404 page does not inherit normal portfolio descriptions.
+  - Upgraded generated site-route anchor labels to be more descriptive:
+    - `Chung Hy Dai portfolio homepage`
+    - `About Chung Hy Dai and research methodology`
+    - `Market research projects archive`
+    - `<hub name> case studies`
+
+- `scripts/stage-pages.mjs`
+  - Excluded `noindex` pages from both `sitemap.xml` and `image-sitemap.xml`, not just canonical-mismatched pages.
+
+- `scripts/seo-checks.mjs`
+  - Added an explicit assertion that `404.html` must remain `noindex` for both `robots` and `googlebot`.
+
+- `index.html`
+  - Replaced `customer insights` with the exact phrase `consumer insights`.
+  - Added visible alias support for `Dai Chung Hy`.
+  - Made homepage internal links more query-aligned:
+    - `About Chung Hy Dai`
+    - `Market Research Archive`
+  - Added parent-hub links above the three featured case-study cards.
+  - Replaced generic featured-card labels with stronger case-study titles.
+
+- `about.html`
+  - Added visible name-variant copy for `Chung Hy Dai` / `Dai Chung Hy`.
+  - Reframed the page toward `market research` and `consumer insights` roles.
+  - Updated the visible archive route label from `Projects page` to `Market research archive`.
+
+- `projects.html`
+  - Strengthened the header copy with the exact phrase `market research, consumer insights, and applied analytics`.
+  - Updated the support-route label to `About Chung Hy Dai and methodology`.
+
+- Topic hubs:
+  - `hospitality-analytics.html`
+  - `mobility-policy.html`
+  - `creator-economy.html`
+  - `health-behavior.html`
+  - `organizational-behavior.html`
+  - Added one exact-match sentence per page describing the hub as grouped `market research`, `consumer insights`, and `applied analytics` work.
+  - Updated visible `Last updated` labels to `21 Apr 2026`.
+
+- `research-hotel-prca.html`
+  - Aligned the visible H1 and hero copy with the title's `PRCA + Kano` framing.
+
+- `styles/base.css`
+  - Added styling for the new selected-work hub route labels so the extra internal links remain visually restrained.
+
+Verification:
+
+- `node --check scripts/seo-page-data.mjs`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `node --check scripts/seo-checks.mjs`
+  - passed
+- `node scripts/stage-pages.mjs`
+  - passed
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+- Staged-output checks confirmed:
+  - `about.html` now emits a `ProfilePage` plus shared `WebSite` / `Person`
+  - `projects.html` now emits shared `WebSite` / `Person`
+  - `research-hotel-value.html` is `noindex,follow`
+  - `404.html` is `noindex,follow`
+  - `research-hotel-value.html` is absent from both `sitemap.xml` and `image-sitemap.xml`
+  - `404.html` is absent from both `sitemap.xml` and `image-sitemap.xml`
+
+Notes:
+
+- The `research-hotel-value.html` page remains available for navigation and context, but is now treated as support content instead of a primary search target.
+- The live site still needs a push/deploy before Google can see these new signals.

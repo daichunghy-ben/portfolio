@@ -41,16 +41,13 @@ const normalizePathFromCanonical = (canonicalHref) => {
 };
 
 export function collectSeoIssues({ html, url }) {
-  if (/\/404\.html$/i.test(url)) {
-    return [];
-  }
-
   const issues = [];
   const title = extractTag(html, /<title>([^<]+)<\/title>/i);
   const description = extractMetaContent(html, 'name', 'description');
   const canonical = extractLinkHref(html, 'canonical');
   const robots = extractMetaContent(html, 'name', 'robots').toLowerCase();
   const googlebot = extractMetaContent(html, 'name', 'googlebot').toLowerCase();
+  const is404Page = /\/404\.html$/i.test(url);
   const ogLocale = extractMetaContent(html, 'property', 'og:locale');
   const ogTitle = extractMetaContent(html, 'property', 'og:title');
   const ogDescription = extractMetaContent(html, 'property', 'og:description');
@@ -65,6 +62,12 @@ export function collectSeoIssues({ html, url }) {
   const twitterImageAlt = extractMetaContent(html, 'name', 'twitter:image:alt');
   const h1 = extractTag(html, /<h1\b[^>]*>([\s\S]*?)<\/h1>/i).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const jsonLdCount = (html.match(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>/gi) || []).length;
+
+  if (is404Page) {
+    if (!robots.includes('noindex')) issues.push('404 page should be noindex');
+    if (!googlebot.includes('noindex')) issues.push('404 page should be noindex for googlebot');
+    return issues;
+  }
 
   if (!title || title.length < 15) issues.push('missing or weak <title>');
   if (!description || description.length < 50) issues.push('missing or weak meta description');

@@ -262,6 +262,12 @@ const extractMetaContent = (html, selectorAttr, selectorValue) => {
   return tag.match(/\bcontent\s*=\s*["']([^"']+)["']/i)?.[1] || '';
 };
 
+const isNoindexPage = (html) => {
+  const robots = extractMetaContent(html, 'name', 'robots').toLowerCase();
+  const googlebot = extractMetaContent(html, 'name', 'googlebot').toLowerCase();
+  return robots.includes('noindex') || googlebot.includes('noindex');
+};
+
 const resolveAbsoluteAssetUrl = (value, siteUrl, legacyHosts) => {
   const raw = (value || '').trim();
   if (!raw || raw.startsWith('data:')) return raw;
@@ -384,6 +390,7 @@ const generateSitemapXml = async (siteUrl, seoData) => {
     const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
 
     if (canonicalUrl !== pageUrl) continue;
+    if (isNoindexPage(html)) continue;
 
     const sourcePath = path.join(ROOT, htmlFile);
     const stats = await fs.stat((await fileExists(sourcePath)) ? sourcePath : filePath);
@@ -424,6 +431,7 @@ const generateImageSitemapXml = async (siteUrl) => {
     const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
 
     if (canonicalUrl !== pageUrl) continue;
+    if (isNoindexPage(html)) continue;
 
     const images = extractImageUrlsFromHtml(html, pageUrl, siteUrl);
     if (!images.length) continue;

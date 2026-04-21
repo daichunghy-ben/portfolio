@@ -6071,6 +6071,25 @@ h4,
     padding: 1.2rem 1.15rem 1.25rem;
 }
 
+.impact-route {
+    margin: 0 0 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+}
+
+.impact-route a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.impact-route a:hover,
+.impact-route a:focus-visible {
+    text-decoration: underline;
+}
+
 .impact-body h3 {
     font-size: 1.16rem;
     line-height: 1.35;

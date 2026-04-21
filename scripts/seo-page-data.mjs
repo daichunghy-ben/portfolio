@@ -20,6 +20,7 @@ const FEATURED_RESEARCH_IDS = [
   'virtual-influencers',
   'nutrition-diet'
 ];
+const SUPPORT_CONTENT_NOINDEX_IDS = new Set(['hotel-value-framework']);
 const TOPIC_HUBS = {
   hospitality: {
     id: 'hospitality',
@@ -353,6 +354,9 @@ const normalizeSiteConfig = (siteConfig) => {
     site_name: stripHtml(siteConfig?.site_name || ownerName) || ownerName,
     site_alternate_name:
       stripHtml(siteConfig?.site_alternate_name || `${ownerName} Portfolio`) || `${ownerName} Portfolio`,
+    site_tagline:
+      stripHtml(siteConfig?.site_tagline || 'Market Research, Consumer Insights & Applied Analytics Portfolio') ||
+      'Market Research, Consumer Insights & Applied Analytics Portfolio',
     site_keywords: normalizeUniqueStrings([...DEFAULT_SITE_KEYWORDS, ...siteKeywords]),
     site_url: stripHtml(siteConfig?.site_url || ''),
     canonical_base: stripHtml(siteConfig?.canonical_base || ''),
@@ -450,6 +454,7 @@ const buildMetaKeywords = ({ htmlFile, siteConfig, researchEntry, specialPage, t
   add(
     siteConfig?.site_name,
     siteConfig?.site_alternate_name,
+    siteConfig?.site_tagline,
     ...(Array.isArray(siteConfig?.site_keywords) ? siteConfig.site_keywords : []),
     'market research',
     'applied analytics'
@@ -510,6 +515,23 @@ const buildPersonEntity = (siteUrl, siteConfig, imageUrl) => {
       : {})
   };
 };
+
+const buildSharedEntityGraph = (siteUrl, siteConfig, imageUrl) => [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}#website`,
+    url: siteUrl,
+    name: siteConfig.site_name,
+    alternateName: siteConfig.site_alternate_name,
+    description: siteConfig.site_description,
+    inLanguage: 'en'
+  },
+  {
+    '@context': 'https://schema.org',
+    ...buildPersonEntity(siteUrl, siteConfig, imageUrl)
+  }
+];
 
 const buildBreadcrumbList = (pageUrl, items) => ({
   '@type': 'BreadcrumbList',
@@ -626,7 +648,6 @@ const buildHomeStructuredData = ({
   personImageUrl,
   researchEntries
 }) => {
-  const person = buildPersonEntity(siteUrl, siteConfig, personImageUrl || imageUrl);
   const featuredEntries = FEATURED_RESEARCH_IDS.slice(0, 3).map((id) =>
     researchEntries.find((entry) => entry?.id === id)
   ).filter(Boolean);
@@ -640,32 +661,26 @@ const buildHomeStructuredData = ({
     url: absolutePageUrlForFile(siteUrl, 'about.html'),
     name: 'About Chung Hy Dai'
   };
+  const projectsPage = {
+    '@type': 'CollectionPage',
+    url: absolutePageUrlForFile(siteUrl, 'projects.html'),
+    name: 'Market Research & Applied Analytics Projects'
+  };
   return [
+    ...buildSharedEntityGraph(siteUrl, siteConfig, personImageUrl || imageUrl),
     {
       '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      '@id': `${siteUrl}#website`,
+      '@type': 'WebPage',
+      '@id': `${siteUrl}#webpage`,
       url: siteUrl,
-      name: siteConfig.site_name,
-      alternateName: siteConfig.site_alternate_name,
-      description,
-      inLanguage: 'en'
-    },
-    {
-      '@context': 'https://schema.org',
-      ...person
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ProfilePage',
-      '@id': `${siteUrl}#profile-page`,
-      url: siteUrl,
-      name: siteConfig.site_alternate_name,
+      name: `${siteConfig.site_name} Portfolio`,
       isPartOf: { '@id': `${siteUrl}#website` },
       about: { '@id': `${siteUrl}#person` },
       mainEntity: { '@id': `${siteUrl}#person` },
+      description,
+      primaryImageOfPage: imageUrl,
       ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {}),
-      hasPart: [aboutPage, ...focusAreaPages]
+      hasPart: [aboutPage, projectsPage, ...focusAreaPages]
     },
     {
       '@context': 'https://schema.org',
@@ -683,9 +698,18 @@ const buildHomeStructuredData = ({
   ];
 };
 
-const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, imageUrl }) => {
+const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, imageUrl, researchEntries }) => {
   const focusAreas = Object.values(TOPIC_HUBS);
+  const featuredEntries = FEATURED_RESEARCH_IDS.slice(0, 3)
+    .map((id) => researchEntries.find((entry) => entry?.id === id))
+    .filter(Boolean)
+    .map((entry) => ({
+      '@type': 'CreativeWork',
+      url: absolutePageUrlForFile(siteUrl, withHtml(entry.slug)),
+      name: stripHtml(entry.title || entry.slug)
+    }));
   return [
+    ...buildSharedEntityGraph(siteUrl, siteConfig, imageUrl),
     {
       '@context': 'https://schema.org',
       '@type': 'AboutPage',
@@ -698,6 +722,20 @@ const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, i
       mainEntity: { '@id': `${siteUrl}#person` },
       primaryImageOfPage: imageUrl,
       ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {})
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ProfilePage',
+      '@id': `${pageUrl}#profile-page`,
+      url: pageUrl,
+      name: 'About Chung Hy Dai',
+      description,
+      isPartOf: { '@id': `${siteUrl}#website` },
+      about: { '@id': `${siteUrl}#person` },
+      mainEntity: { '@id': `${siteUrl}#person` },
+      primaryImageOfPage: imageUrl,
+      ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {}),
+      hasPart: featuredEntries
     },
     {
       '@context': 'https://schema.org',
@@ -724,6 +762,11 @@ const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, i
 const buildHubStructuredData = ({ siteUrl, pageUrl, siteConfig, description, hub, researchEntries }) => {
   const hubEntries = getHubEntries(hub, researchEntries);
   return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -766,6 +809,11 @@ const buildProjectsStructuredData = ({ siteUrl, pageUrl, siteConfig, description
     name: hub.name
   }));
   return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
     {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -823,6 +871,11 @@ const buildResearchStructuredData = ({
 
   if (entry?.deprecated) {
     return [
+      ...buildSharedEntityGraph(
+        siteUrl,
+        siteConfig,
+        absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+      ),
       {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
@@ -848,6 +901,11 @@ const buildResearchStructuredData = ({
     .filter((value) => /^https?:\/\//i.test(value));
 
   return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
     {
       '@context': 'https://schema.org',
       '@type': scholarly ? 'ScholarlyArticle' : 'CreativeWork',
@@ -955,9 +1013,13 @@ ${items}
 
 const buildSiteRoutesSection = (currentFile = '') => {
   const routes = [
-    { href: 'about.html', label: 'About and methodology' },
-    { href: 'projects.html', label: 'Research archive' },
-    ...Object.values(TOPIC_HUBS).map((hub) => ({ href: hub.file, label: hub.name }))
+    { href: 'index.html', label: 'Chung Hy Dai portfolio homepage' },
+    { href: 'about.html', label: 'About Chung Hy Dai and research methodology' },
+    { href: 'projects.html', label: 'Market research projects archive' },
+    ...Object.values(TOPIC_HUBS).map((hub) => ({
+      href: hub.file,
+      label: `${hub.name} case studies`
+    }))
   ].filter((route) => route.href !== currentFile);
 
   const items = routes
@@ -1015,6 +1077,7 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   const pageSlug = htmlFile.replace(/\.html$/i, '');
   const researchEntry = researchBySlug.get(pageSlug) || null;
   const specialPage = getSpecialPageConfig(htmlFile);
+  const is404Page = htmlFile.toLowerCase() === '404.html';
   const authoredTitle = extractTitleText(html);
   const authoredDescription = extractMetaDescription(html);
   const existingCanonical = extractCanonicalHref(html);
@@ -1032,8 +1095,10 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   }
 
   const isCanonicalPage = canonicalUrl === pageUrl;
+  const forceNoindexPage = is404Page || (researchEntry && SUPPORT_CONTENT_NOINDEX_IDS.has(researchEntry.id));
   const defaultImageUrl = resolveAbsoluteUrl(siteConfig.default_og_image, siteUrl, legacyHosts);
-  let title = authoredTitle || `${siteConfig.site_name} | ${siteConfig.site_alternate_name}`;
+  const personImageUrl = resolveAbsoluteUrl('./assets/optimized/profile-portfolio-main-optimized.webp', siteUrl, legacyHosts);
+  let title = authoredTitle || `${siteConfig.site_name} | ${siteConfig.site_tagline}`;
   let description = siteConfig.site_description;
   let ogType = 'website';
   let imageUrl = defaultImageUrl;
@@ -1045,14 +1110,19 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   let articlePublishedDate = '';
   let articleModifiedDate = '';
 
-  if (htmlFile === 'index.html') {
+  if (is404Page) {
+    title = authoredTitle || `Page Not Found | ${siteConfig.site_name}`;
+    description =
+      'The page you requested is unavailable. Use the homepage or research archive to continue browsing the portfolio.';
+    structuredData = [];
+  } else if (htmlFile === 'index.html') {
     description = siteConfig.site_description;
     structuredData = buildHomeStructuredData({
       siteUrl,
       siteConfig,
       description,
       imageUrl: defaultImageUrl,
-      personImageUrl: resolveAbsoluteUrl('./assets/optimized/profile-portfolio-main-optimized.webp', siteUrl, legacyHosts),
+      personImageUrl,
       researchEntries
     });
   } else if (htmlFile === 'projects.html') {
@@ -1069,7 +1139,8 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       pageUrl,
       siteConfig,
       description,
-      researchEntries
+      researchEntries,
+      personImageUrl
     });
   } else if (specialPage?.type === 'about') {
     title = authoredTitle || specialPage.title;
@@ -1084,7 +1155,8 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       pageUrl,
       siteConfig,
       description,
-      imageUrl
+      imageUrl,
+      researchEntries
     });
   } else if (specialPage?.type === 'hub' && specialPage.hub) {
     title = authoredTitle || specialPage.title;
@@ -1101,7 +1173,8 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       siteConfig,
       description,
       hub: specialPage.hub,
-      researchEntries
+      researchEntries,
+      personImageUrl
     });
   } else if (researchEntry) {
     topicHub = getTopicHubByStudyType(researchEntry.study_type);
@@ -1125,7 +1198,8 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       entry: researchEntry,
       description,
       imageUrl,
-      topicHub
+      topicHub,
+      personImageUrl
     });
     relatedEntries = pickRelatedEntries(researchEntry, researchEntries);
   } else {
@@ -1146,10 +1220,12 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
     }
   }
 
-  const robotsContent = isCanonicalPage
-    ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
-    : 'noindex,follow,max-image-preview:large';
-  const imageAlt = researchEntry?.title || siteConfig.site_alternate_name;
+  const robotsContent = !isCanonicalPage || forceNoindexPage
+    ? 'noindex,follow,max-image-preview:large'
+    : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
+  const imageAlt =
+    researchEntry?.title ||
+    `${siteConfig.site_name} ${siteConfig.site_tagline.replace(/\s+Portfolio$/i, '').trim()}`.trim();
   const metaKeywords = buildMetaKeywords({ htmlFile, siteConfig, researchEntry, specialPage, topicHub });
 
   let nextHtml = html;
@@ -1203,7 +1279,7 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
 
   nextHtml = stripJsonLd(nextHtml);
 
-  if (structuredData.length) {
+  if (structuredData.length && !is404Page) {
     nextHtml = insertBeforeClosingTag(
       nextHtml,
       'head',
@@ -1225,9 +1301,9 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   }
 
   nextHtml = stripGeneratedBlock(nextHtml, 'site-routes');
-  if (/<footer\b/i.test(nextHtml)) {
+  if (!is404Page && /<footer\b/i.test(nextHtml)) {
     nextHtml = nextHtml.replace(/<footer\b/i, `${buildSiteRoutesSection(htmlFile)}\n<footer`);
-  } else if (/<\/main>/i.test(nextHtml)) {
+  } else if (!is404Page && /<\/main>/i.test(nextHtml)) {
     nextHtml = nextHtml.replace(/<\/main>/i, `${buildSiteRoutesSection(htmlFile)}\n</main>`);
   }
 
