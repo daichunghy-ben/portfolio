@@ -1186,3 +1186,64 @@ Notes:
 
 - The `research-hotel-value.html` page remains available for navigation and context, but is now treated as support content instead of a primary search target.
 - The live site still needs a push/deploy before Google can see these new signals.
+
+---
+
+### 2026-04-21 - Query-fit content pass for EV, nutrition, and virtual influencer pages
+
+Goal:
+
+- Raise query match on the three detail pages that were still weaker than the rest of the site.
+- Make the visible copy and metadata more aligned with search intents such as `EV choice experiment`, `student diet quality`, `virtual influencer trust`, and `creator economy`.
+
+Changes made:
+
+- `assets/data/research-manifest.json`
+  - Updated the EV study title to `EV Choice Experiment in Vietnam`.
+  - Updated the nutrition study title to `Student Diet Quality in Vietnam`.
+  - Updated the virtual influencer study title to `Virtual Influencer Trust and Purchase Intention`.
+  - Rewrote the corresponding card summaries to include more direct query phrases:
+    - `EV choice experiment`
+    - `design, range, price, and charging trade-offs`
+    - `Vietnamese university students`
+    - `creator-economy research`
+    - `virtual influencer cues`
+    - `Gen Z trust`
+
+- `research-ev.html`
+  - Updated the title to emphasize `EV Choice Experiment in Vietnam`.
+  - Reworked the hero badge and intro to include `consumer insights`, `market research`, and `DCE`.
+  - Tightened the explanatory copy so the page reads like an EV choice-experiment study rather than a generic design showcase.
+  - Renamed the footer CTA to `Open Research Archive`.
+
+- `research-nutrition.html`
+  - Updated the title to emphasize `Student Diet Quality in Vietnam`.
+  - Reworked the hero badge and intro to include `consumer insights` and `statistical modeling`.
+  - Tightened the challenge/method/result copy so it clearly describes a Vietnamese student diet-quality study.
+  - Renamed the footer CTA to `Open Research Archive`.
+
+- `research-virtual-influencers.html`
+  - Updated the title to emphasize `Virtual Influencer Trust and Purchase Intention`.
+  - Reworked the hero badge and intro to include `creator economy` and `consumer insights`.
+  - Tightened the challenge/method/result copy so it clearly frames the work as a Gen Z purchase-intention and trust study.
+  - Renamed the PDF button to `Read Book Chapter PDF`.
+  - Renamed the footer CTA to `Open Research Archive`.
+
+Verification:
+
+- `node --check scripts/seo-page-data.mjs`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `node --check scripts/seo-checks.mjs`
+  - passed
+- `node scripts/stage-pages.mjs`
+  - passed
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+
+Notes:
+
+- This pass is staged locally and ready to deploy, but the live remote check must wait until the next push finishes building.
+- I have not yet changed the live deployment for this content pass, so Google will still see the previous live version until the next deploy completes.

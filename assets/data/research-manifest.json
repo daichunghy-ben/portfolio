@@ -232,7 +232,7 @@
     {
       "id": "ev-choice",
       "slug": "research-ev",
-      "title": "EV Design vs. Range Trade-Offs in Vietnam",
+      "title": "EV Choice Experiment in Vietnam",
       "study_type": "policy",
       "status": "reported",
       "sample": "n = 212 young consumers in Hanoi and Ho Chi Minh City",
@@ -276,7 +276,7 @@
         "mwtp-scenario-calculator"
       ],
       "card_image": "./assets/optimized/ev-choice-experiment-optimized.webp",
-      "card_summary": "Reported (self-reported): DCE with n = 212 maps EV design, range, price, and charging trade-offs across pragmatic and aesthetic segments.",
+      "card_summary": "Reported (self-reported): EV choice experiment with n = 212 maps design, range, price, and charging trade-offs across pragmatic and aesthetic consumer segments in Vietnam.",
       "default_tiers": {
         "kpi": "reported",
         "figure": "reported"
@@ -347,7 +347,7 @@
     {
       "id": "virtual-influencers",
       "slug": "research-virtual-influencers",
-      "title": "Virtual Influencer Cues, Gen Z Trust, and Purchase Intention",
+      "title": "Virtual Influencer Trust and Purchase Intention",
       "study_type": "creator",
       "status": "derived",
       "sample": "Conference publication output",
@@ -377,7 +377,7 @@
         "trust-pathway"
       ],
       "card_image": "https://hbr.org/resources/images/article_assets/2024/03/S24033_HWANG.jpg",
-      "card_summary": "Derived interpretation: Virtual influencer cues shape Gen Z trust and purchase intention through credibility, relevance, and disclosure guardrails.",
+      "card_summary": "Derived interpretation: Consumer insights and creator-economy research on virtual influencer cues, Gen Z trust, and purchase intention through credibility, relevance, and disclosure guardrails.",
       "default_tiers": {
         "kpi": "derived",
         "figure": "illustrative"
@@ -460,7 +460,7 @@
     {
       "id": "nutrition-diet",
       "slug": "research-nutrition",
-      "title": "Nutrition Knowledge, Physical Activity, and Diet Quality",
+      "title": "Student Diet Quality in Vietnam",
       "study_type": "health",
       "status": "reported",
       "sample": "n = 280 students",
@@ -495,7 +495,7 @@
         "action-priority"
       ],
       "card_image": "./assets/FCBEM.jpg",
-      "card_summary": "Reported: Nutrition knowledge and physical activity drivers are mapped into phased intervention priorities for student diet quality.",
+      "card_summary": "Reported: Survey data from 280 Vietnamese university students links nutrition knowledge and physical activity to diet quality and intervention priorities.",
       "default_tiers": {
         "kpi": "reported",
         "figure": "illustrative"
