@@ -4,6 +4,14 @@ import path from 'node:path';
 const DEFAULT_OG_IMAGE = './assets/social-preview-og-v8.jpg?fbrefresh=20260225v8';
 const DEFAULT_SITE_DESCRIPTION =
   'Portfolio of Chung Hy Dai featuring market research, consumer insights, hospitality segmentation, EV choice, policy acceptance, and applied analytics across service and behavior.';
+const DEFAULT_SITE_KEYWORDS = [
+  'Chung Hy Dai',
+  'market research portfolio',
+  'applied analytics portfolio',
+  'consumer insights',
+  'research portfolio',
+  'Vietnam'
+];
 const FEATURED_RESEARCH_IDS = [
   'hotel-segmentation',
   'hotel-prca',
@@ -136,6 +144,12 @@ const clampText = (value, maxLength = 170) => {
   return `${sliced.trim()}.`;
 };
 
+const normalizeUniqueStrings = (values) =>
+  [...new Set((Array.isArray(values) ? values : []).map((value) => stripHtml(value)).filter(Boolean))];
+
+const normalizePublicUrls = (values) =>
+  normalizeUniqueStrings(values).filter((value) => /^https?:\/\//i.test(value));
+
 const joinSentences = (...parts) =>
   parts
     .map((part) => stripHtml(part))
@@ -186,6 +200,15 @@ const upsertMetaTag = (html, selectorAttr, selectorValue, attrs) => {
     return html.replace(pattern, next);
   }
   return insertBeforeClosingTag(html, 'head', next);
+};
+
+const stripMetaTag = (html, selectorAttr, selectorValue) => {
+  const escapedSelector = selectorValue.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(
+    `\\s*<meta\\b[^>]*\\b${selectorAttr}\\s*=\\s*["']${escapedSelector}["'][^>]*>`,
+    'gi'
+  );
+  return html.replace(pattern, '');
 };
 
 const upsertLinkTag = (html, rel, attrs) => {
@@ -319,19 +342,31 @@ const resolveAbsoluteUrl = (value, siteUrl, legacyHosts) => {
 const normalizeSiteConfig = (siteConfig) => {
   const owner = siteConfig?.owner || {};
   const ownerName = stripHtml(owner.name || 'Chung Hy Dai') || 'Chung Hy Dai';
+  const ownerAlternateNames = normalizeUniqueStrings(owner.alternate_names).filter((value) => value !== ownerName);
+  const ownerKnowsAbout = normalizeUniqueStrings(owner.knows_about);
+  const siteKeywords = Array.isArray(siteConfig?.site_keywords)
+    ? siteConfig.site_keywords
+        .map((value) => stripHtml(value))
+        .filter(Boolean)
+    : [];
   return {
     site_name: stripHtml(siteConfig?.site_name || ownerName) || ownerName,
     site_alternate_name:
       stripHtml(siteConfig?.site_alternate_name || `${ownerName} Portfolio`) || `${ownerName} Portfolio`,
+    site_keywords: normalizeUniqueStrings([...DEFAULT_SITE_KEYWORDS, ...siteKeywords]),
+    site_url: stripHtml(siteConfig?.site_url || ''),
+    canonical_base: stripHtml(siteConfig?.canonical_base || ''),
     site_description:
       clampText(siteConfig?.site_description || DEFAULT_SITE_DESCRIPTION, 190) || DEFAULT_SITE_DESCRIPTION,
     default_og_image: stripHtml(siteConfig?.default_og_image || DEFAULT_OG_IMAGE) || DEFAULT_OG_IMAGE,
     last_updated: stripHtml(siteConfig?.last_updated || ''),
-    same_as: Array.isArray(siteConfig?.same_as) ? siteConfig.same_as.filter(Boolean) : [],
+    same_as: normalizePublicUrls(siteConfig?.same_as),
     owner: {
       name: ownerName,
       email: stripHtml(owner.email || ''),
-      location: stripHtml(owner.location || 'Ho Chi Minh City, Vietnam')
+      location: stripHtml(owner.location || 'Ho Chi Minh City, Vietnam'),
+      alternate_names: ownerAlternateNames,
+      knows_about: ownerKnowsAbout
     }
   };
 };
@@ -348,34 +383,133 @@ const buildKeywords = (entry) => {
   return [...new Set(values.filter(Boolean))].join(', ');
 };
 
-const buildPersonEntity = (siteUrl, siteConfig, imageUrl) => ({
-  '@type': 'Person',
-  '@id': `${siteUrl}#person`,
-  name: siteConfig.owner.name,
-  url: siteUrl,
-  jobTitle: 'Market research and consumer insights candidate',
-  description: siteConfig.site_description,
-  image: imageUrl,
-  sameAs: siteConfig.same_as,
-  ...(siteConfig.same_as.find((value) => /orcid\.org/i.test(value))
-    ? { identifier: siteConfig.same_as.find((value) => /orcid\.org/i.test(value)) }
-    : {}),
-  alumniOf: {
-    '@type': 'CollegeOrUniversity',
-    name: 'Swinburne University of Technology'
-  },
-  knowsLanguage: ['Vietnamese', 'English'],
-  ...(siteConfig.owner.email ? { email: siteConfig.owner.email } : {}),
-  ...(siteConfig.owner.location
-    ? {
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: siteConfig.owner.location,
-        addressCountry: 'VN'
+const buildMetaKeywords = ({ htmlFile, siteConfig, researchEntry, specialPage, topicHub }) => {
+  const keywords = new Set();
+
+  const add = (...values) => {
+    values.flat().forEach((value) => {
+      const cleaned = stripHtml(value);
+      if (cleaned) keywords.add(cleaned);
+    });
+  };
+
+  if (htmlFile === 'index.html') {
+    add(
+      'market research portfolio',
+      'applied analytics portfolio',
+      'consumer behavior',
+      'service quality',
+      'hospitality segmentation',
+      'mobility policy',
+      'Swinburne Vietnam'
+    );
+  } else if (htmlFile === 'projects.html') {
+    add(
+      'research archive',
+      'market research projects',
+      'applied analytics projects',
+      'hospitality segmentation',
+      'EV choice',
+      'policy acceptance',
+      'influencer retention',
+      'nutrition',
+      'organizational behavior'
+    );
+  } else if (specialPage?.type === 'about') {
+    add(
+      'about Chung Hy Dai',
+      'research methodology',
+      'portfolio guide',
+      'evidence standards',
+      'how to read the portfolio'
+    );
+  } else if (specialPage?.type === 'hub' && specialPage.hub) {
+    const hubKeywordsById = {
+      hospitality: [
+        'hotel segmentation',
+        'hotel attribute asymmetry',
+        'service value frameworks',
+        'Da Nang'
+      ],
+      policy: ['EV choice', 'motorbike phase-out', 'mobility policy', 'Hanoi'],
+      creator: ['influencer retention', 'virtual influencers', 'UGC', 'brand transfer'],
+      health: ['nutrition', 'diet quality', 'menu nudging', 'behavior change'],
+      organizational: ['psychological ownership', 'co-creation', 'participation design', 'university context']
+    };
+    add(specialPage.hub.name, specialPage.hub.summary, hubKeywordsById[specialPage.hub.id] || []);
+  } else if (researchEntry) {
+    add(
+      stripHtml(researchEntry.title || ''),
+      normalizeStudyTypeLabel(researchEntry.study_type || ''),
+      topicHub?.name || '',
+      'research',
+      'portfolio'
+    );
+  }
+
+  add(
+    siteConfig?.site_name,
+    siteConfig?.site_alternate_name,
+    ...(Array.isArray(siteConfig?.site_keywords) ? siteConfig.site_keywords : []),
+    'market research',
+    'applied analytics'
+  );
+
+  return [...keywords]
+    .map((value) => value.trim())
+    .filter(Boolean)
+    .slice(0, 24)
+    .join(', ');
+};
+
+const buildPersonEntity = (siteUrl, siteConfig, imageUrl) => {
+  const alternateNames = normalizeUniqueStrings([
+    ...(siteConfig.owner.alternate_names || []),
+    'Dai Chung Hy'
+  ]).filter((value) => value !== siteConfig.owner.name);
+  const knowsAbout = siteConfig.owner.knows_about.length
+    ? siteConfig.owner.knows_about
+    : [
+      'Market research',
+      'Consumer insights',
+      'Applied analytics',
+      'Survey design',
+      'Experimental design',
+      'Segmentation',
+      'Choice modeling',
+      'Behavioral research'
+    ];
+  const identifier = siteConfig.same_as.find((value) => /orcid\.org/i.test(value));
+
+  return {
+    '@type': 'Person',
+    '@id': `${siteUrl}#person`,
+    name: siteConfig.owner.name,
+    ...(alternateNames.length ? { alternateName: alternateNames } : {}),
+    url: siteUrl,
+    jobTitle: 'Market Research and Consumer Insights Analyst',
+    description: siteConfig.site_description,
+    image: imageUrl,
+    sameAs: siteConfig.same_as,
+    ...(identifier ? { identifier } : {}),
+    ...(knowsAbout.length ? { knowsAbout } : {}),
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Swinburne University of Technology'
+    },
+    knowsLanguage: ['Vietnamese', 'English'],
+    ...(siteConfig.owner.email ? { email: siteConfig.owner.email } : {}),
+    ...(siteConfig.owner.location
+      ? {
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: siteConfig.owner.location,
+          addressCountry: 'VN'
+        }
       }
-    }
-    : {})
-});
+      : {})
+  };
+};
 
 const buildBreadcrumbList = (pageUrl, items) => ({
   '@type': 'BreadcrumbList',
@@ -451,6 +585,14 @@ const extractDatePublished = (entry) => {
   }
 
   return '';
+};
+
+const normalizeIsoDateTime = (value) => {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const parsed = new Date(raw);
+  if (Number.isNaN(parsed.valueOf())) return '';
+  return parsed.toISOString();
 };
 
 const deriveResearchDescription = (entry) => {
@@ -899,6 +1041,9 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   let structuredData = [];
   let relatedEntries = [];
   let topicHub = null;
+  let articleSection = '';
+  let articlePublishedDate = '';
+  let articleModifiedDate = '';
 
   if (htmlFile === 'index.html') {
     description = siteConfig.site_description;
@@ -963,6 +1108,9 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
     description = deriveResearchDescription(researchEntry);
     ogType = researchEntry.deprecated ? 'website' : 'article';
     imageUrl = pickResearchImage(researchEntry, siteUrl, siteConfig, legacyHosts);
+    articleSection = topicHub?.name || normalizeStudyTypeLabel(researchEntry.study_type || '');
+    articlePublishedDate = normalizeIsoDateTime(extractDatePublished(researchEntry));
+    articleModifiedDate = normalizeIsoDateTime(researchEntry.last_verified_at);
     breadcrumbItems = [
       { name: 'Home', href: 'index.html' },
       { name: 'Research', href: 'projects.html#research' },
@@ -1002,14 +1150,19 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
     ? 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'
     : 'noindex,follow,max-image-preview:large';
   const imageAlt = researchEntry?.title || siteConfig.site_alternate_name;
+  const metaKeywords = buildMetaKeywords({ htmlFile, siteConfig, researchEntry, specialPage, topicHub });
 
   let nextHtml = html;
   nextHtml = upsertTitleTag(nextHtml, title);
   nextHtml = upsertMetaTag(nextHtml, 'name', 'description', { content: description });
+  nextHtml = upsertMetaTag(nextHtml, 'name', 'keywords', { content: metaKeywords });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'robots', { content: robotsContent });
+  nextHtml = upsertMetaTag(nextHtml, 'name', 'googlebot', { content: robotsContent });
+  nextHtml = upsertMetaTag(nextHtml, 'name', 'language', { content: 'en' });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'author', { content: siteConfig.owner.name });
   nextHtml = upsertLinkTag(nextHtml, 'canonical', { href: canonicalUrl });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:type', { content: ogType });
+  nextHtml = upsertMetaTag(nextHtml, 'property', 'og:locale', { content: 'en_US' });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:site_name', { content: siteConfig.site_name });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:title', { content: title });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:description', { content: description });
@@ -1022,6 +1175,32 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:description', { content: description });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:image', { content: imageUrl });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:image:alt', { content: imageAlt });
+
+  const articleMetaSelectors = [
+    ['property', 'article:author'],
+    ['property', 'article:section'],
+    ['property', 'article:published_time'],
+    ['property', 'article:modified_time'],
+    ['property', 'article:tag']
+  ];
+  for (const [selectorAttr, selectorValue] of articleMetaSelectors) {
+    nextHtml = stripMetaTag(nextHtml, selectorAttr, selectorValue);
+  }
+
+  if (researchEntry && !researchEntry.deprecated) {
+    nextHtml = upsertMetaTag(nextHtml, 'property', 'article:author', { content: siteConfig.owner.name });
+    if (articleSection) {
+      nextHtml = upsertMetaTag(nextHtml, 'property', 'article:section', { content: articleSection });
+    }
+    if (articlePublishedDate) {
+      nextHtml = upsertMetaTag(nextHtml, 'property', 'article:published_time', { content: articlePublishedDate });
+    }
+    if (articleModifiedDate) {
+      nextHtml = upsertMetaTag(nextHtml, 'property', 'article:modified_time', { content: articleModifiedDate });
+    }
+    nextHtml = upsertMetaTag(nextHtml, 'property', 'article:tag', { content: metaKeywords });
+  }
+
   nextHtml = stripJsonLd(nextHtml);
 
   if (structuredData.length) {

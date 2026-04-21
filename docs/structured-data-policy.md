@@ -4,8 +4,8 @@
 Standardize machine-readable identity and research evidence signals for recruiter trust, search consistency, and claim governance.
 
 ## Baseline Scope
-- Applies to local pages in `/Users/macos/Desktop/portfolio_hy_resources`.
-- Deployment domain is unknown in this audit cycle, so `url` fields are policy placeholders until `site_url` is set.
+- Applies to local pages in `/Users/macos/Desktop/portfolio_hy_resources_github`.
+- Deployment domain is `https://daichunghy-ben.github.io/portfolio/` and should be used as the canonical base in generated markup.
 
 ## Required Data Sources
 1. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/site-config.json`
@@ -21,8 +21,10 @@ Required `Person` properties:
 - `@type`: `Person`
 - `name`
 - `url` (resolved from `site_url`)
+- `alternateName` (name-order variants, if public and accurate)
 - `jobTitle` (recruiter-facing role target)
-- `sameAs` (LinkedIn, ORCID)
+- `knowsAbout` (core topical domains)
+- `sameAs` (LinkedIn, ORCID, and other public profiles only)
 - `email` (optional; include only if intended for public indexing)
 - `address` (optional city-level only)
 
@@ -84,7 +86,13 @@ Minimum checks before release:
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Chung Hy Dai",
+  "alternateName": ["Dai Chung Hy"],
   "jobTitle": "Market Research and Consumer Insights Analyst",
+  "knowsAbout": [
+    "Market research",
+    "Consumer insights",
+    "Applied analytics"
+  ],
   "url": "<site_url>",
   "sameAs": [
     "https://www.linkedin.com/in/chung-hy-d-17792826b/",

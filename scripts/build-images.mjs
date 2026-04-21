@@ -11,6 +11,7 @@ const targets = [
   'psych-ownership-framework.png',
   'virtual-influencer-map.png',
   'student-group.jpg',
+  'swinburne-dai-chung-hy-khoa-hoc2.jpg',
   'buffet-menu.png',
   'presentation.jpg',
   'hanoi-phaseout-dashboard.png',
@@ -21,6 +22,16 @@ const targets = [
   'profile-main.png',
   'fig04_embedding_scatter.png',
   'fig03_valence_heatmap.png',
+  'degree.png',
+  'hsbc-2024.jpg',
+  'sus-logo.jpg',
+  'vietpride.jpg',
+  'general_time_series.png',
+  'motorbike-ban.jpg',
+  'virtual-influencer.png',
+  'certs/SAT.jpg',
+  'certs/ICDL.jpg',
+  'nutrition-gala-dinner.jpg',
   'external/wikimedia/motorbikes-at-hanoi-vietnam.jpg',
   'external/wikimedia/hanoi-metro-train-vanh-dai-3.jpg',
   'external/wikimedia/hanoi-brt-bus.jpg',
@@ -44,7 +55,7 @@ const targets = [
   'external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017.jpg'
 ];
 
-const widths = [480, 768, 1024, 1440, 1800];
+const widths = [320, 480, 768, 1024, 1440, 1800];
 
 await fs.mkdir(outDir, { recursive: true });
 

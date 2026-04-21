@@ -16,7 +16,7 @@ This folder is a copy of the original portfolio. All GitHub migration work is do
   - `SITE_URL` = `https://daichunghy-ben.github.io/portfolio/`
   - `LEGACY_PAGES_HOSTS` = `chunghy-portfolio.pages.dev,chunghy.pages.dev`
 
-If `SITE_URL` is not set, canonical/OG tags remain in source-default mode.
+If `SITE_URL` is not set, staging falls back to the production URL stored in `assets/data/site-config.json`.
 
 ## 4) Deploy
 - Push to `main`, or run workflow manually at `Actions` -> `Deploy GitHub Pages`.

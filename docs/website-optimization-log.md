@@ -810,3 +810,286 @@ Verification:
 Notes:
 
 - This pass improves crawlability in source, but it does not change live Google behavior until the site is deployed.
+
+---
+
+### 2026-04-21 - Domain and keyword alignment pass
+
+Goal:
+
+- Lock the portfolio's canonical domain to the free GitHub Pages URL.
+- Strengthen keyword signals without stuffing.
+- Keep redirects, social preview text, canonical tags, and sitemap output aligned.
+
+Changes made:
+
+- `assets/data/site-config.json`
+  - Updated `site_url` and `canonical_base` to `https://daichunghy-ben.github.io/portfolio/`.
+  - Expanded `site_keywords` to cover:
+    - `market research`
+    - `consumer insights`
+    - `market research analyst`
+    - `consumer behavior`
+    - `behavioral research`
+    - `qualitative research`
+    - `quantitative research`
+    - `Ho Chi Minh City`
+    - `Swinburne Vietnam`
+    - the portfolio owner's name and portfolio phrasing
+  - Updated `site_alternate_name` to a more search-friendly phrase.
+  - Updated `last_updated` to `2026-04-21` so structured data can mark the site as fresh.
+
+- `scripts/seo-page-data.mjs`
+  - Preserved `site_url`, `canonical_base`, and `site_keywords` when normalizing config.
+  - Added keyword metadata generation for page types:
+    - homepage
+    - research archive
+    - about page
+    - topic hub pages
+    - research detail pages
+  - Injected `<meta name="keywords">` into staged HTML.
+
+- `scripts/stage-pages.mjs`
+  - Kept the GitHub Pages URL as the fallback production base.
+  - Changed the log so it reports when `site-config.json` is supplying the base URL.
+  - Kept canonical, `og:url`, robots, sitemap, and image sitemap generation under the same resolved site URL.
+
+- `functions/_middleware.js`
+  - Changed the default redirect target to the GitHub Pages URL instead of the old `pages.dev` host.
+
+- `scripts/build-social-preview.mjs`
+  - Replaced the hardcoded old website text in the social preview card with the site URL from `assets/data/site-config.json`.
+
+- `scripts/build-social-preview-review.mjs`
+  - Same website text update as the main social preview card.
+
+Verification:
+
+- `npm run stage:pages`
+  - passed
+  - logged: `SITE_URL not set; using site-config base URL: https://daichunghy-ben.github.io/portfolio/`
+  - logged: `Applied deployment metadata base URL: https://daichunghy-ben.github.io/portfolio/`
+  - staged `839` files to `.deploy/public`
+- Manual staged-output checks confirmed:
+  - `index.html` canonical URL is `https://daichunghy-ben.github.io/portfolio/`
+  - `projects.html` and `about.html` canonical and `og:url` values match the same domain
+  - `meta name="keywords"` is present on the main pages and includes the new keyword set
+  - `robots.txt`, `sitemap.xml`, and `image-sitemap.xml` point at the GitHub Pages URL
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+- `node --check scripts/build-social-preview.mjs`
+  - passed
+- `node --check scripts/build-social-preview-review.mjs`
+  - passed
+- `node --check functions/_middleware.js`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+
+Notes:
+
+- The free GitHub Pages URL is now the canonical production domain in source and staged output.
+- The keyword set is broader, but still limited to terms that describe the actual portfolio content.
+- Live Google visibility still depends on deployment and crawl timing, but the SEO signals are now aligned before deploy.
+
+---
+
+### 2026-04-21 - Full re-check run
+
+Goal:
+
+- Re-run all major checks after the latest SEO/domain updates.
+- Verify both staged output and current live GitHub Pages behavior.
+
+Commands executed:
+
+- `npm run stage:pages`
+- `npm run check:local`
+- `SITE_URL=https://daichunghy-ben.github.io/portfolio/ npm run check:remote`
+- `curl -sSI https://daichunghy-ben.github.io/portfolio/`
+- `curl -sSI https://daichunghy-ben.github.io/portfolio/sitemap.xml`
+- `curl -sSI https://daichunghy-ben.github.io/portfolio/image-sitemap.xml`
+- `curl -s https://daichunghy-ben.github.io/portfolio/ | sed -n '1,90p'`
+- `curl -s https://daichunghy-ben.github.io/portfolio/projects.html | rg -n "name=\"keywords\"|og:image:alt|twitter:image:alt"`
+
+Results:
+
+- `stage:pages` passed and used:
+  - `SITE_URL not set; using site-config base URL: https://daichunghy-ben.github.io/portfolio/`
+- `check:local` passed:
+  - verified `272` internal URLs
+- `check:remote` passed:
+  - verified `274` internal URLs
+- Live endpoint checks returned `HTTP 200` for:
+  - homepage
+  - `sitemap.xml`
+  - `image-sitemap.xml`
+
+Live-vs-staged observation:
+
+- Staged output (`.deploy/public`) contains the expanded keyword metadata and updated SEO labels.
+- Live homepage and projects page still show older OG/Twitter alt wording (`Chung Hy Dai Portfolio`) and do not yet show the expanded `meta name="keywords"` block from staged output.
+- Conclusion: crawl/link health is good, but the latest metadata improvements are not fully reflected on the currently served live build yet.
+
+---
+
+### 2026-04-21 - Follow-up fixes after full check
+
+Goal:
+
+- Fix remaining SEO consistency gaps found in the full re-check.
+
+Changes made:
+
+- `scripts/stage-pages.mjs`
+  - Added date normalization and merge logic for sitemap timestamps.
+  - `sitemap.xml` now uses `max(file_mtime, site_config.last_updated)` for each page's `lastmod`.
+  - Updated sitemap generation call to pass SEO config context.
+
+- `index.html`
+  - Added source-level `meta name="keywords"` fallback.
+  - Updated source-level `og:image:alt` and `twitter:image:alt` to:
+    - `Market Research, Consumer Insights & Applied Analytics Portfolio`
+
+- `projects.html`
+  - Added source-level `meta name="keywords"` fallback.
+  - Updated source-level `og:image:alt` and `twitter:image:alt` to the same normalized phrase.
+
+Verification:
+
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `npm run stage:pages`
+  - passed
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+- `SITE_URL=https://daichunghy-ben.github.io/portfolio/ npm run check:remote`
+  - passed
+  - verified `274` internal URLs
+- Staged output checks:
+  - `.deploy/public/sitemap.xml` now emits `lastmod` as `2026-04-21`
+  - `.deploy/public/index.html` and `.deploy/public/projects.html` include the expanded keyword metadata
+  - staged OG/Twitter image alt text is now consistent with the updated site naming
+
+---
+
+### 2026-04-21 - Presence upgrade pass (entity + metadata hardening)
+
+Goal:
+
+- Increase discoverability signals beyond baseline canonical/sitemap setup.
+- Add stronger, repeatable SEO checks so regressions are caught before deploy.
+
+Changes made:
+
+- `scripts/seo-page-data.mjs`
+  - Added crawler and locale metadata on all pages generated by the staging pipeline:
+    - `meta name="googlebot"` (mirrors robots rules)
+    - `meta name="language"` = `en`
+    - `meta property="og:locale"` = `en_US`
+  - Added article metadata for research detail pages (non-deprecated entries):
+    - `article:author`
+    - `article:section`
+    - `article:published_time` (when inferable)
+    - `article:modified_time` (from `last_verified_at` when valid)
+    - `article:tag`
+  - Added cleanup step to strip stale `article:*` tags before re-inserting page-specific values.
+
+- `scripts/seo-checks.mjs`
+  - Strengthened lint rules to require:
+    - non-trivial `meta name="keywords"`
+    - `og:image:alt`
+    - `twitter:image:alt`
+  - This makes quality checks stricter for future updates.
+
+- `assets/data/site-config.json`
+  - Expanded keyword set with name-query variants:
+    - `Dai Chung Hy`
+    - `Chung Hy Dai Swinburne`
+
+Verification:
+
+- `node --check scripts/seo-page-data.mjs`
+  - passed
+- `node --check scripts/seo-checks.mjs`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `npm run stage:pages`
+  - passed
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+- Staged-output spot checks confirmed:
+  - `index.html` and `projects.html` include `googlebot`, `og:locale`, and enriched keyword metadata
+  - research detail pages include `article:*` metadata where applicable
+
+Remote check status:
+
+- `SITE_URL=https://daichunghy-ben.github.io/portfolio/ npm run check:remote`
+  - failed with `missing or weak meta keywords` on multiple live URLs
+  - this is expected while the live build is still older than the latest staged source
+  - once this source revision is deployed, remote lint should return to pass
+
+---
+
+### 2026-04-21 - Google visibility implementation pass
+
+Goal:
+
+- Remove runtime SEO rewrites from the main source pages.
+- Strengthen entity signals for the portfolio owner.
+- Align the SEO checker with what Google actually uses.
+
+Changes made:
+
+- `index.html` and `projects.html`
+  - Removed the inline JavaScript that rewrote canonical and social metadata at runtime.
+  - Switched the main canonical and social URLs to the GitHub Pages production base.
+
+- `about.html`
+  - Canonical URL now points directly to the GitHub Pages production base.
+
+- `research-hanoi-phaseout.html`
+  - Added explicit `noindex` and `googlebot` directives for the legacy alias page.
+  - Pointed its canonical URL directly to the canonical research page on GitHub Pages.
+
+- `assets/data/site-config.json`
+  - Added `owner.alternate_names` with `Dai Chung Hy`.
+  - Added `owner.knows_about` with the portfolio's core topic areas.
+
+- `scripts/seo-page-data.mjs`
+  - Normalized public `sameAs` URLs.
+  - Added `Person.alternateName` and `Person.knowsAbout` to the homepage structured data.
+  - Upgraded the homepage `jobTitle` to a recruiter-facing analyst title.
+  - Kept page-level `keywords` generation as an auxiliary signal, but not a Google gate.
+
+- `scripts/seo-checks.mjs`
+  - Removed the hard fail on `meta name="keywords"`.
+  - Added checks for `meta name="googlebot"` and `og:locale`.
+
+- `docs/structured-data-policy.md`
+  - Updated the policy to reflect the current repo path and canonical GitHub Pages URL.
+  - Documented `alternateName` and `knowsAbout` in the homepage person schema.
+
+Verification:
+
+- `node --check scripts/seo-page-data.mjs`
+  - passed
+- `node --check scripts/seo-checks.mjs`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `npm run stage:pages`
+  - passed
+  - staged `839` files to `.deploy/public`
+- `npm run check:local`
+  - passed
+  - verified `272` internal URLs
+
+Notes:
+
+- The live site still needs the current source revision to be pushed before Google can see the newest metadata.
+- The repository still contains generated asset outputs from the build pipeline; those are intentionally left uncommitted for now because GitHub Actions regenerates them during deploy.

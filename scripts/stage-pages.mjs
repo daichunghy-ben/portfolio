@@ -12,8 +12,9 @@ const SOURCE_DIRS = ['assets', 'dist'];
 const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
-const DEFAULT_PRIMARY_SITE_URL = 'https://chunghy.pages.dev/';
+const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/portfolio/';
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
+const SKIP_PROTOCOL_RE = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 const STAGED_ASSET_REFS = new Map([
   ['styles/base.css', 'dist/styles/base.css'],
   ['styles/discovery.css', 'dist/styles/discovery.css'],
@@ -28,9 +29,10 @@ const STAGED_ASSET_REFS = new Map([
   ['js/research-motorbike-fallback.js', 'dist/js/research-motorbike-fallback.js'],
   ['js/research-nutrition-fallback.js', 'dist/js/research-nutrition-fallback.js']
 ]);
+const IMAGE_OPTIMIZABLE_ATTR_RE = /\b(href|src|poster|data-modal-img)\s*=\s*("([^"]*)"|'([^']*)')/gi;
+const IMAGE_EXT_RE = /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i;
 const HTML_IMAGE_ATTR_RE = /\b(?:src|poster)\s*=\s*("([^"]*)"|'([^']*)')/gi;
 const HTML_SRCSET_RE = /\bsrcset\s*=\s*("([^"]*)"|'([^']*)')/gi;
-const IMAGE_EXT_RE = /\.(?:avif|gif|jpe?g|png|svg|webp)(?:[?#].*)?$/i;
 
 const shouldSkipFile = (name) => {
   if (name.startsWith('.')) return true;
@@ -63,8 +65,25 @@ const copyFile = async (from, to) => {
 };
 
 const normalizeRefKey = (value) => {
-  if (!value) return '';
-  return value.startsWith('./') ? value.slice(2) : value;
+  const text = String(value || '');
+  if (!text) return '';
+  return text.startsWith('./') ? text.slice(2) : text;
+};
+
+const buildOptimizedImageRef = (rawValue, optimizedAssetRefs) => {
+  const cleaned = String(rawValue || '').trim();
+  if (!cleaned || cleaned.startsWith('#')) return '';
+  if (SKIP_PROTOCOL_RE.test(cleaned)) return '';
+
+  const prefix = cleaned.startsWith('./') ? './' : cleaned.startsWith('/') ? '/' : '';
+  const normalized = normalizeRefKey(cleaned).replace(/^[\/]+/, '').split(/[?#]/)[0];
+  if (!normalized.startsWith('assets/')) return '';
+  if (!IMAGE_EXT_RE.test(normalized)) return '';
+
+  const relativePath = normalized.slice('assets/'.length);
+  const optimizedRef = `assets/optimized/${relativePath.replace(/\.[^.\/]+$/, '')}-optimized.webp`;
+  if (!optimizedAssetRefs.has(optimizedRef)) return '';
+  return `${prefix}${optimizedRef}`;
 };
 
 const replaceQuotedAssetRef = (html, from, to) =>
@@ -74,15 +93,15 @@ const replaceQuotedAssetRef = (html, from, to) =>
     .split(`'${from}'`)
     .join(`'${to}'`);
 
-const rewriteAssetRefsInHtml = (html) => {
+const rewriteAssetRefsInHtml = (html, optimizedAssetRefs) => {
   let rewritten = html.replace(
-    /\b(href|src)\s*=\s*("([^"]*)"|'([^']*)')/gi,
+    IMAGE_OPTIMIZABLE_ATTR_RE,
     (match, attr, quotedValue, dquote, squote) => {
       const quote = quotedValue[0];
       const rawValue = dquote ?? squote ?? '';
-      const replacement = STAGED_ASSET_REFS.get(normalizeRefKey(rawValue));
+      const replacement = STAGED_ASSET_REFS.get(normalizeRefKey(rawValue)) || buildOptimizedImageRef(rawValue, optimizedAssetRefs);
       if (!replacement) return match;
-      const nextValue = rawValue.startsWith('./') ? `./${replacement}` : replacement;
+      const nextValue = rawValue.startsWith('./') ? `./${replacement}` : rawValue.startsWith('/') ? `/${replacement}` : replacement;
       return `${attr}=${quote}${nextValue}${quote}`;
     }
   );
@@ -168,6 +187,22 @@ const normalizeSiteUrl = (value) => {
   } catch {
     return '';
   }
+};
+
+const normalizeIsoDate = (value) => {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const match = raw.match(/^(\d{4}-\d{2}-\d{2})/);
+  if (!match) return '';
+  const parsed = new Date(`${match[1]}T00:00:00Z`);
+  if (Number.isNaN(parsed.valueOf())) return '';
+  return match[1];
+};
+
+const pickSitemapLastmod = (fileMtimeIso, siteLastUpdatedIso) => {
+  if (!siteLastUpdatedIso) return fileMtimeIso;
+  if (!fileMtimeIso) return siteLastUpdatedIso;
+  return fileMtimeIso >= siteLastUpdatedIso ? fileMtimeIso : siteLastUpdatedIso;
 };
 
 const escapeXml = (value) =>
@@ -331,13 +366,14 @@ const extractImageUrlsFromHtml = (html, pageUrl, siteUrl) => {
   return [...refs];
 };
 
-const generateSitemapXml = async (siteUrl) => {
+const generateSitemapXml = async (siteUrl, seoData) => {
   const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
     .map((entry) => entry.name)
     .sort();
 
   const pages = [];
+  const siteLastUpdatedIso = normalizeIsoDate(seoData?.siteConfig?.last_updated);
 
   for (const htmlFile of htmlFiles) {
     if (SITEMAP_EXCLUDE.has(htmlFile)) continue;
@@ -351,8 +387,9 @@ const generateSitemapXml = async (siteUrl) => {
 
     const sourcePath = path.join(ROOT, htmlFile);
     const stats = await fs.stat((await fileExists(sourcePath)) ? sourcePath : filePath);
+    const fileLastmod = stats.mtime.toISOString().slice(0, 10);
     pages.push({
-      lastmod: stats.mtime.toISOString().slice(0, 10),
+      lastmod: pickSitemapLastmod(fileLastmod, siteLastUpdatedIso),
       url: pageUrl,
       priority: htmlFile === 'index.html' ? '1.0' : '0.8',
       changefreq: htmlFile === 'index.html' ? 'weekly' : 'monthly'
@@ -482,7 +519,17 @@ const updateDeploySiteConfig = async (siteUrl) => {
   await fs.writeFile(configPath, `${JSON.stringify(parsed, null, 2)}\n`, 'utf8');
 };
 
-const rewriteStagedHtmlAssetRefs = async () => {
+const buildOptimizedAssetRefSet = async () => {
+  const optimizedDir = path.join(ROOT, 'assets', 'optimized');
+  if (!(await dirExists(optimizedDir))) return new Set();
+
+  const files = await listFilesRecursive(optimizedDir);
+  return new Set(
+    files.map((filePath) => path.relative(ROOT, filePath).replace(/\\/g, '/'))
+  );
+};
+
+const rewriteStagedHtmlAssetRefs = async (optimizedAssetRefs) => {
   const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
     .map((entry) => entry.name);
@@ -490,7 +537,7 @@ const rewriteStagedHtmlAssetRefs = async () => {
   for (const htmlFile of htmlFiles) {
     const filePath = path.join(OUT_DIR, htmlFile);
     const html = await fs.readFile(filePath, 'utf8');
-    const rewritten = rewriteAssetRefsInHtml(html);
+    const rewritten = rewriteAssetRefsInHtml(html, optimizedAssetRefs);
     if (rewritten !== html) {
       await fs.writeFile(filePath, rewritten, 'utf8');
     }
@@ -522,25 +569,31 @@ const main = async () => {
     counters.files += 1;
   }
 
-  await rewriteStagedHtmlAssetRefs();
+  const optimizedAssetRefs = await buildOptimizedAssetRefSet();
+  await rewriteStagedHtmlAssetRefs(optimizedAssetRefs);
 
   const explicitSiteUrl = normalizeSiteUrl(process.env.SITE_URL);
   const githubPagesSiteUrl = normalizeSiteUrl(deriveGitHubPagesSiteUrl(process.env));
+  const configSiteUrl = normalizeSiteUrl(
+    seoData?.siteConfig?.site_url || seoData?.siteConfig?.canonical_base || ''
+  );
   const fallbackHost = (process.env.CF_PAGES_PROJECT || process.env.PROJECT || '').trim();
   const fallbackSiteUrl = normalizeSiteUrl(
     fallbackHost ? `https://${fallbackHost}.pages.dev/` : DEFAULT_PRIMARY_SITE_URL
   );
-  const siteUrl = explicitSiteUrl || githubPagesSiteUrl || fallbackSiteUrl;
+  const siteUrl = explicitSiteUrl || githubPagesSiteUrl || configSiteUrl || fallbackSiteUrl;
   const legacyHosts = parseLegacyHosts(process.env.LEGACY_PAGES_HOSTS);
 
-  if (!explicitSiteUrl) {
+  if (!explicitSiteUrl && !githubPagesSiteUrl && configSiteUrl) {
+    console.log(`SITE_URL not set; using site-config base URL: ${siteUrl}`);
+  } else if (!explicitSiteUrl && !githubPagesSiteUrl && !configSiteUrl) {
     console.log(`SITE_URL not set; using fallback deployment base URL: ${siteUrl}`);
   }
 
   await applyMetadataForSiteUrl(siteUrl, legacyHosts, seoData);
   await updateDeploySiteConfig(siteUrl);
   await generateRobotsTxt(siteUrl);
-  await generateSitemapXml(siteUrl);
+  await generateSitemapXml(siteUrl, seoData);
   await generateImageSitemapXml(siteUrl);
   console.log(`Applied deployment metadata base URL: ${siteUrl}`);
 
