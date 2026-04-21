@@ -1247,3 +1247,27 @@ Notes:
 
 - This pass is staged locally and ready to deploy, but the live remote check must wait until the next push finishes building.
 - I have not yet changed the live deployment for this content pass, so Google will still see the previous live version until the next deploy completes.
+
+---
+
+### 2026-04-21 - Public signal pass for search discoverability
+
+Goal:
+
+- Add a free, crawlable external signal so Google has another path to discover the portfolio.
+- Make the GitHub repository itself describe the portfolio clearly and link to the live site.
+
+Changes made:
+
+- `assets/data/site-config.json`
+  - Added the GitHub profile URL to `same_as` so the `Person` schema has one more verified public identity signal.
+
+- `README.md`
+  - Added a public repo README with the exact portfolio name.
+  - Linked the live portfolio URL, GitHub profile, LinkedIn, and ORCID.
+  - Included the main topic phrases the portfolio should rank for, such as `market research`, `consumer insights`, `EV choice experiment in Vietnam`, `student diet quality`, and `virtual influencer trust`.
+
+Notes:
+
+- This is a discoverability boost, not a guarantee of instant indexing.
+- The next best free step after this is to let Google recrawl the site and repo, then inspect Search Console URL coverage if available.
