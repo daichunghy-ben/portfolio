@@ -1459,3 +1459,39 @@ Operational notes:
   - LinkedIn website/featured link should point to `https://daichunghy-ben.github.io/`
   - ORCID website field should point to `https://daichunghy-ben.github.io/`
   - GitHub profile bio/website field should match the same root URL and role wording if user-profile auth permits editing
+
+Deployment and live verification:
+
+- Renamed the GitHub repository from `portfolio` to `daichunghy-ben.github.io` so GitHub Pages can publish at the domain root.
+- Updated the repo Actions variable:
+  - `SITE_URL = https://daichunghy-ben.github.io/`
+- Updated repo metadata:
+  - homepage = `https://daichunghy-ben.github.io/`
+  - description now explicitly describes the repo as a root-level GitHub Pages portfolio
+- Push/deploy details:
+  - commit: `a9d8617`
+  - workflow run: `24763865692`
+  - workflow result: `success`
+- Live checks after deploy:
+  - `curl -I -L https://daichunghy-ben.github.io/`
+    - returned `HTTP 200`
+  - `SITE_URL=https://daichunghy-ben.github.io/ npm run check:remote`
+    - passed
+    - verified `280` internal URLs
+  - live `robots.txt` now lists:
+    - `sitemap.xml`
+    - `image-sitemap.xml`
+    - `feed.xml`
+  - live homepage now includes:
+    - root canonical
+    - root `og:url`
+    - Atom feed discovery link
+    - links to `references.html`
+    - links to `insights.html`
+
+Public search spot-check after deploy:
+
+- Public search still did not show clear indexed results for:
+  - `site:daichunghy-ben.github.io`
+  - `"Chung Hy Dai" "daichunghy-ben.github.io"`
+- This means the root-domain migration and crawl setup are live, but public Google-style discoverability still depends on recrawl and indexing latency.
