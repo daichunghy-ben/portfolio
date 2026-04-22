@@ -4,7 +4,7 @@ Portfolio of Chung Hy Dai, also referenced as Dai Chung Hy, focused on market re
 
 Live site:
 
-- https://daichunghy-ben.github.io/portfolio/
+- https://daichunghy-ben.github.io/
 
 Public profiles:
 

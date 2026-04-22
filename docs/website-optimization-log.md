@@ -1290,3 +1290,172 @@ Notes:
 
 - This is a small but useful reinforcement for entity matching and branded search.
 - It does not guarantee immediate indexing, but it strengthens the network of crawlable references around the site.
+
+---
+
+### 2026-04-22 - Root-domain migration, references hub, insights hub, and feed launch
+
+Goal:
+
+- Move the portfolio from the GitHub Pages project-site path to the root user-site path for stronger branded search and cleaner site-name/entity signals.
+- Centralize SEO generation around one root canonical base.
+- Add two supporting route types:
+  - `references.html` for verified public signals
+  - `insights.html` plus three short note pages for freshness and long-tail discovery
+- Generate an Atom feed that can be submitted alongside the XML sitemaps.
+
+Changes made:
+
+- `assets/data/site-config.json`
+  - Switched `site_url` and `canonical_base` from `https://daichunghy-ben.github.io/portfolio/` to `https://daichunghy-ben.github.io/`.
+  - Updated the primary role wording to `Market Research and Consumer Insights Analyst`.
+  - Refined the site description for a more role-first branded signal.
+  - Added `feed_title` and `feed_description`.
+  - Expanded branded and long-tail keyword coverage around EV choice, student diet quality, and virtual influencer trust.
+
+- `assets/data/notes-manifest.json`
+  - Added a new notes manifest to drive:
+    - insights archive cards
+    - note-page schema
+    - Atom feed entries
+  - Added three notes:
+    - `insight-ev-choice-vietnam`
+    - `insight-student-diet-quality-vietnam`
+    - `insight-virtual-influencer-trust`
+
+- `scripts/seo-page-data.mjs`
+  - Added support for new special pages:
+    - `references.html`
+    - `insights.html`
+  - Added support for note pages driven from `notes-manifest.json`.
+  - Added generated schema for:
+    - references collection page
+    - insights collection page
+    - note `BlogPosting` pages
+  - Expanded shared route generation so internal SEO route blocks now include:
+    - homepage
+    - about
+    - archive
+    - references
+    - insights
+    - topic hubs
+  - Added an Atom feed `<link rel="alternate" type="application/atom+xml">` across generated pages.
+  - Standardized role/title handling around `Market Research and Consumer Insights Analyst`.
+
+- `scripts/stage-pages.mjs`
+  - Changed the fallback deployment base URL to the root domain.
+  - Added `feed.xml` generation from the notes manifest.
+  - Added the feed to `robots.txt` alongside `sitemap.xml` and `image-sitemap.xml`.
+
+- `scripts/check-site-local.mjs`
+  - Added validation that `feed.xml` exists and contains entries.
+
+- `scripts/check-site-remote.mjs`
+  - Added the same `feed.xml` validation for live checks.
+
+- `scripts/seo-checks.mjs`
+  - Added linting for the Atom feed discovery link.
+  - Fixed the Atom link detector so attribute order does not create false negatives.
+
+- `functions/_middleware.js`
+  - Switched the default primary redirect target to the root GitHub Pages domain.
+
+- `scripts/build-social-preview.mjs`
+  - Switched the default site label to `daichunghy-ben.github.io`.
+
+- `scripts/build-social-preview-review.mjs`
+  - Switched the default site label to `daichunghy-ben.github.io`.
+
+- `index.html`
+  - Removed old hard-coded canonical/OG/Twitter/JSON-LD blocks so generated metadata can be the single source of truth.
+  - Updated homepage copy to use role-first wording.
+  - Added direct visible internal links to:
+    - `references.html`
+    - `insights.html`
+  - Added a new homepage section for verified references and short research insights.
+
+- `about.html`
+  - Removed the stale hard-coded canonical tag.
+  - Added visible navigation links to `references.html` and `insights.html`.
+  - Added direct next-step links to the references and insights routes.
+
+- `projects.html`
+  - Removed old hard-coded canonical/OG/Twitter/JSON-LD blocks so generated metadata controls the page.
+  - Added supporting links to `references.html` and `insights.html`.
+
+- `research-hanoi-phaseout.html`
+  - Replaced the source canonical with a relative canonical so the build step can cleanly emit the root-domain absolute URL.
+
+- `references.html`
+  - Added a new public references page that groups:
+    - GitHub
+    - LinkedIn
+    - ORCID
+    - Swinburne feature
+    - Springer chapter record
+    - FCBEM page
+    - public PDF artifacts
+
+- `insights.html`
+  - Added a new insights archive page that explains the note layer and links to the three short note pages.
+
+- `insight-ev-choice-vietnam.html`
+  - Added a short note page for `EV choice experiment in Vietnam`.
+
+- `insight-student-diet-quality-vietnam.html`
+  - Added a short note page for `student diet quality in Vietnam`.
+
+- `insight-virtual-influencer-trust.html`
+  - Added a short note page for `virtual influencer trust`.
+
+- `README.md`
+  - Updated the live site URL to the root domain.
+
+- `docs/structured-data-policy.md`
+  - Updated the canonical deployment domain and corrected local data-source paths.
+
+- `docs/github-pages-setup.md`
+  - Updated the setup guide for the root-level user-site repo layout.
+
+- `_build/CV.md`
+  - Updated the portfolio link to the root domain.
+
+Verification:
+
+- `node --check scripts/seo-page-data.mjs`
+  - passed
+- `node --check scripts/stage-pages.mjs`
+  - passed
+- `node --check scripts/check-site-local.mjs`
+  - passed
+- `node --check scripts/check-site-remote.mjs`
+  - passed
+- `node --check scripts/seo-checks.mjs`
+  - passed
+- `npm run stage:pages`
+  - passed
+  - staged output root canonical base: `https://daichunghy-ben.github.io/`
+- `npm run check:local`
+  - passed
+  - verified `279` internal URLs
+
+Observed staged output:
+
+- `robots.txt` now lists:
+  - `sitemap.xml`
+  - `image-sitemap.xml`
+  - `feed.xml`
+- `sitemap.xml` now includes:
+  - `references.html`
+  - `insights.html`
+  - all 3 note pages
+- generated pages now include an Atom feed discovery link
+- canonical and `og:url` values resolve to the root domain, not `/portfolio/`
+
+Operational notes:
+
+- I intentionally did not commit the newly generated `assets/optimized/*` outputs from the local image build. GitHub Actions will regenerate those during the production deploy, and they are not the source-of-truth files for this SEO/content pass.
+- Remaining off-site actions that still require manual updates outside this repo:
+  - LinkedIn website/featured link should point to `https://daichunghy-ben.github.io/`
+  - ORCID website field should point to `https://daichunghy-ben.github.io/`
+  - GitHub profile bio/website field should match the same root URL and role wording if user-profile auth permits editing

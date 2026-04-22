@@ -20,6 +20,16 @@ const extractLinkHref = (html, relValue) => {
   return tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1]?.trim() || '';
 };
 
+const extractAtomFeedHref = (html) => {
+  const tags = html.match(/<link\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (!/\brel\s*=\s*["']alternate["']/i.test(tag)) continue;
+    if (!/\btype\s*=\s*["']application\/atom\+xml["']/i.test(tag)) continue;
+    return tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1]?.trim() || '';
+  }
+  return '';
+};
+
 const normalizeComparablePath = (rawUrl) => {
   try {
     const url = new URL(rawUrl);
@@ -45,6 +55,7 @@ export function collectSeoIssues({ html, url }) {
   const title = extractTag(html, /<title>([^<]+)<\/title>/i);
   const description = extractMetaContent(html, 'name', 'description');
   const canonical = extractLinkHref(html, 'canonical');
+  const atomFeed = extractAtomFeedHref(html);
   const robots = extractMetaContent(html, 'name', 'robots').toLowerCase();
   const googlebot = extractMetaContent(html, 'name', 'googlebot').toLowerCase();
   const is404Page = /\/404\.html$/i.test(url);
@@ -73,6 +84,8 @@ export function collectSeoIssues({ html, url }) {
   if (!description || description.length < 50) issues.push('missing or weak meta description');
   if (!canonical) issues.push('missing canonical');
   else if (!/^https?:\/\//i.test(canonical)) issues.push('canonical is not absolute');
+  if (!atomFeed) issues.push('missing atom feed link');
+  else if (!/^https?:\/\//i.test(atomFeed)) issues.push('atom feed link is not absolute');
   if (!robots) issues.push('missing robots meta');
   if (!googlebot) issues.push('missing googlebot meta');
   else if (robots && googlebot !== robots) issues.push('googlebot meta does not match robots');

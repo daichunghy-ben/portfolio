@@ -1,24 +1,23 @@
 {
   "version": 1,
-  "last_updated": "2026-04-21",
-  "site_url": "https://daichunghy-ben.github.io/portfolio/",
-  "canonical_base": "https://daichunghy-ben.github.io/portfolio/",
+  "last_updated": "2026-04-22",
+  "site_url": "https://daichunghy-ben.github.io/",
+  "canonical_base": "https://daichunghy-ben.github.io/",
   "site_name": "Chung Hy Dai",
   "site_alternate_name": "Chung Hy Dai Portfolio",
-  "site_tagline": "Market Research, Consumer Insights & Applied Analytics Portfolio",
+  "site_tagline": "Market Research and Consumer Insights Analyst",
   "site_keywords": [
     "Chung Hy Dai",
     "Dai Chung Hy",
-    "Chung Hy Dai Swinburne",
     "Chung Hy Dai portfolio",
+    "Chung Hy Dai market research",
+    "Chung Hy Dai consumer insights",
     "market research",
     "market research portfolio",
     "market research analyst",
     "consumer insights analyst",
     "consumer insights",
-    "applied analytics portfolio",
     "applied analytics",
-    "consumer insights portfolio",
     "research portfolio",
     "consumer behavior",
     "behavioral research",
@@ -26,14 +25,19 @@
     "Vietnam market research",
     "Ho Chi Minh City",
     "Ho Chi Minh City market research",
-    "Swinburne Vietnam",
     "hospitality segmentation",
-    "EV choice",
+    "EV choice experiment in Vietnam",
     "policy acceptance",
+    "student diet quality",
+    "nutrition behavior",
+    "virtual influencer trust",
+    "creator economy research",
     "qualitative research",
     "quantitative research"
   ],
-  "site_description": "Portfolio of Chung Hy Dai featuring market research, consumer insights, hospitality segmentation, EV choice, policy acceptance, and applied analytics across service and behavior.",
+  "site_description": "Portfolio of Chung Hy Dai, a market research and consumer insights analyst focused on applied analytics, hospitality segmentation, EV choice, service quality, creator economy, and behavior research in Vietnam.",
+  "feed_title": "Chung Hy Dai Insights",
+  "feed_description": "Short research notes on EV choice, diet quality, and virtual influencer trust from the portfolio of Chung Hy Dai.",
   "default_og_image": "./assets/social-preview-og-v8.jpg?fbrefresh=20260225v8",
   "same_as": [
     "https://github.com/daichunghy-ben",
@@ -42,6 +46,7 @@
   ],
   "owner": {
     "name": "Chung Hy Dai",
+    "job_title": "Market Research and Consumer Insights Analyst",
     "alternate_names": [
       "Dai Chung Hy"
     ],
@@ -60,5 +65,5 @@
     "email": "daichunghy@gmail.com",
     "location": "Ho Chi Minh City, Vietnam"
   },
-  "notes": "site_url and canonical_base point to the live GitHub Pages deployment and are used as a production fallback when deployment env vars are unavailable."
+  "notes": "site_url and canonical_base point to the live root-level GitHub Pages deployment and are used as a production fallback when deployment env vars are unavailable."
 }

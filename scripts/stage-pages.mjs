@@ -12,7 +12,7 @@ const SOURCE_DIRS = ['assets', 'dist'];
 const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
-const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/portfolio/';
+const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
 const SKIP_PROTOCOL_RE = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
 const STAGED_ASSET_REFS = new Map([
@@ -329,7 +329,8 @@ const generateRobotsTxt = async (siteUrl) => {
   const robotsPath = path.join(OUT_DIR, 'robots.txt');
   const sitemapUrl = new URL('sitemap.xml', siteUrl).href;
   const imageSitemapUrl = new URL('image-sitemap.xml', siteUrl).href;
-  const content = `User-agent: *\nAllow: /\nSitemap: ${sitemapUrl}\nSitemap: ${imageSitemapUrl}\n`;
+  const feedUrl = new URL('feed.xml', siteUrl).href;
+  const content = `User-agent: *\nAllow: /\nSitemap: ${sitemapUrl}\nSitemap: ${imageSitemapUrl}\nSitemap: ${feedUrl}\n`;
   await fs.writeFile(robotsPath, content, 'utf8');
 };
 
@@ -456,6 +457,47 @@ const generateImageSitemapXml = async (siteUrl) => {
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
     `${entries}\n</urlset>\n`;
   await fs.writeFile(path.join(OUT_DIR, 'image-sitemap.xml'), xml, 'utf8');
+};
+
+const generateFeedXml = async (siteUrl, seoData) => {
+  const notesEntries = Array.isArray(seoData?.notesEntries) ? seoData.notesEntries : [];
+  const siteConfig = seoData?.siteConfig || {};
+  const sortedEntries = notesEntries
+    .slice()
+    .sort((a, b) => String(b.modified_at || b.published_at || '').localeCompare(String(a.modified_at || a.published_at || '')));
+
+  const updatedIso = sortedEntries[0]?.modified_at || sortedEntries[0]?.published_at || new Date().toISOString();
+  const feedEntries = sortedEntries
+    .map((entry) => {
+      const entryUrl = absolutePageUrlForFile(siteUrl, `${entry.slug}.html`);
+      const updated = entry.modified_at || entry.published_at || updatedIso;
+      const categories = (Array.isArray(entry.keywords) ? entry.keywords : [])
+        .slice(0, 4)
+        .map((keyword) => `    <category term="${escapeXml(keyword)}"/>`)
+        .join('\n');
+      return `  <entry>\n    <title>${escapeXml(entry.title)}</title>\n    <link href="${escapeXml(entryUrl)}"/>\n    <id>${escapeXml(entryUrl)}</id>\n    <updated>${escapeXml(updated)}</updated>\n    <summary>${escapeXml(entry.summary || entry.description || entry.title)}</summary>${categories ? `\n${categories}` : ''}\n  </entry>`;
+    })
+    .join('\n');
+
+  const feedUrl = new URL('feed.xml', siteUrl).href;
+  const insightsUrl = new URL('insights.html', siteUrl).href;
+  const feedXml =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<feed xmlns="http://www.w3.org/2005/Atom">\n` +
+    `  <title>${escapeXml(siteConfig.feed_title || 'Insights')}</title>\n` +
+    `  <subtitle>${escapeXml(siteConfig.feed_description || '')}</subtitle>\n` +
+    `  <link href="${escapeXml(feedUrl)}" rel="self"/>\n` +
+    `  <link href="${escapeXml(insightsUrl)}" rel="alternate"/>\n` +
+    `  <id>${escapeXml(feedUrl)}</id>\n` +
+    `  <updated>${escapeXml(updatedIso)}</updated>\n` +
+    `  <author>\n` +
+    `    <name>${escapeXml(siteConfig?.owner?.name || 'Chung Hy Dai')}</name>\n` +
+    `${siteConfig?.owner?.email ? `    <email>${escapeXml(siteConfig.owner.email)}</email>\n` : ''}` +
+    `  </author>\n` +
+    `${feedEntries}\n` +
+    `</feed>\n`;
+
+  await fs.writeFile(path.join(OUT_DIR, 'feed.xml'), feedXml, 'utf8');
 };
 
 const applyMetadataForSiteUrl = async (siteUrl, legacyHosts, seoData) => {
@@ -603,6 +645,7 @@ const main = async () => {
   await generateRobotsTxt(siteUrl);
   await generateSitemapXml(siteUrl, seoData);
   await generateImageSitemapXml(siteUrl);
+  await generateFeedXml(siteUrl, seoData);
   console.log(`Applied deployment metadata base URL: ${siteUrl}`);
 
   const finalFiles = await listFilesRecursive(OUT_DIR);

@@ -261,6 +261,18 @@ const validateSeoArtifacts = async (baseUrl) => {
   if (imageMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
     throw new Error('image-sitemap.xml contains a non-absolute image URL.');
   }
+
+  const feedUrl = new URL('feed.xml', baseUrl);
+  const feedResponse = await fetchWithTimeout(feedUrl.href);
+  if (!feedResponse.ok) {
+    throw new Error(`feed.xml returned ${feedResponse.status} at ${feedUrl.href}`);
+  }
+
+  const feedText = await feedResponse.text();
+  const feedEntries = [...feedText.matchAll(/<entry>/g)].length;
+  if (!feedEntries) {
+    throw new Error('feed.xml does not contain any <entry> items.');
+  }
 };
 
 const main = async () => {

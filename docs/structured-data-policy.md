@@ -5,12 +5,12 @@ Standardize machine-readable identity and research evidence signals for recruite
 
 ## Baseline Scope
 - Applies to local pages in `/Users/macos/Desktop/portfolio_hy_resources_github`.
-- Deployment domain is `https://daichunghy-ben.github.io/portfolio/` and should be used as the canonical base in generated markup.
+- Deployment domain is `https://daichunghy-ben.github.io/` and should be used as the canonical base in generated markup.
 
 ## Required Data Sources
-1. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/site-config.json`
-2. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/research-manifest.json`
-3. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/claims-registry.json`
+1. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/site-config.json`
+2. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/research-manifest.json`
+3. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/claims-registry.json`
 
 ## Page-Type Schema Rules
 

@@ -81,6 +81,18 @@ const SPECIAL_PAGES = {
       'About Chung Hy Dai, including research focus, working methodology, evidence standards, and how to navigate the portfolio.',
     image: './assets/optimized/profile-portfolio-main-optimized.webp'
   },
+  'references.html': {
+    type: 'references',
+    title: 'Verified Signals and References | Chung Hy Dai',
+    description:
+      'Public references, profiles, publications, and verified signals that connect Chung Hy Dai with this portfolio.'
+  },
+  'insights.html': {
+    type: 'insights',
+    title: 'Research Insights | Short Notes on EV Choice, Diet Quality, and Virtual Influencer Trust | Chung Hy Dai',
+    description:
+      'Short research notes by Chung Hy Dai covering EV choice in Vietnam, student diet quality, and virtual influencer trust.'
+  },
   'hospitality-analytics.html': {
     type: 'hub',
     hubId: 'hospitality',
@@ -345,6 +357,9 @@ const normalizeSiteConfig = (siteConfig) => {
   const ownerName = stripHtml(owner.name || 'Chung Hy Dai') || 'Chung Hy Dai';
   const ownerAlternateNames = normalizeUniqueStrings(owner.alternate_names).filter((value) => value !== ownerName);
   const ownerKnowsAbout = normalizeUniqueStrings(owner.knows_about);
+  const ownerJobTitle =
+    stripHtml(owner.job_title || siteConfig?.site_tagline || 'Market Research and Consumer Insights Analyst') ||
+    'Market Research and Consumer Insights Analyst';
   const siteKeywords = Array.isArray(siteConfig?.site_keywords)
     ? siteConfig.site_keywords
         .map((value) => stripHtml(value))
@@ -362,11 +377,20 @@ const normalizeSiteConfig = (siteConfig) => {
     canonical_base: stripHtml(siteConfig?.canonical_base || ''),
     site_description:
       clampText(siteConfig?.site_description || DEFAULT_SITE_DESCRIPTION, 190) || DEFAULT_SITE_DESCRIPTION,
+    feed_title:
+      stripHtml(siteConfig?.feed_title || `${ownerName} Insights`) || `${ownerName} Insights`,
+    feed_description:
+      clampText(
+        siteConfig?.feed_description ||
+          `Short research notes from the portfolio of ${ownerName}.`,
+        180
+      ) || `Short research notes from the portfolio of ${ownerName}.`,
     default_og_image: stripHtml(siteConfig?.default_og_image || DEFAULT_OG_IMAGE) || DEFAULT_OG_IMAGE,
     last_updated: stripHtml(siteConfig?.last_updated || ''),
     same_as: normalizePublicUrls(siteConfig?.same_as),
     owner: {
       name: ownerName,
+      job_title: ownerJobTitle,
       email: stripHtml(owner.email || ''),
       location: stripHtml(owner.location || 'Ho Chi Minh City, Vietnam'),
       alternate_names: ownerAlternateNames,
@@ -426,6 +450,23 @@ const buildMetaKeywords = ({ htmlFile, siteConfig, researchEntry, specialPage, t
       'portfolio guide',
       'evidence standards',
       'how to read the portfolio'
+    );
+  } else if (specialPage?.type === 'references') {
+    add(
+      'verified signals',
+      'public references',
+      'ORCID profile',
+      'LinkedIn profile',
+      'GitHub profile',
+      'Swinburne Vietnam feature'
+    );
+  } else if (specialPage?.type === 'insights') {
+    add(
+      'research insights',
+      'portfolio notes',
+      'EV choice insight',
+      'student diet quality note',
+      'virtual influencer trust note'
     );
   } else if (specialPage?.type === 'hub' && specialPage.hub) {
     const hubKeywordsById = {
@@ -492,7 +533,7 @@ const buildPersonEntity = (siteUrl, siteConfig, imageUrl) => {
     name: siteConfig.owner.name,
     ...(alternateNames.length ? { alternateName: alternateNames } : {}),
     url: siteUrl,
-    jobTitle: 'Market Research and Consumer Insights Analyst',
+    jobTitle: siteConfig.owner.job_title,
     description: siteConfig.site_description,
     image: imageUrl,
     sameAs: siteConfig.same_as,
@@ -532,6 +573,79 @@ const buildSharedEntityGraph = (siteUrl, siteConfig, imageUrl) => [
     ...buildPersonEntity(siteUrl, siteConfig, imageUrl)
   }
 ];
+
+const buildCoreRoutePages = (siteUrl) => [
+  {
+    '@type': 'AboutPage',
+    url: absolutePageUrlForFile(siteUrl, 'about.html'),
+    name: 'About Chung Hy Dai'
+  },
+  {
+    '@type': 'CollectionPage',
+    url: absolutePageUrlForFile(siteUrl, 'projects.html'),
+    name: 'Market Research and Applied Analytics Projects'
+  },
+  {
+    '@type': 'CollectionPage',
+    url: absolutePageUrlForFile(siteUrl, 'references.html'),
+    name: 'Verified Signals and References'
+  },
+  {
+    '@type': 'CollectionPage',
+    url: absolutePageUrlForFile(siteUrl, 'insights.html'),
+    name: 'Research Insights'
+  },
+  ...Object.values(TOPIC_HUBS).map((hub) => ({
+    '@type': 'CollectionPage',
+    url: absolutePageUrlForFile(siteUrl, hub.file),
+    name: hub.name
+  }))
+];
+
+const normalizeNoteEntry = (entry) => {
+  if (!entry || !entry.slug) return null;
+  return {
+    ...entry,
+    id: stripHtml(entry.id || entry.slug),
+    slug: stripHtml(entry.slug),
+    title: stripHtml(entry.title || entry.slug),
+    summary: clampText(entry.summary || entry.description || entry.title || '', 180),
+    description: clampText(entry.description || entry.summary || entry.title || '', 180),
+    image: stripHtml(entry.image || ''),
+    hub_id: stripHtml(entry.hub_id || ''),
+    keywords: normalizeUniqueStrings(entry.keywords || []),
+    related_research_ids: normalizeUniqueStrings(entry.related_research_ids || []),
+    published_at: stripHtml(entry.published_at || ''),
+    modified_at: stripHtml(entry.modified_at || entry.published_at || '')
+  };
+};
+
+const findRelatedResearchEntriesByIds = (ids, researchEntries) =>
+  normalizeUniqueStrings(ids)
+    .map((id) => researchEntries.find((entry) => entry?.id === id))
+    .filter(Boolean);
+
+const buildNoteKeywords = (noteEntry, topicHub, researchEntries, siteConfig) => {
+  const relatedTitles = researchEntries.map((entry) => stripHtml(entry.title || ''));
+  return normalizeUniqueStrings([
+    noteEntry.title,
+    noteEntry.summary,
+    ...(noteEntry.keywords || []),
+    topicHub?.name || '',
+    ...relatedTitles,
+    siteConfig.site_name,
+    siteConfig.site_alternate_name,
+    siteConfig.owner.job_title,
+    'research insights'
+  ]).join(', ');
+};
+
+const pickNoteImage = (noteEntry, siteUrl, siteConfig, legacyHosts) => {
+  if (noteEntry?.image) {
+    return resolveAbsoluteUrl(noteEntry.image, siteUrl, legacyHosts);
+  }
+  return resolveAbsoluteUrl(siteConfig.default_og_image, siteUrl, legacyHosts);
+};
 
 const buildBreadcrumbList = (pageUrl, items) => ({
   '@type': 'BreadcrumbList',
@@ -651,21 +765,7 @@ const buildHomeStructuredData = ({
   const featuredEntries = FEATURED_RESEARCH_IDS.slice(0, 3).map((id) =>
     researchEntries.find((entry) => entry?.id === id)
   ).filter(Boolean);
-  const focusAreaPages = Object.values(TOPIC_HUBS).map((hub) => ({
-    '@type': 'CollectionPage',
-    url: absolutePageUrlForFile(siteUrl, hub.file),
-    name: hub.name
-  }));
-  const aboutPage = {
-    '@type': 'AboutPage',
-    url: absolutePageUrlForFile(siteUrl, 'about.html'),
-    name: 'About Chung Hy Dai'
-  };
-  const projectsPage = {
-    '@type': 'CollectionPage',
-    url: absolutePageUrlForFile(siteUrl, 'projects.html'),
-    name: 'Market Research & Applied Analytics Projects'
-  };
+  const routePages = buildCoreRoutePages(siteUrl);
   return [
     ...buildSharedEntityGraph(siteUrl, siteConfig, personImageUrl || imageUrl),
     {
@@ -680,7 +780,7 @@ const buildHomeStructuredData = ({
       description,
       primaryImageOfPage: imageUrl,
       ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {}),
-      hasPart: [aboutPage, projectsPage, ...focusAreaPages]
+      hasPart: routePages
     },
     {
       '@context': 'https://schema.org',
@@ -700,6 +800,7 @@ const buildHomeStructuredData = ({
 
 const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, imageUrl, researchEntries }) => {
   const focusAreas = Object.values(TOPIC_HUBS);
+  const routePages = buildCoreRoutePages(siteUrl).filter((item) => item.url !== pageUrl);
   const featuredEntries = FEATURED_RESEARCH_IDS.slice(0, 3)
     .map((id) => researchEntries.find((entry) => entry?.id === id))
     .filter(Boolean)
@@ -735,7 +836,7 @@ const buildAboutStructuredData = ({ siteUrl, pageUrl, siteConfig, description, i
       mainEntity: { '@id': `${siteUrl}#person` },
       primaryImageOfPage: imageUrl,
       ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {}),
-      hasPart: featuredEntries
+      hasPart: [...featuredEntries, ...routePages]
     },
     {
       '@context': 'https://schema.org',
@@ -803,11 +904,7 @@ const buildHubStructuredData = ({ siteUrl, pageUrl, siteConfig, description, hub
 
 const buildProjectsStructuredData = ({ siteUrl, pageUrl, siteConfig, description, researchEntries }) => {
   const listedEntries = researchEntries.filter((entry) => !entry?.deprecated);
-  const focusAreaPages = Object.values(TOPIC_HUBS).map((hub) => ({
-    '@type': 'CollectionPage',
-    url: absolutePageUrlForFile(siteUrl, hub.file),
-    name: hub.name
-  }));
+  const routePages = buildCoreRoutePages(siteUrl).filter((item) => item.url !== pageUrl);
   return [
     ...buildSharedEntityGraph(
       siteUrl,
@@ -824,7 +921,7 @@ const buildProjectsStructuredData = ({ siteUrl, pageUrl, siteConfig, description
       isPartOf: { '@id': `${siteUrl}#website` },
       about: { '@id': `${siteUrl}#person` },
       ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {}),
-      hasPart: focusAreaPages
+      hasPart: routePages
     },
     {
       '@context': 'https://schema.org',
@@ -843,6 +940,143 @@ const buildProjectsStructuredData = ({ siteUrl, pageUrl, siteConfig, description
         url: absolutePageUrlForFile(siteUrl, withHtml(entry.slug)),
         name: stripHtml(entry.title || entry.slug)
       }))
+    }
+  ];
+};
+
+const buildReferencesStructuredData = ({ siteUrl, pageUrl, siteConfig, description }) => {
+  const profileLinks = siteConfig.same_as.map((url, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url,
+    name: url.replace(/^https?:\/\//i, '')
+  }));
+
+  return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: 'Verified Signals and References',
+      description,
+      isPartOf: { '@id': `${siteUrl}#website` },
+      about: { '@id': `${siteUrl}#person` },
+      ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {})
+    },
+    {
+      '@context': 'https://schema.org',
+      ...buildBreadcrumbList(pageUrl, [
+        { name: 'Home', url: siteUrl },
+        { name: 'References', url: pageUrl }
+      ])
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#signals`,
+      name: 'Verified Signals',
+      itemListElement: profileLinks
+    }
+  ];
+};
+
+const buildInsightsStructuredData = ({ siteUrl, pageUrl, siteConfig, description, notesEntries }) => {
+  const listedEntries = notesEntries.map((entry, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    url: absolutePageUrlForFile(siteUrl, withHtml(entry.slug)),
+    name: stripHtml(entry.title || entry.slug)
+  }));
+
+  return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: 'Research Insights',
+      description,
+      isPartOf: { '@id': `${siteUrl}#website` },
+      about: { '@id': `${siteUrl}#person` },
+      ...(siteConfig.last_updated ? { dateModified: siteConfig.last_updated } : {})
+    },
+    {
+      '@context': 'https://schema.org',
+      ...buildBreadcrumbList(pageUrl, [
+        { name: 'Home', url: siteUrl },
+        { name: 'Insights', url: pageUrl }
+      ])
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      '@id': `${pageUrl}#itemlist`,
+      itemListElement: listedEntries
+    }
+  ];
+};
+
+const buildNoteStructuredData = ({
+  siteUrl,
+  pageUrl,
+  canonicalUrl,
+  siteConfig,
+  noteEntry,
+  description,
+  imageUrl,
+  topicHub,
+  relatedResearchEntries
+}) => {
+  const keywords = buildNoteKeywords(noteEntry, topicHub, relatedResearchEntries, siteConfig);
+  const published = normalizeIsoDateTime(noteEntry.published_at);
+  const modified = normalizeIsoDateTime(noteEntry.modified_at || noteEntry.published_at);
+
+  return [
+    ...buildSharedEntityGraph(
+      siteUrl,
+      siteConfig,
+      absolutePageUrlForFile(siteUrl, 'assets/optimized/profile-portfolio-main-optimized.webp')
+    ),
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      '@id': `${canonicalUrl}#main`,
+      url: canonicalUrl,
+      mainEntityOfPage: canonicalUrl,
+      headline: noteEntry.title,
+      name: noteEntry.title,
+      description,
+      image: imageUrl,
+      author: { '@id': `${siteUrl}#person` },
+      creator: { '@id': `${siteUrl}#person` },
+      publisher: { '@id': `${siteUrl}#website` },
+      isPartOf: { '@id': `${siteUrl}#website` },
+      articleSection: topicHub?.name || 'Research Insights',
+      keywords,
+      ...(published ? { datePublished: published } : {}),
+      ...(modified ? { dateModified: modified } : {})
+    },
+    {
+      '@context': 'https://schema.org',
+      ...buildBreadcrumbList(pageUrl, [
+        { name: 'Home', url: siteUrl },
+        { name: 'Insights', url: absolutePageUrlForFile(siteUrl, 'insights.html') },
+        ...(topicHub
+          ? [{ name: topicHub.name, url: absolutePageUrlForFile(siteUrl, topicHub.file) }]
+          : []),
+        { name: noteEntry.title, url: canonicalUrl }
+      ])
     }
   ];
 };
@@ -1016,6 +1250,8 @@ const buildSiteRoutesSection = (currentFile = '') => {
     { href: 'index.html', label: 'Chung Hy Dai portfolio homepage' },
     { href: 'about.html', label: 'About Chung Hy Dai and research methodology' },
     { href: 'projects.html', label: 'Market research projects archive' },
+    { href: 'references.html', label: 'Verified signals and external references' },
+    { href: 'insights.html', label: 'Research insights and note archive' },
     ...Object.values(TOPIC_HUBS).map((hub) => ({
       href: hub.file,
       label: `${hub.name} case studies`
@@ -1063,19 +1299,28 @@ export async function loadSeoData(root) {
     await readJson(path.join(root, 'assets', 'data', 'site-config.json'), {})
   );
   const manifest = await readJson(path.join(root, 'assets', 'data', 'research-manifest.json'), { research: [] });
+  const notesManifest = await readJson(path.join(root, 'assets', 'data', 'notes-manifest.json'), { notes: [] });
   const researchEntries = Array.isArray(manifest?.research) ? manifest.research : [];
+  const notesEntries = Array.isArray(notesManifest?.notes)
+    ? notesManifest.notes.map((entry) => normalizeNoteEntry(entry)).filter(Boolean)
+    : [];
   const researchBySlug = new Map();
+  const notesBySlug = new Map();
   researchEntries.forEach((entry) => {
     if (entry?.slug) researchBySlug.set(entry.slug, entry);
   });
-  return { siteConfig, researchEntries, researchBySlug };
+  notesEntries.forEach((entry) => {
+    if (entry?.slug) notesBySlug.set(entry.slug, entry);
+  });
+  return { siteConfig, researchEntries, researchBySlug, notesEntries, notesBySlug };
 }
 
 export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) {
-  const { siteConfig, researchEntries, researchBySlug } = seoData;
+  const { siteConfig, researchEntries, researchBySlug, notesEntries, notesBySlug } = seoData;
   const pageUrl = absolutePageUrlForFile(siteUrl, htmlFile);
   const pageSlug = htmlFile.replace(/\.html$/i, '');
   const researchEntry = researchBySlug.get(pageSlug) || null;
+  const noteEntry = notesBySlug.get(pageSlug) || null;
   const specialPage = getSpecialPageConfig(htmlFile);
   const is404Page = htmlFile.toLowerCase() === '404.html';
   const authoredTitle = extractTitleText(html);
@@ -1098,7 +1343,8 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   const forceNoindexPage = is404Page || (researchEntry && SUPPORT_CONTENT_NOINDEX_IDS.has(researchEntry.id));
   const defaultImageUrl = resolveAbsoluteUrl(siteConfig.default_og_image, siteUrl, legacyHosts);
   const personImageUrl = resolveAbsoluteUrl('./assets/optimized/profile-portfolio-main-optimized.webp', siteUrl, legacyHosts);
-  let title = authoredTitle || `${siteConfig.site_name} | ${siteConfig.site_tagline}`;
+  const feedUrl = resolveWithinSite(siteUrl, 'feed.xml');
+  let title = `${siteConfig.site_name} | ${siteConfig.owner.job_title}`;
   let description = siteConfig.site_description;
   let ogType = 'website';
   let imageUrl = defaultImageUrl;
@@ -1111,12 +1357,13 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   let articleModifiedDate = '';
 
   if (is404Page) {
-    title = authoredTitle || `Page Not Found | ${siteConfig.site_name}`;
+    title = `Page Not Found | ${siteConfig.site_name}`;
     description =
       'The page you requested is unavailable. Use the homepage or research archive to continue browsing the portfolio.';
     structuredData = [];
   } else if (htmlFile === 'index.html') {
     description = siteConfig.site_description;
+    title = `${siteConfig.site_name} | ${siteConfig.owner.job_title}`;
     structuredData = buildHomeStructuredData({
       siteUrl,
       siteConfig,
@@ -1126,6 +1373,7 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       researchEntries
     });
   } else if (htmlFile === 'projects.html') {
+    title = `Research Projects | ${siteConfig.site_name}`;
     description = clampText(
       'Research projects by Chung Hy Dai across hospitality segmentation, EV choice, policy acceptance, influencer retention, buffet nudging, nutrition, and organizational behavior.',
       175
@@ -1143,7 +1391,7 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       personImageUrl
     });
   } else if (specialPage?.type === 'about') {
-    title = authoredTitle || specialPage.title;
+    title = specialPage.title;
     description = specialPage.description;
     imageUrl = resolveAbsoluteUrl(specialPage.image, siteUrl, legacyHosts) || defaultImageUrl;
     breadcrumbItems = [
@@ -1158,8 +1406,37 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       imageUrl,
       researchEntries
     });
+  } else if (specialPage?.type === 'references') {
+    title = specialPage.title;
+    description = specialPage.description;
+    imageUrl = personImageUrl || defaultImageUrl;
+    breadcrumbItems = [
+      { name: 'Home', href: 'index.html' },
+      { name: 'References' }
+    ];
+    structuredData = buildReferencesStructuredData({
+      siteUrl,
+      pageUrl,
+      siteConfig,
+      description
+    });
+  } else if (specialPage?.type === 'insights') {
+    title = specialPage.title;
+    description = specialPage.description;
+    imageUrl = defaultImageUrl;
+    breadcrumbItems = [
+      { name: 'Home', href: 'index.html' },
+      { name: 'Insights' }
+    ];
+    structuredData = buildInsightsStructuredData({
+      siteUrl,
+      pageUrl,
+      siteConfig,
+      description,
+      notesEntries
+    });
   } else if (specialPage?.type === 'hub' && specialPage.hub) {
-    title = authoredTitle || specialPage.title;
+    title = specialPage.title;
     description = specialPage.description;
     imageUrl = resolveAbsoluteUrl(specialPage.image, siteUrl, legacyHosts) || defaultImageUrl;
     breadcrumbItems = [
@@ -1175,6 +1452,33 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
       hub: specialPage.hub,
       researchEntries,
       personImageUrl
+    });
+  } else if (noteEntry) {
+    const relatedResearchEntries = findRelatedResearchEntriesByIds(noteEntry.related_research_ids, researchEntries);
+    topicHub = TOPIC_HUBS[noteEntry.hub_id] || null;
+    title = `${noteEntry.title} | Insights | ${siteConfig.site_name}`;
+    description = noteEntry.description;
+    ogType = 'article';
+    imageUrl = pickNoteImage(noteEntry, siteUrl, siteConfig, legacyHosts) || defaultImageUrl;
+    articleSection = topicHub?.name || 'Research Insights';
+    articlePublishedDate = normalizeIsoDateTime(noteEntry.published_at);
+    articleModifiedDate = normalizeIsoDateTime(noteEntry.modified_at || noteEntry.published_at);
+    breadcrumbItems = [
+      { name: 'Home', href: 'index.html' },
+      { name: 'Insights', href: 'insights.html' },
+      ...(topicHub ? [{ name: topicHub.name, href: topicHub.file }] : []),
+      { name: noteEntry.title }
+    ];
+    structuredData = buildNoteStructuredData({
+      siteUrl,
+      pageUrl,
+      canonicalUrl,
+      siteConfig,
+      noteEntry,
+      description,
+      imageUrl,
+      topicHub,
+      relatedResearchEntries
     });
   } else if (researchEntry) {
     topicHub = getTopicHubByStudyType(researchEntry.study_type);
@@ -1203,30 +1507,25 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
     });
     relatedEntries = pickRelatedEntries(researchEntry, researchEntries);
   } else {
+    title = authoredTitle || `${stripHtml(pageSlug)} | ${siteConfig.site_name}`;
     description = authoredDescription || clampText(siteConfig.site_description, 170);
-  }
-
-  if (!authoredTitle) {
-    if (htmlFile === 'index.html') {
-      title = `${siteConfig.site_name} | Market Research Portfolio`;
-    } else if (htmlFile === 'projects.html') {
-      title = `Research Projects | ${siteConfig.site_name}`;
-    } else if (specialPage?.title) {
-      title = specialPage.title;
-    } else if (researchEntry) {
-      title = `${stripHtml(researchEntry.title || pageSlug)} | ${siteConfig.site_name}`;
-    } else {
-      title = `${stripHtml(pageSlug)} | ${siteConfig.site_name}`;
-    }
   }
 
   const robotsContent = !isCanonicalPage || forceNoindexPage
     ? 'noindex,follow,max-image-preview:large'
     : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1';
   const imageAlt =
+    noteEntry?.title ||
     researchEntry?.title ||
     `${siteConfig.site_name} ${siteConfig.site_tagline.replace(/\s+Portfolio$/i, '').trim()}`.trim();
-  const metaKeywords = buildMetaKeywords({ htmlFile, siteConfig, researchEntry, specialPage, topicHub });
+  const metaKeywords = noteEntry
+    ? buildNoteKeywords(
+      noteEntry,
+      topicHub,
+      findRelatedResearchEntriesByIds(noteEntry.related_research_ids, researchEntries),
+      siteConfig
+    )
+    : buildMetaKeywords({ htmlFile, siteConfig, researchEntry, specialPage, topicHub });
 
   let nextHtml = html;
   nextHtml = upsertTitleTag(nextHtml, title);
@@ -1237,6 +1536,11 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   nextHtml = upsertMetaTag(nextHtml, 'name', 'language', { content: 'en' });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'author', { content: siteConfig.owner.name });
   nextHtml = upsertLinkTag(nextHtml, 'canonical', { href: canonicalUrl });
+  nextHtml = upsertLinkTag(nextHtml, 'alternate', {
+    href: feedUrl,
+    type: 'application/atom+xml',
+    title: siteConfig.feed_title
+  });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:type', { content: ogType });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:locale', { content: 'en_US' });
   nextHtml = upsertMetaTag(nextHtml, 'property', 'og:site_name', { content: siteConfig.site_name });
@@ -1263,7 +1567,7 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
     nextHtml = stripMetaTag(nextHtml, selectorAttr, selectorValue);
   }
 
-  if (researchEntry && !researchEntry.deprecated) {
+  if ((researchEntry && !researchEntry.deprecated) || noteEntry) {
     nextHtml = upsertMetaTag(nextHtml, 'property', 'article:author', { content: siteConfig.owner.name });
     if (articleSection) {
       nextHtml = upsertMetaTag(nextHtml, 'property', 'article:section', { content: articleSection });

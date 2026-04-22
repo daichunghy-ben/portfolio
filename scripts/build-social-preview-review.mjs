@@ -5,7 +5,7 @@ import sharp from 'sharp';
 const ROOT = process.cwd();
 const outputPath = path.join(ROOT, 'assets', 'social-preview-review-v4.jpg');
 const SITE_CONFIG_PATH = path.join(ROOT, 'assets', 'data', 'site-config.json');
-const DEFAULT_WEBSITE_LABEL = 'daichunghy-ben.github.io/portfolio';
+const DEFAULT_WEBSITE_LABEL = 'daichunghy-ben.github.io';
 
 const readSiteConfig = async () => {
   try {

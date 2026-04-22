@@ -1,7 +1,7 @@
 # Chung Hy Dai
 
 **Market Research & Consumer Insights**
-Ho Chi Minh City, Vietnam | <daichunghy@gmail.com> | [LinkedIn](https://www.linkedin.com/in/chung-hy-d-17792826b/) | [Portfolio](https://daichunghy-ben.github.io/portfolio/)
+Ho Chi Minh City, Vietnam | <daichunghy@gmail.com> | [LinkedIn](https://www.linkedin.com/in/chung-hy-d-17792826b/) | [Portfolio](https://daichunghy-ben.github.io/)
 
 ## PROFESSIONAL SUMMARY
 
