@@ -13,6 +13,7 @@
     "preview": "npm run stage:pages && python3 -m http.server 4173 --directory .deploy/public",
     "audit:lighthouse": "npm run stage:pages && node scripts/audit-lighthouse.mjs",
     "audit:externals": "node scripts/audit-external-links.mjs",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
     "mirror:externals": "node scripts/mirror-external-media.mjs",
     "evidence:linkedin": "node scripts/collect-linkedin-evidence.mjs",
     "stage:pages": "npm run build && node scripts/stage-pages.mjs",

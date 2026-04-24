@@ -38,6 +38,14 @@ const shouldRedirectHost = (host, primaryHost, legacyHosts) => {
   return false;
 };
 
+const normalizeLegacyPath = (pathname) => {
+  if (pathname === '/portfolio') return '/';
+  if (pathname.startsWith('/portfolio/')) {
+    return pathname.slice('/portfolio'.length) || '/';
+  }
+  return pathname || '/';
+};
+
 export async function onRequest(context) {
   const primary = normalizeSiteUrl(context.env?.SITE_URL || DEFAULT_PRIMARY_SITE_URL);
   if (!primary) {
@@ -50,6 +58,7 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  const redirectUrl = new URL(`${requestUrl.pathname}${requestUrl.search}`, primary);
+  const redirectPath = normalizeLegacyPath(requestUrl.pathname);
+  const redirectUrl = new URL(`${redirectPath}${requestUrl.search}`, primary);
   return Response.redirect(redirectUrl.href, 301);
 }

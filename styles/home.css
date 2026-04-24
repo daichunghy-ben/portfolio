@@ -426,3 +426,148 @@ body[data-page="home"] .selected-work-grid .impact-list {
         display: none;
     }
 }
+
+/* Home page evidence-led refresh */
+body[data-page="home"] .hero.apple-holiday-bg {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+    min-height: min(680px, calc(100vh - 128px));
+    margin-top: 100px !important;
+    padding: 4.75rem clamp(2rem, 5vw, 4.75rem) 4rem !important;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.96) 58%, rgba(237, 247, 245, 0.98) 100%) !important;
+    box-shadow: none !important;
+}
+
+body[data-page="home"] .hero.apple-holiday-bg::before,
+body[data-page="home"] .hero.apple-holiday-bg::after,
+body[data-page="home"] .hero-depth-stack,
+body[data-page="home"] .hero-ambient-svg {
+    display: none !important;
+}
+
+body[data-page="home"] .hero-content-layer {
+    min-width: 0;
+}
+
+body[data-page="home"] .hero .hero-content {
+    max-width: 700px;
+}
+
+body[data-page="home"] .hero .hero-badge {
+    background: rgba(15, 118, 110, 0.08) !important;
+    border-color: rgba(15, 118, 110, 0.18) !important;
+    color: #115e59 !important;
+}
+
+body[data-page="home"] .hero-title {
+    max-width: 13ch;
+}
+
+body[data-page="home"] .hero-title span:last-child {
+    max-width: 15ch;
+}
+
+body[data-page="home"] .hero .hero-summary {
+    color: #475569;
+}
+
+body[data-page="home"] .hero-outcome-item {
+    border-left-color: rgba(15, 118, 110, 0.28);
+}
+
+body[data-page="home"] .home-hero-proof-panel {
+    position: relative;
+    z-index: 2;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    padding: 1.5rem 0 1.5rem 2rem;
+    border-left: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+body[data-page="home"] .hero-proof-kicker {
+    margin: 0;
+    color: var(--accent-primary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body[data-page="home"] .hero-proof-title {
+    margin: 0.55rem 0 0;
+    max-width: 13ch;
+    color: var(--text-primary);
+    font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+}
+
+body[data-page="home"] .hero-proof-list {
+    display: grid;
+    gap: 0.7rem;
+    margin-top: 1.35rem;
+}
+
+body[data-page="home"] .hero-proof-row {
+    display: grid;
+    gap: 0.22rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid rgba(15, 23, 42, 0.10);
+    color: inherit;
+    text-decoration: none;
+}
+
+body[data-page="home"] .hero-proof-row span {
+    color: #64748b;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+body[data-page="home"] .hero-proof-row strong {
+    color: #0f172a;
+    font-size: 0.98rem;
+    line-height: 1.38;
+}
+
+body[data-page="home"] .hero-proof-row:hover strong,
+body[data-page="home"] .hero-proof-row:focus-visible strong {
+    color: var(--accent-primary);
+}
+
+body[data-page="home"] .hero-proof-row:focus-visible {
+    outline: 3px solid rgba(15, 118, 110, 0.22);
+    outline-offset: 4px;
+}
+
+body[data-page="home"] .hero-proof-note {
+    margin: 1.15rem 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.58;
+}
+
+@media (max-width: 900px) {
+    body[data-page="home"] .hero.apple-holiday-bg {
+        display: block !important;
+        min-height: auto;
+        padding: 3.35rem 2rem 2.75rem !important;
+    }
+
+    body[data-page="home"] .home-hero-proof-panel {
+        display: none;
+    }
+
+    body[data-page="home"] .hero-title,
+    body[data-page="home"] .hero-title span:last-child {
+        max-width: none;
+    }
+}

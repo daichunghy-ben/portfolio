@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Page Not Found | Chung Hy Dai</title>
+  <title>Chung Hy Dai | Legacy Portfolio Redirect</title>
+  <meta content="noindex,follow" name="robots">
+  <meta content="Legacy /portfolio/ URL for Chung Hy Dai now redirects to the root portfolio." name="description">
+  <link href="/" rel="canonical">
+  <meta http-equiv="refresh" content="0; url=/">
   <style>
     :root {
       color-scheme: light;
       --bg: #f8fafc;
-      --panel: rgba(255, 255, 255, 0.92);
+      --panel: #ffffff;
       --border: rgba(15, 23, 42, 0.1);
       --text: #0f172a;
       --muted: #475569;
       --accent: #0f766e;
       --accent-2: #2563eb;
-      --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -24,27 +27,27 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
       display: grid;
       place-items: center;
       padding: 24px;
+      font-family: "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.5;
     }
 
     main {
-      width: min(100%, 38rem);
+      width: min(100%, 34rem);
       background: var(--panel);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
+      text-align: center;
     }
 
     .eyebrow {
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.65rem;
       color: var(--accent);
       font-size: 0.78rem;
       font-weight: 700;
@@ -53,8 +56,8 @@
     }
 
     h1 {
-      margin: 0 0 0.85rem;
-      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
       line-height: 1.05;
       letter-spacing: -0.04em;
     }
@@ -65,27 +68,27 @@
       font-size: 1rem;
     }
 
+    a {
+      color: var(--text);
+      font-weight: 700;
+    }
+
     .actions {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 0.75rem;
-      margin-top: 1.5rem;
+      margin-top: 1.4rem;
     }
 
-    a {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       min-height: 2.75rem;
       padding: 0.75rem 1rem;
       border-radius: 999px;
-      font-weight: 700;
       text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-    }
-
-    a:hover {
-      transform: translateY(-1px);
     }
 
     .primary {
@@ -95,8 +98,7 @@
     }
 
     .secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.78);
       border: 1px solid var(--border);
     }
 
@@ -107,14 +109,7 @@
   </style>
   <script>
     (function () {
-      const legacyPrefix = '/portfolio';
-      const path = window.location.pathname.replace(/\/{2,}/g, '/');
-      if (path !== legacyPrefix && !path.startsWith(`${legacyPrefix}/`)) {
-        return;
-      }
-
-      const strippedPath = path.slice(legacyPrefix.length) || '/';
-      const target = new URL(strippedPath, window.location.origin);
+      const target = new URL('/', window.location.origin);
       target.search = window.location.search;
       target.hash = window.location.hash;
       window.location.replace(target.toString());
@@ -122,15 +117,15 @@
   </script>
 </head>
 <body>
-  <main aria-labelledby="page-title">
-    <p class="eyebrow">404</p>
-    <h1 id="page-title">This page is not available.</h1>
-    <p>If you followed an old portfolio link, you should be redirected automatically. Otherwise, use the homepage or the research archive to continue browsing.</p>
+  <main aria-labelledby="redirect-title">
+    <p class="eyebrow">Legacy URL</p>
+    <h1 id="redirect-title">Moving this portfolio to the root site.</h1>
+    <p>The old <a href="/">/portfolio/</a> URL now points to the root portfolio.</p>
     <div class="actions">
-      <a class="primary" href="/">Homepage</a>
-      <a class="secondary" href="/projects.html">Research archive</a>
+      <a class="button primary" href="/">Go to homepage</a>
+      <a class="button secondary" href="/projects.html">Research archive</a>
     </div>
-    <p class="note">Chung Hy Dai portfolio links now resolve from the root site.</p>
+    <p class="note">Use the root domain for the latest canonical URLs.</p>
   </main>
 </body>
 </html>

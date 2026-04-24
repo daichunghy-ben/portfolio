@@ -5,3 +5,11 @@ dist/
 venv/
 *.report.html
 .DS_Store
+private/
+.playwright-cli/
+output/
+tmp/
+assets/certs/
+assets/degree.png
+assets/optimized/certs/
+assets/optimized/degree-*.*

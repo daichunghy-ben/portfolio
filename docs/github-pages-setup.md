@@ -26,6 +26,7 @@ If `SITE_URL` is not set, staging falls back to the production URL stored in `as
 ## 5) Final URL
 - Root user-site URL:
   - `https://daichunghy-ben.github.io/`
+- Legacy backlinks that still hit `/portfolio/` are kept alive via redirect and alias pages.
 
 ## 6) Local verification before push
 ```bash

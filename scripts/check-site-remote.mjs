@@ -13,6 +13,12 @@ const STYLE_BLOCK_RE = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
 const STYLE_ATTR_RE = /\bstyle\s*=\s*("([^"]*)"|'([^']*)')/gi;
 const JS_IMPORT_RE =
   /\bimport\s+(?:[^'"]*?\s+from\s+)?["']([^"']+)["']|\bimport\(\s*["']([^"']+)["']\s*\)/g;
+const PRIVATE_ASSET_PATTERNS = [
+  /assets\/certs\//i,
+  /assets\/optimized\/certs\//i,
+  /assets\/degree\.png/i,
+  /assets\/optimized\/degree-/i
+];
 
 const decodeEntities = (value) =>
   value
@@ -59,6 +65,13 @@ const splitSrcset = (value) =>
     .filter(Boolean)
     .map((candidate) => candidate.split(/\s+/)[0])
     .filter(Boolean);
+
+const assertNoPrivateAssetRefs = (text, label) => {
+  const matchedPattern = PRIVATE_ASSET_PATTERNS.find((pattern) => pattern.test(text));
+  if (matchedPattern) {
+    throw new Error(`${label} contains a private credential image reference: ${matchedPattern}`);
+  }
+};
 
 const extractRefsFromCss = (cssText) => {
   const refs = [];
@@ -253,6 +266,7 @@ const validateSeoArtifacts = async (baseUrl) => {
   }
 
   const imageSitemapText = await imageSitemapResponse.text();
+  assertNoPrivateAssetRefs(imageSitemapText, 'image-sitemap.xml');
   const imageMatches = [...imageSitemapText.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1].trim());
   if (!imageMatches.length) {
     throw new Error('image-sitemap.xml does not contain any <image:loc> entries.');
@@ -272,6 +286,20 @@ const validateSeoArtifacts = async (baseUrl) => {
   const feedEntries = [...feedText.matchAll(/<entry>/g)].length;
   if (!feedEntries) {
     throw new Error('feed.xml does not contain any <entry> items.');
+  }
+
+  const legacyAliasUrl = new URL('portfolio/', baseUrl);
+  const legacyAliasResponse = await fetchWithTimeout(legacyAliasUrl.href);
+  if (!legacyAliasResponse.ok) {
+    throw new Error(`Legacy /portfolio/ alias returned ${legacyAliasResponse.status} at ${legacyAliasUrl.href}`);
+  }
+
+  const legacyAliasText = await legacyAliasResponse.text();
+  if (
+    !/http-equiv\s*=\s*["']refresh["']/i.test(legacyAliasText) &&
+    !/location\.replace\s*\(/i.test(legacyAliasText)
+  ) {
+    throw new Error('Legacy /portfolio/ alias does not contain an automatic redirect.');
   }
 };
 

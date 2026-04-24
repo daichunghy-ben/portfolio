@@ -1,0 +1,20 @@
+# Chung Hy Dai Portfolio
+
+Canonical homepage: https://daichunghy-ben.github.io/
+
+This site is the public portfolio of Chung Hy Dai, a market research and consumer insights analyst focused on applied analytics, hospitality segmentation, EV choice, policy acceptance, service quality, creator-economy research, and behavior research in Vietnam.
+
+Primary routes:
+- About: https://daichunghy-ben.github.io/about.html
+- Research archive: https://daichunghy-ben.github.io/projects.html
+- References and identity signals: https://daichunghy-ben.github.io/references.html
+- Research insights: https://daichunghy-ben.github.io/insights.html
+- Sitemap: https://daichunghy-ben.github.io/sitemap.xml
+
+Public identity profiles:
+- GitHub: https://github.com/daichunghy-ben
+- LinkedIn: https://www.linkedin.com/in/chung-hy-d-17792826b/
+- ORCID: https://orcid.org/0009-0009-6790-8981
+
+Privacy note:
+Credential images and documents with private identifiers are not published. Use the references page for public identity signals and the research archive for public project evidence.

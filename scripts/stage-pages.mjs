@@ -8,10 +8,38 @@ import {
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, '.deploy', 'public');
-const SOURCE_DIRS = ['assets', 'dist'];
-const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
+const SOURCE_DIRS = ['assets', 'dist', 'portfolio'];
+const STATIC_FILES = [
+  '404.html',
+  'robots.txt',
+  '_headers',
+  '_redirects',
+  'humans.txt',
+  'llms.txt',
+  '29b32fc996d617451de2f50fb62aae0c.txt'
+];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const PRIVATE_ASSET_REFS = new Set([
+  'assets/degree.png',
+  'assets/certs/ICDL.jpg',
+  'assets/certs/SAT.jpg',
+  'assets/certs/best_performance_swinburne.png',
+  'assets/certs/hsbc_participation.png',
+  'assets/certs/ielts.jpg'
+]);
+const PRIVATE_ASSET_PREFIXES = [
+  'assets/certs/',
+  'assets/optimized/certs/',
+  'assets/optimized/degree-'
+];
+const PRIVATE_ASSET_PATTERNS = [
+  /assets\/certs\//i,
+  /assets\/optimized\/certs\//i,
+  /assets\/degree\.png/i,
+  /assets\/optimized\/degree-/i
+];
+const DEPLOY_TEXT_FILE_RE = /\.(?:css|html|js|json|svg|txt|xml)$/i;
 const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
 const SKIP_PROTOCOL_RE = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
@@ -42,6 +70,11 @@ const shouldSkipFile = (name) => {
 };
 
 const shouldSkipDir = (name) => name.startsWith('.');
+
+const shouldSkipPublicAsset = (relativePath) => {
+  const normalized = relativePath.split(path.sep).join('/');
+  return PRIVATE_ASSET_REFS.has(normalized) || PRIVATE_ASSET_PREFIXES.some((prefix) => normalized.startsWith(prefix));
+};
 
 const listDeployHtmlFiles = async () => {
   const entries = await fs.readdir(ROOT, { withFileTypes: true });
@@ -121,13 +154,17 @@ const copyTree = async (sourceDir, targetDir, counters) => {
   for (const entry of entries) {
     if (entry.isDirectory()) {
       if (shouldSkipDir(entry.name)) continue;
+      const relativePath = path.relative(ROOT, path.join(sourceDir, entry.name));
+      if (shouldSkipPublicAsset(`${relativePath}/`)) continue;
       await copyTree(path.join(sourceDir, entry.name), path.join(targetDir, entry.name), counters);
       continue;
     }
     if (!entry.isFile()) continue;
     if (shouldSkipFile(entry.name)) continue;
 
-    await copyFile(path.join(sourceDir, entry.name), path.join(targetDir, entry.name));
+    const sourceFile = path.join(sourceDir, entry.name);
+    if (shouldSkipPublicAsset(path.relative(ROOT, sourceFile))) continue;
+    await copyFile(sourceFile, path.join(targetDir, entry.name));
     counters.files += 1;
   }
 };
@@ -168,6 +205,31 @@ const listFilesRecursive = async (dirPath) => {
     }
   }
   return items;
+};
+
+const assertNoPrivateAssetRefs = async () => {
+  const files = await listFilesRecursive(OUT_DIR);
+  const failures = [];
+
+  for (const filePath of files) {
+    const relativePath = path.relative(OUT_DIR, filePath).replace(/\\/g, '/');
+    if (shouldSkipPublicAsset(relativePath)) {
+      failures.push(`private asset was staged: ${relativePath}`);
+      continue;
+    }
+
+    if (!DEPLOY_TEXT_FILE_RE.test(relativePath)) continue;
+
+    const text = await fs.readFile(filePath, 'utf8');
+    const matchedPattern = PRIVATE_ASSET_PATTERNS.find((pattern) => pattern.test(text));
+    if (matchedPattern) {
+      failures.push(`private asset reference in ${relativePath}: ${matchedPattern}`);
+    }
+  }
+
+  if (failures.length) {
+    throw new Error(`Private credential image guard failed:\n- ${failures.join('\n- ')}`);
+  }
 };
 
 const normalizeSiteUrl = (value) => {
@@ -646,6 +708,7 @@ const main = async () => {
   await generateSitemapXml(siteUrl, seoData);
   await generateImageSitemapXml(siteUrl);
   await generateFeedXml(siteUrl, seoData);
+  await assertNoPrivateAssetRefs();
   console.log(`Applied deployment metadata base URL: ${siteUrl}`);
 
   const finalFiles = await listFilesRecursive(OUT_DIR);

@@ -188,6 +188,17 @@ const buildTag = (name, attrs, selfClosing = true) => {
   return selfClosing ? `<${name} ${serialized}/>` : `<${name} ${serialized}>`;
 };
 
+const buildProfileMeLinks = (siteConfig) => {
+  const profileUrls = normalizePublicUrls(siteConfig?.same_as);
+  if (!profileUrls.length) return '';
+
+  return [
+    '<!-- SEO-GENERATED:profile-me-links:START -->',
+    ...profileUrls.map((url) => buildTag('link', { href: url, rel: 'me' })),
+    '<!-- SEO-GENERATED:profile-me-links:END -->'
+  ].join('\n');
+};
+
 const insertBeforeClosingTag = (html, tagName, content) => {
   const pattern = new RegExp(`</${tagName}>`, 'i');
   if (!pattern.test(html)) return html;
@@ -1555,6 +1566,12 @@ export function applyPageSeo({ htmlFile, html, siteUrl, legacyHosts, seoData }) 
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:description', { content: description });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:image', { content: imageUrl });
   nextHtml = upsertMetaTag(nextHtml, 'name', 'twitter:image:alt', { content: imageAlt });
+  nextHtml = stripGeneratedBlock(nextHtml, 'profile-me-links');
+
+  const profileMeLinks = buildProfileMeLinks(siteConfig);
+  if (profileMeLinks) {
+    nextHtml = insertBeforeClosingTag(nextHtml, 'head', profileMeLinks);
+  }
 
   const articleMetaSelectors = [
     ['property', 'article:author'],
