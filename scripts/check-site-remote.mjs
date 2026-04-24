@@ -288,7 +288,7 @@ const validateSeoArtifacts = async (baseUrl) => {
     throw new Error('feed.xml does not contain any <entry> items.');
   }
 
-  const legacyAliasUrl = new URL('portfolio/', baseUrl);
+  const legacyAliasUrl = new URL('/portfolio/', baseUrl);
   const legacyAliasResponse = await fetchWithTimeout(legacyAliasUrl.href);
   if (!legacyAliasResponse.ok) {
     throw new Error(`Legacy /portfolio/ alias returned ${legacyAliasResponse.status} at ${legacyAliasUrl.href}`);
@@ -300,6 +300,23 @@ const validateSeoArtifacts = async (baseUrl) => {
     !/location\.replace\s*\(/i.test(legacyAliasText)
   ) {
     throw new Error('Legacy /portfolio/ alias does not contain an automatic redirect.');
+  }
+
+  const legacyProjectsAliasUrl = new URL('/portfolio/projects.html', baseUrl);
+  const legacyProjectsAliasResponse = await fetchWithTimeout(legacyProjectsAliasUrl.href);
+  if (!legacyProjectsAliasResponse.ok) {
+    throw new Error(`Legacy /portfolio/projects.html alias returned ${legacyProjectsAliasResponse.status} at ${legacyProjectsAliasUrl.href}`);
+  }
+
+  const legacyProjectsAliasText = await legacyProjectsAliasResponse.text();
+  if (!/projects\.html/i.test(legacyProjectsAliasText) || !/noindex,follow/i.test(legacyProjectsAliasText)) {
+    throw new Error('Legacy /portfolio/projects.html alias does not point to the canonical projects route.');
+  }
+
+  const legacySitemapUrl = new URL('/portfolio/sitemap.xml', baseUrl);
+  const legacySitemapResponse = await fetchWithTimeout(legacySitemapUrl.href);
+  if (!legacySitemapResponse.ok) {
+    throw new Error(`Legacy /portfolio/sitemap.xml returned ${legacySitemapResponse.status} at ${legacySitemapUrl.href}`);
   }
 };
 

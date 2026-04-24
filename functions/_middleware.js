@@ -40,6 +40,7 @@ const shouldRedirectHost = (host, primaryHost, legacyHosts) => {
 
 const normalizeLegacyPath = (pathname) => {
   if (pathname === '/portfolio') return '/';
+  if (pathname === '/portfolio/index.html') return '/';
   if (pathname.startsWith('/portfolio/')) {
     return pathname.slice('/portfolio'.length) || '/';
   }
@@ -54,11 +55,13 @@ export async function onRequest(context) {
 
   const requestUrl = new URL(context.request.url);
   const legacyHosts = getLegacyHosts(context.env?.LEGACY_PAGES_HOSTS);
-  if (!shouldRedirectHost(requestUrl.hostname, primary.hostname, legacyHosts)) {
+  const redirectPath = normalizeLegacyPath(requestUrl.pathname);
+  const hasLegacyPortfolioPath = redirectPath !== (requestUrl.pathname || '/');
+
+  if (!hasLegacyPortfolioPath && !shouldRedirectHost(requestUrl.hostname, primary.hostname, legacyHosts)) {
     return context.next();
   }
 
-  const redirectPath = normalizeLegacyPath(requestUrl.pathname);
   const redirectUrl = new URL(`${redirectPath}${requestUrl.search}`, primary);
   return Response.redirect(redirectUrl.href, 301);
 }

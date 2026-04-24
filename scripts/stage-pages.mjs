@@ -20,6 +20,8 @@ const STATIC_FILES = [
 ];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const LEGACY_PORTFOLIO_ALIAS_DIR = 'portfolio';
+const LEGACY_PORTFOLIO_ALIAS_EXCLUDE = new Set(['404.html', 'index_patched.html']);
 const PRIVATE_ASSET_REFS = new Set([
   'assets/degree.png',
   'assets/certs/ICDL.jpg',
@@ -562,6 +564,163 @@ const generateFeedXml = async (siteUrl, seoData) => {
   await fs.writeFile(path.join(OUT_DIR, 'feed.xml'), feedXml, 'utf8');
 };
 
+const renderLegacyPortfolioAliasHtml = (targetUrl) => {
+  const target = new URL(targetUrl);
+  const displayPath = target.pathname === '/' ? '/' : target.pathname;
+  const targetJson = JSON.stringify(target.href);
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Legacy Portfolio URL | Chung Hy Dai</title>
+  <meta content="noindex,follow" name="robots">
+  <meta content="noindex,follow" name="googlebot">
+  <meta content="Legacy /portfolio/ URL for Chung Hy Dai. The canonical portfolio now lives at the root site." name="description">
+  <link href="${escapeXml(target.href)}" rel="canonical">
+  <meta http-equiv="refresh" content="0; url=${escapeXml(target.href)}">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --border: rgba(15, 23, 42, 0.1);
+      --text: #0f172a;
+      --muted: #475569;
+      --accent: #0f766e;
+      --accent-2: #2563eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(100%, 34rem);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: clamp(1.5rem, 4vw, 2.25rem);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.1);
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.65rem;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    a {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.75rem;
+      margin-top: 1.4rem;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-2), var(--accent));
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
+    }
+  </style>
+  <script>
+    (function () {
+      var target = new URL(${targetJson});
+      target.search = window.location.search || target.search;
+      target.hash = window.location.hash || target.hash;
+      window.location.replace(target.toString());
+    }());
+  </script>
+</head>
+<body>
+  <main aria-labelledby="redirect-title">
+    <p class="eyebrow">Legacy URL</p>
+    <h1 id="redirect-title">This portfolio page has moved.</h1>
+    <p>The canonical URL is now <a href="${escapeXml(target.href)}">${escapeXml(displayPath)}</a>.</p>
+    <a class="button" href="${escapeXml(target.href)}">Open canonical page</a>
+  </main>
+</body>
+</html>
+`;
+};
+
+const writeLegacyPortfolioAlias = async (relativeAliasPath, targetUrl) => {
+  const aliasPath = path.join(OUT_DIR, relativeAliasPath);
+  await fs.mkdir(path.dirname(aliasPath), { recursive: true });
+  await fs.writeFile(aliasPath, renderLegacyPortfolioAliasHtml(targetUrl), 'utf8');
+};
+
+const generateLegacyPortfolioHtmlAliases = async (siteUrl) => {
+  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
+    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
+    .map((entry) => entry.name)
+    .filter((name) => !LEGACY_PORTFOLIO_ALIAS_EXCLUDE.has(name))
+    .sort();
+
+  for (const htmlFile of htmlFiles) {
+    const filePath = path.join(OUT_DIR, htmlFile);
+    const html = await fs.readFile(filePath, 'utf8');
+    const pageUrl = absolutePageUrlForFile(siteUrl, htmlFile);
+    const targetUrl = resolvePageUrlForFile(siteUrl, htmlFile, html) || pageUrl;
+
+    if (htmlFile === 'index.html') {
+      await writeLegacyPortfolioAlias(path.join(LEGACY_PORTFOLIO_ALIAS_DIR, 'index.html'), targetUrl);
+      continue;
+    }
+
+    await writeLegacyPortfolioAlias(path.join(LEGACY_PORTFOLIO_ALIAS_DIR, htmlFile), targetUrl);
+    await writeLegacyPortfolioAlias(
+      path.join(LEGACY_PORTFOLIO_ALIAS_DIR, htmlFile.replace(/\.html$/i, ''), 'index.html'),
+      targetUrl
+    );
+  }
+};
+
+const generateLegacyPortfolioXmlAliases = async () => {
+  const legacyDir = path.join(OUT_DIR, LEGACY_PORTFOLIO_ALIAS_DIR);
+  await fs.mkdir(legacyDir, { recursive: true });
+
+  for (const fileName of ['sitemap.xml', 'image-sitemap.xml', 'feed.xml']) {
+    const sourcePath = path.join(OUT_DIR, fileName);
+    if (!(await fileExists(sourcePath))) continue;
+    await copyFile(sourcePath, path.join(legacyDir, fileName));
+  }
+};
+
 const applyMetadataForSiteUrl = async (siteUrl, legacyHosts, seoData) => {
   const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
     .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
@@ -703,11 +862,13 @@ const main = async () => {
   }
 
   await applyMetadataForSiteUrl(siteUrl, legacyHosts, seoData);
+  await generateLegacyPortfolioHtmlAliases(siteUrl);
   await updateDeploySiteConfig(siteUrl);
   await generateRobotsTxt(siteUrl);
   await generateSitemapXml(siteUrl, seoData);
   await generateImageSitemapXml(siteUrl);
   await generateFeedXml(siteUrl, seoData);
+  await generateLegacyPortfolioXmlAliases();
   await assertNoPrivateAssetRefs();
   console.log(`Applied deployment metadata base URL: ${siteUrl}`);
 
