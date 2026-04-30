@@ -1,0 +1,328 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - button "Toggle navigation" [ref=e6] [cursor=pointer]
+  - main [ref=e10]:
+    - navigation "Breadcrumb" [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "Home" [ref=e14]:
+            - /url: index.html
+        - listitem [ref=e15]:
+          - text: /
+          - generic [ref=e16]: Nghiên cứu
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - link " Quay lại Portfolio" [ref=e20]:
+          - /url: index.html#research
+          - generic [ref=e21]: 
+          - text: Quay lại Portfolio
+        - paragraph [ref=e22]: Kho dự án nghiên cứu
+        - heading "Dự án Market Research & Applied Analytics" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Mười một dự án market research, consumer insights và applied analytics, trải rộng từ hospitality segmentation, EV choice, policy acceptance, influencer retention, buffet nudging, nutrition đến organizational behavior. Các case ưu tiên gồm EV choice, chính sách xe máy, hotel segmentation và service-quality research.
+        - generic "Research topic clusters" [ref=e25]:
+          - generic [ref=e26]: Phân khúc hospitality
+          - generic [ref=e27]: Lựa chọn EV
+          - generic [ref=e28]: Mobility policy
+          - generic [ref=e29]: UGC retention
+          - generic [ref=e30]: Nutrition & chất lượng ăn uống
+          - generic [ref=e31]: Organizational behavior
+        - note "Evidence interpretation guide" [ref=e32]:
+          - strong [ref=e33]: "Evidence labels:"
+          - text: These labels show how directly each claim is supported.
+        - paragraph [ref=e34]: Cập nhật ngày 21/04/2026
+        - region "Research organized by domain and phương pháp." [ref=e35]:
+          - generic [ref=e36]:
+            - paragraph [ref=e37]: Mảng nghiên cứu
+            - heading "Research organized by domain and phương pháp." [level=2] [ref=e38]
+            - paragraph [ref=e39]: Mỗi trang domain gom các nghiên cứu liên quan, làm rõ bối cảnh quyết định và nối sang các case gần kề trong kho nghiên cứu.
+          - generic [ref=e40]:
+            - link "Hospitality Nghiên cứu Hospitality Analytics Hotel segmentation, bất đối xứng thuộc tính, and khung giá trị for đội ngũ dịch vụ. 3 projects Chất lượng dịch vụ" [ref=e41]:
+              - /url: hospitality-analytics.html
+              - generic [ref=e42]: Hospitality
+              - heading "Nghiên cứu Hospitality Analytics" [level=3] [ref=e43]
+              - paragraph [ref=e44]: Hotel segmentation, bất đối xứng thuộc tính, and khung giá trị for đội ngũ dịch vụ.
+              - generic [ref=e45]:
+                - generic [ref=e46]: 3 projects
+                - generic [ref=e47]: Chất lượng dịch vụ
+            - link "Mobility Nghiên cứu Mobility và Policy Lựa chọn EV trade-offs and chuyển đổi-mức chấp nhận chính sách in Việt Nam. 2 projects Choice modeling" [ref=e48]:
+              - /url: mobility-policy.html
+              - generic [ref=e49]: Mobility
+              - heading "Nghiên cứu Mobility và Policy" [level=3] [ref=e50]
+              - paragraph [ref=e51]: Lựa chọn EV trade-offs and chuyển đổi-mức chấp nhận chính sách in Việt Nam.
+              - generic [ref=e52]:
+                - generic [ref=e53]: 2 projects
+                - generic [ref=e54]: Choice modeling
+            - link "Creators Nghiên cứu Creator Economy Retention, engagement, brand transfer, and virtual-influencer trust. 2 projects Platform behavior" [ref=e55]:
+              - /url: creator-economy.html
+              - generic [ref=e56]: Creators
+              - heading "Nghiên cứu Creator Economy" [level=3] [ref=e57]
+              - paragraph [ref=e58]: Retention, engagement, brand transfer, and virtual-influencer trust.
+              - generic [ref=e59]:
+                - generic [ref=e60]: 2 projects
+                - generic [ref=e61]: Platform behavior
+            - link "Health Nghiên cứu Health và Behavior Chất lượng ăn uống, buffet nudging, and behavior-change bối cảnhs. 2 projects Behavior design" [ref=e62]:
+              - /url: health-behavior.html
+              - generic [ref=e63]: Health
+              - heading "Nghiên cứu Health và Behavior" [level=3] [ref=e64]
+              - paragraph [ref=e65]: Chất lượng ăn uống, buffet nudging, and behavior-change bối cảnhs.
+              - generic [ref=e66]:
+                - generic [ref=e67]: 2 projects
+                - generic [ref=e68]: Behavior design
+            - link "Organizations Nghiên cứu Organizational Behavior Ownership, participation, and co-created experience in institutional settings. 2 projects Engagement" [ref=e69]:
+              - /url: organizational-behavior.html
+              - generic [ref=e70]: Organizations
+              - heading "Nghiên cứu Organizational Behavior" [level=3] [ref=e71]
+              - paragraph [ref=e72]: Ownership, participation, and co-created experience in institutional settings.
+              - generic [ref=e73]:
+                - generic [ref=e74]: 2 projects
+                - generic [ref=e75]: Engagement
+          - generic "Supporting portfolio routes" [ref=e76]:
+            - link "About Chung Hy Dai and phương pháp luận" [ref=e77]:
+              - /url: about.html
+            - link "Đã xác thực signals and tham chiếu công khai" [ref=e78]:
+              - /url: references.html
+            - link "Research insights and short notes" [ref=e79]:
+              - /url: insights.html
+            - link "Chứng chỉ" [ref=e80]:
+              - /url: index.html#credentials
+            - link "Main portfolio" [ref=e81]:
+              - /url: index.html
+      - generic [ref=e82]:
+        - heading "Research project list" [level=2] [ref=e83]
+        - generic [ref=e84]:
+          - heading "Nghiên cứu Hospitality Analytics" [level=2] [ref=e85]:
+            - link "Nghiên cứu Hospitality Analytics" [ref=e86]:
+              - /url: hospitality-analytics.html
+          - paragraph [ref=e87]: Hotel segmentation, bất đối xứng thuộc tính, and khung giá trị.
+          - link "Phân khúc khách hàng khách sạn dashboard Hospitality Hotel Customer Segmentation from Aspect-Level Sentiment Aspect-level sentiment segmentation from 74,896 reviews to map 10 guest segments for hotel decision-making. Aspect-Based Sentiment analysis K-means" [ref=e88]:
+            - /url: research-hotel.html
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - img "Phân khúc khách hàng khách sạn dashboard" [ref=e92]
+                - generic [ref=e93]: Hospitality
+              - generic [ref=e94]:
+                - heading "Hotel Customer Segmentation from Aspect-Level Sentiment" [level=3] [ref=e95]
+                - paragraph [ref=e96]: Aspect-level sentiment segmentation from 74,896 reviews to map 10 guest segments for hotel decision-making.
+                - generic [ref=e97]:
+                  - generic [ref=e98]: Aspect-Based Sentiment analysis
+                  - generic [ref=e99]: K-means
+          - link "Hotel Attribute Asymmetry in Vietnam (PRCA + Kano) Hospitality Hotel Attribute Asymmetry in Vietnam (PRCA + Kano) PRCA and Kano analysis of 97,014 reviews identifies hotel attribute penalties, rewards, and basics. Sentence-BERT PRCA" [ref=e100]:
+            - /url: research-hotel-prca.html
+            - generic:
+              - generic [ref=e101]:
+                - img "Hotel Attribute Asymmetry in Vietnam (PRCA + Kano)" [ref=e103]
+                - generic [ref=e104]: Hospitality
+              - generic [ref=e105]:
+                - heading "Hotel Attribute Asymmetry in Vietnam (PRCA + Kano)" [level=3] [ref=e106]
+                - paragraph [ref=e107]: PRCA and Kano analysis of 97,014 reviews identifies hotel attribute penalties, rewards, and basics.
+                - generic [ref=e108]:
+                  - generic [ref=e109]: Sentence-BERT
+                  - generic [ref=e110]: PRCA
+          - link "Hotel Value Segmentation Framework Hospitality Hotel Value Segmentation Framework Review text signals are translated into value-led hospitality segments. Value Mapping Narrative Translation" [ref=e111]:
+            - /url: research-hotel-value.html
+            - generic:
+              - generic [ref=e112]:
+                - img "Hotel Value Segmentation Framework" [ref=e113]
+                - generic [ref=e114]: Hospitality
+              - generic [ref=e115]:
+                - heading "Hotel Value Segmentation Framework" [level=3] [ref=e116]
+                - paragraph [ref=e117]: Review text signals are translated into value-led hospitality segments.
+                - generic [ref=e118]:
+                  - generic [ref=e119]: Value Mapping
+                  - generic [ref=e120]: Narrative Translation
+          - heading "Nghiên cứu Mobility và Policy" [level=2] [ref=e121]:
+            - link "Nghiên cứu Mobility và Policy" [ref=e122]:
+              - /url: mobility-policy.html
+          - paragraph [ref=e123]: Lựa chọn EV trade-offs and Hà Nội phase-out xe máy mức chấp nhận.
+          - link "EV product-choice experiment stimulus board Policy EV Choice Experiment in Vietnam EV choice experiment with n = 212 maps design, range, price, and charging trade-offs across pragmatic and aesthetic consumer segments in Vietnam. Choice Profile Design Attribute Trade-off Logic" [ref=e124]:
+            - /url: research-ev.html
+            - generic:
+              - generic [ref=e125]:
+                - img "EV product-choice experiment stimulus board" [ref=e127]
+                - generic [ref=e128]: Policy
+              - generic [ref=e129]:
+                - heading "EV Choice Experiment in Vietnam" [level=3] [ref=e130]
+                - paragraph [ref=e131]: EV choice experiment with n = 212 maps design, range, price, and charging trade-offs across pragmatic and aesthetic consumer segments in Vietnam.
+                - generic [ref=e132]:
+                  - generic [ref=e133]: Choice Profile Design
+                  - generic [ref=e134]: Attribute Trade-off Logic
+          - link "Motorbike ban policy Policy Hanoi Motorbike Phase-Out Policy Acceptance Phase-out acceptance is framed through pull/support-first sequencing before broad restrictions. Discrete choice experiment Multinomial Logit" [ref=e135]:
+            - /url: research-motorbike-ban.html
+            - generic:
+              - generic [ref=e136]:
+                - img "Motorbike ban policy" [ref=e137]
+                - generic [ref=e138]: Policy
+              - generic [ref=e139]:
+                - heading "Hanoi Motorbike Phase-Out Policy Acceptance" [level=3] [ref=e140]
+                - paragraph [ref=e141]: Phase-out acceptance is framed through pull/support-first sequencing before broad restrictions.
+                - generic [ref=e142]:
+                  - generic [ref=e143]: Discrete choice experiment
+                  - generic [ref=e144]: Multinomial Logit
+          - heading "Nghiên cứu Creator Economy" [level=2] [ref=e145]:
+            - link "Nghiên cứu Creator Economy" [ref=e146]:
+              - /url: creator-economy.html
+          - paragraph [ref=e147]: UGC retention, brand transfer, virtual-influencer trust, and purchase ý định.
+          - link "Four-E retention framework for influencer marketing on Nền tảng UGC Creator Economy Influencer Retention, Engagement, and Brand Transfer on UGC Platforms Four-E UGC retention model linking engagement quality, brand equity, and return intent. Structural equation Mô hìnhing UGC Retention Strategy" [ref=e148]:
+            - /url: research-leveraging-influencer.html
+            - generic:
+              - generic [ref=e149]:
+                - img "Four-E retention framework for influencer marketing on Nền tảng UGC" [ref=e150]
+                - generic [ref=e151]: Creator Economy
+              - generic [ref=e152]:
+                - heading "Influencer Retention, Engagement, and Brand Transfer on UGC Platforms" [level=3] [ref=e153]
+                - paragraph [ref=e154]: Four-E UGC retention model linking engagement quality, brand equity, and return intent.
+                - generic [ref=e155]:
+                  - generic [ref=e156]: Structural equation Mô hìnhing
+                  - generic [ref=e157]: UGC Retention Strategy
+          - link "Virtual Influencer Trust and Purchase Intention Creator Economy Virtual Influencer Trust and Purchase Intention Consumer insights and creator-economy research on virtual influencer cues, Gen Z trust, and purchase intention through credibility, relevance, and disclosure guardrails. Quantitative Survey Statistical Mô hìnhing" [ref=e158]:
+            - /url: research-virtual-influencers.html
+            - generic:
+              - generic [ref=e159]:
+                - img "Virtual Influencer Trust and Purchase Intention" [ref=e160]
+                - generic [ref=e161]: Creator Economy
+              - generic [ref=e162]:
+                - heading "Virtual Influencer Trust and Purchase Intention" [level=3] [ref=e163]
+                - paragraph [ref=e164]: Consumer insights and creator-economy research on virtual influencer cues, Gen Z trust, and purchase intention through credibility, relevance, and disclosure guardrails.
+                - generic [ref=e165]:
+                  - generic [ref=e166]: Quantitative Survey
+                  - generic [ref=e167]: Statistical Mô hìnhing
+          - heading "Nghiên cứu Health và Behavior" [level=2] [ref=e168]:
+            - link "Nghiên cứu Health và Behavior" [ref=e169]:
+              - /url: health-behavior.html
+          - paragraph [ref=e170]: Kiến thức dinh dưỡng, chất lượng ăn uống, menu nudging, and food-decision bối cảnhs.
+          - link "Buffet main menu Health & Behavior Buffet Menu Nudging and Choice Architecture Healthier-first menu sequencing reduced intended calories and shifted choice toward lower-priced buffet bundles. Experimental Design ANOVA" [ref=e171]:
+            - /url: research-buffet.html
+            - generic:
+              - generic [ref=e172]:
+                - img "Buffet main menu" [ref=e173]
+                - generic [ref=e174]: Health & Behavior
+              - generic [ref=e175]:
+                - heading "Buffet Menu Nudging and Choice Architecture" [level=3] [ref=e176]
+                - paragraph [ref=e177]: Healthier-first menu sequencing reduced intended calories and shifted choice toward lower-priced buffet bundles.
+                - generic [ref=e178]:
+                  - generic [ref=e179]: Experimental Design
+                  - generic [ref=e180]: ANOVA
+          - link "Student Diet Quality in Vietnam Health & Behavior Student Diet Quality in Vietnam Survey data from 280 Vietnamese university students links nutrition knowledge and physical activity to diet quality and intervention priorities. Statistical Regression Survey Phương pháp luận" [ref=e181]:
+            - /url: research-nutrition.html
+            - generic:
+              - generic [ref=e182]:
+                - img "Student Diet Quality in Vietnam" [ref=e183]
+                - generic [ref=e184]: Health & Behavior
+              - generic [ref=e185]:
+                - heading "Student Diet Quality in Vietnam" [level=3] [ref=e186]
+                - paragraph [ref=e187]: Survey data from 280 Vietnamese university students links nutrition knowledge and physical activity to diet quality and intervention priorities.
+                - generic [ref=e188]:
+                  - generic [ref=e189]: Statistical Regression
+                  - generic [ref=e190]: Survey Phương pháp luận
+          - heading "Nghiên cứu Organizational Behavior" [level=2] [ref=e191]:
+            - link "Nghiên cứu Organizational Behavior" [ref=e192]:
+              - /url: organizational-behavior.html
+          - paragraph [ref=e193]: Psychological ownership and arts workshop co-creation.
+          - link "Students in class during university session Organizational Psychological Ownership in Vietnam Universities Ownership evidence is translated into practical commitment actions for Vietnam university teams. Survey Design Quantitative Research" [ref=e194]:
+            - /url: research-psych-ownership.html
+            - generic:
+              - generic [ref=e195]:
+                - img "Students in class during university session" [ref=e196]
+                - generic [ref=e197]: Organizational
+              - generic [ref=e198]:
+                - heading "Psychological Ownership in Vietnam Universities" [level=3] [ref=e199]
+                - paragraph [ref=e200]: Ownership evidence is translated into practical commitment actions for Vietnam university teams.
+                - generic [ref=e201]:
+                  - generic [ref=e202]: Survey Design
+                  - generic [ref=e203]: Quantitative Research
+          - link "Arts Workshop Co-creation and Customer Interest Organizational Arts Workshop Co-creation and Customer Interest Emotional, social, and learning cues are sequenced to support repeat arts workshop participation. Value Framework Structural equation Mô hìnhing" [ref=e204]:
+            - /url: research-arts-workshop.html
+            - generic:
+              - generic [ref=e205]:
+                - img "Arts Workshop Co-creation and Customer Interest" [ref=e206]
+                - generic [ref=e207]: Organizational
+              - generic [ref=e208]:
+                - heading "Arts Workshop Co-creation and Customer Interest" [level=3] [ref=e209]
+                - paragraph [ref=e210]: Emotional, social, and learning cues are sequenced to support repeat arts workshop participation.
+                - generic [ref=e211]:
+                  - generic [ref=e212]: Value Framework
+                  - generic [ref=e213]: Structural equation Mô hìnhing
+      - region "Portfolio summary" [ref=e214]:
+        - generic [ref=e215]:
+          - generic [ref=e216]: Hiring
+          - heading "Portfolio summary" [level=2] [ref=e217]
+          - paragraph [ref=e218]: Xem kho dự án trước, rồi dùng portfolio chính để kiểm tra kinh nghiệm, kỹ năng và credentials.
+        - generic [ref=e219]:
+          - link " Email Chung Hy Dai" [ref=e220]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - generic [ref=e221]: 
+            - text: Email Chung Hy Dai
+          - link " Xem chứng chỉ" [ref=e222]:
+            - /url: index.html#credentials
+            - generic [ref=e223]: 
+            - text: Xem chứng chỉ
+  - region "Xem các tuyến chính của portfolio" [ref=e224]:
+    - generic [ref=e226]:
+      - paragraph [ref=e227]: Điều hướng site
+      - heading "Xem các tuyến chính của portfolio" [level=2] [ref=e228]
+      - paragraph [ref=e229]: Dùng các link trực tiếp này để chuyển giữa trang hồ sơ, archive và các cụm nghiên cứu mà không phụ thuộc vào một tuyến header duy nhất.
+      - list [ref=e230]:
+        - listitem [ref=e231]:
+          - link "Chung Hy Dai portfolio homepage" [ref=e232]:
+            - /url: index.html
+        - listitem [ref=e233]:
+          - link "Giới thiệu Chung Hy Dai và phương pháp nghiên cứu" [ref=e234]:
+            - /url: about.html
+        - listitem [ref=e235]:
+          - link "Tín hiệu xác thực và tham chiếu bên ngoài" [ref=e236]:
+            - /url: references.html
+        - listitem [ref=e237]:
+          - link "Research insights và kho ghi chú" [ref=e238]:
+            - /url: insights.html
+        - listitem [ref=e239]:
+          - link "Ghi chú về quyền riêng tư và visitor analytics" [ref=e240]:
+            - /url: privacy.html
+        - listitem [ref=e241]:
+          - link "Hospitality Analytics Research case study" [ref=e242]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e243]:
+          - link "Mobility and Policy Research case study" [ref=e244]:
+            - /url: mobility-policy.html
+        - listitem [ref=e245]:
+          - link "Creator economy Research case study" [ref=e246]:
+            - /url: creator-economy.html
+        - listitem [ref=e247]:
+          - link "Health and Nghiên cứu hành vi case study" [ref=e248]:
+            - /url: health-behavior.html
+        - listitem [ref=e249]:
+          - link "Organizational Nghiên cứu hành vi case study" [ref=e250]:
+            - /url: organizational-behavior.html
+  - contentinfo [ref=e251]:
+    - generic [ref=e252]:
+      - heading "Xem research portfolio." [level=2] [ref=e253]
+      - paragraph [ref=e254]: Liên hệ qua email cho research, analytics, operations hoặc review vị trí trainee.
+      - generic [ref=e255]:
+        - link " Email Chung Hy Dai" [ref=e256]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - generic [ref=e257]: 
+          - text: Email Chung Hy Dai
+        - link " Xem chứng chỉ" [ref=e258]:
+          - /url: index.html#credentials
+          - generic [ref=e259]: 
+          - text: Xem chứng chỉ
+      - generic [ref=e260]:
+        - link " daichunghy@gmail.com" [ref=e261]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e262]: 
+          - text: daichunghy@gmail.com
+        - link " LinkedIn" [ref=e263]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e264]: 
+          - text: LinkedIn
+        - link " ORCID" [ref=e265]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e266]: 
+          - text: ORCID
+        - generic [ref=e267]:
+          - generic [ref=e268]: 
+          - text: TP. Hồ Chí Minh, Việt Nam
+      - paragraph [ref=e270]: © 2026 Chung Hy Dai.

@@ -1,0 +1,291 @@
+- generic [ref=e1]:
+  - text: 
+  - generic [ref=e2]:
+    - complementary "Profile and site navigation" [ref=e3]:
+      - generic [ref=e4]:
+        - link "Chung Hy Dai home" [ref=e5] [cursor=pointer]:
+          - /url: index.html
+          - text: Chung
+          - text: Hy Dai
+        - paragraph [ref=e6]: Research. Insight. Business impact.
+      - generic [ref=e7]:
+        - img "Portrait of Chung Hy Dai" [ref=e9]
+        - paragraph [ref=e10]:
+          - strong [ref=e11]: Hi, I am Chung Hy Dai.
+        - paragraph [ref=e12]: I help teams turn market evidence and customer signals into clear choices, reports, and next steps.
+      - navigation "Portfolio sections" [ref=e13]:
+        - link "Home" [ref=e14] [cursor=pointer]:
+          - /url: "#top"
+          - generic [ref=e15]: 
+          - generic [ref=e16]: Home
+        - link "Work" [ref=e17] [cursor=pointer]:
+          - /url: "#research"
+          - generic [ref=e18]: 
+          - generic [ref=e19]: Work
+        - link "Expertise" [ref=e20] [cursor=pointer]:
+          - /url: "#expertise"
+          - generic [ref=e21]: 
+          - generic [ref=e22]: Expertise
+        - link "Results" [ref=e23] [cursor=pointer]:
+          - /url: "#impact"
+          - generic [ref=e24]: 
+          - generic [ref=e25]: Results
+        - link "About" [ref=e26] [cursor=pointer]:
+          - /url: "#about"
+          - generic [ref=e27]: 
+          - generic [ref=e28]: About
+        - link "Credentials" [ref=e29] [cursor=pointer]:
+          - /url: "#credentials"
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Credentials
+        - link "Contact" [ref=e32] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e33]: 
+          - generic [ref=e34]: Contact
+      - generic "Language switcher" [ref=e36]:
+        - generic [ref=e37]: Language
+        - link "EN English version" [ref=e38] [cursor=pointer]:
+          - /url: index.html
+          - text: EN
+          - generic [ref=e39]: English version
+        - link "VI Vietnamese version" [ref=e40] [cursor=pointer]:
+          - /url: vi/index.html
+          - text: VI
+          - generic [ref=e41]: Vietnamese version
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: 
+          - text: Ho Chi Minh City, Vietnam
+        - link "daichunghy@gmail.com" [ref=e45] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e46]: 
+          - text: daichunghy@gmail.com
+        - link "LinkedIn" [ref=e47] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e48]: 
+          - text: LinkedIn
+        - link "ORCID" [ref=e49] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e50]: 
+          - text: ORCID
+    - main [ref=e51]:
+      - generic "I turn insight into strategy and smarter decisions." [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: Market insight. Customer understanding. Business strategy.
+          - heading "I turn insight into strategy and smarter decisions." [level=1] [ref=e55]
+          - paragraph [ref=e56]: I partner with teams to understand customers, markets, and opportunities, then translate the evidence into clear recommendations that people can use.
+          - generic [ref=e57]:
+            - link "View featured work " [ref=e58] [cursor=pointer]:
+              - /url: "#research"
+              - text: View featured work
+              - generic [ref=e59]: 
+            - link "Open all projects" [ref=e60] [cursor=pointer]:
+              - /url: projects.html
+        - generic "Profile summary" [ref=e61]:
+          - img "Chung Hy Dai portrait" [ref=e63]
+          - generic [ref=e64]:
+            - strong [ref=e65]: Market research and consumer insights
+            - generic [ref=e66]: 11 applied projects across hospitality, mobility, creators, health, and organizations.
+      - region "Hotel customer segmentation" [ref=e67]:
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Featured work
+          - link "View all work " [ref=e70] [cursor=pointer]:
+            - /url: projects.html
+            - text: View all work
+            - generic [ref=e71]: 
+        - link "Hotel customer segmentation" [ref=e72] [cursor=pointer]:
+          - /url: research-hotel.html
+          - img "Hotel customer segmentation dashboard" [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Hospitality analytics
+            - heading "Hotel customer segmentation" [level=2] [ref=e76]
+            - paragraph [ref=e77]: Mapped 10 guest segments from 74,896 Booking.com reviews to guide targeting, positioning, and service priorities.
+            - strong [ref=e78]:
+              - text: View project
+              - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - paragraph [ref=e81]: Selected projects
+          - link "View all work " [ref=e82] [cursor=pointer]:
+            - /url: projects.html
+            - text: View all work
+            - generic [ref=e83]: 
+        - generic "Selected project cards" [ref=e84]:
+          - link "EV product-choice experiment stimulus board Choice modeling EV consumer preference study Explored how buyers trade off design, range, price, and charging access." [ref=e85] [cursor=pointer]:
+            - /url: research-ev.html
+            - img "EV product-choice experiment stimulus board" [ref=e86]
+            - generic [ref=e88]: 
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: Choice modeling
+              - heading "EV consumer preference study" [level=3] [ref=e91]
+              - generic [ref=e92]: Explored how buyers trade off design, range, price, and charging access.
+          - link "Motorbike phase-out policy study visual Mobility policy Motorbike phase-out acceptance Framed public support around transit access, financial support, and rollout timing." [ref=e93] [cursor=pointer]:
+            - /url: research-motorbike-ban.html
+            - img "Motorbike phase-out policy study visual" [ref=e94]
+            - generic [ref=e96]: 
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: Mobility policy
+              - heading "Motorbike phase-out acceptance" [level=3] [ref=e99]
+              - generic [ref=e100]: Framed public support around transit access, financial support, and rollout timing.
+          - link "Editorial creator retention and engagement analytics visual Creator economy Influencer retention research Linked content experience, engagement, brand transfer, and return intent." [ref=e101] [cursor=pointer]:
+            - /url: research-leveraging-influencer.html
+            - img "Editorial creator retention and engagement analytics visual" [ref=e102]
+            - generic [ref=e104]: 
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: Creator economy
+              - heading "Influencer retention research" [level=3] [ref=e107]
+              - generic [ref=e108]: Linked content experience, engagement, brand transfer, and return intent.
+          - link "FCBEM gala dinner photo used in nutrition research context Health behavior Student diet quality in Vietnam Identified knowledge and activity factors linked to stronger diet-quality signals." [ref=e109] [cursor=pointer]:
+            - /url: research-nutrition.html
+            - img "FCBEM gala dinner photo used in nutrition research context" [ref=e110]
+            - generic [ref=e112]: 
+            - generic [ref=e113]:
+              - paragraph [ref=e114]: Health behavior
+              - heading "Student diet quality in Vietnam" [level=3] [ref=e115]
+              - generic [ref=e116]: Identified knowledge and activity factors linked to stronger diet-quality signals.
+      - region "Research that moves from evidence to action." [ref=e117]:
+        - paragraph [ref=e118]: How I help
+        - heading "Research that moves from evidence to action." [level=2] [ref=e119]
+        - generic [ref=e120]:
+          - article [ref=e121]:
+            - generic [ref=e122]: 
+            - heading "Market insight" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Clarify what is changing across markets, categories, and customer groups.
+          - article [ref=e125]:
+            - generic [ref=e126]: 
+            - heading "Customer understanding" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Use surveys, reviews, and interviews to understand how people choose.
+          - article [ref=e129]:
+            - generic [ref=e130]: 
+            - heading "Strategy and translation" [level=3] [ref=e131]
+            - paragraph [ref=e132]: Turn analysis into short reports, visuals, and practical recommendations.
+          - article [ref=e133]:
+            - generic [ref=e134]: 
+            - heading "Decision support" [level=3] [ref=e135]
+            - paragraph [ref=e136]: Help teams compare options and decide with more confidence.
+      - region "A concise view of the portfolio." [ref=e137]:
+        - paragraph [ref=e138]: Impact snapshot
+        - heading "A concise view of the portfolio." [level=2] [ref=e139]
+        - generic [ref=e140]:
+          - article [ref=e141]:
+            - strong [ref=e142]: "11"
+            - generic [ref=e143]: Applied research projects
+          - article [ref=e144]:
+            - strong [ref=e145]: "2"
+            - generic [ref=e146]: Publication-linked outputs
+          - article [ref=e147]:
+            - strong [ref=e148]: 2+
+            - generic [ref=e149]: Years of project activity
+          - article [ref=e150]:
+            - strong [ref=e151]: 74,896
+            - generic [ref=e152]: Hotel reviews analyzed
+          - article [ref=e153]:
+            - strong [ref=e154]: "5"
+            - generic [ref=e155]: Research domains
+      - region "Market research and consumer insights analyst." [ref=e156]:
+        - generic [ref=e157]:
+          - paragraph [ref=e158]: About
+          - heading "Market research and consumer insights analyst." [level=2] [ref=e159]
+          - paragraph [ref=e160]: Business graduate from Swinburne University with project work in market research, consumer insights, survey analysis, text analytics, and AI-assisted exploration. The work is organized around clear questions, evidence, and practical next steps.
+          - paragraph [ref=e161]: This portfolio is published under Chung Hy Dai and may also appear as Dai Chung Hy in reversed-name references.
+          - generic [ref=e162]:
+            - link "LinkedIn" [ref=e163] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+              - generic [ref=e164]: 
+              - text: LinkedIn
+            - link "ORCID" [ref=e165] [cursor=pointer]:
+              - /url: https://orcid.org/0009-0009-6790-8981
+              - generic [ref=e166]: 
+              - text: ORCID
+            - link "Swinburne feature" [ref=e167] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - generic [ref=e168]: 
+              - text: Swinburne feature
+        - generic [ref=e169]:
+          - img "Swinburne Vietnam news feature highlighting Chung Hy Dai" [ref=e170]
+          - generic [ref=e171]:
+            - paragraph [ref=e172]: Swinburne Vietnam News feature
+            - heading "External profile covering applied project work." [level=3] [ref=e173]
+            - link "Read source article" [ref=e174] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - text: Read source article
+              - generic [ref=e175]: 
+      - region "Credentials and public signals." [ref=e176]:
+        - paragraph [ref=e177]: Recognition
+        - heading "Credentials and public signals." [level=2] [ref=e178]
+        - generic [ref=e179]:
+          - article [ref=e180]:
+            - generic [ref=e181]: 
+            - heading "HSBC Business Case 2024" [level=3] [ref=e182]
+            - paragraph [ref=e183]: Advanced to the Champion Round and presented recommendations under time pressure.
+          - article [ref=e184]:
+            - generic [ref=e185]: 
+            - heading "Swinburne academic scholarship" [level=3] [ref=e186]
+            - paragraph [ref=e187]: Merit-based award for the Bachelor of Business program.
+          - article [ref=e188]:
+            - generic [ref=e189]: 
+            - heading "Aspiring Star research prize" [level=3] [ref=e190]
+            - paragraph [ref=e191]: Recognized by Greenovation for research activity and commitment to inquiry.
+        - generic [ref=e192]:
+          - article [ref=e193]:
+            - strong [ref=e194]: Publications
+            - generic [ref=e195]: FCBEM 2025 and Springer-linked virtual influencer chapter context.
+            - link "Open references" [ref=e196] [cursor=pointer]:
+              - /url: references.html
+              - text: Open references
+              - generic [ref=e197]: 
+          - article [ref=e198]:
+            - strong [ref=e199]: Education
+            - generic [ref=e200]: Bachelor of Business, Marketing major, Swinburne University of Technology.
+            - link "Profile and methodology" [ref=e201] [cursor=pointer]:
+              - /url: "#about"
+              - text: Profile and methodology
+              - generic [ref=e202]: 
+          - article [ref=e203]:
+            - strong [ref=e204]: Core skills
+            - generic [ref=e205]: Survey design, text analysis, segmentation, reporting, and decision notes.
+            - link "See work examples" [ref=e206] [cursor=pointer]:
+              - /url: projects.html
+              - text: See work examples
+              - generic [ref=e207]: 
+      - region "Let us turn insight into your next advantage." [ref=e208]:
+        - generic [ref=e209]:
+          - paragraph [ref=e210]: Contact
+          - heading "Let us turn insight into your next advantage." [level=2] [ref=e211]
+          - paragraph [ref=e212]: I am open to research, analytics, consulting, and project opportunities.
+        - generic [ref=e213]:
+          - link "daichunghy@gmail.com" [ref=e214] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com
+            - generic [ref=e215]: 
+            - text: daichunghy@gmail.com
+          - link "LinkedIn" [ref=e216] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - generic [ref=e217]: 
+            - text: LinkedIn
+          - link "ORCID" [ref=e218] [cursor=pointer]:
+            - /url: https://orcid.org/0009-0009-6790-8981
+            - generic [ref=e219]: 
+            - text: ORCID
+          - link "Send a message" [ref=e220] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - text: Send a message
+            - generic [ref=e221]: 
+  - dialog "Chọn ngôn ngữ" [ref=e223]:
+    - generic [ref=e225]:
+      - img [ref=e226]
+      - generic [ref=e229]: A文
+    - paragraph [ref=e230]: Language required
+    - heading "Chọn ngôn ngữ" [level=2] [ref=e231]
+    - paragraph [ref=e232]: Vui lòng chọn ngôn ngữ để tiếp tục sử dụng website.
+    - generic "Language options" [ref=e233]:
+      - button "Tiếng Việt Ngôn ngữ mặc định" [active] [ref=e234] [cursor=pointer]:
+        - generic [ref=e235]: ★
+        - generic [ref=e236]:
+          - strong [ref=e237]: Tiếng Việt
+          - generic [ref=e238]: Ngôn ngữ mặc định
+      - button "English English language" [ref=e240] [cursor=pointer]:
+        - generic [ref=e242]:
+          - strong [ref=e243]: English
+          - generic [ref=e244]: English language
+    - paragraph [ref=e246]:
+      - generic [ref=e247]: ✓
+      - text: Ngôn ngữ có thể thay đổi bất kỳ lúc nào bằng nút EN/VI.

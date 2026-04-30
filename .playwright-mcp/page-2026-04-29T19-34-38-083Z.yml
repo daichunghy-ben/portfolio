@@ -1,0 +1,175 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - generic [ref=e6]:
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: about.html
+        - link "Research" [ref=e8] [cursor=pointer]:
+          - /url: projects.html
+        - link "References" [ref=e9] [cursor=pointer]:
+          - /url: references.html
+        - link "Insights" [ref=e10] [cursor=pointer]:
+          - /url: insights.html
+        - link "Credentials" [ref=e11] [cursor=pointer]:
+          - /url: index.html#credentials
+        - link " Contact" [ref=e12] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e13]: 
+          - text: Contact
+        - generic "Language switcher" [ref=e14]:
+          - link "EN English version" [ref=e15] [cursor=pointer]:
+            - /url: privacy.html
+            - text: EN
+            - generic [ref=e16]: English version
+          - link "VI Vietnamese version" [ref=e17] [cursor=pointer]:
+            - /url: vi/privacy.html
+            - text: VI
+            - generic [ref=e18]: Vietnamese version
+  - main [ref=e19]:
+    - navigation "Breadcrumb" [ref=e20]:
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - link "Home" [ref=e23] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e24]:
+          - text: /
+          - generic [ref=e25]: Privacy
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]: Privacy and analytics
+        - heading "Visitor analytics note" [level=1] [ref=e31]
+        - paragraph [ref=e32]: This portfolio may use privacy-respecting analytics to understand aggregate visits, portfolio source links, and contact actions. It is not designed to identify a visitor by name, employer, email address, IP address, or device fingerprint.
+        - paragraph [ref=e33]: Last updated 25 Apr 2026
+        - generic [ref=e34]:
+          - link " Contact Chung Hy Dai" [ref=e35] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Privacy%20Question
+            - generic [ref=e36]: 
+            - text: Contact Chung Hy Dai
+          - link " Verified references" [ref=e37] [cursor=pointer]:
+            - /url: references.html
+            - generic [ref=e38]: 
+            - text: Verified references
+      - complementary [ref=e39]:
+        - heading "What the site can learn" [level=2] [ref=e40]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - strong [ref=e43]: Traffic source
+            - generic [ref=e44]: Whether a visit came from search, LinkedIn, GitHub, ORCID, a direct link, or a tagged campaign URL.
+          - generic [ref=e45]:
+            - strong [ref=e46]: Portfolio engagement
+            - generic [ref=e47]: Which pages are viewed, and whether a visitor clicks email, profile, research, or download links.
+          - generic [ref=e48]:
+            - strong [ref=e49]: Voluntary identity
+            - generic [ref=e50]: Name, organization, or role only if the visitor chooses to share it by email or a future contact form.
+    - generic [ref=e53]:
+      - article [ref=e54]:
+        - strong [ref=e55]: Analytics status
+        - generic [ref=e56]: The production build can enable Plausible Analytics or Google Analytics 4 through deployment variables. If no analytics provider is configured, the local analytics helper remains inactive.
+      - article [ref=e57]:
+        - strong [ref=e58]: Events measured
+        - generic [ref=e59]: Configured analytics may record campaign landing events, email/contact clicks, document downloads, and outbound profile clicks. Event properties avoid email addresses, full query strings, credential images, or private identifiers.
+      - article [ref=e60]:
+        - strong [ref=e61]: What is not collected
+        - generic [ref=e62]: The portfolio does not intentionally collect government IDs, credential images, hidden proof links with personal identifiers, keystrokes, device fingerprints, or precise visitor identity.
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - heading "Recruiter contact route" [level=2] [ref=e67]
+        - paragraph [ref=e68]: If a recruiter or reviewer wants to identify themselves, the direct route is email. This keeps identity sharing explicit and review-safe.
+        - generic [ref=e69]:
+          - link "Email Chung Hy Dai Share role context, company name, or follow-up request voluntarily." [ref=e70] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - strong [ref=e71]: Email Chung Hy Dai
+            - generic [ref=e72]: Share role context, company name, or follow-up request voluntarily.
+          - link "LinkedIn profile Professional profile connected to the same portfolio identity." [ref=e73] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - strong [ref=e74]: LinkedIn profile
+            - generic [ref=e75]: Professional profile connected to the same portfolio identity.
+          - link "GitHub profile Public repository profile linked to the same name and homepage." [ref=e76] [cursor=pointer]:
+            - /url: https://github.com/daichunghy-ben
+            - strong [ref=e77]: GitHub profile
+            - generic [ref=e78]: Public repository profile linked to the same name and homepage.
+      - generic [ref=e79]:
+        - heading "Data handling principles" [level=2] [ref=e80]
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - strong [ref=e83]: Minimal measurement
+            - generic [ref=e84]: Track only the signals needed to improve the portfolio and understand contact intent.
+          - generic [ref=e85]:
+            - strong [ref=e86]: Clear source tagging
+            - generic [ref=e87]: Use UTM links from LinkedIn, GitHub, ORCID, CVs, and email signatures so source attribution does not require invasive identification.
+          - generic [ref=e88]:
+            - strong [ref=e89]: Private proof stays private
+            - generic [ref=e90]: Credential proof that contains personal identifiers is not published as public imagery or linked as crawlable proof.
+  - region "Browse the main portfolio paths" [ref=e91]:
+    - generic [ref=e93]:
+      - paragraph [ref=e94]: Site Routes
+      - heading "Browse the main portfolio paths" [level=2] [ref=e95]
+      - paragraph [ref=e96]: Use these direct links to move between the profile page, the archive, and the research clusters without depending on one header route.
+      - list [ref=e97]:
+        - listitem [ref=e98]:
+          - link "Chung Hy Dai portfolio homepage" [ref=e99] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e100]:
+          - link "About Chung Hy Dai and research methodology" [ref=e101] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e102]:
+          - link "Market research projects archive" [ref=e103] [cursor=pointer]:
+            - /url: projects.html
+        - listitem [ref=e104]:
+          - link "Verified signals and external references" [ref=e105] [cursor=pointer]:
+            - /url: references.html
+        - listitem [ref=e106]:
+          - link "Research insights and note archive" [ref=e107] [cursor=pointer]:
+            - /url: insights.html
+        - listitem [ref=e108]:
+          - link "Hospitality Analytics Research case studies" [ref=e109] [cursor=pointer]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e110]:
+          - link "Mobility and Policy Research case studies" [ref=e111] [cursor=pointer]:
+            - /url: mobility-policy.html
+        - listitem [ref=e112]:
+          - link "Creator Economy Research case studies" [ref=e113] [cursor=pointer]:
+            - /url: creator-economy.html
+        - listitem [ref=e114]:
+          - link "Health and Behavior Research case studies" [ref=e115] [cursor=pointer]:
+            - /url: health-behavior.html
+        - listitem [ref=e116]:
+          - link "Organizational Behavior Research case studies" [ref=e117] [cursor=pointer]:
+            - /url: organizational-behavior.html
+  - contentinfo [ref=e118]:
+    - generic [ref=e119]:
+      - heading "Contact with clear context." [level=2] [ref=e120]
+      - paragraph [ref=e121]: For role review, research context, analytics work, or privacy questions, use the direct email route.
+      - generic [ref=e122]:
+        - link " Email Chung Hy Dai" [ref=e123] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - generic [ref=e124]: 
+          - text: Email Chung Hy Dai
+        - link " Portfolio Home" [ref=e125] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=e126]: 
+          - text: Portfolio Home
+      - generic [ref=e127]:
+        - link " daichunghy@gmail.com" [ref=e128] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e129]: 
+          - text: daichunghy@gmail.com
+        - generic [ref=e130]: "|"
+        - link " LinkedIn" [ref=e131] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e132]: 
+          - text: LinkedIn
+        - generic [ref=e133]: "|"
+        - link " GitHub" [ref=e134] [cursor=pointer]:
+          - /url: https://github.com/daichunghy-ben
+          - generic [ref=e135]: 
+          - text: GitHub
+        - generic [ref=e136]: "|"
+        - link " ORCID" [ref=e137] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e138]: 
+          - text: ORCID
+      - paragraph [ref=e140]: © 2026 Chung Hy Dai.

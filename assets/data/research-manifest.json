@@ -201,11 +201,6 @@
           "label": "Research detail",
           "url": "./research-motorbike-ban.html",
           "type": "internal"
-        },
-        {
-          "label": "CIEMB directory",
-          "url": "https://www.ciemb.org/",
-          "type": "external"
         }
       ],
       "visual_modules": [
@@ -224,9 +219,9 @@
         "reported",
         "illustrative"
       ],
-      "verification_status": "unverified",
-      "last_verified_at": "2026-04-20",
-      "evidence_strength": "limited",
+      "verification_status": "self-reported",
+      "last_verified_at": "2026-04-30",
+      "evidence_strength": "portfolio-supported",
       "claim_owner": "chung-hy-dai"
     },
     {
@@ -329,7 +324,7 @@
         "four-e-retention-framework",
         "lever-priority-map"
       ],
-      "card_image": "./assets/viz-influencer-four-e-retention.svg",
+      "card_image": "./assets/portfolio-creator-editorial.png",
       "card_summary": "Reported (self-reported): Four-E UGC retention model linking engagement quality, brand equity, and return intent.",
       "default_tiers": {
         "kpi": "reported",
@@ -442,7 +437,7 @@
         "choice-architecture",
         "sequencing-impact"
       ],
-      "card_image": "./assets/optimized/buffet-menu-optimized.webp",
+      "card_image": "./assets/portfolio-buffet-editorial.png",
       "card_summary": "Reported (self-reported): Healthier-first menu sequencing reduced intended calories and shifted choice toward lower-priced buffet bundles.",
       "default_tiers": {
         "kpi": "reported",
@@ -536,7 +531,7 @@
         "ownership-lever-map",
         "commitment-pathway"
       ],
-      "card_image": "https://ptehelper.com.au/wp-content/uploads/2022/02/swinburne-viet-nam.jpg",
+      "card_image": "./assets/portfolio-education-editorial.png",
       "card_summary": "Conceptual framework: Ownership evidence is translated into practical commitment actions for Vietnam university teams.",
       "default_tiers": {
         "kpi": "conceptual",
@@ -624,7 +619,7 @@
       "visual_modules": [
         "text-to-value-segments"
       ],
-      "card_image": "./assets/viz-hotel-value-segments.svg",
+      "card_image": "./assets/external/mirror/images-unsplash-com-photo-1445019980597-93fa8acb246c-06af72145bda.jpg",
       "card_summary": "Conceptual framework: Review text signals are translated into value-led hospitality segments.",
       "default_tiers": {
         "kpi": "conceptual",

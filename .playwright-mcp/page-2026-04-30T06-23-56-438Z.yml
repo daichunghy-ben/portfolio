@@ -1,0 +1,260 @@
+- generic [ref=e2]:
+  - complementary "Profile and site navigation" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Chung Hy Dai home" [ref=e5] [cursor=pointer]:
+        - /url: index.html
+        - text: Chung
+        - text: Hy Dai
+      - paragraph [ref=e6]: Research. Insight. Business impact.
+    - generic [ref=e7]:
+      - img "Portrait of Chung Hy Dai" [ref=e9]
+      - paragraph [ref=e10]:
+        - strong [ref=e11]: Chung Hy Dai
+      - paragraph [ref=e12]: Market evidence, customer signals, clear choices, practical next steps.
+    - navigation "Portfolio sections" [ref=e13]:
+      - link "Home" [ref=e14] [cursor=pointer]:
+        - /url: "#top"
+        - generic [ref=e15]: 
+        - generic [ref=e16]: Home
+      - link "Education" [ref=e17] [cursor=pointer]:
+        - /url: "#education"
+        - generic [ref=e18]: 
+        - generic [ref=e19]: Education
+      - link "Projects" [ref=e20] [cursor=pointer]:
+        - /url: "#research"
+        - generic [ref=e21]: 
+        - generic [ref=e22]: Projects
+      - link "Honors and Awards" [ref=e23] [cursor=pointer]:
+        - /url: "#honors"
+        - generic [ref=e24]: 
+        - generic [ref=e25]: Honors and Awards
+    - generic "Language switcher" [ref=e27]:
+      - generic [ref=e28]: Language
+      - link "EN English version" [ref=e29] [cursor=pointer]:
+        - /url: index.html
+        - text: EN
+        - generic [ref=e30]: English version
+      - link "VI Vietnamese version" [ref=e31] [cursor=pointer]:
+        - /url: vi/index.html
+        - text: VI
+        - generic [ref=e32]: Vietnamese version
+    - img
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - generic [ref=e35]: 
+        - text: Ho Chi Minh City, Vietnam
+      - link "daichunghy@gmail.com" [ref=e36] [cursor=pointer]:
+        - /url: mailto:daichunghy@gmail.com
+        - generic [ref=e37]: 
+        - text: daichunghy@gmail.com
+      - link "LinkedIn" [ref=e38] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+        - generic [ref=e39]: 
+        - text: LinkedIn
+      - link "ORCID" [ref=e40] [cursor=pointer]:
+        - /url: https://orcid.org/0009-0009-6790-8981
+        - generic [ref=e41]: 
+        - text: ORCID
+  - main [ref=e42]:
+    - generic "Insight into strategy and smarter decisions." [ref=e43]:
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: Market insight. Customer understanding. Business strategy.
+        - heading "Insight into strategy and smarter decisions." [level=1] [ref=e46]:
+          - text: Insight into strategy and
+          - emphasis [ref=e47]: smarter decisions.
+        - paragraph [ref=e48]: Customer and market evidence translated into clear recommendations, sharper reports, and decision-ready next steps.
+        - generic [ref=e49]:
+          - link "View featured work " [ref=e50] [cursor=pointer]:
+            - /url: "#research"
+            - text: View featured work
+            - generic [ref=e51]: 
+          - link "Open all projects" [ref=e52] [cursor=pointer]:
+            - /url: projects.html
+      - generic "Editorial botanical illustration" [ref=e53]:
+        - img "Minimal glass vase with green branches" [ref=e55]
+        - generic [ref=e56]:
+          - strong [ref=e57]: Market research and consumer insights
+          - generic [ref=e58]: 11 applied projects across hospitality, mobility, creators, health, and organizations.
+    - region "Hotel customer segmentation" [ref=e59]:
+      - generic [ref=e60]:
+        - paragraph [ref=e61]: Featured work
+        - link "View all work " [ref=e62] [cursor=pointer]:
+          - /url: projects.html
+          - text: View all work
+          - generic [ref=e63]: 
+      - link "Hotel customer segmentation" [ref=e64] [cursor=pointer]:
+        - /url: research-hotel.html
+        - img "Poolside resort view used as hospitality research context" [ref=e65]
+        - generic [ref=e66]:
+          - generic [ref=e67]: Hospitality analytics
+          - heading "Hotel customer segmentation" [level=2] [ref=e68]
+          - paragraph [ref=e69]: Mapped 10 guest segments from 74,896 Booking.com reviews to guide targeting, positioning, and service priorities.
+          - strong [ref=e70]:
+            - text: View project
+            - generic [ref=e71]: 
+      - generic [ref=e72]:
+        - paragraph [ref=e73]: Selected projects
+        - link "View all work " [ref=e74] [cursor=pointer]:
+          - /url: projects.html
+          - text: View all work
+          - generic [ref=e75]: 
+      - generic "Selected project cards" [ref=e76]:
+        - link "Editorial electric vehicle preference visual Choice modeling EV consumer preference study Explored how buyers trade off design, range, price, and charging access." [ref=e77] [cursor=pointer]:
+          - /url: research-ev.html
+          - img "Editorial electric vehicle preference visual" [ref=e79]
+          - generic [ref=e81]: 
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: Choice modeling
+            - heading "EV consumer preference study" [level=3] [ref=e84]
+            - generic [ref=e85]: Explored how buyers trade off design, range, price, and charging access.
+        - link "Motorbike phase-out policy study visual Mobility policy Motorbike phase-out acceptance Framed public support around transit access, financial support, and rollout timing." [ref=e86] [cursor=pointer]:
+          - /url: research-motorbike-ban.html
+          - img "Motorbike phase-out policy study visual" [ref=e87]
+          - generic [ref=e89]: 
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: Mobility policy
+            - heading "Motorbike phase-out acceptance" [level=3] [ref=e92]
+            - generic [ref=e93]: Framed public support around transit access, financial support, and rollout timing.
+        - link "Editorial creator signals and retention visual Creator economy Influencer retention research Linked content experience, engagement, brand transfer, and return intent." [ref=e94] [cursor=pointer]:
+          - /url: research-leveraging-influencer.html
+          - img "Editorial creator signals and retention visual" [ref=e96]
+          - generic [ref=e98]: 
+          - generic [ref=e99]:
+            - paragraph [ref=e100]: Creator economy
+            - heading "Influencer retention research" [level=3] [ref=e101]
+            - generic [ref=e102]: Linked content experience, engagement, brand transfer, and return intent.
+        - link "Balanced bowls used as nutrition research context Health behavior Student diet quality in Vietnam Identified knowledge and activity factors linked to stronger diet-quality signals." [ref=e103] [cursor=pointer]:
+          - /url: research-nutrition.html
+          - img "Balanced bowls used as nutrition research context" [ref=e105]
+          - generic [ref=e107]: 
+          - generic [ref=e108]:
+            - paragraph [ref=e109]: Health behavior
+            - heading "Student diet quality in Vietnam" [level=3] [ref=e110]
+            - generic [ref=e111]: Identified knowledge and activity factors linked to stronger diet-quality signals.
+    - region "Research that moves from evidence to action." [ref=e112]:
+      - paragraph [ref=e113]: Capabilities
+      - heading "Research that moves from evidence to action." [level=2] [ref=e114]
+      - generic [ref=e115]:
+        - article [ref=e116]:
+          - generic [ref=e117]: 
+          - heading "Market insight" [level=3] [ref=e118]
+          - paragraph [ref=e119]: Clarify what is changing across markets, categories, and customer groups.
+        - article [ref=e120]:
+          - generic [ref=e121]: 
+          - heading "Customer understanding" [level=3] [ref=e122]
+          - paragraph [ref=e123]: Use surveys, reviews, and interviews to understand how people choose.
+        - article [ref=e124]:
+          - generic [ref=e125]: 
+          - heading "Strategy and translation" [level=3] [ref=e126]
+          - paragraph [ref=e127]: Turn analysis into short reports, visuals, and practical recommendations.
+        - article [ref=e128]:
+          - generic [ref=e129]: 
+          - heading "Decision support" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Help teams compare options and decide with more confidence.
+    - region "A concise view of the portfolio." [ref=e132]:
+      - paragraph [ref=e133]: Impact snapshot
+      - heading "A concise view of the portfolio." [level=2] [ref=e134]
+      - generic [ref=e135]:
+        - article [ref=e136]:
+          - strong [ref=e137]: "11"
+          - generic [ref=e138]: Applied research projects
+        - article [ref=e139]:
+          - strong [ref=e140]: "2"
+          - generic [ref=e141]: Publication-linked outputs
+        - article [ref=e142]:
+          - strong [ref=e143]: 2+
+          - generic [ref=e144]: Years of project activity
+        - article [ref=e145]:
+          - strong [ref=e146]: 74,896
+          - generic [ref=e147]: Hotel reviews analyzed
+        - article [ref=e148]:
+          - strong [ref=e149]: "5"
+          - generic [ref=e150]: Project domains
+    - region "Business and marketing training with applied research practice." [ref=e151]:
+      - generic [ref=e152]:
+        - paragraph [ref=e153]: Education
+        - heading "Business and marketing training with applied research practice." [level=2] [ref=e154]
+        - paragraph [ref=e155]: Bachelor of Business, Marketing major, Swinburne University of Technology. Project work spans market research, consumer insight, survey analysis, text analytics, and AI-supported exploration.
+        - paragraph [ref=e156]: This portfolio is published under Chung Hy Dai. Some external records may use the reversed order Dai Chung Hy.
+        - generic [ref=e157]:
+          - link "LinkedIn" [ref=e158] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - generic [ref=e159]: 
+            - text: LinkedIn
+          - link "ORCID" [ref=e160] [cursor=pointer]:
+            - /url: https://orcid.org/0009-0009-6790-8981
+            - generic [ref=e161]: 
+            - text: ORCID
+          - link "Swinburne feature" [ref=e162] [cursor=pointer]:
+            - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+            - generic [ref=e163]: 
+            - text: Swinburne feature
+      - generic [ref=e164]:
+        - img "Editorial education card for Swinburne University of Technology" [ref=e166]
+        - generic [ref=e167]:
+          - paragraph [ref=e168]: Swinburne Vietnam News feature
+          - heading "External profile covering applied project work." [level=3] [ref=e169]
+          - link "Read source article" [ref=e170] [cursor=pointer]:
+            - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+            - text: Read source article
+            - generic [ref=e171]: 
+    - region "Recognition and public signals." [ref=e172]:
+      - paragraph [ref=e173]: Honors and Awards
+      - heading "Recognition and public signals." [level=2] [ref=e174]
+      - generic [ref=e175]:
+        - article [ref=e176]:
+          - generic [ref=e177]: 
+          - heading "HSBC Business Case 2024" [level=3] [ref=e178]
+          - paragraph [ref=e179]: Advanced to the Champion Round and presented recommendations under time pressure.
+        - article [ref=e180]:
+          - generic [ref=e181]: 
+          - heading "Swinburne academic scholarship" [level=3] [ref=e182]
+          - paragraph [ref=e183]: Merit-based award for the Bachelor of Business program.
+        - article [ref=e184]:
+          - generic [ref=e185]: 
+          - heading "Aspiring Star research prize" [level=3] [ref=e186]
+          - paragraph [ref=e187]: Recognized by Greenovation for research activity and commitment to inquiry.
+      - generic [ref=e188]:
+        - article [ref=e189]:
+          - strong [ref=e190]: Publications
+          - generic [ref=e191]: FCBEM 2025 and Springer-linked virtual influencer chapter context.
+          - link "View publication context" [ref=e192] [cursor=pointer]:
+            - /url: research-virtual-influencers.html
+            - text: View publication context
+            - generic [ref=e193]: 
+        - article [ref=e194]:
+          - strong [ref=e195]: Education
+          - generic [ref=e196]: Bachelor of Business, Marketing major, Swinburne University of Technology.
+          - link "Education context" [ref=e197] [cursor=pointer]:
+            - /url: "#education"
+            - text: Education context
+            - generic [ref=e198]: 
+        - article [ref=e199]:
+          - strong [ref=e200]: Core skills
+          - generic [ref=e201]: Survey design, text analysis, segmentation, reporting, and decision notes.
+          - link "See work examples" [ref=e202] [cursor=pointer]:
+            - /url: projects.html
+            - text: See work examples
+            - generic [ref=e203]: 
+    - region "Insight for the next decision." [ref=e204]:
+      - generic [ref=e205]:
+        - paragraph [ref=e206]: Contact
+        - heading "Insight for the next decision." [level=2] [ref=e207]
+        - paragraph [ref=e208]: Available for research, analytics, consulting, and project opportunities.
+      - generic [ref=e209]:
+        - link "daichunghy@gmail.com" [ref=e210] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e211]: 
+          - text: daichunghy@gmail.com
+        - link "LinkedIn" [ref=e212] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e213]: 
+          - text: LinkedIn
+        - link "ORCID" [ref=e214] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e215]: 
+          - text: ORCID
+        - link "Send a message" [ref=e216] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - text: Send a message
+          - generic [ref=e217]: 

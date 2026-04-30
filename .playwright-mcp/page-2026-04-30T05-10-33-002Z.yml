@@ -1,0 +1,271 @@
+- generic [active] [ref=e1]:
+  - text: 
+  - generic [ref=e2]:
+    - complementary "Profile and site navigation" [ref=e3]:
+      - generic [ref=e4]:
+        - link "Chung Hy Dai home" [ref=e5] [cursor=pointer]:
+          - /url: index.html
+          - text: Chung
+          - text: Hy Dai
+        - paragraph [ref=e6]: Research. Insight. Business impact.
+      - generic [ref=e7]:
+        - img "Portrait of Chung Hy Dai" [ref=e9]
+        - paragraph [ref=e10]:
+          - strong [ref=e11]: Xin chào, tôi là Chung Hy Dai.
+        - paragraph [ref=e12]: Tôi giúp team biến bằng chứng thị trường và tín hiệu khách hàng thành lựa chọn, báo cáo và bước tiếp theo rõ ràng.
+      - navigation "Portfolio sections" [ref=e13]:
+        - link "Trang chủ" [ref=e14] [cursor=pointer]:
+          - /url: "#top"
+          - generic [ref=e15]: 
+          - generic [ref=e16]: Trang chủ
+        - link "Dự án" [ref=e17] [cursor=pointer]:
+          - /url: "#research"
+          - generic [ref=e18]: 
+          - generic [ref=e19]: Dự án
+        - link "Chuyên môn" [ref=e20] [cursor=pointer]:
+          - /url: "#expertise"
+          - generic [ref=e21]: 
+          - generic [ref=e22]: Chuyên môn
+        - link "Kết quả" [ref=e23] [cursor=pointer]:
+          - /url: "#impact"
+          - generic [ref=e24]: 
+          - generic [ref=e25]: Kết quả
+        - link "Giới thiệu" [ref=e26] [cursor=pointer]:
+          - /url: "#about"
+          - generic [ref=e27]: 
+          - generic [ref=e28]: Giới thiệu
+        - link "Chứng chỉ" [ref=e29] [cursor=pointer]:
+          - /url: "#credentials"
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Chứng chỉ
+        - link "Liên hệ" [ref=e32] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e33]: 
+          - generic [ref=e34]: Liên hệ
+      - generic "Chuyển ngôn ngữ" [ref=e36]:
+        - generic [ref=e37]: Ngôn ngữ
+        - link "EN English version" [ref=e38] [cursor=pointer]:
+          - /url: ../index.html
+          - text: EN
+          - generic [ref=e39]: English version
+        - link "VI Bản tiếng Việt" [ref=e40] [cursor=pointer]:
+          - /url: index.html
+          - text: VI
+          - generic [ref=e41]: Bản tiếng Việt
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: 
+          - text: TP. Hồ Chí Minh, Việt Nam
+        - link "daichunghy@gmail.com" [ref=e45] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e46]: 
+          - text: daichunghy@gmail.com
+        - link "LinkedIn" [ref=e47] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e48]: 
+          - text: LinkedIn
+        - link "ORCID" [ref=e49] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e50]: 
+          - text: ORCID
+    - main [ref=e51]:
+      - generic "Tôi biến insight thành chiến lược và quyết định thông minh hơn." [ref=e52]:
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: Market insight. Customer understanding. Business strategy.
+          - heading "Tôi biến insight thành chiến lược và quyết định thông minh hơn." [level=1] [ref=e55]
+          - paragraph [ref=e56]: Tôi làm việc cùng team để hiểu khách hàng, thị trường và cơ hội, sau đó chuyển bằng chứng thành khuyến nghị rõ ràng, dễ dùng.
+          - generic [ref=e57]:
+            - link "Xem dự án nổi bật " [ref=e58] [cursor=pointer]:
+              - /url: "#research"
+              - text: Xem dự án nổi bật
+              - generic [ref=e59]: 
+            - link "Mở tất cả dự án" [ref=e60] [cursor=pointer]:
+              - /url: projects.html
+        - generic "Profile summary" [ref=e61]:
+          - img "Chung Hy Dai portrait" [ref=e63]
+          - generic [ref=e64]:
+            - strong [ref=e65]: Market research và consumer insights
+            - generic [ref=e66]: 11 dự án ứng dụng trong hospitality, mobility, creator, health và tổ chức.
+      - region "Phân khúc khách hàng khách sạn" [ref=e67]:
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Dự án nổi bật
+          - link "Xem tất cả dự án " [ref=e70] [cursor=pointer]:
+            - /url: projects.html
+            - text: Xem tất cả dự án
+            - generic [ref=e71]: 
+        - link "Phân khúc khách hàng khách sạn" [ref=e72] [cursor=pointer]:
+          - /url: research-hotel.html
+          - img "Phân khúc khách hàng khách sạn dashboard" [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Hospitality analytics
+            - heading "Phân khúc khách hàng khách sạn" [level=2] [ref=e76]
+            - paragraph [ref=e77]: Phân thành 10 nhóm khách từ 74.896 review Booking.com để hỗ trợ targeting, positioning và ưu tiên dịch vụ.
+            - strong [ref=e78]:
+              - text: Xem dự án
+              - generic [ref=e79]: 
+        - generic [ref=e80]:
+          - paragraph [ref=e81]: Dự án chọn lọc
+          - link "Xem tất cả dự án " [ref=e82] [cursor=pointer]:
+            - /url: projects.html
+            - text: Xem tất cả dự án
+            - generic [ref=e83]: 
+        - generic "Selected project cards" [ref=e84]:
+          - link "EV product-choice experiment stimulus board Choice modeling Nghiên cứu preference của người tiêu dùng EV Phân tích cách người mua đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc." [ref=e85] [cursor=pointer]:
+            - /url: research-ev.html
+            - img "EV product-choice experiment stimulus board" [ref=e86]
+            - generic [ref=e88]: 
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: Choice modeling
+              - heading "Nghiên cứu preference của người tiêu dùng EV" [level=3] [ref=e91]
+              - generic [ref=e92]: Phân tích cách người mua đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc.
+          - link "Phase-out xe máy policy study visual Mobility policy Mức chấp nhận phase-out xe máy Đặt mức ủng hộ chính sách trong bối cảnh tiếp cận giao thông công cộng, hỗ trợ tài chính và thời điểm triển khai." [ref=e93] [cursor=pointer]:
+            - /url: research-motorbike-ban.html
+            - img "Phase-out xe máy policy study visual" [ref=e94]
+            - generic [ref=e96]: 
+            - generic [ref=e97]:
+              - paragraph [ref=e98]: Mobility policy
+              - heading "Mức chấp nhận phase-out xe máy" [level=3] [ref=e99]
+              - generic [ref=e100]: Đặt mức ủng hộ chính sách trong bối cảnh tiếp cận giao thông công cộng, hỗ trợ tài chính và thời điểm triển khai.
+          - link "Editorial creator retention and engagement analytics visual Creator economy Nghiên cứu retention của influencer Kết nối trải nghiệm nội dung, engagement, brand transfer và ý định quay lại." [ref=e101] [cursor=pointer]:
+            - /url: research-leveraging-influencer.html
+            - img "Editorial creator retention and engagement analytics visual" [ref=e102]
+            - generic [ref=e104]: 
+            - generic [ref=e105]:
+              - paragraph [ref=e106]: Creator economy
+              - heading "Nghiên cứu retention của influencer" [level=3] [ref=e107]
+              - generic [ref=e108]: Kết nối trải nghiệm nội dung, engagement, brand transfer và ý định quay lại.
+          - link "FCBEM gala dinner photo used in nutrition research bối cảnh Health behavior Chất lượng ăn uống của sinh viên tại Việt Nam Xác định các yếu tố kiến thức và hoạt động liên quan đến tín hiệu diet quality tốt hơn." [ref=e109] [cursor=pointer]:
+            - /url: research-nutrition.html
+            - img "FCBEM gala dinner photo used in nutrition research bối cảnh" [ref=e110]
+            - generic [ref=e112]: 
+            - generic [ref=e113]:
+              - paragraph [ref=e114]: Health behavior
+              - heading "Chất lượng ăn uống của sinh viên tại Việt Nam" [level=3] [ref=e115]
+              - generic [ref=e116]: Xác định các yếu tố kiến thức và hoạt động liên quan đến tín hiệu diet quality tốt hơn.
+      - region "Nghiên cứu đi từ bằng chứng đến hành động." [ref=e117]:
+        - paragraph [ref=e118]: Cách tôi hỗ trợ
+        - heading "Nghiên cứu đi từ bằng chứng đến hành động." [level=2] [ref=e119]
+        - generic [ref=e120]:
+          - article [ref=e121]:
+            - generic [ref=e122]: 
+            - heading "Market insight" [level=3] [ref=e123]
+            - paragraph [ref=e124]: Làm rõ điều gì đang thay đổi trong thị trường, ngành hàng và nhóm khách hàng.
+          - article [ref=e125]:
+            - generic [ref=e126]: 
+            - heading "Customer understanding" [level=3] [ref=e127]
+            - paragraph [ref=e128]: Dùng khảo sát, review và phỏng vấn để hiểu cách người dùng lựa chọn.
+          - article [ref=e129]:
+            - generic [ref=e130]: 
+            - heading "Chiến lược và diễn giải" [level=3] [ref=e131]
+            - paragraph [ref=e132]: Chuyển phân tích thành báo cáo ngắn, hình ảnh rõ ràng và khuyến nghị thực tế.
+          - article [ref=e133]:
+            - generic [ref=e134]: 
+            - heading "Hỗ trợ quyết định" [level=3] [ref=e135]
+            - paragraph [ref=e136]: Giúp team so sánh lựa chọn và ra quyết định tự tin hơn.
+      - region "Tổng quan ngắn gọn về portfolio." [ref=e137]:
+        - paragraph [ref=e138]: Tổng quan kết quả
+        - heading "Tổng quan ngắn gọn về portfolio." [level=2] [ref=e139]
+        - generic [ref=e140]:
+          - article [ref=e141]:
+            - strong [ref=e142]: "11"
+            - generic [ref=e143]: Dự án nghiên cứu ứng dụng
+          - article [ref=e144]:
+            - strong [ref=e145]: "2"
+            - generic [ref=e146]: Output có liên kết công bố
+          - article [ref=e147]:
+            - strong [ref=e148]: 2+
+            - generic [ref=e149]: Năm hoạt động dự án
+          - article [ref=e150]:
+            - strong [ref=e151]: 74,896
+            - generic [ref=e152]: Review khách sạn đã phân tích
+          - article [ref=e153]:
+            - strong [ref=e154]: "5"
+            - generic [ref=e155]: Mảng nghiên cứu
+      - region "Market Research & Consumer Insights Analyst." [ref=e156]:
+        - generic [ref=e157]:
+          - paragraph [ref=e158]: Giới thiệu
+          - heading "Market Research & Consumer Insights Analyst." [level=2] [ref=e159]
+          - paragraph [ref=e160]: Cử nhân Business từ Swinburne University với các dự án về market research, consumer insights, survey analysis, text analytics và khám phá có hỗ trợ AI. Portfolio được tổ chức quanh câu hỏi rõ ràng, bằng chứng và bước tiếp theo thực tế.
+          - paragraph [ref=e161]: Portfolio này dùng tên Chung Hy Dai và cũng có thể xuất hiện dưới dạng Dai Chung Hy trong một số tham chiếu đảo thứ tự tên.
+          - generic [ref=e162]:
+            - link "LinkedIn" [ref=e163] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+              - generic [ref=e164]: 
+              - text: LinkedIn
+            - link "ORCID" [ref=e165] [cursor=pointer]:
+              - /url: https://orcid.org/0009-0009-6790-8981
+              - generic [ref=e166]: 
+              - text: ORCID
+            - link "Swinburne feature" [ref=e167] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - generic [ref=e168]: 
+              - text: Swinburne feature
+        - generic [ref=e169]:
+          - img "Swinburne Vietnam news feature highlighting Chung Hy Dai" [ref=e170]
+          - generic [ref=e171]:
+            - paragraph [ref=e172]: Bài viết từ Swinburne Vietnam News
+            - heading "Bài profile bên ngoài về các dự án ứng dụng." [level=3] [ref=e173]
+            - link "Đọc bài nguồn" [ref=e174] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - text: Đọc bài nguồn
+              - generic [ref=e175]: 
+      - region "Chứng chỉ và tín hiệu công khai." [ref=e176]:
+        - paragraph [ref=e177]: Ghi nhận
+        - heading "Chứng chỉ và tín hiệu công khai." [level=2] [ref=e178]
+        - generic [ref=e179]:
+          - article [ref=e180]:
+            - generic [ref=e181]: 
+            - heading "HSBC Business Case 2024" [level=3] [ref=e182]
+            - paragraph [ref=e183]: Vào Champion Round và trình bày khuyến nghị trong thời gian giới hạn.
+          - article [ref=e184]:
+            - generic [ref=e185]: 
+            - heading "Học bổng học thuật Swinburne" [level=3] [ref=e186]
+            - paragraph [ref=e187]: Học bổng dựa trên thành tích cho chương trình Bachelor of Business.
+          - article [ref=e188]:
+            - generic [ref=e189]: 
+            - heading "Aspiring Star research prize" [level=3] [ref=e190]
+            - paragraph [ref=e191]: Được Greenovation ghi nhận cho hoạt động nghiên cứu và tinh thần tìm hiểu.
+        - generic [ref=e192]:
+          - article [ref=e193]:
+            - strong [ref=e194]: Công bố
+            - generic [ref=e195]: Bối cảnh FCBEM 2025 và chapter virtual influencer có liên kết Springer.
+            - link "Mở tham chiếu" [ref=e196] [cursor=pointer]:
+              - /url: references.html
+              - text: Mở tham chiếu
+              - generic [ref=e197]: 
+          - article [ref=e198]:
+            - strong [ref=e199]: Học vấn
+            - generic [ref=e200]: Bachelor of Business, chuyên ngành Marketing, Swinburne University of Technology.
+            - link "Hồ sơ và phương pháp" [ref=e201] [cursor=pointer]:
+              - /url: "#about"
+              - text: Hồ sơ và phương pháp
+              - generic [ref=e202]: 
+          - article [ref=e203]:
+            - strong [ref=e204]: Kỹ năng chính
+            - generic [ref=e205]: Survey design, text analysis, segmentation, reporting và decision notes.
+            - link "Xem ví dụ dự án" [ref=e206] [cursor=pointer]:
+              - /url: projects.html
+              - text: Xem ví dụ dự án
+              - generic [ref=e207]: 
+      - region "Hãy biến insight thành lợi thế tiếp theo." [ref=e208]:
+        - generic [ref=e209]:
+          - paragraph [ref=e210]: Liên hệ
+          - heading "Hãy biến insight thành lợi thế tiếp theo." [level=2] [ref=e211]
+          - paragraph [ref=e212]: Tôi sẵn sàng trao đổi về cơ hội nghiên cứu, phân tích, tư vấn và dự án.
+        - generic [ref=e213]:
+          - link "daichunghy@gmail.com" [ref=e214] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com
+            - generic [ref=e215]: 
+            - text: daichunghy@gmail.com
+          - link "LinkedIn" [ref=e216] [cursor=pointer]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - generic [ref=e217]: 
+            - text: LinkedIn
+          - link "ORCID" [ref=e218] [cursor=pointer]:
+            - /url: https://orcid.org/0009-0009-6790-8981
+            - generic [ref=e219]: 
+            - text: ORCID
+          - link "Gửi email" [ref=e220] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - text: Gửi email
+            - generic [ref=e221]: 

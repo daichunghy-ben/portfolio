@@ -1,0 +1,268 @@
+- generic [ref=e2]:
+  - complementary "Archive navigation" [ref=e3]:
+    - generic [ref=e4]:
+      - link "Chung Hy Dai home" [ref=e5] [cursor=pointer]:
+        - /url: index.html
+        - text: Chung
+        - text: Hy Dai
+      - paragraph [ref=e6]: Projects archive.
+    - generic [ref=e7]:
+      - img "Portrait of Chung Hy Dai" [ref=e9]
+      - paragraph [ref=e10]:
+        - strong [ref=e11]: Project archive
+      - paragraph [ref=e12]: Eleven projects grouped by decision context, each with methods, visuals, and evidence notes.
+    - navigation "Project archive sections" [ref=e13]:
+      - link "Home" [ref=e14] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e15]: 
+        - generic [ref=e16]: Home
+      - link "Education" [ref=e17] [cursor=pointer]:
+        - /url: index.html#education
+        - generic [ref=e18]: 
+        - generic [ref=e19]: Education
+      - link "Projects" [ref=e20] [cursor=pointer]:
+        - /url: "#top"
+        - generic [ref=e21]: 
+        - generic [ref=e22]: Projects
+      - link "Honors and Awards" [ref=e23] [cursor=pointer]:
+        - /url: index.html#honors
+        - generic [ref=e24]: 
+        - generic [ref=e25]: Honors and Awards
+    - img
+    - generic [ref=e27]:
+      - link "daichunghy@gmail.com" [ref=e28] [cursor=pointer]:
+        - /url: mailto:daichunghy@gmail.com
+        - generic [ref=e29]: 
+        - text: daichunghy@gmail.com
+      - link "LinkedIn" [ref=e30] [cursor=pointer]:
+        - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+        - generic [ref=e31]: 
+        - text: LinkedIn
+      - link "ORCID" [ref=e32] [cursor=pointer]:
+        - /url: https://orcid.org/0009-0009-6790-8981
+        - generic [ref=e33]: 
+        - text: ORCID
+  - main [ref=e34]:
+    - generic [ref=e35]:
+      - link "Back to portfolio" [ref=e36] [cursor=pointer]:
+        - /url: index.html#research
+        - generic [ref=e37]: 
+        - text: Back to portfolio
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - paragraph [ref=e40]: Projects archive
+          - heading "Market research and applied analytics projects" [level=1] [ref=e41]
+          - paragraph [ref=e42]: "Eleven projects organized for quick review: what decision needed evidence, what method was used, what result changed the interpretation, and where the supporting visuals or records sit."
+          - generic "Project topic clusters" [ref=e43]:
+            - generic [ref=e44]: 11 projects
+            - generic [ref=e45]: 5 domains
+            - generic [ref=e46]: Problem / method / result
+        - complementary "Editorial archive visual" [ref=e47]:
+          - img "Minimal botanical vase editorial illustration" [ref=e49]
+    - region "Three fastest proof points." [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - paragraph [ref=e53]: Start here
+          - heading "Three fastest proof points." [level=2] [ref=e54]
+        - link "Browse all projects" [ref=e55] [cursor=pointer]:
+          - /url: "#hospitality"
+          - text: Browse all projects
+          - generic [ref=e56]: 
+      - generic [ref=e57]:
+        - 'link "Hotel customer segmentation dashboard preview Hotel customer segmentation Method: aspect-level sentiment and clustering across 74,896 reviews. Output: 10 guest profiles" [ref=e58] [cursor=pointer]':
+          - /url: research-hotel.html
+          - img "Hotel customer segmentation dashboard preview" [ref=e59]
+          - generic [ref=e60]:
+            - heading "Hotel customer segmentation" [level=3] [ref=e61]
+            - paragraph [ref=e62]:
+              - strong [ref=e63]: "Method:"
+              - text: aspect-level sentiment and clustering across 74,896 reviews.
+            - generic [ref=e64]: "Output: 10 guest profiles"
+        - 'link "EV product-choice experiment stimulus board EV choice experiment Method: stated-choice trade-off analysis for design, range, price, and charging. Output: segment-level preference read" [ref=e65] [cursor=pointer]':
+          - /url: research-ev.html
+          - img "EV product-choice experiment stimulus board" [ref=e66]
+          - generic [ref=e67]:
+            - heading "EV choice experiment" [level=3] [ref=e68]
+            - paragraph [ref=e69]:
+              - strong [ref=e70]: "Method:"
+              - text: stated-choice trade-off analysis for design, range, price, and charging.
+            - generic [ref=e71]: "Output: segment-level preference read"
+        - 'link "Motorbike phase-out policy study visual Hanoi motorbike phase-out acceptance Method: discrete choice experiment and policy-bundle interpretation. Output: support-first rollout logic" [ref=e72] [cursor=pointer]':
+          - /url: research-motorbike-ban.html
+          - img "Motorbike phase-out policy study visual" [ref=e73]
+          - generic [ref=e74]:
+            - heading "Hanoi motorbike phase-out acceptance" [level=3] [ref=e75]
+            - paragraph [ref=e76]:
+              - strong [ref=e77]: "Method:"
+              - text: discrete choice experiment and policy-bundle interpretation.
+            - generic [ref=e78]: "Output: support-first rollout logic"
+    - region "Browse by decision context." [ref=e79]:
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: Project domains
+        - heading "Browse by decision context." [level=2] [ref=e82]
+      - generic [ref=e83]:
+        - link "Hospitality 3 projects" [ref=e84] [cursor=pointer]:
+          - /url: hospitality-analytics.html
+          - strong [ref=e85]: Hospitality
+          - generic [ref=e86]: 3 projects
+        - link "Mobility 2 projects" [ref=e87] [cursor=pointer]:
+          - /url: mobility-policy.html
+          - strong [ref=e88]: Mobility
+          - generic [ref=e89]: 2 projects
+        - link "Creators 2 projects" [ref=e90] [cursor=pointer]:
+          - /url: creator-economy.html
+          - strong [ref=e91]: Creators
+          - generic [ref=e92]: 2 projects
+        - link "Health 2 projects" [ref=e93] [cursor=pointer]:
+          - /url: health-behavior.html
+          - strong [ref=e94]: Health
+          - generic [ref=e95]: 2 projects
+        - link "Organizations 2 projects" [ref=e96] [cursor=pointer]:
+          - /url: organizational-behavior.html
+          - strong [ref=e97]: Organizations
+          - generic [ref=e98]: 2 projects
+    - region "Guest segments, service quality, and value priorities." [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - paragraph [ref=e102]: Hospitality analytics
+          - heading "Guest segments, service quality, and value priorities." [level=2] [ref=e103]
+        - link "Open domain" [ref=e104] [cursor=pointer]:
+          - /url: hospitality-analytics.html
+          - text: Open domain
+          - generic [ref=e105]: 
+      - generic [ref=e106]:
+        - link "Poolside resort view used as hospitality research context Hotel customer segmentation from aspect-level sentiment Maps 10 guest segments from 74,896 Booking.com reviews in Da Nang. ABSA - K-means - GMM robustness" [ref=e107] [cursor=pointer]:
+          - /url: research-hotel.html
+          - img "Poolside resort view used as hospitality research context" [ref=e108]
+          - generic [ref=e109]:
+            - heading "Hotel customer segmentation from aspect-level sentiment" [level=3] [ref=e110]
+            - paragraph [ref=e111]: Maps 10 guest segments from 74,896 Booking.com reviews in Da Nang.
+            - generic [ref=e112]: ABSA - K-means - GMM robustness
+        - link "Calm hotel room used as service quality research context Hotel attribute asymmetry in Vietnam Shows which hotel attributes create the largest rating penalties when they fail. Sentence-BERT - PRCA - Kano" [ref=e113] [cursor=pointer]:
+          - /url: research-hotel-prca.html
+          - img "Calm hotel room used as service quality research context" [ref=e114]
+          - generic [ref=e115]:
+            - heading "Hotel attribute asymmetry in Vietnam" [level=3] [ref=e116]
+            - paragraph [ref=e117]: Shows which hotel attributes create the largest rating penalties when they fail.
+            - generic [ref=e118]: Sentence-BERT - PRCA - Kano
+        - link "Terrace resort view used as hotel value research context Hotel value segmentation framework Turns review text signals into functional, emotional, and social value actions. Value mapping - decision translation" [ref=e119] [cursor=pointer]:
+          - /url: research-hotel-value.html
+          - img "Terrace resort view used as hotel value research context" [ref=e120]
+          - generic [ref=e121]:
+            - heading "Hotel value segmentation framework" [level=3] [ref=e122]
+            - paragraph [ref=e123]: Turns review text signals into functional, emotional, and social value actions.
+            - generic [ref=e124]: Value mapping - decision translation
+    - region "Consumer choice and public acceptance in transition contexts." [ref=e125]:
+      - generic [ref=e126]:
+        - generic [ref=e127]:
+          - paragraph [ref=e128]: Mobility and policy
+          - heading "Consumer choice and public acceptance in transition contexts." [level=2] [ref=e129]
+        - link "Open domain" [ref=e130] [cursor=pointer]:
+          - /url: mobility-policy.html
+          - text: Open domain
+          - generic [ref=e131]: 
+      - generic [ref=e132]:
+        - link "Editorial electric vehicle preference visual EV design vs. range trade-offs in Vietnam Tests how young consumers trade off design, range, price, and charging. Choice profiles - attribute trade-offs" [ref=e133] [cursor=pointer]:
+          - /url: research-ev.html
+          - img "Editorial electric vehicle preference visual" [ref=e134]
+          - generic [ref=e135]:
+            - heading "EV design vs. range trade-offs in Vietnam" [level=3] [ref=e136]
+            - paragraph [ref=e137]: Tests how young consumers trade off design, range, price, and charging.
+            - generic [ref=e138]: Choice profiles - attribute trade-offs
+        - link "Motorbike phase-out policy study visual Hanoi motorbike phase-out policy acceptance Frames acceptance around support-first sequencing before broad restrictions. Discrete choice - policy sequencing" [ref=e139] [cursor=pointer]:
+          - /url: research-motorbike-ban.html
+          - img "Motorbike phase-out policy study visual" [ref=e140]
+          - generic [ref=e141]:
+            - heading "Hanoi motorbike phase-out policy acceptance" [level=3] [ref=e142]
+            - paragraph [ref=e143]: Frames acceptance around support-first sequencing before broad restrictions.
+            - generic [ref=e144]: Discrete choice - policy sequencing
+    - region "Engagement, trust, and retention in digital content contexts." [ref=e145]:
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - paragraph [ref=e148]: Creator economy
+          - heading "Engagement, trust, and retention in digital content contexts." [level=2] [ref=e149]
+        - link "Open domain" [ref=e150] [cursor=pointer]:
+          - /url: creator-economy.html
+          - text: Open domain
+          - generic [ref=e151]: 
+      - generic [ref=e152]:
+        - link "Editorial creator signals and retention visual Influencer retention, engagement, and brand transfer Links experience quality, engagement, brand equity, and return intent. SEM - UGC retention strategy" [ref=e153] [cursor=pointer]:
+          - /url: research-leveraging-influencer.html
+          - img "Editorial creator signals and retention visual" [ref=e154]
+          - generic [ref=e155]:
+            - heading "Influencer retention, engagement, and brand transfer" [level=3] [ref=e156]
+            - paragraph [ref=e157]: Links experience quality, engagement, brand equity, and return intent.
+            - generic [ref=e158]: SEM - UGC retention strategy
+        - link "Editorial virtual influencer trust cue visual Virtual influencer cues, Gen Z trust, and purchase intention Examines credibility cues and trust response to virtual personas. Survey - trust modeling - DOI context" [ref=e159] [cursor=pointer]:
+          - /url: research-virtual-influencers.html
+          - img "Editorial virtual influencer trust cue visual" [ref=e160]
+          - generic [ref=e161]:
+            - heading "Virtual influencer cues, Gen Z trust, and purchase intention" [level=3] [ref=e162]
+            - paragraph [ref=e163]: Examines credibility cues and trust response to virtual personas.
+            - generic [ref=e164]: Survey - trust modeling - DOI context
+    - region "Food choice, nutrition knowledge, and practical behavior design." [ref=e165]:
+      - generic [ref=e166]:
+        - generic [ref=e167]:
+          - paragraph [ref=e168]: Health behavior
+          - heading "Food choice, nutrition knowledge, and practical behavior design." [level=2] [ref=e169]
+        - link "Open domain" [ref=e170] [cursor=pointer]:
+          - /url: health-behavior.html
+          - text: Open domain
+          - generic [ref=e171]: 
+      - generic [ref=e172]:
+        - link "Editorial buffet choice design visual Buffet menu nudging and choice architecture Tests whether healthier-first menu order shifts intake and tier choice. Experiment design - ANOVA" [ref=e173] [cursor=pointer]:
+          - /url: research-buffet.html
+          - img "Editorial buffet choice design visual" [ref=e174]
+          - generic [ref=e175]:
+            - heading "Buffet menu nudging and choice architecture" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Tests whether healthier-first menu order shifts intake and tier choice.
+            - generic [ref=e178]: Experiment design - ANOVA
+        - link "Balanced bowls used as nutrition research context Nutrition knowledge, physical activity, and diet quality Connects student knowledge, routines, and diet-quality signals. Regression - survey methodology" [ref=e179] [cursor=pointer]:
+          - /url: research-nutrition.html
+          - img "Balanced bowls used as nutrition research context" [ref=e180]
+          - generic [ref=e181]:
+            - heading "Nutrition knowledge, physical activity, and diet quality" [level=3] [ref=e182]
+            - paragraph [ref=e183]: Connects student knowledge, routines, and diet-quality signals.
+            - generic [ref=e184]: Regression - survey methodology
+    - region "Participation, ownership, and co-created experience." [ref=e185]:
+      - generic [ref=e186]:
+        - generic [ref=e187]:
+          - paragraph [ref=e188]: Organizational behavior
+          - heading "Participation, ownership, and co-created experience." [level=2] [ref=e189]
+        - link "Open domain" [ref=e190] [cursor=pointer]:
+          - /url: organizational-behavior.html
+          - text: Open domain
+          - generic [ref=e191]: 
+      - generic [ref=e192]:
+        - link "Editorial education and ownership visual Psychological ownership in Vietnam universities Turns ownership theory into practical commitment actions. Framework design - organizational engagement" [ref=e193] [cursor=pointer]:
+          - /url: research-psych-ownership.html
+          - img "Editorial education and ownership visual" [ref=e194]
+          - generic [ref=e195]:
+            - heading "Psychological ownership in Vietnam universities" [level=3] [ref=e196]
+            - paragraph [ref=e197]: Turns ownership theory into practical commitment actions.
+            - generic [ref=e198]: Framework design - organizational engagement
+        - link "Arts workshop co-creation visual Arts workshop co-creation and customer interest Shows how learning, social, and emotional value shape repeat interest. Service design - value co-creation" [ref=e199] [cursor=pointer]:
+          - /url: research-arts-workshop.html
+          - img "Arts workshop co-creation visual" [ref=e200]
+          - generic [ref=e201]:
+            - heading "Arts workshop co-creation and customer interest" [level=3] [ref=e202]
+            - paragraph [ref=e203]: Shows how learning, social, and emotional value shape repeat interest.
+            - generic [ref=e204]: Service design - value co-creation
+    - region "Need a specific project context?" [ref=e205]:
+      - generic [ref=e206]:
+        - paragraph [ref=e207]: Contact
+        - heading "Need a specific project context?" [level=2] [ref=e208]
+        - paragraph [ref=e209]: Use email for research, analytics, operations, or portfolio review questions.
+      - generic [ref=e210]:
+        - link "daichunghy@gmail.com" [ref=e211] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e212]: 
+          - text: daichunghy@gmail.com
+        - link "LinkedIn" [ref=e213] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e214]: 
+          - text: LinkedIn
+        - link "Send a message" [ref=e215] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - text: Send a message
+          - generic [ref=e216]: 

@@ -1,0 +1,545 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - generic [ref=e6]:
+        - link "Học vấn" [ref=e7] [cursor=pointer]:
+          - /url: index.html#education
+        - link "Kinh nghiệm" [ref=e8] [cursor=pointer]:
+          - /url: index.html#experience
+        - link "Nghiên cứu" [ref=e9] [cursor=pointer]:
+          - /url: projects.html
+        - link "Chứng chỉ" [ref=e10] [cursor=pointer]:
+          - /url: index.html#credentials
+        - link "Kỹ năng" [ref=e11] [cursor=pointer]:
+          - /url: index.html#skills
+        - link " Liên hệ" [ref=e12] [cursor=pointer]:
+          - /url: index.html#contact
+          - generic [ref=e13]: 
+          - text: Liên hệ
+        - generic "Chuyển ngôn ngữ" [ref=e14]:
+          - link "EN English version" [ref=e15] [cursor=pointer]:
+            - /url: ../research-motorbike-ban.html
+            - text: EN
+            - generic [ref=e16]: English version
+          - link "VI Bản tiếng Việt" [ref=e17] [cursor=pointer]:
+            - /url: research-motorbike-ban.html
+            - text: VI
+            - generic [ref=e18]: Bản tiếng Việt
+  - main [ref=e19]:
+    - navigation "Breadcrumb" [ref=e20]:
+      - list [ref=e21]:
+        - listitem [ref=e22]:
+          - link "Home" [ref=e23] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e24]:
+          - text: /
+          - link "Nghiên cứu" [ref=e25] [cursor=pointer]:
+            - /url: projects.html#research
+        - listitem [ref=e26]:
+          - text: /
+          - link "Nghiên cứu Mobility và Policy" [ref=e27] [cursor=pointer]:
+            - /url: mobility-policy.html
+        - listitem [ref=e28]:
+          - text: /
+          - generic [ref=e29]: Mức chấp nhận chính sách phase-out xe máy tại Hà Nội
+    - generic [ref=e31]:
+      - link " Quay lại kho nghiên cứu" [ref=e32] [cursor=pointer]:
+        - /url: projects.html
+        - generic [ref=e33]: 
+        - text: Quay lại kho nghiên cứu
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - generic [ref=e36]: Hà Nội mobility chuyển đổi | discrete choice evidence
+          - heading "Mức chấp nhận chính sách phase-out xe máy tại Hà Nội" [level=1] [ref=e37]
+          - paragraph [ref=e38]: Dùng discrete choice experiment với cư dân Hà Nội, nghiên cứu này ước tính mức chấp nhận thay đổi thế nào giữa các policy bundle kết hợp phạm vi hạn chế, thay đổi chi phí đi lại, cải thiện giao thông công cộng, hỗ trợ giá vé, tái phân bổ không gian xanh, park-and-ride, hỗ trợ chuyển đổi và quản trị nguồn thu. Phân tích dùng mixed logit, suy ra willingness-to-pay và xác định heterogeneity theo mức phụ thuộc, thu nhập, trust và environmental concern. Kết quả cho thấy lộ trình pull-first và support-first dễ được chấp nhận hơn push-first.
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: 
+              - text: "Study giai đoạn bối cảnh: 2025-2026"
+            - generic [ref=e42]:
+              - generic [ref=e43]: 
+              - text: "Study area: Hà Nội, Việt Nam"
+            - generic [ref=e44]:
+              - generic [ref=e45]: 
+              - text: "Phương pháp: DCE + mixed logit"
+            - generic [ref=e46]:
+              - generic [ref=e47]: 
+              - text: "Realized mẫu: n = 320"
+          - paragraph [ref=e48]:
+            - strong [ref=e49]: "Source notes:"
+            - link "Research detail" [ref=e50] [cursor=pointer]:
+              - /url: ./research-motorbike-ban.html
+            - text: ·
+            - link "CIEMB directory" [ref=e51] [cursor=pointer]:
+              - /url: https://www.ciemb.org/
+          - generic "Quick transport policy chips" [ref=e52]:
+            - generic [ref=e53]: 8 attributes
+            - generic [ref=e54]: 27 profiles
+            - generic [ref=e55]: 3 blocks
+            - generic [ref=e56]: 9 tasks per respondent
+            - generic [ref=e57]: Status quo included
+        - complementary "Transport pressure sideboard" [ref=e58]:
+          - figure [ref=e59]:
+            - img "Dense motorcycle traffic in Hà Nội as bối cảnh for dependency pressure" [ref=e61]
+          - heading "Chuyển đổi pressure dimensions" [level=2] [ref=e62]
+          - generic [ref=e63]:
+            - article [ref=e64]:
+              - heading "Dependency pressure" [level=3] [ref=e65]
+              - paragraph [ref=e66]: Xe máy vẫn là phương tiện chủ đạo, nên hạn chế khi chưa có phương án thay thế sẽ tạo rủi ro mobility.
+            - article [ref=e67]:
+              - heading "Alternative capacity" [level=3] [ref=e68]
+              - paragraph [ref=e69]: Chất lượng giao thông công cộng quyết định việc cư dân có thể hấp thụ chuyển đổi khỏi phương tiện dùng nhiên liệu hóa thạch hay không.
+            - article [ref=e70]:
+              - heading "Equity sensitivity" [level=3] [ref=e71]
+              - paragraph [ref=e72]: Tác động về chi phí và sinh kế mạnh hơn với nhóm thu nhập thấp và phụ thuộc nhiều vào xe máy.
+            - article [ref=e73]:
+              - heading "Trust condition" [level=3] [ref=e74]
+              - paragraph [ref=e75]: Mức chấp nhận tăng khi hộ gia đình kỳ vọng triển khai đáng tin và nguồn lực được dùng công bằng.
+    - region "Transport lane ticker" [ref=e76]:
+      - generic [ref=e79]:
+        - generic [ref=e80]: Push coefficients are negative
+        - generic [ref=e81]: Pull and support coefficients are positive
+        - generic [ref=e82]: Trust weakens status-quo lock-in
+        - generic [ref=e83]: WTP indicates a compensation requirement
+        - generic [ref=e84]: Deploy alternatives before hạn chế scale-up
+        - generic [ref=e85]: Use gate-based monitoring for rollout control
+        - generic [ref=e86]: Push coefficients are negative
+        - generic [ref=e87]: Pull and support coefficients are positive
+        - generic [ref=e88]: Trust weakens status-quo lock-in
+        - generic [ref=e89]: WTP indicates a compensation requirement
+        - generic [ref=e90]: Deploy alternatives before hạn chế scale-up
+        - generic [ref=e91]: Use gate-based monitoring for rollout control
+    - generic [ref=e93]:
+      - text: Section 1
+      - generic [ref=e94]:
+        - generic [ref=e95]:
+          - text: Section 1
+          - heading "Bối cảnh" [level=2] [ref=e96]
+          - paragraph [ref=e97]: Hà Nội đối mặt với một policy dilemma. Chất lượng không khí và ùn tắc tạo lý do để can thiệp, nhưng xe máy vẫn là trung tâm của di chuyển hộ gia đình và tạo thu nhập. Khoảng trống triển khai xuất hiện khi hạn chế đi nhanh hơn phương án thay thế.
+        - paragraph [ref=e98]: Nghiên cứu kiểm tra điều kiện khiến cư dân chấp nhận gói phase-out xe máy dùng nhiên liệu hóa thạch. Nó lượng hóa trade-off giữa thuộc tính push, pull và support, rồi ước tính preference heterogeneity theo đặc điểm kinh tế-xã hội và thái độ.
+        - generic [ref=e99]:
+          - article [ref=e100]:
+            - paragraph [ref=e101]: Chính mode
+            - paragraph [ref=e102]: Motorcycle = 78.3%
+          - article [ref=e103]:
+            - paragraph [ref=e104]: Motorcycle ownership
+            - paragraph [ref=e105]: At least one = 85.8%
+          - article [ref=e106]:
+            - paragraph [ref=e107]: Mô hình baseline
+            - paragraph [ref=e108]: ASC = +1.621
+          - article [ref=e109]:
+            - paragraph [ref=e110]: Mô hình fit
+            - paragraph [ref=e111]:
+              - text: ρ
+              - superscript [ref=e112]: "2"
+              - text: = 0.28
+          - article [ref=e113]:
+            - paragraph [ref=e114]: Core policy signal
+            - paragraph [ref=e115]: Pull + support outperform push-first
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]: 
+            - text: Metro and BRT expansion are policy pull anchors
+          - generic [ref=e119]:
+            - generic [ref=e120]: 
+            - text: Hạn chế design must account for dependence by necessity
+          - generic [ref=e121]:
+            - generic [ref=e122]: 
+            - text: Equity support is a central mức chấp nhận condition
+          - generic [ref=e123]:
+            - generic [ref=e124]: 
+            - text: Distributional and procedural fairness shape support
+        - generic [ref=e125]:
+          - figure "Street traffic in Hà Nội with high motorcycle density (minh họa bối cảnh image)." [ref=e126]:
+            - img "Street traffic with high motorcycle density in Hà Nội" [ref=e128]
+            - generic [ref=e129]: Street traffic in Hà Nội with high motorcycle density (minh họa bối cảnh image).
+          - figure "Hà Nội urban rail corridor used as chuyển đổi-alternative bối cảnh (minh họa image)." [ref=e130]:
+            - img "Hà Nội urban rail train in operation" [ref=e132]
+            - generic [ref=e133]: Hà Nội urban rail corridor used as chuyển đổi-alternative bối cảnh (minh họa image).
+    - generic [ref=e135]:
+      - text: Section 2
+      - generic [ref=e136]:
+        - text: Section 2
+        - heading "Phương pháp" [level=2] [ref=e137]
+        - paragraph [ref=e138]: Nghiên cứu dùng stated-preference discrete choice experiment (DCE) theo random utility theory. Người trả lời tại Hà Nội hoàn thành nhiều choice task; trong mỗi task, họ chọn giữa các policy bundle và phương án status quo.
+        - paragraph [ref=e139]: "Mỗi bundle gồm tám thuộc tính, mỗi thuộc tính có ba mức: phạm vi hạn chế, thay đổi chi phí đi lại, chất lượng phương án thay thế, hỗ trợ giá vé, hỗ trợ chuyển đổi, tái phân bổ không gian xanh, park-and-ride và quản trị nguồn thu. Thiết kế tạo 27 profile trực giao, chia thành 3 block; mỗi người trả lời hoàn thành 9 task."
+        - paragraph [ref=e140]:
+          - text: We estimated mixed logit mô hìnhs for main effects and interaction effects. Interaction terms tested heterogeneity by motorcycle dependency, income, trust, and environmental concern. Willingness-to-pay values were calculated as coefficient ratios to the cost term, WTP
+          - subscript [ref=e141]: k
+          - text: = β
+          - subscript [ref=e142]: k
+          - text: / (-β
+          - subscript [ref=e143]: cost
+          - text: ). The design target was n = 400 and the realized mẫu was n = 320.
+        - paragraph [ref=e144]: Phần mô phỏng kịch bản ở Section 3A liên kết trực tiếp với các hệ số ước tính. Đây không phải dự báo market share, mà là công cụ so sánh minh bạch giúp người đọc không chuyên hiểu hướng tác động và độ lớn tương đối giữa các policy bundle.
+        - generic [ref=e145]:
+          - article [ref=e146]:
+            - paragraph [ref=e147]: DCE attributes
+            - paragraph [ref=e148]: 8 attributes, 3 levels each
+          - article [ref=e149]:
+            - paragraph [ref=e150]: Design profiles
+            - paragraph [ref=e151]: 27 orthogonal profiles
+          - article [ref=e152]:
+            - paragraph [ref=e153]: Blocking
+            - paragraph [ref=e154]: 3 survey blocks
+          - article [ref=e155]:
+            - paragraph [ref=e156]: Tasks per respondent
+            - paragraph [ref=e157]: 9 choice tasks + status quo
+          - article [ref=e158]:
+            - paragraph [ref=e159]: Mẫu
+            - paragraph [ref=e160]: Target n = 400, realized n = 320
+        - heading "Utility equation set" [level=3] [ref=e161]
+        - generic [ref=e162]:
+          - article [ref=e163]:
+            - heading "Utility decomposition" [level=4] [ref=e164]
+            - paragraph [ref=e165]:
+              - text: U
+              - subscript [ref=e166]: ni
+              - text: = V
+              - subscript [ref=e167]: ni
+              - text: + ε
+              - subscript [ref=e168]: ni
+          - article [ref=e169]:
+            - heading "Systematic utility" [level=4] [ref=e170]
+            - paragraph [ref=e171]:
+              - text: V
+              - subscript [ref=e172]: ni
+              - text: = β'X
+              - subscript [ref=e173]: ni
+          - article [ref=e174]:
+            - heading "Monetary trade-off" [level=4] [ref=e175]
+            - paragraph [ref=e176]:
+              - text: WTP
+              - subscript [ref=e177]: k
+              - text: = β
+              - subscript [ref=e178]: k
+              - text: / (-β
+              - subscript [ref=e179]: cost
+              - text: )
+        - generic [ref=e180]:
+          - heading "Phương pháp sequence" [level=4] [ref=e181]
+          - paragraph [ref=e182]: Study area definition, attribute design, orthogonal profile generation, blocked survey fieldwork, mixed logit estimation, interaction estimation, and WTP derivation.
+      - generic [ref=e183]:
+        - heading "Marginal WTP by Policy Attribute (VND/month)" [level=3] [ref=e184]
+        - paragraph [ref=e185]: How much residents are willing to pay for each policy improvement component.
+    - generic [ref=e189]:
+      - text: Section 3
+      - generic [ref=e190]:
+        - generic [ref=e191]:
+          - text: Section 3
+          - heading "Kết quả" [level=2] [ref=e192]
+          - paragraph [ref=e193]: Mô hình cho thấy lực kéo status quo mạnh, disutility lớn với hạn chế rộng, và utility dương rõ với các thuộc tính pull và support. Heterogeneity nhất quán với các kênh phụ thuộc, thu nhập, trust và environmental concern.
+        - generic [ref=e194]:
+          - article [ref=e195]:
+            - paragraph [ref=e196]: Mô hình fit
+            - paragraph [ref=e197]:
+              - text: ρ
+              - superscript [ref=e198]: "2"
+              - text: = 0.28
+          - article [ref=e199]:
+            - paragraph [ref=e200]: Status-quo preference
+            - paragraph [ref=e201]: ASC = +1.621
+          - article [ref=e202]:
+            - paragraph [ref=e203]: Mạnh nhất negative β
+            - paragraph [ref=e204]: Ban all motorcycles = -1.752
+          - article [ref=e205]:
+            - paragraph [ref=e206]: Mạnh nhất positive β
+            - paragraph [ref=e207]: Financial support = +0.956
+          - article [ref=e208]:
+            - paragraph [ref=e209]: Heterogeneity signal
+            - paragraph [ref=e210]: σ significant on key random terms
+        - generic [ref=e211]:
+          - article [ref=e212]:
+            - heading "Figure 1. Mixed logit Main Effects" [level=3] [ref=e213]
+            - paragraph [ref=e214]: Được báo cáo coefficients and 95% confidence intervals from Table 3, grouped as push, pull, support-process, and status-quo terms.
+          - 'figure "Mixed logit main effects: push coefficients are negative, while pull and support coefficients are positive." [ref=e215]':
+            - img "Mixed logit main effects from Table 3" [ref=e216]
+            - generic [ref=e217]: "Mixed logit main effects: push coefficients are negative, while pull and support coefficients are positive."
+    - generic [ref=e219]:
+      - text: Section 3A
+      - generic [ref=e220]:
+        - generic [ref=e221]:
+          - article [ref=e222]:
+            - heading "Figure 2. WTP and Heterogeneity Effects" [level=3] [ref=e223]
+            - paragraph [ref=e224]: Được báo cáo WTP ordering from Table 5 with selected interaction terms from Table 4. Positive values support mức chấp nhận; negative values indicate compensation required.
+          - figure "WTP ranking is led by e-motorcycle grants and stronger giao thông công cộng quality; interactions show dependency, income, trust, and environmental-concern effects." [ref=e225]:
+            - img "WTP ranking and heterogeneity interactions from Tables 4 and 5" [ref=e226]
+            - generic [ref=e227]: WTP ranking is led by e-motorcycle grants and stronger giao thông công cộng quality; interactions show dependency, income, trust, and environmental-concern effects.
+        - generic [ref=e228]:
+          - article [ref=e229]:
+            - heading "Hạn chế sensitivity" [level=4] [ref=e230]
+            - paragraph [ref=e231]: Ban intensity produces the mạnh nhất negative effect, with substantial heterogeneity in the random term (σ for broad ban is large).
+          - article [ref=e232]:
+            - heading "Dependency and income effects" [level=4] [ref=e233]
+            - paragraph [ref=e234]: Motorcycle dependency strengthens opposition to broad bans (β = -0.324). Higher income reduces cost sensitivity (β = +0.005) and lowers grant valuation (β = -0.018).
+          - article [ref=e235]:
+            - heading "Trust mechanism" [level=4] [ref=e236]
+            - paragraph [ref=e237]: Trust lowers status-quo pull through the ASC interaction (β = -0.281), supporting a governance-first communication strategy.
+          - article [ref=e238]:
+            - heading "Environmental preference channel" [level=4] [ref=e239]
+            - paragraph [ref=e240]: Environmental concern raises support for green-space reallocation (β = +0.217), indicating stronger mức chấp nhận of visible co-benefits.
+        - generic [ref=e241]:
+          - text: Policy Scenario Simulation
+          - heading "Coefficient-Based Scenario Simulation" [level=3] [ref=e242]
+          - paragraph [ref=e243]: Module này chuyển hệ số ước tính thành so sánh kịch bản. Đây là công cụ truyền thông, không phải forecast nhu cầu. Trong index này, push mang dấu âm, còn pull, support và trust mang dấu dương.
+          - generic [ref=e244]:
+            - heading "Simulation calculation (ngắn gọn)" [level=4] [ref=e245]
+            - generic "Simulation steps" [ref=e246]:
+              - article [ref=e247]:
+                - paragraph [ref=e248]: 1) Utility index
+                - paragraph [ref=e249]: ΔU = (-1.967 × Push) + (2.093 × Pull) + (1.271 × Support) + (0.281 × Trust)
+                - paragraph [ref=e250]: Inputs are entered on 0-100 sliders and normalized to [0,1].
+              - article [ref=e251]:
+                - paragraph [ref=e252]: 2) Mức chấp nhận score
+                - paragraph [ref=e253]: Score = clamp(50 + 18 × ΔU, 0, 100)
+              - article [ref=e254]:
+                - paragraph [ref=e255]: 3) High-mức chấp nhận chance
+                - paragraph [ref=e256]: Chance = 100 / (1 + exp(-2.7 × (ΔU - 0.25)))
+                - paragraph [ref=e257]: Shown as 1-99 to avoid false certainty.
+            - paragraph [ref=e258]:
+              - strong [ref=e259]: "Definitions:"
+              - text: Push = hạn chế scope and direct burden; Pull = alternative transport quality; Support = financial and implementation support; Trust = confidence in delivery and revenue governance.
+            - paragraph [ref=e260]:
+              - strong [ref=e261]: "Diagnostics:"
+              - text: Alternative readiness (pull + support), Burden pressure (push with partial support offset), Chuyển đổi trust (trust with support).
+            - paragraph [ref=e262]: For scenario comparison only; not a direct adoption forecast.
+        - generic [ref=e263]:
+          - generic "Policy lever controls" [ref=e264]:
+            - generic [ref=e265]:
+              - generic [ref=e266]:
+                - generic [ref=e267]: Push intensity (hạn chế and cost)
+                - status [ref=e268]: 39%
+              - slider "Push intensity (hạn chế and cost)" [ref=e269]: "39"
+              - paragraph [ref=e270]: Higher values represent stricter scope and higher burden from push-side policy terms.
+            - generic [ref=e271]:
+              - generic [ref=e272]:
+                - generic [ref=e273]: Pull quality (alternatives)
+                - status [ref=e274]: 74%
+              - slider "Pull quality (alternatives)" [ref=e275]: "74"
+              - paragraph [ref=e276]: Represents giao thông công cộng frequency, fare relief, greenery, and park-and-ride quality.
+            - generic [ref=e277]:
+              - generic [ref=e278]:
+                - generic [ref=e279]: Support and process
+                - status [ref=e280]: 74%
+              - slider "Support and process" [ref=e281]: "74"
+              - paragraph [ref=e282]: Represents chuyển đổi grants and revenue governance transparency.
+            - generic [ref=e283]:
+              - generic [ref=e284]:
+                - generic [ref=e285]: Trust modifier
+                - status [ref=e286]: 68%
+              - slider "Trust modifier" [ref=e287]: "68"
+              - paragraph [ref=e288]: Higher trust lowers status-quo attraction and improves mức chấp nhận feasibility.
+            - group "Preset sequencing styles" [ref=e289]:
+              - button "Push-first" [ref=e290] [cursor=pointer]
+              - button "Pull + support" [ref=e291] [cursor=pointer]
+              - button "Calibrated push" [ref=e292] [cursor=pointer]
+              - button "Alternatives first" [ref=e293] [cursor=pointer]
+          - figure "Coefficient-based scenario display for comparing policy bundle under different slider settings." [ref=e294]:
+            - generic [ref=e295]:
+              - generic [ref=e296]:
+                - article [ref=e297]:
+                  - paragraph [ref=e298]: Mức chấp nhận score
+                  - paragraph [ref=e299]: 84/100
+                - article [ref=e300]:
+                  - paragraph [ref=e301]: Rollout status
+                  - paragraph [ref=e302]: High
+              - generic [ref=e306]:
+                - generic [ref=e307]: Pull
+                - generic [ref=e308]: Support
+                - generic [ref=e309]: Calibrate
+                - generic [ref=e310]: Restrict
+            - generic [ref=e311]: Coefficient-based scenario display for comparing policy bundle under different slider settings.
+        - generic [ref=e312]:
+          - article [ref=e313]:
+            - paragraph [ref=e314]: Alternative readiness
+            - paragraph [ref=e316]: 74%
+          - article [ref=e317]:
+            - paragraph [ref=e318]: Burden pressure
+            - paragraph [ref=e320]: 36%
+          - article [ref=e321]:
+            - paragraph [ref=e322]: Chuyển đổi trust
+            - paragraph [ref=e324]: 70%
+        - generic [ref=e325]:
+          - article [ref=e326]:
+            - heading "Diagnostic gaps" [level=3] [ref=e327]
+            - generic [ref=e328]:
+              - generic [ref=e329]:
+                - paragraph [ref=e330]: Readiness gap
+                - paragraph [ref=e331]: +38 pts
+              - generic [ref=e332]:
+                - paragraph [ref=e333]: Compensation gap
+                - paragraph [ref=e334]: +35 pts
+              - generic [ref=e335]:
+                - paragraph [ref=e336]: Trust buffer
+                - paragraph [ref=e337]: +48 pts
+              - generic [ref=e338]:
+                - paragraph [ref=e339]: Utility shift
+                - paragraph [ref=e340]: ΔU = +1.91
+              - generic [ref=e341]:
+                - paragraph [ref=e342]: High-mức chấp nhận chance
+                - paragraph [ref=e343]: 99%
+              - generic [ref=e344]:
+                - paragraph [ref=e345]: Chính lever
+                - paragraph [ref=e346]: Reduce push intensity
+          - article [ref=e347]:
+            - heading "Phase readiness" [level=3] [ref=e348]
+            - generic [ref=e349]:
+              - generic [ref=e350]:
+                - paragraph [ref=e351]: Pull
+                - paragraph [ref=e353]: 73%
+              - generic [ref=e354]:
+                - paragraph [ref=e355]: Support
+                - paragraph [ref=e357]: 73%
+              - generic [ref=e358]:
+                - paragraph [ref=e359]: Calibrate
+                - paragraph [ref=e361]: 70%
+              - generic [ref=e362]:
+                - paragraph [ref=e363]: Restrict
+                - paragraph [ref=e365]: 83%
+          - article [ref=e366]:
+            - heading "Policy guidance" [level=3] [ref=e367]
+            - paragraph [ref=e368]: Current conditions allow a calibrated restriction increase with monitoring.
+            - list [ref=e369]:
+              - listitem [ref=e370]: No major risk flags in this scenario.
+    - generic [ref=e372]:
+      - text: Section 4
+      - generic [ref=e373]:
+        - generic [ref=e374]:
+          - text: Section 4
+          - heading "Managerial Hàm ý" [level=2] [ref=e375]
+          - paragraph [ref=e376]: Hàm ý quản trị nằm ở sequencing discipline. Việc mở rộng hạn chế nên đi sau mức readiness đo được, độ phủ support và điều kiện trust.
+        - generic "Minh họa chuyển đổi visuals" [ref=e377]:
+          - figure "Hà Nội BRT operation as pull-side transport capacity bối cảnh." [ref=e378]:
+            - img "Hà Nội BRT bus in operation as pull-side transport capacity" [ref=e380]
+            - generic [ref=e381]: Hà Nội BRT operation as pull-side transport capacity bối cảnh.
+          - figure "Public charging infrastructure as chuyển đổi-support bối cảnh for cleaner vehicle adoption." [ref=e382]:
+            - img "VinFast charging station infrastructure in Hoa Binh" [ref=e384]
+            - generic [ref=e385]: Public charging infrastructure as chuyển đổi-support bối cảnh for cleaner vehicle adoption.
+        - heading "Managerial action themes" [level=3] [ref=e386]
+        - generic [ref=e387]:
+          - article [ref=e388]:
+            - heading "Pull-first deployment" [level=4] [ref=e389]
+            - paragraph [ref=e390]: Ưu tiên giao thông công cộng thường xuyên và đáng tin, hỗ trợ giá vé và interchange capacity dùng được trước khi siết phạm vi hạn chế. Điều này khớp với hệ số pull dương và WTP cao cho cải thiện chất lượng.
+          - article [ref=e391]:
+            - heading "Targeted equity support" [level=4] [ref=e392]
+            - paragraph [ref=e393]: Bảo vệ nhóm phụ thuộc nhiều và thu nhập thấp bằng hỗ trợ mua e-motorcycle và transition subsidy. Interaction term cho thấy mức phụ thuộc làm tăng phản đối lệnh cấm, còn thu nhập thay đổi độ nhạy chi phí và valuation với khoản hỗ trợ.
+          - article [ref=e394]:
+            - heading "Governance and trust architecture" [level=4] [ref=e395]
+            - paragraph [ref=e396]: Dùng cơ chế tái sử dụng nguồn thu minh bạch và truyền thông giám sát công khai. Trust làm giảm lực kéo status quo, nên credibility khi triển khai không phải phần phụ; nó là một phần của acceptance design.
+        - generic "Phase route rail" [ref=e397]:
+          - article [ref=e398]:
+            - heading "Readiness gate" [level=3] [ref=e399]
+            - paragraph [ref=e400]: Transit frequency, độ tin cậy thang đo, and corridor coverage meet threshold.
+          - article [ref=e401]:
+            - heading "Support reach gate" [level=3] [ref=e402]
+            - paragraph [ref=e403]: Grant and subsidy access reaches exposure-heavy households.
+          - article [ref=e404]:
+            - heading "Trust and compliance gate" [level=3] [ref=e405]
+            - paragraph [ref=e406]: Complaint intensity and enforcement disputes remain stable.
+          - article [ref=e407]:
+            - heading "Outcome gate" [level=3] [ref=e408]
+            - paragraph [ref=e409]: Air quality and social burden indicators improve together.
+        - generic [ref=e410]:
+          - heading "Nguồn and image attribution" [level=4] [ref=e411]
+          - paragraph [ref=e412]:
+            - text: "Mô hình figures are directly based on manuscript Table 3, Table 4, and Table 5 values. Minh họa visuals in this section:"
+            - link "Hà Nội-brt-bus.jpg" [ref=e413] [cursor=pointer]:
+              - /url: .././assets/optimized/external/wikimedia/hanoi-brt-bus-optimized.webp
+            - text: "(photo by Minseong Kim, CC BY-SA 4.0; nguồn:"
+            - link "Wikimedia Commons" [ref=e414] [cursor=pointer]:
+              - /url: https://commons.wikimedia.org/wiki/File:Hanoi_BRT_bus.jpg
+            - text: ) and
+            - link "vinfast-charging-station-hoa-binh-01.jpg" [ref=e415] [cursor=pointer]:
+              - /url: .././assets/optimized/external/wikimedia/vinfast-charging-station-hoa-binh-01-optimized.webp
+            - text: "(photo by Nguyenvuxe, CC BY-SA 4.0; nguồn:"
+            - link "Wikimedia Commons" [ref=e416] [cursor=pointer]:
+              - /url: https://commons.wikimedia.org/wiki/File:Newone_-_VinFast_charging_station_Hoa_Binh_01.jpg
+            - text: ).
+    - link " Quay lại kho nghiên cứu" [ref=e418] [cursor=pointer]:
+      - /url: projects.html
+      - generic [ref=e419]: 
+      - text: Quay lại kho nghiên cứu
+    - region "Xem các hướng nghiên cứu liên quan" [ref=e420]:
+      - generic [ref=e422]:
+        - paragraph [ref=e423]: Nghiên cứu liên quan
+        - heading "Xem các hướng nghiên cứu liên quan" [level=2] [ref=e424]
+        - paragraph [ref=e425]: Dùng các link này để chuyển giữa các nghiên cứu liên quan, thay vì dừng ở một trang case riêng lẻ.
+        - link "Xem trang topic Mobility and Policy Research" [ref=e426] [cursor=pointer]:
+          - /url: mobility-policy.html
+        - list [ref=e427]:
+          - listitem [ref=e428]:
+            - link "EV Choice Experiment tại Việt Nam Lựa chọn EV experiment with n = 212 maps design, range, price, and charging trade-offs across pragmatic and aesthetic consumer." [ref=e429] [cursor=pointer]:
+              - /url: research-ev.html
+              - generic [ref=e430]: EV Choice Experiment tại Việt Nam
+              - generic [ref=e431]: Lựa chọn EV experiment with n = 212 maps design, range, price, and charging trade-offs across pragmatic and aesthetic consumer.
+          - listitem [ref=e432]:
+            - link "Phân khúc khách hàng khách sạn from Aspect-level sentiment Aspect-level sentiment segmentation from 74,896 reviews to map 10 nhóm khách for hotel ra quyết định." [ref=e433] [cursor=pointer]:
+              - /url: research-hotel.html
+              - generic [ref=e434]: Phân khúc khách hàng khách sạn from Aspect-level sentiment
+              - generic [ref=e435]: Aspect-level sentiment segmentation from 74,896 reviews to map 10 nhóm khách for hotel ra quyết định.
+          - listitem [ref=e436]:
+            - link "Hotel Bất đối xứng thuộc tính in Việt Nam (PRCA + Kano) PRCA and Kano analysis of 97,014 reviews xác định hotel attribute penalties, rewards, and basics." [ref=e437] [cursor=pointer]:
+              - /url: research-hotel-prca.html
+              - generic [ref=e438]: Hotel Bất đối xứng thuộc tính in Việt Nam (PRCA + Kano)
+              - generic [ref=e439]: PRCA and Kano analysis of 97,014 reviews xác định hotel attribute penalties, rewards, and basics.
+  - region "Xem các tuyến chính của portfolio" [ref=e440]:
+    - generic [ref=e442]:
+      - paragraph [ref=e443]: Điều hướng site
+      - heading "Xem các tuyến chính của portfolio" [level=2] [ref=e444]
+      - paragraph [ref=e445]: Dùng các link trực tiếp này để chuyển giữa trang hồ sơ, archive và các cụm nghiên cứu mà không phụ thuộc vào một tuyến header duy nhất.
+      - list [ref=e446]:
+        - listitem [ref=e447]:
+          - link "Chung Hy Dai portfolio homepage" [ref=e448] [cursor=pointer]:
+            - /url: index.html
+        - listitem [ref=e449]:
+          - link "Giới thiệu Chung Hy Dai và phương pháp nghiên cứu" [ref=e450] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e451]:
+          - link "Market research projects archive" [ref=e452] [cursor=pointer]:
+            - /url: projects.html
+        - listitem [ref=e453]:
+          - link "Tín hiệu xác thực và tham chiếu bên ngoài" [ref=e454] [cursor=pointer]:
+            - /url: references.html
+        - listitem [ref=e455]:
+          - link "Research insights và kho ghi chú" [ref=e456] [cursor=pointer]:
+            - /url: insights.html
+        - listitem [ref=e457]:
+          - link "Ghi chú về quyền riêng tư và visitor analytics" [ref=e458] [cursor=pointer]:
+            - /url: privacy.html
+        - listitem [ref=e459]:
+          - link "Hospitality Analytics Research case study" [ref=e460] [cursor=pointer]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e461]:
+          - link "Mobility and Policy Research case study" [ref=e462] [cursor=pointer]:
+            - /url: mobility-policy.html
+        - listitem [ref=e463]:
+          - link "Creator economy Research case study" [ref=e464] [cursor=pointer]:
+            - /url: creator-economy.html
+        - listitem [ref=e465]:
+          - link "Health and Nghiên cứu hành vi case study" [ref=e466] [cursor=pointer]:
+            - /url: health-behavior.html
+        - listitem [ref=e467]:
+          - link "Organizational Nghiên cứu hành vi case study" [ref=e468] [cursor=pointer]:
+            - /url: organizational-behavior.html
+  - contentinfo [ref=e469]:
+    - generic [ref=e470]:
+      - paragraph [ref=e471]: Xem research portfolio.
+      - paragraph [ref=e472]: Liên hệ qua email cho research, analytics, operations hoặc review vị trí trainee.
+      - generic [ref=e473]:
+        - link " daichunghy@gmail.com" [ref=e474] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e475]: 
+          - text: daichunghy@gmail.com
+        - generic [ref=e476]: "|"
+        - link " ORCID" [ref=e477] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e478]: 
+          - text: ORCID
+        - generic [ref=e479]: "|"
+        - generic [ref=e480]:
+          - generic [ref=e481]: 
+          - text: TP. Hồ Chí Minh, Việt Nam
+      - paragraph [ref=e483]: © 2026 Chung Hy Dai.

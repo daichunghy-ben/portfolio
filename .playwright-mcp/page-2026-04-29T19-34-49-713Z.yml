@@ -1,0 +1,150 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - button "Toggle navigation" [ref=e6] [cursor=pointer]
+      - text: 
+  - main [ref=e10]:
+    - navigation "Breadcrumb" [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "Home" [ref=e14]:
+            - /url: index.html
+        - listitem [ref=e15]:
+          - text: /
+          - generic [ref=e16]: Privacy
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]: Privacy and analytics
+        - heading "Visitor analytics note" [level=1] [ref=e22]
+        - paragraph [ref=e23]: This portfolio may use privacy-respecting analytics to understand aggregate visits, portfolio source links, and contact actions. It is not designed to identify a visitor by name, employer, email address, IP address, or device fingerprint.
+        - paragraph [ref=e24]: Last updated 25 Apr 2026
+        - generic [ref=e25]:
+          - link " Contact Chung Hy Dai" [ref=e26]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Privacy%20Question
+            - generic [ref=e27]: 
+            - text: Contact Chung Hy Dai
+          - link " Verified references" [ref=e28]:
+            - /url: references.html
+            - generic [ref=e29]: 
+            - text: Verified references
+      - complementary [ref=e30]:
+        - heading "What the site can learn" [level=2] [ref=e31]
+        - generic [ref=e32]:
+          - generic [ref=e33]:
+            - strong [ref=e34]: Traffic source
+            - generic [ref=e35]: Whether a visit came from search, LinkedIn, GitHub, ORCID, a direct link, or a tagged campaign URL.
+          - generic [ref=e36]:
+            - strong [ref=e37]: Portfolio engagement
+            - generic [ref=e38]: Which pages are viewed, and whether a visitor clicks email, profile, research, or download links.
+          - generic [ref=e39]:
+            - strong [ref=e40]: Voluntary identity
+            - generic [ref=e41]: Name, organization, or role only if the visitor chooses to share it by email or a future contact form.
+    - generic [ref=e44]:
+      - article [ref=e45]:
+        - strong [ref=e46]: Analytics status
+        - generic [ref=e47]: The production build can enable Plausible Analytics or Google Analytics 4 through deployment variables. If no analytics provider is configured, the local analytics helper remains inactive.
+      - article [ref=e48]:
+        - strong [ref=e49]: Events measured
+        - generic [ref=e50]: Configured analytics may record campaign landing events, email/contact clicks, document downloads, and outbound profile clicks. Event properties avoid email addresses, full query strings, credential images, or private identifiers.
+      - article [ref=e51]:
+        - strong [ref=e52]: What is not collected
+        - generic [ref=e53]: The portfolio does not intentionally collect government IDs, credential images, hidden proof links with personal identifiers, keystrokes, device fingerprints, or precise visitor identity.
+    - generic [ref=e56]:
+      - generic [ref=e57]:
+        - heading "Recruiter contact route" [level=2] [ref=e58]
+        - paragraph [ref=e59]: If a recruiter or reviewer wants to identify themselves, the direct route is email. This keeps identity sharing explicit and review-safe.
+        - generic [ref=e60]:
+          - link "Email Chung Hy Dai Share role context, company name, or follow-up request voluntarily." [ref=e61]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - strong [ref=e62]: Email Chung Hy Dai
+            - generic [ref=e63]: Share role context, company name, or follow-up request voluntarily.
+          - link "LinkedIn profile Professional profile connected to the same portfolio identity." [ref=e64]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - strong [ref=e65]: LinkedIn profile
+            - generic [ref=e66]: Professional profile connected to the same portfolio identity.
+          - link "GitHub profile Public repository profile linked to the same name and homepage." [ref=e67]:
+            - /url: https://github.com/daichunghy-ben
+            - strong [ref=e68]: GitHub profile
+            - generic [ref=e69]: Public repository profile linked to the same name and homepage.
+      - generic [ref=e70]:
+        - heading "Data handling principles" [level=2] [ref=e71]
+        - generic [ref=e72]:
+          - generic [ref=e73]:
+            - strong [ref=e74]: Minimal measurement
+            - generic [ref=e75]: Track only the signals needed to improve the portfolio and understand contact intent.
+          - generic [ref=e76]:
+            - strong [ref=e77]: Clear source tagging
+            - generic [ref=e78]: Use UTM links from LinkedIn, GitHub, ORCID, CVs, and email signatures so source attribution does not require invasive identification.
+          - generic [ref=e79]:
+            - strong [ref=e80]: Private proof stays private
+            - generic [ref=e81]: Credential proof that contains personal identifiers is not published as public imagery or linked as crawlable proof.
+  - region "Browse the main portfolio paths" [ref=e82]:
+    - generic [ref=e84]:
+      - paragraph [ref=e85]: Site Routes
+      - heading "Browse the main portfolio paths" [level=2] [ref=e86]
+      - paragraph [ref=e87]: Use these direct links to move between the profile page, the archive, and the research clusters without depending on one header route.
+      - list [ref=e88]:
+        - listitem [ref=e89]:
+          - link "Chung Hy Dai portfolio homepage" [ref=e90]:
+            - /url: index.html
+        - listitem [ref=e91]:
+          - link "About Chung Hy Dai and research methodology" [ref=e92]:
+            - /url: about.html
+        - listitem [ref=e93]:
+          - link "Market research projects archive" [ref=e94]:
+            - /url: projects.html
+        - listitem [ref=e95]:
+          - link "Verified signals and external references" [ref=e96]:
+            - /url: references.html
+        - listitem [ref=e97]:
+          - link "Research insights and note archive" [ref=e98]:
+            - /url: insights.html
+        - listitem [ref=e99]:
+          - link "Hospitality Analytics Research case studies" [ref=e100]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e101]:
+          - link "Mobility and Policy Research case studies" [ref=e102]:
+            - /url: mobility-policy.html
+        - listitem [ref=e103]:
+          - link "Creator Economy Research case studies" [ref=e104]:
+            - /url: creator-economy.html
+        - listitem [ref=e105]:
+          - link "Health and Behavior Research case studies" [ref=e106]:
+            - /url: health-behavior.html
+        - listitem [ref=e107]:
+          - link "Organizational Behavior Research case studies" [ref=e108]:
+            - /url: organizational-behavior.html
+  - contentinfo [ref=e109]:
+    - generic [ref=e110]:
+      - heading "Contact with clear context." [level=2] [ref=e111]
+      - paragraph [ref=e112]: For role review, research context, analytics work, or privacy questions, use the direct email route.
+      - generic [ref=e113]:
+        - link " Email Chung Hy Dai" [ref=e114]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - generic [ref=e115]: 
+          - text: Email Chung Hy Dai
+        - link " Portfolio Home" [ref=e116]:
+          - /url: index.html
+          - generic [ref=e117]: 
+          - text: Portfolio Home
+      - generic [ref=e118]:
+        - link " daichunghy@gmail.com" [ref=e119]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e120]: 
+          - text: daichunghy@gmail.com
+        - link " LinkedIn" [ref=e121]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e122]: 
+          - text: LinkedIn
+        - link " GitHub" [ref=e123]:
+          - /url: https://github.com/daichunghy-ben
+          - generic [ref=e124]: 
+          - text: GitHub
+        - link " ORCID" [ref=e125]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e126]: 
+          - text: ORCID
+      - paragraph [ref=e128]: © 2026 Chung Hy Dai.

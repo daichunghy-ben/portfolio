@@ -5,6 +5,13 @@ import {
   deriveGitHubPagesSiteUrl,
   loadSeoData
 } from './seo-page-data.mjs';
+import {
+  applyEnglishLanguageChrome,
+  buildVietnamesePage,
+  getLanguageForHtmlFile,
+  localizedHtmlFileForLanguage,
+  sourceHtmlFileForLocalizedFile
+} from './i18n-vi.mjs';
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, '.deploy', 'public');
@@ -18,10 +25,10 @@ const STATIC_FILES = [
   'llms.txt',
   '29b32fc996d617451de2f50fb62aae0c.txt'
 ];
-const HTML_EXCLUDE = new Set(['index_patched.html']);
-const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const HTML_EXCLUDE = new Set(['about.html', 'index_patched.html']);
+const SITEMAP_EXCLUDE = new Set(['404.html', 'about.html', 'index_patched.html']);
 const LEGACY_PORTFOLIO_ALIAS_DIR = 'portfolio';
-const LEGACY_PORTFOLIO_ALIAS_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const LEGACY_PORTFOLIO_ALIAS_EXCLUDE = new Set(['404.html', 'about.html', 'index_patched.html']);
 const PRIVATE_ASSET_REFS = new Set([
   'assets/degree.png',
   'assets/certs/ICDL.jpg',
@@ -53,6 +60,7 @@ const STAGED_ASSET_REFS = new Map([
   ['styles/research.css', 'dist/styles/research.css'],
   ['styles/research-ev-immersive.css', 'dist/styles/research-ev-immersive.css'],
   ['styles/research-psych-university.css', 'dist/styles/research-psych-university.css'],
+  ['js/analytics.js', 'dist/js/analytics.js'],
   ['js/main.js', 'dist/js/main.js'],
   ['js/carousel-fallback.js', 'dist/js/carousel-fallback.js'],
   ['js/research-ev-fallback.js', 'dist/js/research-ev-fallback.js'],
@@ -209,6 +217,22 @@ const listFilesRecursive = async (dirPath) => {
   return items;
 };
 
+const listStagedHtmlFiles = async ({ includeNested = true } = {}) => {
+  if (!includeNested) {
+    const entries = await fs.readdir(OUT_DIR, { withFileTypes: true });
+    return entries
+      .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
+      .map((entry) => entry.name)
+      .sort();
+  }
+
+  const files = await listFilesRecursive(OUT_DIR);
+  return files
+    .map((filePath) => path.relative(OUT_DIR, filePath).replace(/\\/g, '/'))
+    .filter((name) => name.endsWith('.html') && !name.includes('.report.html'))
+    .sort();
+};
+
 const assertNoPrivateAssetRefs = async () => {
   const files = await listFilesRecursive(OUT_DIR);
   const failures = [];
@@ -294,6 +318,94 @@ const parseLegacyHosts = (raw) => {
   return new Set(hosts);
 };
 
+const stripGeneratedAnalyticsBlock = (html) =>
+  html.replace(/\s*<!-- ANALYTICS-GENERATED:START -->[\s\S]*?<!-- ANALYTICS-GENERATED:END -->/gi, '');
+
+const normalizeAnalyticsProvider = (value) => {
+  const raw = String(value || '').trim().toLowerCase();
+  if (raw === 'plausible' || raw === 'plausible-analytics') return 'plausible';
+  if (raw === 'ga4' || raw === 'google' || raw === 'google-analytics' || raw === 'gtag') return 'ga4';
+  return '';
+};
+
+const sanitizeAnalyticsAttr = (value) =>
+  String(value || '')
+    .trim()
+    .replace(/[<>"']/g, '');
+
+const normalizeAnalyticsScriptUrl = (value, fallback) => {
+  const raw = String(value || fallback || '').trim();
+  if (!raw) return '';
+  try {
+    const parsed = new URL(raw);
+    if (parsed.protocol !== 'https:') return fallback;
+    return parsed.href;
+  } catch {
+    return fallback;
+  }
+};
+
+const normalizeAnalyticsConfig = (siteConfig = {}) => {
+  const analytics = siteConfig?.analytics || {};
+  const provider = normalizeAnalyticsProvider(process.env.ANALYTICS_PROVIDER || analytics.provider);
+
+  if (provider === 'plausible') {
+    const domain = sanitizeAnalyticsAttr(process.env.PLAUSIBLE_DOMAIN || analytics.plausible_domain);
+    if (!domain) return { provider: '' };
+    return {
+      provider,
+      plausibleDomain: domain,
+      plausibleScriptUrl: normalizeAnalyticsScriptUrl(
+        process.env.PLAUSIBLE_SCRIPT_URL || analytics.plausible_script_url,
+        'https://plausible.io/js/script.js'
+      )
+    };
+  }
+
+  if (provider === 'ga4') {
+    const measurementId = sanitizeAnalyticsAttr(process.env.GA_MEASUREMENT_ID || analytics.google_measurement_id);
+    if (!/^G-[A-Z0-9]+$/i.test(measurementId)) return { provider: '' };
+    return {
+      provider,
+      gaMeasurementId: measurementId.toUpperCase()
+    };
+  }
+
+  return { provider: '' };
+};
+
+const buildAnalyticsSnippet = (config) => {
+  if (config.provider === 'plausible') {
+    return [
+      '<!-- ANALYTICS-GENERATED:START -->',
+      '<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments);};</script>',
+      `<script defer data-domain="${escapeXml(config.plausibleDomain)}" src="${escapeXml(config.plausibleScriptUrl)}"></script>`,
+      '<script defer src="dist/js/analytics.js" data-analytics-provider="plausible"></script>',
+      '<!-- ANALYTICS-GENERATED:END -->'
+    ].join('\n');
+  }
+
+  if (config.provider === 'ga4') {
+    const id = JSON.stringify(config.gaMeasurementId);
+    return [
+      '<!-- ANALYTICS-GENERATED:START -->',
+      `<script async src="https://www.googletagmanager.com/gtag/js?id=${escapeXml(config.gaMeasurementId)}"></script>`,
+      `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config',${id});</script>`,
+      '<script defer src="dist/js/analytics.js" data-analytics-provider="ga4"></script>',
+      '<!-- ANALYTICS-GENERATED:END -->'
+    ].join('\n');
+  }
+
+  return '';
+};
+
+const applyAnalyticsForSiteUrl = (html, analyticsConfig) => {
+  const stripped = stripGeneratedAnalyticsBlock(html);
+  const snippet = buildAnalyticsSnippet(analyticsConfig);
+  if (!snippet || !/<\/head>/i.test(stripped)) return stripped;
+  return stripped.replace(/<\/head>/i, `${snippet}\n</head>`);
+};
+
 const replaceCanonicalTag = (html, canonicalUrl) =>
   html.replace(
     /<link\b[^>]*\brel\s*=\s*["']canonical["'][^>]*>/i,
@@ -366,8 +478,11 @@ const resolveAbsoluteAssetUrl = (value, siteUrl, legacyHosts) => {
 };
 
 const absolutePageUrlForFile = (siteUrl, htmlFileName) => {
-  const isIndex = htmlFileName.toLowerCase() === 'index.html';
-  return isIndex ? new URL(siteUrl).href : new URL(htmlFileName.replace(/^\/+/, ''), siteUrl).href;
+  const normalized = String(htmlFileName || '').replace(/\\/g, '/').replace(/^\/+/, '');
+  const isIndex = path.posix.basename(normalized).toLowerCase() === 'index.html';
+  if (!isIndex) return new URL(normalized, siteUrl).href;
+  const dir = path.posix.dirname(normalized);
+  return dir === '.' ? new URL(siteUrl).href : new URL(`${dir.replace(/^\.\//, '')}/`, siteUrl).href;
 };
 
 const resolvePageUrlForFile = (siteUrl, htmlFileName, html) => {
@@ -377,8 +492,12 @@ const resolvePageUrlForFile = (siteUrl, htmlFileName, html) => {
 
   try {
     const resolvedUrl = new URL(canonicalHref, fallbackUrl).href;
-    if (htmlFileName.toLowerCase() === 'index.html') {
-      const indexFileUrl = new URL('index.html', siteUrl).href;
+    if (path.posix.basename(htmlFileName.replace(/\\/g, '/')).toLowerCase() === 'index.html') {
+      const normalized = String(htmlFileName || '').replace(/\\/g, '/').replace(/^\/+/, '');
+      const dir = path.posix.dirname(normalized);
+      const indexFileUrl = dir === '.'
+        ? new URL('index.html', siteUrl).href
+        : new URL(`${dir}/index.html`, siteUrl).href;
       if (resolvedUrl === indexFileUrl || resolvedUrl === fallbackUrl) {
         return fallbackUrl;
       }
@@ -438,16 +557,13 @@ const extractImageUrlsFromHtml = (html, pageUrl, siteUrl) => {
 };
 
 const generateSitemapXml = async (siteUrl, seoData) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name)
-    .sort();
+  const htmlFiles = await listStagedHtmlFiles();
 
   const pages = [];
   const siteLastUpdatedIso = normalizeIsoDate(seoData?.siteConfig?.last_updated);
 
   for (const htmlFile of htmlFiles) {
-    if (SITEMAP_EXCLUDE.has(htmlFile)) continue;
+    if (SITEMAP_EXCLUDE.has(path.posix.basename(htmlFile))) continue;
 
     const filePath = path.join(OUT_DIR, htmlFile);
     const html = await fs.readFile(filePath, 'utf8');
@@ -457,14 +573,14 @@ const generateSitemapXml = async (siteUrl, seoData) => {
     if (canonicalUrl !== pageUrl) continue;
     if (isNoindexPage(html)) continue;
 
-    const sourcePath = path.join(ROOT, htmlFile);
+    const sourcePath = path.join(ROOT, sourceHtmlFileForLocalizedFile(htmlFile));
     const stats = await fs.stat((await fileExists(sourcePath)) ? sourcePath : filePath);
     const fileLastmod = stats.mtime.toISOString().slice(0, 10);
     pages.push({
       lastmod: pickSitemapLastmod(fileLastmod, siteLastUpdatedIso),
       url: pageUrl,
-      priority: htmlFile === 'index.html' ? '1.0' : '0.8',
-      changefreq: htmlFile === 'index.html' ? 'weekly' : 'monthly'
+      priority: path.posix.basename(htmlFile).toLowerCase() === 'index.html' ? '1.0' : '0.8',
+      changefreq: path.posix.basename(htmlFile).toLowerCase() === 'index.html' ? 'weekly' : 'monthly'
     });
   }
 
@@ -480,15 +596,12 @@ const generateSitemapXml = async (siteUrl, seoData) => {
 };
 
 const generateImageSitemapXml = async (siteUrl) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name)
-    .sort();
+  const htmlFiles = await listStagedHtmlFiles();
 
   const pages = [];
 
   for (const htmlFile of htmlFiles) {
-    if (SITEMAP_EXCLUDE.has(htmlFile)) continue;
+    if (SITEMAP_EXCLUDE.has(path.posix.basename(htmlFile))) continue;
 
     const filePath = path.join(OUT_DIR, htmlFile);
     const html = await fs.readFile(filePath, 'utf8');
@@ -721,15 +834,17 @@ const generateLegacyPortfolioXmlAliases = async () => {
   }
 };
 
-const applyMetadataForSiteUrl = async (siteUrl, legacyHosts, seoData) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name)
-    .sort();
+const applyMetadataForSiteUrl = async (siteUrl, legacyHosts, seoData, analyticsConfig) => {
+  const htmlFiles = await listStagedHtmlFiles();
 
   for (const htmlFile of htmlFiles) {
     const filePath = path.join(OUT_DIR, htmlFile);
     let html = await fs.readFile(filePath, 'utf8');
+    const language = getLanguageForHtmlFile(htmlFile);
+
+    if (language === 'en') {
+      html = applyEnglishLanguageChrome(html, htmlFile);
+    }
 
     html = applyPageSeo({
       htmlFile,
@@ -767,6 +882,8 @@ const applyMetadataForSiteUrl = async (siteUrl, legacyHosts, seoData) => {
       html = replaceMetaContentTag(html, 'name', 'twitter:image', abs);
     }
 
+    html = applyAnalyticsForSiteUrl(html, analyticsConfig);
+
     await fs.writeFile(filePath, html, 'utf8');
   }
 };
@@ -801,9 +918,7 @@ const buildOptimizedAssetRefSet = async () => {
 };
 
 const rewriteStagedHtmlAssetRefs = async (optimizedAssetRefs) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name);
+  const htmlFiles = await listStagedHtmlFiles({ includeNested: false });
 
   for (const htmlFile of htmlFiles) {
     const filePath = path.join(OUT_DIR, htmlFile);
@@ -812,6 +927,20 @@ const rewriteStagedHtmlAssetRefs = async (optimizedAssetRefs) => {
     if (rewritten !== html) {
       await fs.writeFile(filePath, rewritten, 'utf8');
     }
+  }
+};
+
+const generateVietnameseHtmlPages = async () => {
+  const htmlFiles = await listStagedHtmlFiles({ includeNested: false });
+
+  for (const htmlFile of htmlFiles) {
+    if (HTML_EXCLUDE.has(htmlFile) || htmlFile.includes('.report.html')) continue;
+    const sourcePath = path.join(OUT_DIR, htmlFile);
+    const html = await fs.readFile(sourcePath, 'utf8');
+    const viFile = localizedHtmlFileForLanguage(htmlFile, 'vi');
+    const viPath = path.join(OUT_DIR, viFile);
+    await fs.mkdir(path.dirname(viPath), { recursive: true });
+    await fs.writeFile(viPath, buildVietnamesePage({ html, htmlFile }), 'utf8');
   }
 };
 
@@ -842,6 +971,7 @@ const main = async () => {
 
   const optimizedAssetRefs = await buildOptimizedAssetRefSet();
   await rewriteStagedHtmlAssetRefs(optimizedAssetRefs);
+  await generateVietnameseHtmlPages();
 
   const explicitSiteUrl = normalizeSiteUrl(process.env.SITE_URL);
   const githubPagesSiteUrl = normalizeSiteUrl(deriveGitHubPagesSiteUrl(process.env));
@@ -854,6 +984,7 @@ const main = async () => {
   );
   const siteUrl = explicitSiteUrl || githubPagesSiteUrl || configSiteUrl || fallbackSiteUrl;
   const legacyHosts = parseLegacyHosts(process.env.LEGACY_PAGES_HOSTS);
+  const analyticsConfig = normalizeAnalyticsConfig(seoData?.siteConfig);
 
   if (!explicitSiteUrl && !githubPagesSiteUrl && configSiteUrl) {
     console.log(`SITE_URL not set; using site-config base URL: ${siteUrl}`);
@@ -861,7 +992,7 @@ const main = async () => {
     console.log(`SITE_URL not set; using fallback deployment base URL: ${siteUrl}`);
   }
 
-  await applyMetadataForSiteUrl(siteUrl, legacyHosts, seoData);
+  await applyMetadataForSiteUrl(siteUrl, legacyHosts, seoData, analyticsConfig);
   await generateLegacyPortfolioHtmlAliases(siteUrl);
   await updateDeploySiteConfig(siteUrl);
   await generateRobotsTxt(siteUrl);

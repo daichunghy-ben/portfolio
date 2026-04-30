@@ -1,0 +1,4 @@
+[  384868ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/optimized/ev-choice-experiment-480.avif:0
+[  385118ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/viz-influencer-four-e-retention.svg:0
+[  385201ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/optimized/buffet-menu-optimized.webp:0
+[  385235ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:4173/assets/FCBEM.jpg:0

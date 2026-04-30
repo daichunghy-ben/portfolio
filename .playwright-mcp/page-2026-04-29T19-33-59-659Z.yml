@@ -1,0 +1,631 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - generic [ref=e6]:
+        - link "About" [ref=e7] [cursor=pointer]:
+          - /url: about.html
+        - link "Research" [ref=e8] [cursor=pointer]:
+          - /url: projects.html
+        - link "Experience" [ref=e9] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Credentials" [ref=e10] [cursor=pointer]:
+          - /url: "#credentials"
+        - link "Skills" [ref=e11] [cursor=pointer]:
+          - /url: "#skills"
+        - link "Education" [ref=e12] [cursor=pointer]:
+          - /url: "#education"
+        - link " Contact" [ref=e13] [cursor=pointer]:
+          - /url: "#contact"
+          - generic [ref=e14]: 
+          - text: Contact
+        - generic "Language switcher" [ref=e15]:
+          - link "EN English version" [ref=e16] [cursor=pointer]:
+            - /url: index.html
+            - text: EN
+            - generic [ref=e17]: English version
+          - link "VI Vietnamese version" [ref=e18] [cursor=pointer]:
+            - /url: vi/index.html
+            - text: VI
+            - generic [ref=e19]: Vietnamese version
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Market Research · Reporting · AI-assisted Analysis
+        - heading "Chung Hy Dai Market research, reporting, and AI-supported insights" [level=1] [ref=e25]:
+          - generic [ref=e26]: Chung Hy Dai
+          - generic [ref=e27]: Market research, reporting, and AI-supported insights
+        - paragraph [ref=e28]: I turn customer, market, and project data into clear research reports, insight summaries, and decision-ready outputs. The case pages show the methods and evidence behind that work.
+        - generic "Portfolio work keywords" [ref=e29]:
+          - generic [ref=e30]: Market research
+          - generic [ref=e31]: Insight reporting
+          - generic [ref=e32]: AI-assisted analysis
+          - generic [ref=e33]: Survey & text data
+          - generic [ref=e34]: Executive summaries
+        - generic "Portfolio metrics" [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]: 2+
+            - generic [ref=e38]: Years of applied work
+          - generic [ref=e39]:
+            - generic [ref=e40]: "11"
+            - generic [ref=e41]: Research and analytics projects
+          - generic [ref=e42]:
+            - generic [ref=e43]: "2"
+            - generic [ref=e44]: Publications
+        - generic [ref=e45]:
+          - link "View selected work" [ref=e46] [cursor=pointer]:
+            - /url: "#research"
+          - link "Profile and methods " [ref=e47] [cursor=pointer]:
+            - /url: about.html
+            - text: Profile and methods
+            - generic [ref=e48]: 
+      - complementary "Portfolio evidence summary" [ref=e49]:
+        - paragraph [ref=e50]: Work Signals
+        - heading "How the work is reviewed." [level=2] [ref=e51]
+        - generic [ref=e52]:
+          - link "Market research Questions, samples, methods, and evidence standards" [ref=e53] [cursor=pointer]:
+            - /url: projects.html
+            - generic [ref=e54]: Market research
+            - strong [ref=e55]: Questions, samples, methods, and evidence standards
+          - link "Reporting Executive summaries, dashboards, and decision notes" [ref=e56] [cursor=pointer]:
+            - /url: "#skills"
+            - generic [ref=e57]: Reporting
+            - strong [ref=e58]: Executive summaries, dashboards, and decision notes
+          - link "AI-assisted analysis Structured exploration with clear source boundaries" [ref=e59] [cursor=pointer]:
+            - /url: "#skills"
+            - generic [ref=e60]: AI-assisted analysis
+            - strong [ref=e61]: Structured exploration with clear source boundaries
+        - paragraph [ref=e62]: Case pages remain available for method detail, source notes, and proof of work.
+    - generic [ref=e65]:
+      - generic [ref=e66]:
+        - img "Portrait of Chung Hy Dai" [ref=e70]
+        - paragraph [ref=e71]: Chung Hy Dai
+        - paragraph [ref=e72]: Market Research & Consumer Insights
+      - generic [ref=e73]:
+        - text: Profile
+        - heading "Market research and consumer insights analyst." [level=2] [ref=e74]
+        - paragraph [ref=e75]: Business graduate from Swinburne University with 11 applied projects in market research, consumer insights, survey analysis, text analytics, reporting, and AI-assisted exploration. The work focuses on framing useful questions, building evidence, and translating findings into decisions.
+        - paragraph [ref=e76]: This portfolio is published under Chung Hy Dai and may also appear as Dai Chung Hy in reversed-name references. It is organized for market research, consumer insights, and applied analytics review.
+        - paragraph [ref=e77]: Vietnamese (native) · English (IELTS Academic 6.0) · Work authorization details available on request.
+        - list "Profile verification signals" [ref=e78]:
+          - listitem [ref=e79]:
+            - generic [ref=e80]: 
+            - link "LinkedIn profile" [ref=e81] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - listitem [ref=e82]:
+            - generic [ref=e83]: 
+            - link "ORCID record" [ref=e84] [cursor=pointer]:
+              - /url: https://orcid.org/0009-0009-6790-8981
+          - listitem [ref=e85]:
+            - generic [ref=e86]: 
+            - link "Swinburne Vietnam feature" [ref=e87] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+        - article "Swinburne Vietnam profile feature" [ref=e88]:
+          - link "Read the original Swinburne Vietnam article" [ref=e89] [cursor=pointer]:
+            - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+            - img "Swinburne Vietnam news feature highlighting Chung Hy Dai" [ref=e90]
+          - generic [ref=e91]:
+            - paragraph [ref=e92]: Swinburne Vietnam News feature
+            - heading "Swinburne Vietnam profile feature" [level=3] [ref=e93]
+            - paragraph [ref=e94]: Profile feature · Published December 2025
+            - paragraph [ref=e95]: External profile covering applied project work at Swinburne Vietnam.
+            - link "Read source article" [ref=e96] [cursor=pointer]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - text: Read source article
+              - generic [ref=e97]: 
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - text: Work Modes
+        - heading "Market research, reporting, and AI-enabled analysis." [level=2] [ref=e101]
+        - paragraph [ref=e102]: "The portfolio is easier to read as a work system: define the question, analyze the evidence, then report what matters."
+      - generic [ref=e103]:
+        - link "Market research Problem framing and evidence design Research questions, survey logic, sample context, and method choices are made clear before the findings. Question design Evidence standards" [ref=e104] [cursor=pointer]:
+          - /url: projects.html
+          - generic [ref=e105]: Market research
+          - heading "Problem framing and evidence design" [level=3] [ref=e106]
+          - paragraph [ref=e107]: Research questions, survey logic, sample context, and method choices are made clear before the findings.
+          - generic [ref=e108]:
+            - generic [ref=e109]: Question design
+            - generic [ref=e110]: Evidence standards
+        - link "Reporting Insight summaries and decision notes Findings are translated into concise reports, executive summaries, visual outputs, and practical next steps. Storyline Decision support" [ref=e111] [cursor=pointer]:
+          - /url: "#skills"
+          - generic [ref=e112]: Reporting
+          - heading "Insight summaries and decision notes" [level=3] [ref=e113]
+          - paragraph [ref=e114]: Findings are translated into concise reports, executive summaries, visual outputs, and practical next steps.
+          - generic [ref=e115]:
+            - generic [ref=e116]: Storyline
+            - generic [ref=e117]: Decision support
+        - link "AI workflow AI-assisted exploration AI is used to speed up exploration, structure themes, and improve review flow while keeping evidence boundaries visible. Exploration Quality check" [ref=e118] [cursor=pointer]:
+          - /url: "#skills"
+          - generic [ref=e119]: AI workflow
+          - heading "AI-assisted exploration" [level=3] [ref=e120]
+          - paragraph [ref=e121]: AI is used to speed up exploration, structure themes, and improve review flow while keeping evidence boundaries visible.
+          - generic [ref=e122]:
+            - generic [ref=e123]: Exploration
+            - generic [ref=e124]: Quality check
+        - link "Analytics Survey, text, and model outputs Projects combine survey analysis, text analytics, segmentation, experiments, and statistical interpretation. Survey data Text data" [ref=e125] [cursor=pointer]:
+          - /url: "#research"
+          - generic [ref=e126]: Analytics
+          - heading "Survey, text, and model outputs" [level=3] [ref=e127]
+          - paragraph [ref=e128]: Projects combine survey analysis, text analytics, segmentation, experiments, and statistical interpretation.
+          - generic [ref=e129]:
+            - generic [ref=e130]: Survey data
+            - generic [ref=e131]: Text data
+        - link "Review path Profile, methods, and proof The site separates profile context, work samples, credentials, and external references for easier review. Credentials References" [ref=e132] [cursor=pointer]:
+          - /url: about.html
+          - generic [ref=e133]: Review path
+          - heading "Profile, methods, and proof" [level=3] [ref=e134]
+          - paragraph [ref=e135]: The site separates profile context, work samples, credentials, and external references for easier review.
+          - generic [ref=e136]:
+            - generic [ref=e137]: Credentials
+            - generic [ref=e138]: References
+      - generic [ref=e139]:
+        - paragraph [ref=e140]: "Suggested reading path: start with the profile, skim selected work, then use credentials and references for verification."
+        - generic [ref=e141]:
+          - link "About Chung Hy Dai" [ref=e142] [cursor=pointer]:
+            - /url: about.html
+          - link "Selected Work Archive" [ref=e143] [cursor=pointer]:
+            - /url: projects.html
+          - link "Verified References" [ref=e144] [cursor=pointer]:
+            - /url: references.html
+          - link "Short Insight Notes" [ref=e145] [cursor=pointer]:
+            - /url: insights.html
+    - generic [ref=e147]:
+      - generic [ref=e148]:
+        - text: Signals
+        - heading "Verified references and research notes." [level=2] [ref=e149]
+        - paragraph [ref=e150]: These sections consolidate external identity signals, publication records, and concise study interpretations.
+      - generic [ref=e151]:
+        - link "References Verified Signals and References Public profiles, publication records, conference pages, and portfolio-hosted research files tied to the same identity. GitHub + LinkedIn + ORCID External evidence" [ref=e152] [cursor=pointer]:
+          - /url: references.html
+          - generic [ref=e153]: References
+          - heading "Verified Signals and References" [level=3] [ref=e154]
+          - paragraph [ref=e155]: Public profiles, publication records, conference pages, and portfolio-hosted research files tied to the same identity.
+          - generic [ref=e156]:
+            - generic [ref=e157]: GitHub + LinkedIn + ORCID
+            - generic [ref=e158]: External evidence
+        - link "Insights Concise Research Notes Short notes that translate selected case outputs into practical implications. Research notes Study interpretation" [ref=e159] [cursor=pointer]:
+          - /url: insights.html
+          - generic [ref=e160]: Insights
+          - heading "Concise Research Notes" [level=3] [ref=e161]
+          - paragraph [ref=e162]: Short notes that translate selected case outputs into practical implications.
+          - generic [ref=e163]:
+            - generic [ref=e164]: Research notes
+            - generic [ref=e165]: Study interpretation
+    - generic [ref=e167]:
+      - heading "Academic Background." [level=2] [ref=e169]
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - generic [ref=e173]: Sep 2022 - Dec 2025
+          - generic [ref=e174]: Ho Chi Minh City, Vietnam
+        - generic [ref=e175]:
+          - heading "Bachelor of Business ✓ Graduated" [level=3] [ref=e176]:
+            - text: Bachelor of Business
+            - generic [ref=e177]: ✓ Graduated
+          - 'heading "Swinburne University of Technology | Major: Marketing" [level=4] [ref=e178]'
+          - paragraph [ref=e179]: Degree completion is listed for context. Document images are not published because they contain private identifiers.
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - generic [ref=e182]: 2019 - 2022 (Grade 10-12)
+          - generic [ref=e183]: Ho Chi Minh City, Vietnam
+        - generic [ref=e184]:
+          - heading "High School Diploma" [level=3] [ref=e185]
+          - heading "Trường THPT Việt Anh (Viet Anh High School)" [level=4] [ref=e186]
+          - list [ref=e187]:
+            - listitem [ref=e188]:
+              - strong [ref=e189]: "SAT:"
+              - text: 1320/1600 (Math + Evidence-Based Reading & Writing)
+            - listitem [ref=e190]:
+              - strong [ref=e191]: "IELTS Academic:"
+              - text: "6.0"
+    - generic [ref=e193]:
+      - heading "Experience, Competitions & Leadership." [level=2] [ref=e195]
+      - generic [ref=e196]:
+        - generic [ref=e197]:
+          - generic [ref=e198]:
+            - generic [ref=e199]: Sep 2025 - Dec 2025
+            - generic [ref=e200]: "Ho Chi Minh City, Vietnam (project focus: Da Nang)"
+          - generic [ref=e201]:
+            - paragraph [ref=e202]: Professional Experience
+            - heading "Project Analyst" [level=3] [ref=e203]
+            - heading "Da Nang Tourism Project Core" [level=4] [ref=e204]
+            - paragraph [ref=e205]: Used large-scale hotel review data to support tourism and service decisions.
+            - generic [ref=e206]:
+              - img "Da Nang tourism analytics output preview" [ref=e208]
+              - generic [ref=e209]:
+                - generic [ref=e210]: Active Contribution Window
+                - generic [ref=e211]: September 2025 - December 2025
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - generic [ref=e214]: Nov 2024 - Dec 2024
+            - generic [ref=e215]: Ho Chi Minh City
+          - generic [ref=e216]:
+            - paragraph [ref=e217]: Competition
+            - heading "Champion Round participant" [level=3] [ref=e218]
+            - heading "HSBC business case competition 2024" [level=4] [ref=e219]
+            - paragraph [ref=e220]: Strategic consulting for corporate expansion within 24-hour sprints.
+            - generic [ref=e221]:
+              - img "HSBC business case competition 2024 visual" [ref=e222]
+              - generic [ref=e223]:
+                - generic [ref=e224]: Competition Milestone
+                - generic [ref=e225]: Advanced to Champion Round
+        - generic [ref=e226]:
+          - generic [ref=e227]:
+            - generic [ref=e228]: Jan 2024 - Dec 2025
+            - generic [ref=e229]: Ho Chi Minh City
+          - generic [ref=e230]:
+            - paragraph [ref=e231]: Leadership & Activities
+            - heading "Human Resources" [level=3] [ref=e232]
+            - heading "Swinburne Business Club (SUS)" [level=4] [ref=e233]:
+              - link "Swinburne Business Club (SUS)" [ref=e234] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/sus-swinburne-business-club/posts/?feedView=all
+            - paragraph [ref=e235]: Organized club activities and supported internal operations for orientation programs and business competitions.
+            - generic [ref=e236]:
+              - img "Swinburne Business Club logo" [ref=e237]
+              - generic [ref=e238]:
+                - generic [ref=e239]: Official Club Page
+                - link "View SUS activity feed" [ref=e240] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/sus-swinburne-business-club/posts/?feedView=all
+        - generic [ref=e241]:
+          - generic [ref=e242]:
+            - generic [ref=e243]: Jun 2022 - Sep 2022
+            - generic [ref=e244]: Ho Chi Minh City, Vietnam
+            - generic [ref=e245]: VOLUNTEER LEADERSHIP
+          - generic [ref=e246]:
+            - paragraph [ref=e247]: Leadership & Activities
+            - heading "Volunteer Coordinator" [level=3] [ref=e248]
+            - heading "Community Event Operations — VietPride 2022" [level=4] [ref=e249]
+            - paragraph [ref=e250]: Coordinated volunteer shifts and on-site logistics with a team of 30+ volunteers.
+            - generic [ref=e251]:
+              - img "VietPride volunteer activity" [ref=e252]
+              - generic [ref=e253]:
+                - generic [ref=e254]: Community Activity
+                - generic [ref=e255]: On-site volunteer team coordination
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - text: Selected Work
+        - heading "Selected applied research problems." [level=2] [ref=e259]
+        - paragraph [ref=e260]: Three projects that show the question, the method, and the decision.
+      - generic [ref=e261]:
+        - article [ref=e262]:
+          - link "Open hotel segmentation research" [ref=e263] [cursor=pointer]:
+            - /url: research-hotel.html
+            - img "Weekly review volume by source market" [ref=e264]
+          - generic [ref=e265]:
+            - paragraph [ref=e266]:
+              - link "Hospitality Analytics Research" [ref=e267] [cursor=pointer]:
+                - /url: hospitality-analytics.html
+            - heading "Hotel customer segmentation case study" [level=3] [ref=e268]:
+              - link "Hotel customer segmentation case study" [ref=e269] [cursor=pointer]:
+                - /url: research-hotel.html
+            - list [ref=e270]:
+              - listitem [ref=e271]:
+                - strong [ref=e272]: "Problem:"
+                - text: Hotel teams required clearer patterns in guest feedback.
+              - listitem [ref=e273]:
+                - strong [ref=e274]: "Method:"
+                - text: Analyzed 74,896 reviews across 458 hotels and grouped recurring issues.
+              - listitem [ref=e275]:
+                - strong [ref=e276]: "Result:"
+                - text: Built a 10-segment view of guest needs and service pain points.
+              - listitem [ref=e277]:
+                - strong [ref=e278]: "Evidence:"
+                - text: Project visuals and methods summary are available on the site.
+        - article [ref=e279]:
+          - link "Open EV product-choice experiment" [ref=e280] [cursor=pointer]:
+            - /url: research-ev.html
+            - img "EV product-choice experiment stimulus board" [ref=e281]
+          - generic [ref=e282]:
+            - paragraph [ref=e283]:
+              - link "Choice Modeling Case" [ref=e284] [cursor=pointer]:
+                - /url: mobility-policy.html
+            - heading "EV choice experiment case study" [level=3] [ref=e285]:
+              - link "EV choice experiment case study" [ref=e286] [cursor=pointer]:
+                - /url: research-ev.html
+            - list [ref=e287]:
+              - listitem [ref=e288]:
+                - strong [ref=e289]: "Problem:"
+                - text: EV teams require evidence on which product attributes buyers value most.
+              - listitem [ref=e290]:
+                - strong [ref=e291]: "Method:"
+                - text: Ran a choice experiment with 212 young consumers in Hanoi and HCMC.
+              - listitem [ref=e292]:
+                - strong [ref=e293]: "Result:"
+                - text: Showed a split between pragmatic buyers and design-led buyers.
+              - listitem [ref=e294]:
+                - strong [ref=e295]: "Evidence:"
+                - text: The full experiment summary and interactive results are available in the portfolio.
+        - article [ref=e296]:
+          - link "Open motorbike policy acceptance study" [ref=e297] [cursor=pointer]:
+            - /url: research-motorbike-ban.html
+            - img "Motorbike phase-out policy study visual" [ref=e298]
+          - generic [ref=e299]:
+            - paragraph [ref=e300]:
+              - link "Policy Acceptance Case" [ref=e301] [cursor=pointer]:
+                - /url: mobility-policy.html
+            - heading "Hanoi motorbike phase-out policy study" [level=3] [ref=e302]:
+              - link "Hanoi motorbike phase-out policy study" [ref=e303] [cursor=pointer]:
+                - /url: research-motorbike-ban.html
+            - list [ref=e304]:
+              - listitem [ref=e305]:
+                - strong [ref=e306]: "Problem:"
+                - text: Policy change fails when support measures come too late.
+              - listitem [ref=e307]:
+                - strong [ref=e308]: "Method:"
+                - text: Tested how residents respond to different policy and support bundles.
+              - listitem [ref=e309]:
+                - strong [ref=e310]: "Result:"
+                - text: Support-first rollout paths were more acceptable than restriction-first paths.
+              - listitem [ref=e311]:
+                - strong [ref=e312]: "Evidence:"
+                - text: The page includes the study framing, model outputs, and rollout translation.
+      - link "Research archive " [ref=e314] [cursor=pointer]:
+        - /url: projects.html
+        - text: Research archive
+        - generic [ref=e315]: 
+    - generic [ref=e317]:
+      - generic [ref=e318]:
+        - text: Milestones
+        - heading "Awards & achievements" [level=2] [ref=e319]
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - text: Recent
+          - heading "Aspiring star research prize" [level=3] [ref=e322]
+          - paragraph [ref=e323]: Greenovation
+          - paragraph [ref=e324]:
+            - text: Recognized with the Aspiring Star research prize at Greenovation.
+            - link "View announcement" [ref=e325] [cursor=pointer]:
+              - /url: https://www.facebook.com/SwinburneHCM/posts/pfbid0yhGrtidAdrurY27haoadZSMsmNxdSR3DD8xtUcqa2Ax4JjMSqrWbGgnKhR3a4qTol
+            - text: .
+        - generic [ref=e326]:
+          - text: "2024"
+          - heading "HSBC business case competition" [level=3] [ref=e327]
+          - paragraph [ref=e328]: Champion round participant
+          - img "HSBC business case competition 2024 visual" [ref=e329]
+          - paragraph [ref=e330]: Advanced to the Champion Round and presented strategic recommendations to industry judges under strict time constraints.
+        - generic [ref=e331]:
+          - text: "2022"
+          - heading "Swinburne academic scholarship" [level=3] [ref=e332]
+          - paragraph [ref=e333]: Merit-based award
+          - paragraph [ref=e334]: Awarded a partial scholarship for the Bachelor of Business program based on high school academic results and entrance examinations.
+        - generic [ref=e335]:
+          - text: 2023 - 2024
+          - heading "Best performance awards" [level=3] [ref=e336]
+          - paragraph [ref=e337]: Swinburne University of Technology
+          - paragraph [ref=e338]: Recognized for strong academic performance in project management, introduction to marketing and consumer behavior, and market research.
+    - generic [ref=e340]:
+      - generic [ref=e341]:
+        - text: Proven record
+        - heading "Credentials" [level=2] [ref=e342]
+      - generic [ref=e343]:
+        - generic [ref=e344]:
+          - heading " Publications" [level=3] [ref=e345]:
+            - generic [ref=e346]: 
+            - text: Publications
+          - generic [ref=e347]:
+            - article [ref=e348]:
+              - generic [ref=e349]: "2025"
+              - generic [ref=e350]:
+                - heading "Exploring Nutrition Knowledge, Physical Activity, and Dietary Intake Among Vietnamese University Students" [level=4] [ref=e351]
+                - generic [ref=e352]:
+                  - generic [ref=e353]: FCBEM 2025
+                  - generic [ref=e354]: Peer-reviewed
+                - link "View conference page " [ref=e356] [cursor=pointer]:
+                  - /url: https://nxbxaydung.com.vn/2025-6th-fpt-conference-on-business-economics-and-management-fcbem-2025-b12364.html
+                  - text: View conference page
+                  - generic [ref=e357]: 
+            - article [ref=e358]:
+              - generic [ref=e359]: "2024"
+              - generic [ref=e360]:
+                - heading "Electric Vehicle Adoption & Consumer Choice Experiments" [level=4] [ref=e361]
+                - generic [ref=e362]:
+                  - generic [ref=e363]: CIEMB Conference 2024
+                  - generic [ref=e364]: Conference
+                - link "View research detail " [ref=e366] [cursor=pointer]:
+                  - /url: research-ev.html
+                  - text: View research detail
+                  - generic [ref=e367]: 
+            - article [ref=e368]:
+              - generic [ref=e369]: "2025"
+              - generic [ref=e370]:
+                - heading "Exploring the Effect of Social Media Content of Virtual Influencers on Generation Z's Purchase Intention" [level=4] [ref=e371]
+                - generic [ref=e372]:
+                  - generic [ref=e373]: "EEEU 2024 conference context; Springer first online: June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9)"
+                  - generic [ref=e374]: Peer-reviewed
+                - link "View chapter record " [ref=e376] [cursor=pointer]:
+                  - /url: https://link.springer.com/chapter/10.1007/978-981-96-4116-1_9
+                  - text: View chapter record
+                  - generic [ref=e377]: 
+        - generic [ref=e378]:
+          - heading " Certifications" [level=3] [ref=e379]:
+            - generic [ref=e380]: 
+            - text: Certifications
+          - generic [ref=e381]:
+            - article [ref=e382]:
+              - generic [ref=e384]: 
+              - generic [ref=e385]:
+                - heading "Swinburne scholarship" [level=4] [ref=e386]
+                - generic [ref=e387]:
+                  - generic [ref=e388]: "2022"
+                  - generic [ref=e389]: Merit-based award
+                - link "View award context " [ref=e391] [cursor=pointer]:
+                  - /url: "#awards"
+                  - text: View award context
+                  - generic [ref=e392]: 
+            - article [ref=e393]:
+              - generic [ref=e395]: 
+              - generic [ref=e396]:
+                - heading "IELTS Academic" [level=4] [ref=e397]
+                - generic [ref=e398]:
+                  - generic [ref=e399]: Band 6.0
+                  - generic [ref=e400]: Credential listed
+                - paragraph [ref=e401]: Score report available on request.
+            - article [ref=e402]:
+              - generic [ref=e404]: 
+              - generic [ref=e405]:
+                - heading "SAT" [level=4] [ref=e406]
+                - generic [ref=e407]:
+                  - generic [ref=e408]: 1320/1600
+                  - generic [ref=e409]: Credential listed
+                - paragraph [ref=e410]: Score report available on request; image proof is not published because it contains private identifiers.
+            - article [ref=e411]:
+              - generic [ref=e413]: 
+              - generic [ref=e414]:
+                - heading "ICDL Digital Literacy" [level=4] [ref=e415]
+                - generic [ref=e416]:
+                  - generic [ref=e417]: Certificate held
+                  - generic [ref=e418]: Credential listed
+                - paragraph [ref=e419]: Certificate proof is available on request; image proof is not published because it contains private identifiers.
+    - generic [ref=e420]:
+      - generic [ref=e421]:
+        - heading "Core Competencies." [level=2] [ref=e423]
+        - generic [ref=e424]:
+          - generic [ref=e425]:
+            - heading "Technical Analytics" [level=3] [ref=e426]
+            - generic [ref=e427]:
+              - generic [ref=e428]:
+                - generic [ref=e429]: 
+                - text: Python (Pandas, NumPy)
+              - generic [ref=e430]:
+                - generic [ref=e431]: 
+                - text: SQL (querying, joins)
+              - generic [ref=e432]:
+                - generic [ref=e433]: 
+                - text: NLP Text Analysis (RoBERTa, NLTK)
+              - generic [ref=e434]:
+                - generic [ref=e435]: 
+                - text: Clustering (GMM, K-Means)
+              - generic [ref=e436]:
+                - generic [ref=e437]: 
+                - text: AI-assisted exploratory analysis
+              - generic [ref=e438]:
+                - generic [ref=e439]: 
+                - text: Excel (analysis, charts)
+              - generic [ref=e440]:
+                - generic [ref=e441]: 
+                - text: SPSS
+              - generic [ref=e442]:
+                - generic [ref=e443]: 
+                - text: R (Regression Diagnostics)
+              - generic [ref=e444]:
+                - generic [ref=e445]: 
+                - text: Qualtrics (survey setup)
+          - generic [ref=e446]:
+            - heading "Research Methods" [level=3] [ref=e447]
+            - generic [ref=e448]:
+              - generic [ref=e449]:
+                - generic [ref=e450]: 
+                - text: Survey Design
+              - generic [ref=e451]:
+                - generic [ref=e452]: 
+                - text: Experimental Design
+              - generic [ref=e453]:
+                - generic [ref=e454]: 
+                - text: Qualitative Research (Semi-Structured Interviews)
+              - generic [ref=e455]:
+                - generic [ref=e456]: 
+                - text: Questionnaire Development
+              - generic [ref=e457]:
+                - generic [ref=e458]: 
+                - text: Market Benchmarking
+              - generic [ref=e459]:
+                - generic [ref=e460]: 
+                - text: Statistical Analysis (ANOVA, SEM)
+              - generic [ref=e461]:
+                - generic [ref=e462]: 
+                - text: Discrete Choice Experiments (DCE)
+              - generic [ref=e463]:
+                - generic [ref=e464]: 
+                - text: Regression & Mediation Analysis
+          - generic [ref=e465]:
+            - heading "Insight Delivery" [level=3] [ref=e466]
+            - generic [ref=e467]:
+              - generic [ref=e468]:
+                - generic [ref=e469]: 
+                - text: Consumer insight summaries
+              - generic [ref=e470]:
+                - generic [ref=e471]: 
+                - text: Data storytelling
+              - generic [ref=e472]:
+                - generic [ref=e473]: 
+                - text: Cross-functional collaboration
+              - generic [ref=e474]:
+                - generic [ref=e475]: 
+                - text: Stakeholder presentations
+              - generic [ref=e476]:
+                - generic [ref=e477]: 
+                - text: Research reports & executive summaries
+      - generic [ref=e478]:
+        - generic [ref=e479]: Data strategy / NLP analytics / Consumer behavior / Statistical modeling / Experiment design / Storytelling
+        - generic [ref=e480]: Data strategy / NLP analytics / Consumer behavior / Statistical modeling / Experiment design / Storytelling
+  - region "Browse the main portfolio paths" [ref=e481]:
+    - generic [ref=e483]:
+      - paragraph [ref=e484]: Site Routes
+      - heading "Browse the main portfolio paths" [level=2] [ref=e485]
+      - paragraph [ref=e486]: Use these direct links to move between the profile page, the archive, and the research clusters without depending on one header route.
+      - list [ref=e487]:
+        - listitem [ref=e488]:
+          - link "About Chung Hy Dai and research methodology" [ref=e489] [cursor=pointer]:
+            - /url: about.html
+        - listitem [ref=e490]:
+          - link "Market research projects archive" [ref=e491] [cursor=pointer]:
+            - /url: projects.html
+        - listitem [ref=e492]:
+          - link "Verified signals and external references" [ref=e493] [cursor=pointer]:
+            - /url: references.html
+        - listitem [ref=e494]:
+          - link "Research insights and note archive" [ref=e495] [cursor=pointer]:
+            - /url: insights.html
+        - listitem [ref=e496]:
+          - link "Privacy and visitor analytics note" [ref=e497] [cursor=pointer]:
+            - /url: privacy.html
+        - listitem [ref=e498]:
+          - link "Hospitality Analytics Research case studies" [ref=e499] [cursor=pointer]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e500]:
+          - link "Mobility and Policy Research case studies" [ref=e501] [cursor=pointer]:
+            - /url: mobility-policy.html
+        - listitem [ref=e502]:
+          - link "Creator Economy Research case studies" [ref=e503] [cursor=pointer]:
+            - /url: creator-economy.html
+        - listitem [ref=e504]:
+          - link "Health and Behavior Research case studies" [ref=e505] [cursor=pointer]:
+            - /url: health-behavior.html
+        - listitem [ref=e506]:
+          - link "Organizational Behavior Research case studies" [ref=e507] [cursor=pointer]:
+            - /url: organizational-behavior.html
+  - contentinfo [ref=e508]:
+    - generic [ref=e509]:
+      - heading "Review the research portfolio." [level=2] [ref=e510]
+      - paragraph [ref=e511]: Contact by email for research, analytics, operations, or trainee-role review.
+      - generic [ref=e512]:
+        - link " Email Chung Hy Dai" [ref=e513] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+          - generic [ref=e514]: 
+          - text: Email Chung Hy Dai
+        - link " Review Credentials" [ref=e515] [cursor=pointer]:
+          - /url: "#credentials"
+          - generic [ref=e516]: 
+          - text: Review Credentials
+      - generic [ref=e517]:
+        - link " daichunghy@gmail.com" [ref=e518] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e519]: 
+          - text: daichunghy@gmail.com
+        - generic [ref=e520]: "|"
+        - link " LinkedIn" [ref=e521] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e522]: 
+          - text: LinkedIn
+        - generic [ref=e523]: "|"
+        - link " ORCID" [ref=e524] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e525]: 
+          - text: ORCID
+        - generic [ref=e526]: "|"
+        - generic [ref=e527]:
+          - generic [ref=e528]: 
+          - text: Ho Chi Minh City, Vietnam
+      - paragraph [ref=e530]: © 2026 Chung Hy Dai.

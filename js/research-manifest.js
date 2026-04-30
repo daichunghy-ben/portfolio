@@ -1,4 +1,4 @@
-const MANIFEST_PATH = './assets/data/research-manifest.json';
+const MANIFEST_PATH = '/assets/data/research-manifest.json';
 
 let manifestPromise = null;
 
@@ -26,6 +26,18 @@ function slugFromHref(href) {
 
 function withHtml(slug) {
     return `${slug}.html`;
+}
+
+function resolveSiteAssetPath(value) {
+    const raw = String(value || '').trim();
+    if (!raw || /^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(raw)) return raw;
+
+    const normalized = raw.replace(/^\.\//, '');
+    if (/^(?:assets|dist)\//i.test(normalized)) {
+        return `/${normalized}`;
+    }
+
+    return raw;
 }
 
 function makeBadgeLabel(studyType) {
@@ -105,7 +117,7 @@ function applyCardContent(cardLink, entry, options = {}) {
 
     const image = cardLink.querySelector('.rc-image img');
     if (image && entry.card_image) {
-        image.setAttribute('src', entry.card_image);
+        image.setAttribute('src', resolveSiteAssetPath(entry.card_image));
         const currentAlt = image.getAttribute('alt') || '';
         if (!currentAlt || /research|visual|map|analysis/i.test(currentAlt)) {
             image.setAttribute('alt', entry.title);

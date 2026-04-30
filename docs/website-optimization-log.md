@@ -547,7 +547,7 @@ What changed:
 Why:
 
 - Search engines rely heavily on title, H1, anchor text, canonical URL, and schema to infer topical relevance.
-- Query-aligned titles and clusters help pages rank for more specific long-tail searches.
+- Query-aligned titles and clusters help pages match more specific search paths.
 - `Person`, `ScholarlyArticle`, `BreadcrumbList`, `ItemList`, and citation metadata strengthen trust and entity understanding.
 
 Verification:
@@ -1063,7 +1063,7 @@ Changes made:
 - `scripts/seo-page-data.mjs`
   - Normalized public `sameAs` URLs.
   - Added `Person.alternateName` and `Person.knowsAbout` to the homepage structured data.
-  - Upgraded the homepage `jobTitle` to a recruiter-facing analyst title.
+  - Upgraded the homepage `jobTitle` to a reviewer-facing analyst title.
   - Kept page-level `keywords` generation as an auxiliary signal, but not a Google gate.
 
 - `scripts/seo-checks.mjs`
@@ -1283,7 +1283,7 @@ Goal:
 Changes made:
 
 - `about.html`
-  - Added a public GitHub profile link to the external references section.
+  - Added a public GitHub profile link to the profile/context section.
   - Added the GitHub profile to the footer contact row alongside LinkedIn and ORCID.
 
 Notes:
@@ -1293,15 +1293,15 @@ Notes:
 
 ---
 
-### 2026-04-22 - Root-domain migration, references hub, insights hub, and feed launch
+### 2026-04-22 - Root-domain migration, profile signals, insights hub, and feed launch
 
 Goal:
 
 - Move the portfolio from the GitHub Pages project-site path to the root user-site path for stronger branded search and cleaner site-name/entity signals.
 - Centralize SEO generation around one root canonical base.
 - Add two supporting route types:
-  - `references.html` for verified public signals
-  - `insights.html` plus three short note pages for freshness and long-tail discovery
+  - profile-level signals for verified public links
+  - `insights.html` plus three short insight pages for concise portfolio entry points
 - Generate an Atom feed that can be submitted alongside the XML sitemaps.
 
 Changes made:
@@ -1311,7 +1311,7 @@ Changes made:
   - Updated the primary role wording to `Market Research and Consumer Insights Analyst`.
   - Refined the site description for a more role-first branded signal.
   - Added `feed_title` and `feed_description`.
-  - Expanded branded and long-tail keyword coverage around EV choice, student diet quality, and virtual influencer trust.
+  - Expanded branded keyword coverage around EV choice, student diet quality, and virtual influencer trust.
 
 - `assets/data/notes-manifest.json`
   - Added a new notes manifest to drive:
@@ -1325,18 +1325,16 @@ Changes made:
 
 - `scripts/seo-page-data.mjs`
   - Added support for new special pages:
-    - `references.html`
     - `insights.html`
   - Added support for note pages driven from `notes-manifest.json`.
   - Added generated schema for:
-    - references collection page
+    - profile/context signals
     - insights collection page
     - note `BlogPosting` pages
   - Expanded shared route generation so internal SEO route blocks now include:
     - homepage
     - about
     - archive
-    - references
     - insights
     - topic hubs
   - Added an Atom feed `<link rel="alternate" type="application/atom+xml">` across generated pages.
@@ -1370,34 +1368,26 @@ Changes made:
   - Removed old hard-coded canonical/OG/Twitter/JSON-LD blocks so generated metadata can be the single source of truth.
   - Updated homepage copy to use role-first wording.
   - Added direct visible internal links to:
-    - `references.html`
     - `insights.html`
-  - Added a new homepage section for verified references and short research insights.
+  - Added a new homepage section for profile signals and short research insights.
 
 - `about.html`
   - Removed the stale hard-coded canonical tag.
-  - Added visible navigation links to `references.html` and `insights.html`.
-  - Added direct next-step links to the references and insights routes.
+  - Added visible navigation links to profile context and `insights.html`.
+  - Added direct next-step links to profile context and insights routes.
 
 - `projects.html`
   - Removed old hard-coded canonical/OG/Twitter/JSON-LD blocks so generated metadata controls the page.
-  - Added supporting links to `references.html` and `insights.html`.
+  - Added supporting links to profile context and `insights.html`.
 
 - `research-hanoi-phaseout.html`
   - Replaced the source canonical with a relative canonical so the build step can cleanly emit the root-domain absolute URL.
 
-- `references.html`
-  - Added a new public references page that groups:
-    - GitHub
-    - LinkedIn
-    - ORCID
-    - Swinburne feature
-    - Springer chapter record
-    - FCBEM page
-    - public PDF artifacts
+- Profile context
+  - Profile links and publication context are handled through the main profile/about and research pages, not a standalone public-reference route.
 
 - `insights.html`
-  - Added a new insights archive page that explains the note layer and links to the three short note pages.
+  - Added a new insights page that links to the three short insight pages.
 
 - `insight-ev-choice-vietnam.html`
   - Added a short note page for `EV choice experiment in Vietnam`.
@@ -1446,7 +1436,6 @@ Observed staged output:
   - `image-sitemap.xml`
   - `feed.xml`
 - `sitemap.xml` now includes:
-  - `references.html`
   - `insights.html`
   - all 3 note pages
 - generated pages now include an Atom feed discovery link
@@ -1486,7 +1475,6 @@ Deployment and live verification:
     - root canonical
     - root `og:url`
     - Atom feed discovery link
-    - links to `references.html`
     - links to `insights.html`
 
 Public search spot-check after deploy:

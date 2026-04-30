@@ -1,0 +1,212 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - button "Toggle navigation" [ref=e6] [cursor=pointer]
+  - generic [ref=e10]:
+    - text:        
+    - main [ref=e11]:
+      - generic "Insight thành chiến lược và quyết định sắc hơn." [ref=e12]:
+        - generic [ref=e13]:
+          - paragraph [ref=e14]: Tín hiệu thị trường. Hiểu khách hàng. Chiến lược kinh doanh.
+          - heading "Insight thành chiến lược và quyết định sắc hơn." [level=1] [ref=e15]:
+            - text: Insight thành chiến lược và
+            - emphasis [ref=e16]: quyết định sắc hơn.
+          - paragraph [ref=e17]: Bằng chứng khách hàng và thị trường được chuyển thành khuyến nghị rõ, báo cáo gọn và bước tiếp theo sẵn sàng cho quyết định.
+          - generic [ref=e18]:
+            - link "Xem dự án nổi bật " [ref=e19]:
+              - /url: "#research"
+              - text: Xem dự án nổi bật
+              - generic [ref=e20]: 
+            - link "Mở tất cả dự án" [ref=e21]:
+              - /url: projects.html
+        - generic "Hình ảnh botanical illustration" [ref=e22]:
+          - img "Minimal glass vase with green branches" [ref=e24]
+          - generic [ref=e25]:
+            - strong [ref=e26]: Nghiên cứu thị trường và thấu hiểu người tiêu dùng
+            - generic [ref=e27]: 11 dự án ứng dụng trong lưu trú, giao thông, nhà sáng tạo nội dung, sức khỏe và tổ chức.
+      - region "Phân khúc khách hàng khách sạn" [ref=e28]:
+        - generic [ref=e29]:
+          - paragraph [ref=e30]: Dự án nổi bật
+          - link "Xem tất cả dự án " [ref=e31]:
+            - /url: projects.html
+            - text: Xem tất cả dự án
+            - generic [ref=e32]: 
+        - link "Phân khúc khách hàng khách sạn" [ref=e33]:
+          - /url: research-hotel.html
+          - img "Poolside resort view used as hospitality research bối cảnh" [ref=e34]
+          - generic [ref=e35]:
+            - generic [ref=e36]: Phân tích lưu trú
+            - heading "Phân khúc khách hàng khách sạn" [level=2] [ref=e37]
+            - paragraph [ref=e38]: Phân thành 10 nhóm khách từ 74.896 đánh giá Booking.com để hỗ trợ chọn nhóm mục tiêu, định vị và ưu tiên dịch vụ.
+            - strong [ref=e39]:
+              - text: Xem dự án
+              - generic [ref=e40]: 
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: Dự án chọn lọc
+          - link "Xem tất cả dự án " [ref=e43]:
+            - /url: projects.html
+            - text: Xem tất cả dự án
+            - generic [ref=e44]: 
+        - generic "Selected dự án cards" [ref=e45]:
+          - link "Hình ảnh electric vehicle preference hình ảnh Mô hình lựa chọn Nghiên cứu ưu tiên lựa chọn xe điện Phân tích cách người mua đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc." [ref=e46]:
+            - /url: research-ev.html
+            - img "Hình ảnh electric vehicle preference hình ảnh" [ref=e48]
+            - generic [ref=e50]: 
+            - generic [ref=e51]:
+              - paragraph [ref=e52]: Mô hình lựa chọn
+              - heading "Nghiên cứu ưu tiên lựa chọn xe điện" [level=3] [ref=e53]
+              - generic [ref=e54]: Phân tích cách người mua đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc.
+          - link "Motorbike loại bỏ dần policy study hình ảnh Chính sách giao thông Mức chấp nhận lộ trình loại bỏ dần xe máy Đặt mức ủng hộ chính sách trong bối cảnh tiếp cận giao thông công cộng, hỗ trợ tài chính và thời điểm triển khai." [ref=e55]:
+            - /url: research-motorbike-ban.html
+            - img "Motorbike loại bỏ dần policy study hình ảnh" [ref=e56]
+            - generic [ref=e58]: 
+            - generic [ref=e59]:
+              - paragraph [ref=e60]: Chính sách giao thông
+              - heading "Mức chấp nhận lộ trình loại bỏ dần xe máy" [level=3] [ref=e61]
+              - generic [ref=e62]: Đặt mức ủng hộ chính sách trong bối cảnh tiếp cận giao thông công cộng, hỗ trợ tài chính và thời điểm triển khai.
+          - link "Hình ảnh nhà sáng tạo nội dung signals và khả năng quay lại hình ảnh Kinh tế nhà sáng tạo nội dung Nghiên cứu khả năng giữ chân người theo dõi Kết nối trải nghiệm nội dung, mức gắn kết, chuyển giao giá trị thương hiệu và ý định quay lại." [ref=e63]:
+            - /url: research-leveraging-influencer.html
+            - img "Hình ảnh nhà sáng tạo nội dung signals và khả năng quay lại hình ảnh" [ref=e65]
+            - generic [ref=e67]: 
+            - generic [ref=e68]:
+              - paragraph [ref=e69]: Kinh tế nhà sáng tạo nội dung
+              - heading "Nghiên cứu khả năng giữ chân người theo dõi" [level=3] [ref=e70]
+              - generic [ref=e71]: Kết nối trải nghiệm nội dung, mức gắn kết, chuyển giao giá trị thương hiệu và ý định quay lại.
+          - link "Balanced bowls used as nutrition research bối cảnh Hành vi sức khỏe Chất lượng ăn uống của sinh viên tại Việt Nam Xác định các yếu tố kiến thức và hoạt động liên quan đến tín hiệu chất lượng ăn uống tốt hơn." [ref=e72]:
+            - /url: research-nutrition.html
+            - img "Balanced bowls used as nutrition research bối cảnh" [ref=e74]
+            - generic [ref=e76]: 
+            - generic [ref=e77]:
+              - paragraph [ref=e78]: Hành vi sức khỏe
+              - heading "Chất lượng ăn uống của sinh viên tại Việt Nam" [level=3] [ref=e79]
+              - generic [ref=e80]: Xác định các yếu tố kiến thức và hoạt động liên quan đến tín hiệu chất lượng ăn uống tốt hơn.
+      - region "Nghiên cứu đi từ bằng chứng đến hành động." [ref=e81]:
+        - paragraph [ref=e82]: Năng lực chính
+        - heading "Nghiên cứu đi từ bằng chứng đến hành động." [level=2] [ref=e83]
+        - generic [ref=e84]:
+          - article [ref=e85]:
+            - generic [ref=e86]: 
+            - heading "Tín hiệu thị trường" [level=3] [ref=e87]
+            - paragraph [ref=e88]: Làm rõ điều gì đang thay đổi trong thị trường, ngành hàng và nhóm khách hàng.
+          - article [ref=e89]:
+            - generic [ref=e90]: 
+            - heading "Hiểu khách hàng" [level=3] [ref=e91]
+            - paragraph [ref=e92]: Dùng khảo sát, đánh giá và phỏng vấn để hiểu cách người dùng lựa chọn.
+          - article [ref=e93]:
+            - generic [ref=e94]: 
+            - heading "Chiến lược và diễn giải" [level=3] [ref=e95]
+            - paragraph [ref=e96]: Chuyển phân tích thành báo cáo ngắn, hình ảnh rõ ràng và khuyến nghị thực tế.
+          - article [ref=e97]:
+            - generic [ref=e98]: 
+            - heading "Hỗ trợ quyết định" [level=3] [ref=e99]
+            - paragraph [ref=e100]: Giúp đội ngũ so sánh lựa chọn và ra quyết định tự tin hơn.
+      - region "Tổng quan ngắn gọn về portfolio." [ref=e101]:
+        - paragraph [ref=e102]: Tổng quan kết quả
+        - heading "Tổng quan ngắn gọn về portfolio." [level=2] [ref=e103]
+        - generic [ref=e104]:
+          - article [ref=e105]:
+            - strong [ref=e106]: "11"
+            - generic [ref=e107]: Dự án nghiên cứu ứng dụng
+          - article [ref=e108]:
+            - strong [ref=e109]: "2"
+            - generic [ref=e110]: Kết quả có liên kết công bố
+          - article [ref=e111]:
+            - strong [ref=e112]: 2+
+            - generic [ref=e113]: Năm hoạt động dự án
+          - article [ref=e114]:
+            - strong [ref=e115]: 74,896
+            - generic [ref=e116]: Đánh giá khách sạn đã phân tích
+          - article [ref=e117]:
+            - strong [ref=e118]: "5"
+            - generic [ref=e119]: Dự án domains
+      - region "Nền tảng kinh doanh và marketing, gắn với thực hành nghiên cứu ứng dụng." [ref=e120]:
+        - generic [ref=e121]:
+          - paragraph [ref=e122]: Học vấn
+          - heading "Nền tảng kinh doanh và marketing, gắn với thực hành nghiên cứu ứng dụng." [level=2] [ref=e123]
+          - paragraph [ref=e124]: Bachelor of Business, chuyên ngành Marketing, Swinburne University of Technology. Dự án trải rộng qua nghiên cứu thị trường, insight người tiêu dùng, phân tích khảo sát, phân tích văn bản và khám phá dữ liệu có hỗ trợ AI.
+          - paragraph [ref=e125]: Portfolio này dùng tên Chung Hy Dai. Một số hồ sơ bên ngoài có thể dùng thứ tự đảo là Dai Chung Hy.
+          - generic [ref=e126]:
+            - link "LinkedIn" [ref=e127]:
+              - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+              - generic [ref=e128]: 
+              - text: LinkedIn
+            - link "ORCID" [ref=e129]:
+              - /url: https://orcid.org/0009-0009-6790-8981
+              - generic [ref=e130]: 
+              - text: ORCID
+            - link "Bài Swinburne" [ref=e131]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - generic [ref=e132]: 
+              - text: Bài Swinburne
+        - generic [ref=e133]:
+          - img "Hình ảnh education card for Swinburne University of Technology" [ref=e135]
+          - generic [ref=e136]:
+            - paragraph [ref=e137]: Bài viết từ Swinburne Vietnam News
+            - heading "Bài profile bên ngoài về các dự án ứng dụng." [level=3] [ref=e138]
+            - link "Đọc bài nguồn" [ref=e139]:
+              - /url: https://swinburne-vn.edu.vn/news/dai-chung-hy-nha-nghien-cuu-tre-voi-loat-thanh-tich-an-tuong-tai-swinburne-vietnam/
+              - text: Đọc bài nguồn
+              - generic [ref=e140]: 
+      - region "Ghi nhận và tín hiệu công khai." [ref=e141]:
+        - paragraph [ref=e142]: Thành tích và giải thưởng
+        - heading "Ghi nhận và tín hiệu công khai." [level=2] [ref=e143]
+        - generic [ref=e144]:
+          - article [ref=e145]:
+            - generic [ref=e146]: 
+            - heading "HSBC Business Case 2024" [level=3] [ref=e147]
+            - paragraph [ref=e148]: Vào vòng Champion Round và trình bày khuyến nghị trong thời gian giới hạn.
+          - article [ref=e149]:
+            - generic [ref=e150]: 
+            - heading "Học bổng học thuật Swinburne" [level=3] [ref=e151]
+            - paragraph [ref=e152]: Học bổng dựa trên thành tích cho chương trình Bachelor of Business.
+          - article [ref=e153]:
+            - generic [ref=e154]: 
+            - heading "Giải thưởng nghiên cứu Aspiring Star" [level=3] [ref=e155]
+            - paragraph [ref=e156]: Được Greenovation ghi nhận cho hoạt động nghiên cứu và tinh thần tìm hiểu.
+        - generic [ref=e157]:
+          - article [ref=e158]:
+            - strong [ref=e159]: Công bố
+            - generic [ref=e160]: Bối cảnh FCBEM 2025 và chương sách về nhân vật ảnh hưởng ảo có liên kết Springer.
+            - link "Xem bối cảnh công bố" [ref=e161]:
+              - /url: research-virtual-influencers.html
+              - text: Xem bối cảnh công bố
+              - generic [ref=e162]: 
+          - article [ref=e163]:
+            - strong [ref=e164]: Học vấn
+            - generic [ref=e165]: Bachelor of Business, chuyên ngành Marketing, Swinburne University of Technology.
+            - link "Bối cảnh học vấn" [ref=e166]:
+              - /url: "#education"
+              - text: Bối cảnh học vấn
+              - generic [ref=e167]: 
+          - article [ref=e168]:
+            - strong [ref=e169]: Kỹ năng chính
+            - generic [ref=e170]: Thiết kế khảo sát, phân tích văn bản, phân khúc, báo cáo và ghi chú quyết định.
+            - link "Xem ví dụ dự án" [ref=e171]:
+              - /url: projects.html
+              - text: Xem ví dụ dự án
+              - generic [ref=e172]: 
+      - region "Insight cho quyết định tiếp theo." [ref=e173]:
+        - generic [ref=e174]:
+          - paragraph [ref=e175]: Liên hệ
+          - heading "Insight cho quyết định tiếp theo." [level=2] [ref=e176]
+          - paragraph [ref=e177]: Sẵn sàng trao đổi về cơ hội nghiên cứu, phân tích, tư vấn và dự án.
+        - generic [ref=e178]:
+          - link "daichunghy@gmail.com" [ref=e179]:
+            - /url: mailto:daichunghy@gmail.com
+            - generic [ref=e180]: 
+            - text: daichunghy@gmail.com
+          - link "LinkedIn" [ref=e181]:
+            - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+            - generic [ref=e182]: 
+            - text: LinkedIn
+          - link "ORCID" [ref=e183]:
+            - /url: https://orcid.org/0009-0009-6790-8981
+            - generic [ref=e184]: 
+            - text: ORCID
+          - link "Gửi email" [ref=e185]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - text: Gửi email
+            - generic [ref=e186]: 

@@ -1,7 +1,7 @@
 # Structured Data Policy (JSON-LD)
 
 ## Purpose
-Standardize machine-readable identity and research evidence signals for recruiter trust, search consistency, and claim governance.
+Standardize machine-readable identity and research evidence signals for reviewer trust, search consistency, and claim governance.
 
 ## Baseline Scope
 - Applies to local pages in `/Users/macos/Desktop/portfolio_hy_resources_github`.
@@ -22,7 +22,7 @@ Required `Person` properties:
 - `name`
 - `url` (resolved from `site_url`)
 - `alternateName` (name-order variants, if public and accurate)
-- `jobTitle` (recruiter-facing role target)
+- `jobTitle` (reviewer-facing role target)
 - `knowsAbout` (core topical domains)
 - `sameAs` (LinkedIn, ORCID, and other public profiles only)
 - `email` (optional; include only if intended for public indexing)

@@ -1,0 +1,5 @@
+[     124ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://127.0.0.1:4173/vi/assets/data/research-manifest.json:0
+[     125ms] [WARNING] [research-manifest] Unable to load manifest. Error: Manifest fetch failed: 404
+    at http://127.0.0.1:4173/dist/js/research-manifest.js:1:2996
+    at async initResearchManifest (http://127.0.0.1:4173/dist/js/research-manifest.js:1:2895)
+    at async HTMLDocument.<anonymous> (http://127.0.0.1:4173/dist/js/main.js:1:632) @ http://127.0.0.1:4173/dist/js/research-manifest.js:0

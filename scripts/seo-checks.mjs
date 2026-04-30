@@ -30,6 +30,17 @@ const extractAtomFeedHref = (html) => {
   return '';
 };
 
+const extractHreflangHref = (html, hreflang) => {
+  const tags = html.match(/<link\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    if (!/\brel\s*=\s*["']alternate["']/i.test(tag)) continue;
+    const lang = tag.match(/\bhreflang\s*=\s*["']([^"']+)["']/i)?.[1]?.trim().toLowerCase() || '';
+    if (lang !== hreflang.toLowerCase()) continue;
+    return tag.match(/\bhref\s*=\s*["']([^"']+)["']/i)?.[1]?.trim() || '';
+  }
+  return '';
+};
+
 const normalizeComparablePath = (rawUrl) => {
   try {
     const url = new URL(rawUrl);
@@ -56,6 +67,9 @@ export function collectSeoIssues({ html, url }) {
   const description = extractMetaContent(html, 'name', 'description');
   const canonical = extractLinkHref(html, 'canonical');
   const atomFeed = extractAtomFeedHref(html);
+  const hreflangEn = extractHreflangHref(html, 'en');
+  const hreflangVi = extractHreflangHref(html, 'vi');
+  const hreflangDefault = extractHreflangHref(html, 'x-default');
   const robots = extractMetaContent(html, 'name', 'robots').toLowerCase();
   const googlebot = extractMetaContent(html, 'name', 'googlebot').toLowerCase();
   const is404Page = /\/404\.html$/i.test(url);
@@ -86,6 +100,12 @@ export function collectSeoIssues({ html, url }) {
   else if (!/^https?:\/\//i.test(canonical)) issues.push('canonical is not absolute');
   if (!atomFeed) issues.push('missing atom feed link');
   else if (!/^https?:\/\//i.test(atomFeed)) issues.push('atom feed link is not absolute');
+  if (!hreflangEn) issues.push('missing hreflang en');
+  else if (!/^https?:\/\//i.test(hreflangEn)) issues.push('hreflang en is not absolute');
+  if (!hreflangVi) issues.push('missing hreflang vi');
+  else if (!/^https?:\/\//i.test(hreflangVi)) issues.push('hreflang vi is not absolute');
+  if (!hreflangDefault) issues.push('missing hreflang x-default');
+  else if (!/^https?:\/\//i.test(hreflangDefault)) issues.push('hreflang x-default is not absolute');
   if (!robots) issues.push('missing robots meta');
   if (!googlebot) issues.push('missing googlebot meta');
   else if (robots && googlebot !== robots) issues.push('googlebot meta does not match robots');

@@ -43,6 +43,10 @@ jobs:
       - name: Stage static site
         env:
           LEGACY_PAGES_HOSTS: ${{ vars.LEGACY_PAGES_HOSTS }}
+          ANALYTICS_PROVIDER: ${{ vars.ANALYTICS_PROVIDER }}
+          PLAUSIBLE_DOMAIN: ${{ vars.PLAUSIBLE_DOMAIN }}
+          PLAUSIBLE_SCRIPT_URL: ${{ vars.PLAUSIBLE_SCRIPT_URL }}
+          GA_MEASUREMENT_ID: ${{ vars.GA_MEASUREMENT_ID }}
         run: npm run stage:pages
 
       - name: Upload artifact

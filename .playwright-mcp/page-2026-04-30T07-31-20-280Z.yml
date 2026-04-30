@@ -1,0 +1,126 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link "Chung Hy Dai home" [ref=e4]:
+        - /url: index.html
+        - generic [ref=e5]: CH
+      - button "Toggle navigation" [ref=e6] [cursor=pointer]
+  - main [ref=e10]:
+    - navigation "Breadcrumb" [ref=e11]:
+      - list [ref=e12]:
+        - listitem [ref=e13]:
+          - link "Trang chủ" [ref=e14]:
+            - /url: index.html
+        - listitem [ref=e15]:
+          - text: /
+          - link "Dự án" [ref=e16]:
+            - /url: projects.html#research
+        - listitem [ref=e17]:
+          - text: /
+          - link "Nghiên cứu phân tích lưu trú" [ref=e18]:
+            - /url: hospitality-analytics.html
+        - listitem [ref=e19]:
+          - text: /
+          - generic [ref=e20]: Phân khúc khách hàng khách sạn từ phân tích cảm xúc theo khía cạnh
+    - generic [ref=e22]:
+      - link " Quay lại Dự án" [ref=e23]:
+        - /url: projects.html
+        - generic [ref=e24]: 
+        - text: Quay lại Dự án
+      - generic [ref=e25]:
+        - generic [ref=e26]: Thấu hiểu người tiêu dùng • NLP Phân tích
+        - heading "Phân khúc khách hàng khách sạn tại Đà Nẵng từ phân tích cảm xúc theo khía cạnh" [level=1] [ref=e27]
+        - paragraph [ref=e28]: Chuyển 74.896 review Booking.com không cấu trúc tại Đà Nẵng thành 10 hồ sơ khách hàng có thể dùng ngay cho quyết định dịch vụ, bằng phân tích cảm xúc theo khía cạnh.
+        - generic [ref=e29]:
+          - generic [ref=e30]:
+            - generic [ref=e31]: 
+            - text: Đà Nẵng, Việt Nam
+          - generic [ref=e32]:
+            - generic [ref=e33]: 
+            - text: 74,896 Đánh giá
+          - generic [ref=e34]:
+            - generic [ref=e35]: 
+            - text: Thiết lập phân cụm và cảm xúc
+    - generic [ref=e38]:
+      - heading "Vấn đề cốt lõi" [level=2] [ref=e39]
+      - paragraph [ref=e41]: Điểm đánh giá tổng hợp như "8.2/10" có thể che mất khác biệt vận hành. Một complaint về cleanliness từ cặp đôi lớn tuổi có thể phản ánh ưu tiên dịch vụ khác với việc solo traveler chú ý đến location. Vì vậy đội khách sạn cần experience profile chi tiết hơn.
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: 
+          - heading "Vấn đề" [level=3] [ref=e45]
+          - paragraph [ref=e46]: Điểm tổng hợp che mất driver cụ thể của bất mãn giữa các guest segment, khiến việc ưu tiên thay đổi vận hành trở nên khó khả thi.
+        - generic [ref=e47]:
+          - generic [ref=e48]: 
+          - heading "Phương pháp" [level=3] [ref=e49]
+          - paragraph [ref=e50]: Một quy trình NLP lập bản đồ cảm xúc theo khía cạnh, sau đó dùng thuật toán phân cụm đã kiểm tra để gom khách theo mối quan tâm chung.
+        - generic [ref=e51]:
+          - generic [ref=e52]: 
+          - heading "Kết quả" [level=3] [ref=e53]
+          - paragraph [ref=e54]: 10 hồ sơ khách hàng riêng biệt, giúp đội ngũ khách sạn điều chỉnh hành động dịch vụ theo kỳ vọng cụ thể của từng nhóm khách thường gặp.
+    - generic [ref=e55]:
+      - generic [ref=e57]:
+        - heading "Bằng chứng trực quan" [level=2] [ref=e58]
+        - article [ref=e60]:
+          - heading " Tóm tắt chẩn đoán" [level=3] [ref=e61]:
+            - generic [ref=e62]: 
+            - text: Tóm tắt chẩn đoán
+          - list [ref=e63]:
+            - listitem [ref=e64]: Dữ liệu văn bản tạo thành các cụm khác biệt rõ, gồm những nhóm như "Minimalists" và "Experience Seekers".
+            - listitem [ref=e65]: Các khía cạnh như "Staff" và "Location" tạo mức hài lòng rộng khắp, trong khi "Value" và "Comfort" là điểm tách biệt chính ở các nhóm kém hài lòng.
+            - listitem [ref=e66]:
+              - strong [ref=e67]: "Kết luận:"
+              - text: Các mô hình NLP dựa trên review thô có thể xác định điểm đứt gãy dịch vụ giữa những nhóm khách khác nhau.
+        - generic [ref=e68]:
+          - heading "Lượng review theo nguồn thị trường qua từng tuần" [level=3] [ref=e69]
+          - paragraph [ref=e70]: Theo dõi lượng review theo nhóm khách đến từ các thị trường khác nhau theo thời gian.
+        - generic [ref=e73]:
+          - figure "Observed segment-share composition showing the spread of the chính clusters." [ref=e74]:
+            - img "Treemap of observed traveler segment shares"
+            - generic [ref=e75]: Observed segment-share composition showing the spread of the chính clusters.
+          - figure "Aspect valence heatmap tracking specific complaints vs praises globally across the segments." [ref=e76]:
+            - generic:
+              - img "Heatmap showing sentiment by segment"
+            - generic [ref=e77]: Aspect valence heatmap tracking specific complaints vs praises globally across the segments.
+          - figure "Mapping priorities to operational improvements based on the identified segments." [ref=e78]:
+            - img "Value-risk priority map"
+            - generic [ref=e79]: Mapping priorities to operational improvements based on the identified segments.
+      - link " Related Dự án" [ref=e81]:
+        - /url: projects.html
+        - generic [ref=e82]: 
+        - text: Related Dự án
+    - region "Xem các hướng nghiên cứu liên quan" [ref=e83]:
+      - generic [ref=e85]:
+        - paragraph [ref=e86]: Nghiên cứu liên quan
+        - heading "Xem các hướng nghiên cứu liên quan" [level=2] [ref=e87]
+        - paragraph [ref=e88]: Dùng các link này để chuyển giữa các nghiên cứu liên quan, thay vì dừng ở một trang case riêng lẻ.
+        - link "Xem trang chủ đề nghiên cứu phân tích lưu trú" [ref=e89]:
+          - /url: hospitality-analytics.html
+        - list [ref=e90]:
+          - listitem [ref=e91]:
+            - link "Bất đối xứng thuộc tính khách sạn tại Việt Nam (PRCA + Kano) PRCA và Kano analysis of 97,014 đánh giá xác định hotel attribute penalties, rewards, và basics." [ref=e92]:
+              - /url: research-hotel-prca.html
+              - generic [ref=e93]: Bất đối xứng thuộc tính khách sạn tại Việt Nam (PRCA + Kano)
+              - generic [ref=e94]: PRCA và Kano analysis of 97,014 đánh giá xác định hotel attribute penalties, rewards, và basics.
+          - listitem [ref=e95]:
+            - link "Khung phân khúc giá trị khách sạn Văn bản đánh giá signals are translated into value-led hospitality segments." [ref=e96]:
+              - /url: research-hotel-value.html
+              - generic [ref=e97]: Khung phân khúc giá trị khách sạn
+              - generic [ref=e98]: Văn bản đánh giá signals are translated into value-led hospitality segments.
+          - listitem [ref=e99]:
+            - link "Thử nghiệm lựa chọn xe điện tại Việt Nam Lựa chọn xe điện experiment with n = 212 maps design, range, price, và charging trade-offs across pragmatic và aesthetic consumer." [ref=e100]:
+              - /url: research-ev.html
+              - generic [ref=e101]: Thử nghiệm lựa chọn xe điện tại Việt Nam
+              - generic [ref=e102]: Lựa chọn xe điện experiment with n = 212 maps design, range, price, và charging trade-offs across pragmatic và aesthetic consumer.
+  - contentinfo [ref=e103]:
+    - generic [ref=e104]:
+      - heading "Xem portfolio nghiên cứu." [level=2] [ref=e105]
+      - paragraph [ref=e106]: Liên hệ qua email cho nghiên cứu, phân tích, vận hành hoặc bối cảnh dự án.
+      - generic [ref=e107]:
+        - link " daichunghy@gmail.com" [ref=e108]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e109]: 
+          - text: daichunghy@gmail.com
+        - generic [ref=e110]:
+          - generic [ref=e111]: 
+          - text: TP. Hồ Chí Minh, Việt Nam
+      - paragraph [ref=e113]: © 2026 Chung Hy Dai.

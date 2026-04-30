@@ -1,0 +1,276 @@
+- generic [active] [ref=e1]:
+  - text: 
+  - generic [ref=e2]:
+    - complementary "Archive navigation" [ref=e3]:
+      - generic [ref=e4]:
+        - link "Chung Hy Dai home" [ref=e5] [cursor=pointer]:
+          - /url: index.html
+          - text: Chung
+          - text: Hy Dai
+        - paragraph [ref=e6]: Kho dự án nghiên cứu.
+      - generic [ref=e7]:
+        - img "Portrait of Chung Hy Dai" [ref=e9]
+        - paragraph [ref=e10]:
+          - strong [ref=e11]: Kho dự án
+        - paragraph [ref=e12]: Xem theo từng mảng, sau đó mở từng case để đọc phương pháp, bằng chứng và ghi chú nguồn.
+      - navigation "Project archive sections" [ref=e13]:
+        - link "Trang chủ" [ref=e14] [cursor=pointer]:
+          - /url: index.html
+          - generic [ref=e15]: 
+          - generic [ref=e16]: Trang chủ
+        - link "Tất cả dự án" [ref=e17] [cursor=pointer]:
+          - /url: "#research"
+          - generic [ref=e18]: 
+          - generic [ref=e19]: Tất cả dự án
+        - link "Hospitality" [ref=e20] [cursor=pointer]:
+          - /url: "#hospitality"
+          - generic [ref=e21]: 
+          - generic [ref=e22]: Hospitality
+        - link "Mobility" [ref=e23] [cursor=pointer]:
+          - /url: "#mobility"
+          - generic [ref=e24]: 
+          - generic [ref=e25]: Mobility
+        - link "Creator" [ref=e26] [cursor=pointer]:
+          - /url: "#creators"
+          - generic [ref=e27]: 
+          - generic [ref=e28]: Creator
+        - link "Health" [ref=e29] [cursor=pointer]:
+          - /url: "#health"
+          - generic [ref=e30]: 
+          - generic [ref=e31]: Health
+        - link "Tổ chức" [ref=e32] [cursor=pointer]:
+          - /url: "#organizations"
+          - generic [ref=e33]: 
+          - generic [ref=e34]: Tổ chức
+      - generic "Chuyển ngôn ngữ" [ref=e36]:
+        - generic [ref=e37]: Ngôn ngữ
+        - link "EN English version" [ref=e38] [cursor=pointer]:
+          - /url: ../projects.html
+          - text: EN
+          - generic [ref=e39]: English version
+        - link "VI Bản tiếng Việt" [ref=e40] [cursor=pointer]:
+          - /url: projects.html
+          - text: VI
+          - generic [ref=e41]: Bản tiếng Việt
+      - generic [ref=e42]:
+        - link "daichunghy@gmail.com" [ref=e43] [cursor=pointer]:
+          - /url: mailto:daichunghy@gmail.com
+          - generic [ref=e44]: 
+          - text: daichunghy@gmail.com
+        - link "LinkedIn" [ref=e45] [cursor=pointer]:
+          - /url: https://www.linkedin.com/in/chung-hy-d-17792826b/
+          - generic [ref=e46]: 
+          - text: LinkedIn
+        - link "ORCID" [ref=e47] [cursor=pointer]:
+          - /url: https://orcid.org/0009-0009-6790-8981
+          - generic [ref=e48]: 
+          - text: ORCID
+    - main [ref=e49]:
+      - navigation "Breadcrumb" [ref=e50]:
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Trang chủ" [ref=e53] [cursor=pointer]:
+              - /url: index.html
+          - listitem [ref=e54]:
+            - text: /
+            - generic [ref=e55]: Nghiên cứu
+      - generic [ref=e56]:
+        - link "Quay lại portfolio" [ref=e57] [cursor=pointer]:
+          - /url: index.html#research
+          - generic [ref=e58]: 
+          - text: Quay lại portfolio
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - paragraph [ref=e61]: Kho dự án nghiên cứu
+            - heading "Dự án market research và phân tích ứng dụng" [level=1] [ref=e62]
+            - paragraph [ref=e63]: 11 dự án về hospitality, lựa chọn EV, mức chấp nhận chính sách, hành vi creator, nutrition và bối cảnh tổ chức. Mỗi thẻ dẫn đến case page có phương pháp, hình ảnh và ghi chú bằng chứng.
+            - generic "Research topic clusters" [ref=e64]:
+              - generic [ref=e65]: 11 projects
+              - generic [ref=e66]: 5 domains
+              - generic [ref=e67]: Evidence labels
+              - generic [ref=e68]: EN/VI portfolio
+          - complementary "How to read this archive" [ref=e69]:
+            - paragraph [ref=e70]: Cách đọc
+            - heading "Bắt đầu từ mảng nghiên cứu, sau đó mở từng case." [level=2] [ref=e71]
+            - paragraph [ref=e72]: Các thẻ mảng giúp kho dự án dễ đọc. Case page cung cấp chi tiết khi cần phương pháp, nguồn và proof of work.
+      - region "Xem theo bối cảnh ra quyết định." [ref=e73]:
+        - generic [ref=e74]:
+          - paragraph [ref=e75]: Mảng nghiên cứu
+          - heading "Xem theo bối cảnh ra quyết định." [level=2] [ref=e76]
+        - generic [ref=e77]:
+          - link "Hospitality 3 projects" [ref=e78] [cursor=pointer]:
+            - /url: hospitality-analytics.html
+            - strong [ref=e79]: Hospitality
+            - generic [ref=e80]: 3 projects
+          - link "Mobility 2 projects" [ref=e81] [cursor=pointer]:
+            - /url: mobility-policy.html
+            - strong [ref=e82]: Mobility
+            - generic [ref=e83]: 2 projects
+          - link "Creator 2 projects" [ref=e84] [cursor=pointer]:
+            - /url: creator-economy.html
+            - strong [ref=e85]: Creator
+            - generic [ref=e86]: 2 projects
+          - link "Health 2 projects" [ref=e87] [cursor=pointer]:
+            - /url: health-behavior.html
+            - strong [ref=e88]: Health
+            - generic [ref=e89]: 2 projects
+          - link "Tổ chức 2 projects" [ref=e90] [cursor=pointer]:
+            - /url: organizational-behavior.html
+            - strong [ref=e91]: Tổ chức
+            - generic [ref=e92]: 2 projects
+      - region "Phân khúc khách, chất lượng dịch vụ và ưu tiên giá trị." [ref=e93]:
+        - generic [ref=e94]:
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Hospitality analytics
+            - heading "Phân khúc khách, chất lượng dịch vụ và ưu tiên giá trị." [level=2] [ref=e97]
+          - link "Mở mảng này" [ref=e98] [cursor=pointer]:
+            - /url: hospitality-analytics.html
+            - text: Mở mảng này
+            - generic [ref=e99]: 
+        - generic [ref=e100]:
+          - link "Phân khúc khách hàng khách sạn dashboard Dự án đã báo cáo Phân khúc khách hàng khách sạn từ aspect-level sentiment Phân thành 10 nhóm khách từ 74.896 review Booking.com tại Đà Nẵng. ABSA - K-means - kiểm tra GMM" [ref=e101] [cursor=pointer]:
+            - /url: research-hotel.html
+            - img "Phân khúc khách hàng khách sạn dashboard" [ref=e102]
+            - generic [ref=e103]:
+              - generic [ref=e104]: Dự án đã báo cáo
+              - heading "Phân khúc khách hàng khách sạn từ aspect-level sentiment" [level=3] [ref=e105]
+              - paragraph [ref=e106]: Phân thành 10 nhóm khách từ 74.896 review Booking.com tại Đà Nẵng.
+              - generic [ref=e107]: ABSA - K-means - kiểm tra GMM
+          - link "PRCA asymmetry visualization Dự án đã báo cáo Bất đối xứng thuộc tính khách sạn tại Việt Nam Cho thấy thuộc tính khách sạn nào tạo mức phạt rating lớn nhất khi không đáp ứng tốt. Sentence-BERT - PRCA - Kano" [ref=e108] [cursor=pointer]:
+            - /url: research-hotel-prca.html
+            - img "PRCA asymmetry visualization" [ref=e109]
+            - generic [ref=e110]:
+              - generic [ref=e111]: Dự án đã báo cáo
+              - heading "Bất đối xứng thuộc tính khách sạn tại Việt Nam" [level=3] [ref=e112]
+              - paragraph [ref=e113]: Cho thấy thuộc tính khách sạn nào tạo mức phạt rating lớn nhất khi không đáp ứng tốt.
+              - generic [ref=e114]: Sentence-BERT - PRCA - Kano
+          - link "Editorial hotel value segmentation analytics visual Khung khái niệm Hotel value segmentation framework Chuyển tín hiệu từ review thành hành động theo giá trị chức năng, cảm xúc và xã hội. Value mapping - chuyển dịch thành quyết định" [ref=e115] [cursor=pointer]:
+            - /url: research-hotel-value.html
+            - img "Editorial hotel value segmentation analytics visual" [ref=e116]
+            - generic [ref=e117]:
+              - generic [ref=e118]: Khung khái niệm
+              - heading "Hotel value segmentation framework" [level=3] [ref=e119]
+              - paragraph [ref=e120]: Chuyển tín hiệu từ review thành hành động theo giá trị chức năng, cảm xúc và xã hội.
+              - generic [ref=e121]: Value mapping - chuyển dịch thành quyết định
+      - region "Lựa chọn người tiêu dùng và mức chấp nhận công chúng trong bối cảnh chuyển đổi." [ref=e122]:
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - paragraph [ref=e125]: Mobility và policy
+            - heading "Lựa chọn người tiêu dùng và mức chấp nhận công chúng trong bối cảnh chuyển đổi." [level=2] [ref=e126]
+          - link "Mở mảng này" [ref=e127] [cursor=pointer]:
+            - /url: mobility-policy.html
+            - text: Mở mảng này
+            - generic [ref=e128]: 
+        - generic [ref=e129]:
+          - link "EV product-choice experiment stimulus board Dự án đã báo cáo Đánh đổi giữa thiết kế và quãng đường EV tại Việt Nam Kiểm tra cách người tiêu dùng trẻ đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc. Choice profiles - đánh đổi thuộc tính" [ref=e130] [cursor=pointer]:
+            - /url: research-ev.html
+            - img "EV product-choice experiment stimulus board" [ref=e131]
+            - generic [ref=e132]:
+              - generic [ref=e133]: Dự án đã báo cáo
+              - heading "Đánh đổi giữa thiết kế và quãng đường EV tại Việt Nam" [level=3] [ref=e134]
+              - paragraph [ref=e135]: Kiểm tra cách người tiêu dùng trẻ đánh đổi giữa thiết kế, quãng đường, giá và khả năng sạc.
+              - generic [ref=e136]: Choice profiles - đánh đổi thuộc tính
+          - link "Phase-out xe máy policy study visual Diễn giải ứng dụng Mức chấp nhận chính sách phase-out xe máy tại Hà Nội Diễn giải mức chấp nhận theo hướng hỗ trợ trước, hạn chế rộng sau. Discrete choice - sequencing chính sách" [ref=e137] [cursor=pointer]:
+            - /url: research-motorbike-ban.html
+            - img "Phase-out xe máy policy study visual" [ref=e138]
+            - generic [ref=e139]:
+              - generic [ref=e140]: Diễn giải ứng dụng
+              - heading "Mức chấp nhận chính sách phase-out xe máy tại Hà Nội" [level=3] [ref=e141]
+              - paragraph [ref=e142]: Diễn giải mức chấp nhận theo hướng hỗ trợ trước, hạn chế rộng sau.
+              - generic [ref=e143]: Discrete choice - sequencing chính sách
+      - region "Engagement, trust và retention trong bối cảnh nội dung số." [ref=e144]:
+        - generic [ref=e145]:
+          - generic [ref=e146]:
+            - paragraph [ref=e147]: Creator economy
+            - heading "Engagement, trust và retention trong bối cảnh nội dung số." [level=2] [ref=e148]
+          - link "Mở mảng này" [ref=e149] [cursor=pointer]:
+            - /url: creator-economy.html
+            - text: Mở mảng này
+            - generic [ref=e150]: 
+        - generic [ref=e151]:
+          - link "Editorial creator retention and engagement analytics visual Dự án đã báo cáo Retention, engagement và brand transfer của influencer Kết nối chất lượng trải nghiệm, engagement, brand equity và ý định quay lại. SEM - chiến lược UGC retention" [ref=e152] [cursor=pointer]:
+            - /url: research-leveraging-influencer.html
+            - img "Editorial creator retention and engagement analytics visual" [ref=e153]
+            - generic [ref=e154]:
+              - generic [ref=e155]: Dự án đã báo cáo
+              - heading "Retention, engagement và brand transfer của influencer" [level=3] [ref=e156]
+              - paragraph [ref=e157]: Kết nối chất lượng trải nghiệm, engagement, brand equity và ý định quay lại.
+              - generic [ref=e158]: SEM - chiến lược UGC retention
+          - link "Virtual influencer visual Output đã xuất bản Virtual influencer cue, trust của Gen Z và purchase intention Xem xét credibility cue và phản ứng trust với nhân vật ảo. Survey - trust modeling - bối cảnh DOI" [ref=e159] [cursor=pointer]:
+            - /url: research-virtual-influencers.html
+            - img "Virtual influencer visual" [ref=e160]
+            - generic [ref=e161]:
+              - generic [ref=e162]: Output đã xuất bản
+              - heading "Virtual influencer cue, trust của Gen Z và purchase intention" [level=3] [ref=e163]
+              - paragraph [ref=e164]: Xem xét credibility cue và phản ứng trust với nhân vật ảo.
+              - generic [ref=e165]: Survey - trust modeling - bối cảnh DOI
+      - region "Lựa chọn thực phẩm, kiến thức dinh dưỡng và thiết kế hành vi thực tế." [ref=e166]:
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - paragraph [ref=e169]: Health behavior
+            - heading "Lựa chọn thực phẩm, kiến thức dinh dưỡng và thiết kế hành vi thực tế." [level=2] [ref=e170]
+          - link "Mở mảng này" [ref=e171] [cursor=pointer]:
+            - /url: health-behavior.html
+            - text: Mở mảng này
+            - generic [ref=e172]: 
+        - generic [ref=e173]:
+          - link "Buffet menu choice architecture visual Dự án đã báo cáo Buffet menu nudging và choice architecture Kiểm tra liệu thứ tự menu ưu tiên món lành mạnh có thay đổi intake và lựa chọn gói hay không. Experimental design - ANOVA" [ref=e174] [cursor=pointer]:
+            - /url: research-buffet.html
+            - img "Buffet menu choice architecture visual" [ref=e175]
+            - generic [ref=e176]:
+              - generic [ref=e177]: Dự án đã báo cáo
+              - heading "Buffet menu nudging và choice architecture" [level=3] [ref=e178]
+              - paragraph [ref=e179]: Kiểm tra liệu thứ tự menu ưu tiên món lành mạnh có thay đổi intake và lựa chọn gói hay không.
+              - generic [ref=e180]: Experimental design - ANOVA
+          - link "FCBEM gala dinner photo used in nutrition research bối cảnh Có liên kết công bố Nutrition knowledge, physical activity và diet quality Kết nối kiến thức, thói quen và tín hiệu diet quality của sinh viên. Regression - survey methodology" [ref=e181] [cursor=pointer]:
+            - /url: research-nutrition.html
+            - img "FCBEM gala dinner photo used in nutrition research bối cảnh" [ref=e182]
+            - generic [ref=e183]:
+              - generic [ref=e184]: Có liên kết công bố
+              - heading "Nutrition knowledge, physical activity và diet quality" [level=3] [ref=e185]
+              - paragraph [ref=e186]: Kết nối kiến thức, thói quen và tín hiệu diet quality của sinh viên.
+              - generic [ref=e187]: Regression - survey methodology
+      - region "Participation, ownership và trải nghiệm co-created." [ref=e188]:
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - paragraph [ref=e191]: Organizational behavior
+            - heading "Participation, ownership và trải nghiệm co-created." [level=2] [ref=e192]
+          - link "Mở mảng này" [ref=e193] [cursor=pointer]:
+            - /url: organizational-behavior.html
+            - text: Mở mảng này
+            - generic [ref=e194]: 
+        - generic [ref=e195]:
+          - link "University team workshop visual for psychological ownership research Khung khái niệm Psychological ownership trong đại học Việt Nam Chuyển lý thuyết ownership thành hành động tăng commitment. Framework design - organizational engagement" [ref=e196] [cursor=pointer]:
+            - /url: research-psych-ownership.html
+            - img "University team workshop visual for psychological ownership research" [ref=e197]
+            - generic [ref=e198]:
+              - generic [ref=e199]: Khung khái niệm
+              - heading "Psychological ownership trong đại học Việt Nam" [level=3] [ref=e200]
+              - paragraph [ref=e201]: Chuyển lý thuyết ownership thành hành động tăng commitment.
+              - generic [ref=e202]: Framework design - organizational engagement
+          - link "Arts workshop co-creation visual Khung khái niệm Co-creation trong workshop nghệ thuật và customer interest Cho thấy giá trị học tập, xã hội và cảm xúc định hình repeat interest. Service design - value co-creation" [ref=e203] [cursor=pointer]:
+            - /url: research-arts-workshop.html
+            - img "Arts workshop co-creation visual" [ref=e204]
+            - generic [ref=e205]:
+              - generic [ref=e206]: Khung khái niệm
+              - heading "Co-creation trong workshop nghệ thuật và customer interest" [level=3] [ref=e207]
+              - paragraph [ref=e208]: Cho thấy giá trị học tập, xã hội và cảm xúc định hình repeat interest.
+              - generic [ref=e209]: Service design - value co-creation
+      - region "Bạn cần bối cảnh cụ thể của dự án?" [ref=e210]:
+        - generic [ref=e211]:
+          - paragraph [ref=e212]: Liên hệ
+          - heading "Bạn cần bối cảnh cụ thể của dự án?" [level=2] [ref=e213]
+          - paragraph [ref=e214]: Có thể liên hệ qua email cho câu hỏi về nghiên cứu, phân tích, vận hành hoặc portfolio.
+        - generic [ref=e215]:
+          - link "daichunghy@gmail.com" [ref=e216] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com
+            - generic [ref=e217]: 
+            - text: daichunghy@gmail.com
+          - link "Tham chiếu đã xác thực" [ref=e218] [cursor=pointer]:
+            - /url: references.html
+            - generic [ref=e219]: 
+            - text: Tham chiếu đã xác thực
+          - link "Gửi email" [ref=e220] [cursor=pointer]:
+            - /url: mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry
+            - text: Gửi email
+            - generic [ref=e221]: 
