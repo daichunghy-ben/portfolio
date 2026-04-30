@@ -11,7 +11,6 @@ const targets = [
   'psych-ownership-framework.png',
   'virtual-influencer-map.png',
   'student-group.jpg',
-  'swinburne-dai-chung-hy-khoa-hoc2.jpg',
   'buffet-menu.png',
   'presentation.jpg',
   'hanoi-phaseout-dashboard.png',
@@ -22,22 +21,6 @@ const targets = [
   'profile-main.png',
   'fig04_embedding_scatter.png',
   'fig03_valence_heatmap.png',
-  'hsbc-2024.jpg',
-  'sus-logo.jpg',
-  'vietpride.jpg',
-  'general_time_series.png',
-  'motorbike-ban.jpg',
-  'virtual-influencer.png',
-  'nutrition-gala-dinner.jpg',
-  'research-hotel-value-hero.png',
-  'research-influencer-retention-hero.png',
-  'research-psych-ownership-hero.png',
-  'portfolio-botanical-vase.png',
-  'portfolio-creator-editorial.png',
-  'portfolio-virtual-influencer-editorial.png',
-  'portfolio-buffet-editorial.png',
-  'portfolio-ev-editorial.png',
-  'portfolio-education-editorial.png',
   'external/wikimedia/motorbikes-at-hanoi-vietnam.jpg',
   'external/wikimedia/hanoi-metro-train-vanh-dai-3.jpg',
   'external/wikimedia/hanoi-brt-bus.jpg',
@@ -55,17 +38,13 @@ const targets = [
   'external/vi-sim-low-low.png',
   'external/mirror/images-unsplash-com-photo-1572013883577-c12e62aaed82-2731f99c271f.jpg',
   'external/mirror/images-unsplash-com-photo-1683540991277-e10df62d77d4-106bdee8d5f8.jpg',
-  'external/mirror/images-unsplash-com-photo-1445019980597-93fa8acb246c-06af72145bda.jpg',
-  'external/mirror/images-unsplash-com-photo-1512918728675-ed5a9ecdebfd-33c3fce7516b.jpg',
-  'external/mirror/images-unsplash-com-photo-1551882547-ff40c63fe5fa-63473611c0ca.jpg',
-  'external/mirror/images-unsplash-com-photo-1566665797739-1674de7a421a-82ce67dc53d9.jpg',
   'external/mirror/images-unsplash-com-photo-1563909980-97c3c6e1eb23-8af731b9f1db.jpg',
   'external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68.jpg',
   'external/mirror/images-unsplash-com-photo-1759641801965-a15a53b877b4-6b3b0ef23be4.jpg',
   'external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017.jpg'
 ];
 
-const widths = [320, 480, 768, 1024, 1440, 1800];
+const widths = [480, 768, 1024, 1440, 1800];
 
 await fs.mkdir(outDir, { recursive: true });
 

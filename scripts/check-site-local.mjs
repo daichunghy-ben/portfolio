@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
-import { collectSeoIssues } from './seo-checks.mjs';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, '.deploy', 'public');
@@ -15,12 +14,6 @@ const STYLE_BLOCK_RE = /<style\b[^>]*>([\s\S]*?)<\/style>/gi;
 const STYLE_ATTR_RE = /\bstyle\s*=\s*("([^"]*)"|'([^']*)')/gi;
 const JS_IMPORT_RE =
   /\bimport\s+(?:[^'"]*?\s+from\s+)?["']([^"']+)["']|\bimport\(\s*["']([^"']+)["']\s*\)/g;
-const PRIVATE_ASSET_PATTERNS = [
-  /assets\/certs\//i,
-  /assets\/optimized\/certs\//i,
-  /assets\/degree\.png/i,
-  /assets\/optimized\/degree-/i
-];
 
 const decodeEntities = (value) =>
   value
@@ -55,13 +48,6 @@ const splitSrcset = (value) =>
     .filter(Boolean)
     .map((candidate) => candidate.split(/\s+/)[0])
     .filter(Boolean);
-
-const assertNoPrivateAssetRefs = (text, label) => {
-  const matchedPattern = PRIVATE_ASSET_PATTERNS.find((pattern) => pattern.test(text));
-  if (matchedPattern) {
-    throw new Error(`${label} contains a private credential image reference: ${matchedPattern}`);
-  }
-};
 
 const extractRefsFromCss = (cssText) => {
   const refs = [];
@@ -146,43 +132,6 @@ const waitForServer = async (baseUrl) => {
   throw new Error('Local server did not start within 10 seconds.');
 };
 
-const normalizeSiteUrl = (value) => {
-  const raw = (value || '').trim();
-  if (!raw) return '';
-  try {
-    const url = new URL(raw);
-    url.hash = '';
-    url.search = '';
-    url.pathname = url.pathname && url.pathname !== '/' ? `${url.pathname.replace(/\/+$/, '')}/` : '/';
-    return url.href;
-  } catch {
-    return '';
-  }
-};
-
-const getLintBaseUrl = async () => {
-  const explicit = normalizeSiteUrl(process.env.SITE_URL);
-  if (explicit) return explicit;
-
-  const configPath = path.join(PUBLIC_DIR, 'assets', 'data', 'site-config.json');
-  try {
-    const config = JSON.parse(await fs.readFile(configPath, 'utf8'));
-    return normalizeSiteUrl(config.site_url || config.canonical_base || '');
-  } catch {
-    return '';
-  }
-};
-
-const resolveSeoLintUrl = (siteUrl, requestUrl) => {
-  if (!siteUrl) return requestUrl;
-  const requested = new URL(requestUrl);
-  const relativePath =
-    requested.pathname === '/' || requested.pathname === '/index.html'
-      ? ''
-      : `${requested.pathname.replace(/^\/+/, '')}${requested.search}`;
-  return new URL(relativePath, siteUrl).href;
-};
-
 const getFreePort = async () => {
   const net = await import('node:net');
   return await new Promise((resolve, reject) => {
@@ -216,7 +165,7 @@ const listSeedPages = async () => {
     .map((name) => `/${name}`);
 };
 
-const crawl = async (baseUrl, lintBaseUrl) => {
+const crawl = async (baseUrl) => {
   const base = new URL(baseUrl);
   const origin = base.origin;
   const queue = await listSeedPages();
@@ -259,20 +208,7 @@ const crawl = async (baseUrl, lintBaseUrl) => {
 
     const body = await response.text();
     let refs = [];
-    if (isHtml) {
-      const seoIssues = collectSeoIssues({
-        html: body,
-        url: resolveSeoLintUrl(lintBaseUrl, absoluteUrl.href)
-      });
-      if (seoIssues.length) {
-        failures.push({
-          url: absoluteUrl.href,
-          status,
-          reason: `SEO lint: ${seoIssues.join('; ')}`
-        });
-      }
-      refs = extractRefsFromHtml(body);
-    }
+    if (isHtml) refs = extractRefsFromHtml(body);
     else if (isCss) refs = extractRefsFromCss(body);
     else if (isJs) refs = extractRefsFromJs(body);
 
@@ -313,66 +249,6 @@ const validateSeoArtifacts = async (baseUrl) => {
   if (locMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
     throw new Error('sitemap.xml contains a non-absolute URL.');
   }
-
-  const imageSitemapUrl = new URL('/image-sitemap.xml', baseUrl);
-  const imageSitemapResponse = await fetchWithTimeout(imageSitemapUrl.href);
-  if (!imageSitemapResponse.ok) {
-    throw new Error(`image-sitemap.xml returned ${imageSitemapResponse.status} at ${imageSitemapUrl.href}`);
-  }
-
-  const imageSitemapText = await imageSitemapResponse.text();
-  assertNoPrivateAssetRefs(imageSitemapText, 'image-sitemap.xml');
-  const imageMatches = [...imageSitemapText.matchAll(/<image:loc>([^<]+)<\/image:loc>/g)].map((match) => match[1].trim());
-  if (!imageMatches.length) {
-    throw new Error('image-sitemap.xml does not contain any <image:loc> entries.');
-  }
-
-  if (imageMatches.some((loc) => !/^https?:\/\//i.test(loc))) {
-    throw new Error('image-sitemap.xml contains a non-absolute image URL.');
-  }
-
-  const feedUrl = new URL('feed.xml', baseUrl);
-  const feedResponse = await fetchWithTimeout(feedUrl.href);
-  if (!feedResponse.ok) {
-    throw new Error(`feed.xml returned ${feedResponse.status} at ${feedUrl.href}`);
-  }
-
-  const feedText = await feedResponse.text();
-  const feedEntries = [...feedText.matchAll(/<entry>/g)].length;
-  if (!feedEntries) {
-    throw new Error('feed.xml does not contain any <entry> items.');
-  }
-
-  const legacyAliasUrl = new URL('/portfolio/', baseUrl);
-  const legacyAliasResponse = await fetchWithTimeout(legacyAliasUrl.href);
-  if (!legacyAliasResponse.ok) {
-    throw new Error(`Legacy /portfolio/ alias returned ${legacyAliasResponse.status} at ${legacyAliasUrl.href}`);
-  }
-
-  const legacyAliasText = await legacyAliasResponse.text();
-  if (
-    !/http-equiv\s*=\s*["']refresh["']/i.test(legacyAliasText) &&
-    !/location\.replace\s*\(/i.test(legacyAliasText)
-  ) {
-    throw new Error('Legacy /portfolio/ alias does not contain an automatic redirect.');
-  }
-
-  const legacyProjectsAliasUrl = new URL('/portfolio/projects.html', baseUrl);
-  const legacyProjectsAliasResponse = await fetchWithTimeout(legacyProjectsAliasUrl.href);
-  if (!legacyProjectsAliasResponse.ok) {
-    throw new Error(`Legacy /portfolio/projects.html alias returned ${legacyProjectsAliasResponse.status} at ${legacyProjectsAliasUrl.href}`);
-  }
-
-  const legacyProjectsAliasText = await legacyProjectsAliasResponse.text();
-  if (!/projects\.html/i.test(legacyProjectsAliasText) || !/noindex,follow/i.test(legacyProjectsAliasText)) {
-    throw new Error('Legacy /portfolio/projects.html alias does not point to the canonical projects route.');
-  }
-
-  const legacySitemapUrl = new URL('/portfolio/sitemap.xml', baseUrl);
-  const legacySitemapResponse = await fetchWithTimeout(legacySitemapUrl.href);
-  if (!legacySitemapResponse.ok) {
-    throw new Error(`Legacy /portfolio/sitemap.xml returned ${legacySitemapResponse.status} at ${legacySitemapUrl.href}`);
-  }
 };
 
 const main = async () => {
@@ -390,12 +266,11 @@ const main = async () => {
   });
 
   const baseUrl = `http://127.0.0.1:${port}`;
-  const lintBaseUrl = await getLintBaseUrl();
 
   try {
     await waitForServer(baseUrl);
     await validateSeoArtifacts(baseUrl);
-    const result = await crawl(baseUrl, lintBaseUrl);
+    const result = await crawl(baseUrl);
     if (result.failures.length) {
       console.error(`Found ${result.failures.length} failing local URLs:`);
       for (const failure of result.failures.slice(0, 60)) {

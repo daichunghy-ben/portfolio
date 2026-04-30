@@ -1,5 +1,5 @@
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
-const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
+const DEFAULT_PRIMARY_SITE_URL = 'https://chunghy.pages.dev/';
 
 const normalizeSiteUrl = (value) => {
   const raw = (value || '').trim();
@@ -38,15 +38,6 @@ const shouldRedirectHost = (host, primaryHost, legacyHosts) => {
   return false;
 };
 
-const normalizeLegacyPath = (pathname) => {
-  if (pathname === '/portfolio') return '/';
-  if (pathname === '/portfolio/index.html') return '/';
-  if (pathname.startsWith('/portfolio/')) {
-    return pathname.slice('/portfolio'.length) || '/';
-  }
-  return pathname || '/';
-};
-
 export async function onRequest(context) {
   const primary = normalizeSiteUrl(context.env?.SITE_URL || DEFAULT_PRIMARY_SITE_URL);
   if (!primary) {
@@ -55,13 +46,10 @@ export async function onRequest(context) {
 
   const requestUrl = new URL(context.request.url);
   const legacyHosts = getLegacyHosts(context.env?.LEGACY_PAGES_HOSTS);
-  const redirectPath = normalizeLegacyPath(requestUrl.pathname);
-  const hasLegacyPortfolioPath = redirectPath !== (requestUrl.pathname || '/');
-
-  if (!hasLegacyPortfolioPath && !shouldRedirectHost(requestUrl.hostname, primary.hostname, legacyHosts)) {
+  if (!shouldRedirectHost(requestUrl.hostname, primary.hostname, legacyHosts)) {
     return context.next();
   }
 
-  const redirectUrl = new URL(`${redirectPath}${requestUrl.search}`, primary);
+  const redirectUrl = new URL(`${requestUrl.pathname}${requestUrl.search}`, primary);
   return Response.redirect(redirectUrl.href, 301);
 }

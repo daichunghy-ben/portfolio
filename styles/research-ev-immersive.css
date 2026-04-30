@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
 .page-research-ev {
     --ev-ink: #112031;
     --ev-ink-soft: #324860;
@@ -111,7 +113,7 @@
 
 .page-research-ev .section-heading,
 .page-research-ev .section-heading-focus {
-    font-family: var(--font-heading);
+    font-family: "Chakra Petch", "Space Grotesk", sans-serif;
     letter-spacing: 0.012em;
 }
 
@@ -177,7 +179,7 @@
 
 .page-research-ev .ev-hero-panel h2 {
     margin: 0;
-    font-family: var(--font-heading);
+    font-family: "Chakra Petch", "Space Grotesk", sans-serif;
     font-size: clamp(1.3rem, 2.2vw, 1.64rem);
     line-height: 1.2;
     color: #f0f7ff;
@@ -493,7 +495,7 @@
 }
 
 .page-research-ev .ev-control-top output {
-    font-family: var(--font-heading);
+    font-family: "Chakra Petch", "Space Grotesk", sans-serif;
     font-size: 0.82rem;
     color: #125f91;
     font-weight: 700;
@@ -601,7 +603,7 @@
 
 .page-research-ev .ev-result-value {
     margin: 0;
-    font-family: var(--font-heading);
+    font-family: "Chakra Petch", "Space Grotesk", sans-serif;
     font-size: 1.24rem;
     color: #0f2942;
     font-weight: 700;

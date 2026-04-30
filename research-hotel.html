@@ -4,53 +4,13 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
-    <title>Hotel Customer Segmentation from Aspect-Level Sentiment in Da Nang | Chung Hy Dai</title>
+    <title>Hotel Customer Segmentation | Chung Hy Dai</title>
     <meta content="Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation." name="description"/>
     <link href="styles/base.css" rel="stylesheet"/>
     <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
     <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
     <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "./index.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Projects",
-          "item": "./projects.html"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Hotel Customer Segmentation",
-          "item": "./research-hotel.html"
-        }
-      ]
-    },
-    {
-      "@type": "ScholarlyArticle",
-      "headline": "Hotel Customer Segmentation | Chung Hy Dai",
-      "description": "Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation.",
-      "author": {
-        "@type": "Person",
-        "name": "Chung Hy Dai"
-      },
-      "image": "./assets/optimized/fig03_valence_heatmap-1800.webp"
-    }
-  ]
-}
-</script>
 </head>
 <body class="page-research-detail page-research-custom page-research-hotel" data-page="research" data-research-id="hotel-segmentation">
     <div class="cursor-dot"></div>
@@ -60,10 +20,14 @@
         <div class="nav-container">
             <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
             <button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-            <div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html">Home</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
-<a class="nav-link magnetic" data-strength="10" href="projects.html">Projects</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a></div>
+            <div class="nav-links" id="site-nav-links">
+                <a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+                <a class="nav-link magnetic" data-strength="10" href="index.html#experience">Experience</a>
+                <a class="nav-link magnetic" data-strength="10" href="projects.html">Research</a>
+                <a class="nav-link magnetic" data-strength="10" href="index.html#credentials">Credentials</a>
+                <a class="nav-link magnetic" data-strength="10" href="index.html#skills">Skills</a>
+                <a class="btn-primary nav-cta magnetic" data-strength="15" href="index.html#contact"><i class="ph ph-paper-plane-tilt"></i> Contact</a>
+            </div>
         </div>
     </nav>
     <div class="nav-overlay" hidden></div>
@@ -82,11 +46,11 @@
             </div>
 
             <div class="section-container" style="position: relative; z-index: 2;">
-                <a class="research-back-link reveal-on-load" href="projects.html" style="margin-bottom: 2rem;"><i class="ph ph-arrow-left"></i> Back to Projects</a>
+                <a class="research-back-link reveal-on-load" href="projects.html" style="margin-bottom: 2rem;"><i class="ph ph-arrow-left"></i> Back to All Research</a>
                 
                 <div class="reveal-on-load" style="max-width: 900px;">
                     <span class="badge" style="margin-bottom: 1rem; display: inline-block;">Consumer Insights &bull; NLP Analytics</span>
-                    <h1 class="creative-title-huge">Hotel Customer Segmentation from Aspect-Level Sentiment in Da Nang</h1>
+                    <h1 class="creative-title-huge">Decoding Hotel Reviews</h1>
                     <p class="section-desc" style="font-size: 1.35rem; color: #334155; line-height: 1.6; max-width: 750px;">
                         Transforming 74,896 unstructured Booking.com reviews in Da Nang into an actionable 10-profile customer segmentation using aspect-based sentiment analysis.
                     </p>
@@ -100,44 +64,13 @@
             </div>
         </section>
 
-        <section class="section case-scan-section" aria-labelledby="hotel-scan-title">
-            <div class="section-container">
-                <div class="case-scan-summary reveal">
-                    <p class="eyebrow">1-minute read</p>
-                    <h2 id="hotel-scan-title">What a reviewer should take away first.</h2>
-                    <dl>
-                        <div>
-                            <dt>Problem</dt>
-                            <dd>Average hotel ratings hide which guest groups care about which service failures.</dd>
-                        </div>
-                        <div>
-                            <dt>Data</dt>
-                            <dd>74,896 Booking.com reviews from Da Nang hotels.</dd>
-                        </div>
-                        <div>
-                            <dt>Method</dt>
-                            <dd>Aspect-level sentiment signals followed by clustering and segment interpretation.</dd>
-                        </div>
-                        <div>
-                            <dt>Main finding</dt>
-                            <dd>Guest feedback separates into 10 profiles with different service priorities and pain points.</dd>
-                        </div>
-                        <div>
-                            <dt>Use</dt>
-                            <dd>Turn raw review text into targeting, positioning, and operational improvement priorities.</dd>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-        </section>
-
         <!-- The Challenge & Problem -->
         <section class="section bg-light">
             <div class="section-container">
                 <div class="research-focus-shell reveal">
                     <h2 class="section-heading">The Core Challenge</h2>
                     <div class="creative-insight-box">
-                        <p>Aggregated ratings, such as "8.2/10", can hide operational differences. A cleanliness complaint from an older couple may reflect a different service priority than a solo traveler's focus on location. Hotel teams therefore require granular experience profiles.</p>
+                        <p>Aggregated ratings (e.g., "8.2/10") hide critical operational nuances. A "Cleanliness" complaint from an older couple differs entirely from a solo traveler's priority on "Location". Hotel teams need granular experience profiles.</p>
                     </div>
 
                     <div class="creative-layout-grid">
@@ -171,9 +104,9 @@
                         <article class="ev-signal-card ev-signal-strong" style="padding: 1.5rem 1.5rem 1.5rem 2rem; background: transparent; border: none; border-left: 3px solid rgba(31,137,199,0.25);">
                             <h3 style="font-size: 1.25rem; margin-bottom: 1rem;"><i class="ph ph-chart-line-up"></i> Diagnostics Summary</h3>
                             <ul style="font-size: 1.05rem; line-height: 1.7; color: #475569;">
-                                <li>The text data formed distinguishable clusters, including groups such as "Minimalists" and "Experience Seekers".</li>
+                                <li>The text data clearly clustered, distinguishing groups like "Minimalists" from "Experience Seekers".</li>
                                 <li>Aspects like "Staff" and "Location" drove universal satisfaction, while "Value" and "Comfort" were key differentiators for unhappy clusters.</li>
-                                <li><strong>Conclusion:</strong> NLP models built on raw review text can identify service failures across different personas.</li>
+                                <li><strong>Conclusion:</strong> NLP models built on raw review text can rapidly identify service failures across different personas.</li>
                             </ul>
                         </article>
                     </div>
@@ -211,7 +144,7 @@
             </div>
 
             <div class="text-center mt-5 reveal">
-                <a class="btn-outline large magnetic" data-strength="15" href="projects.html" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px;"><i class="ph ph-arrow-left"></i> Related Projects</a>
+                <a class="btn-outline large magnetic" data-strength="15" href="projects.html" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px;"><i class="ph ph-arrow-left"></i> View Other Research</a>
             </div>
         </section>
     </main>
@@ -221,8 +154,8 @@
         <div class="footer-glow glow-2"></div>
         <div class="footer-glow glow-3"></div>
         <div class="footer-container layer-above-bg reveal active">
-            <h2 class="footer-heading">Review the research portfolio.</h2>
-            <p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
+            <h2 class="footer-heading">Review the work, then get in touch.</h2>
+            <p class="footer-desc">Email for market research or insights roles, or get in touch for more details.</p>
             <div class="footer-contact-info reveal active">
                 <a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
                 <span class="divider">|</span>

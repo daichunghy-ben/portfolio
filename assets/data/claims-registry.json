@@ -253,9 +253,9 @@
         "assets/data/research-manifest.json"
       ],
       "status": "Unverified",
-      "evidence_url": "",
-      "last_checked": "2026-04-30",
-      "recommended_wording": "Do not publish the CIEMB URL until the domain resolves; use the portfolio case page and hosted visuals as interim context."
+      "evidence_url": "https://www.ciemb.org/",
+      "last_checked": "2026-02-24",
+      "recommended_wording": "Provide backup citation text or archived source when CIEMB domain is unavailable."
     },
     {
       "claim_id": "profile-location",

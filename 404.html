@@ -2,139 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="/assets/favicon.svg" rel="icon" type="image/svg+xml">
-  <title>Page Not Found | Chung Hy Dai</title>
-  <meta content="noindex,follow" name="robots">
-  <meta content="noindex,follow" name="googlebot">
-  <meta content="The requested Chung Hy Dai portfolio page is unavailable. Use the homepage or projects archive to continue browsing." name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Not Found</title>
   <style>
     :root {
       color-scheme: light;
-      --bg: #f8fafc;
-      --panel: rgba(255, 255, 255, 0.92);
-      --border: rgba(15, 23, 42, 0.1);
-      --text: #0f172a;
-      --muted: #475569;
-      --accent: #0f766e;
-      --accent-2: #2563eb;
-      --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: var(--bg);
       display: grid;
       place-items: center;
-      padding: 24px;
+      background: #f7fafc;
+      color: #0f172a;
+      font-family: "SF Pro Text", "Segoe UI", Roboto, sans-serif;
       line-height: 1.5;
+      padding: 1.5rem;
     }
-
     main {
-      width: min(100%, 38rem);
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: clamp(1.5rem, 4vw, 2.5rem);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      max-width: 34rem;
+      text-align: center;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.85rem;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
     }
-
-    .eyebrow {
-      margin: 0 0 0.75rem;
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
     h1 {
-      margin: 0 0 0.85rem;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
+      margin: 0 0 0.65rem;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: -0.01em;
     }
-
     p {
       margin: 0;
-      color: var(--muted);
-      font-size: 1rem;
     }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
-    }
-
     a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 2.75rem;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-    }
-
-    a:hover {
-      transform: translateY(-1px);
-    }
-
-    .primary {
-      color: #ffffff;
-      background: linear-gradient(135deg, var(--accent-2), var(--accent));
-      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.22);
-    }
-
-    .secondary {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid var(--border);
-    }
-
-    .note {
+      display: inline-block;
       margin-top: 1rem;
-      font-size: 0.94rem;
+      color: #0f172a;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
     }
   </style>
-  <script>
-    (function () {
-      const legacyPrefix = '/portfolio';
-      const path = window.location.pathname.replace(/\/{2,}/g, '/');
-      if (path !== legacyPrefix && !path.startsWith(`${legacyPrefix}/`)) {
-        return;
-      }
-
-      const strippedPath = path.slice(legacyPrefix.length) || '/';
-      const target = new URL(strippedPath, window.location.origin);
-      target.search = window.location.search;
-      target.hash = window.location.hash;
-      window.location.replace(target.toString());
-    }());
-  </script>
 </head>
 <body>
-  <main aria-labelledby="page-title">
-    <p class="eyebrow">404</p>
-    <h1 id="page-title">This page is not available.</h1>
-    <p>If you followed an old portfolio link, you should be redirected automatically. Otherwise, use the homepage or the projects archive to continue browsing.</p>
-    <div class="actions">
-      <a class="primary" href="/">Homepage</a>
-      <a class="secondary" href="/projects.html">Projects archive</a>
-    </div>
-    <p class="note">Chung Hy Dai portfolio links now resolve from the root site.</p>
+  <main>
+    <h1>404 - Page Not Found</h1>
+    <p>The page you requested is unavailable.</p>
+    <a href="./index.html">Return to homepage</a>
   </main>
 </body>
 </html>

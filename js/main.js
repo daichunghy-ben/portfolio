@@ -11,7 +11,6 @@ import {
     initTooltips
 } from './core.js';
 import { initNav } from './nav.js';
-import { initLanguageGate } from './language-gate.js';
 
 window.__portfolioMainModuleLoaded = true;
 
@@ -21,9 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const page = document.body.getAttribute('data-page') || 'home';
     const researchId = document.body.getAttribute('data-research-id') || '';
     const env = createEnv();
-    const languageGate = initLanguageGate();
-
-    if (languageGate.redirecting) return;
 
     initSeoMetaNormalization();
     initSmoothScroll(env);

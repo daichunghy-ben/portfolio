@@ -69,7 +69,7 @@
 .page-research-hotel-focus .booking-source-label {
     margin: 0;
     font-size: 0.72rem;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #64748b;
     font-family: var(--font-mono);
@@ -133,7 +133,7 @@
     padding: 0.22rem 0.55rem;
     font-size: 0.68rem;
     text-transform: uppercase;
-    letter-spacing: 0;
+    letter-spacing: 0.07em;
     font-weight: 700;
 }
 
@@ -370,7 +370,7 @@
     color: #0f766e;
     font-size: 0.69rem;
     text-transform: uppercase;
-    letter-spacing: 0;
+    letter-spacing: 0.07em;
     font-weight: 800;
 }
 
@@ -478,7 +478,7 @@
 .page-research-ev .ev-control-top label {
     font-size: 0.86rem;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     color: #0f172a;
 }
 
@@ -518,7 +518,7 @@
     padding: 0.38rem 0.78rem;
     font-size: 0.74rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     cursor: pointer;
     transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
@@ -695,7 +695,7 @@
 
 .page-research-ev .ev-hud-label {
     font-size: 0.71rem;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #475569;
     margin: 0;
@@ -789,7 +789,7 @@
     font-size: 0.98rem;
     line-height: 1.34;
     color: #0f172a;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
 }
 
 .page-research-ev .ev-bar-chart {
@@ -865,7 +865,7 @@
 .page-research-ev .ev-technical-label {
     margin: 0;
     font-size: 0.68rem;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #64748b;
     font-weight: 700;
@@ -903,7 +903,7 @@
     margin: 0;
     font-size: 0.9rem;
     color: #0f172a;
-    letter-spacing: 0;
+    letter-spacing: -0.01em;
 }
 
 .page-research-ev .ev-translation-card p {
@@ -925,7 +925,7 @@
 .page-research-ev .ev-source-ledger h3 {
     margin: 0;
     font-size: 0.84rem;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #0e7490;
 }
@@ -1201,7 +1201,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     padding: 0.22rem 0.6rem;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.075em;
     text-transform: uppercase;
 }
 
@@ -1229,7 +1229,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     margin: 0 0 0.52rem;
     font-size: 0.73rem;
     text-transform: uppercase;
-    letter-spacing: 0;
+    letter-spacing: 0.095em;
     color: var(--nutrition-soft);
     font-weight: 700;
 }
@@ -1387,7 +1387,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     margin: 0;
     font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0;
+    letter-spacing: 0.085em;
     color: var(--nutrition-soft);
     font-weight: 700;
 }
@@ -1402,7 +1402,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-nutrition .nutrition-detail-group-label {
     margin: 0.22rem 0 0;
     font-size: 0.7rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--nutrition-soft);
     font-weight: 700;
@@ -1488,14 +1488,14 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-nutrition .nutrition-method-summary-label {
     font-size: 0.82rem;
-    letter-spacing: 0;
+    letter-spacing: 0.03em;
     color: var(--nutrition-text);
     font-weight: 700;
 }
 
 .page-research-nutrition .nutrition-method-summary-state {
     font-size: 0.7rem;
-    letter-spacing: 0;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     color: var(--nutrition-soft);
     font-weight: 700;
@@ -1649,7 +1649,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-motorbike-ban .mb-control-top label {
     font-size: 0.84rem;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     color: #0f172a;
 }
 
@@ -1689,7 +1689,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     padding: 0.38rem 0.76rem;
     font-size: 0.73rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     cursor: pointer;
     transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
 }
@@ -1781,7 +1781,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-motorbike-ban .mb-hud-label {
     margin: 0;
     font-size: 0.71rem;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #475569;
 }
@@ -1811,7 +1811,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     color: #334155;
     font-size: 0.68rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     text-align: center;
     padding: 0.33rem 0.3rem;
@@ -1944,7 +1944,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     margin: 0;
     font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: #475569;
 }
@@ -2086,7 +2086,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-motorbike-ban .section.bg-light .evidence-block h3 {
     font-size: 1.04rem;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     color: #0f172a;
 }
 
@@ -2186,7 +2186,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     --arts-paper: #fff9f0;
     --arts-shell: #fffdf8;
     --arts-line: rgba(31, 47, 73, 0.14);
-    font-family: var(--font-sans);
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
     background:
         radial-gradient(circle at 12% -8%, rgba(249, 115, 82, 0.16), transparent 42%),
         radial-gradient(circle at 88% 18%, rgba(15, 142, 164, 0.14), transparent 46%),
@@ -2198,7 +2198,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-arts-focus h3,
 .page-research-arts-focus h4,
 .page-research-arts-focus .section-heading {
-    font-family: var(--font-heading);
+    font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
 }
 
 .page-research-arts-focus .research-copy-muted {
@@ -2310,7 +2310,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-arts-focus .arts-value-node h3 {
     margin: 0;
     font-size: 0.82rem;
-    letter-spacing: 0;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #1f2f49;
 }
@@ -2370,7 +2370,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     padding: 0.24rem 0.54rem;
     font-size: 0.62rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #0f8ea4;
     background: rgba(15, 142, 164, 0.12);
@@ -2446,7 +2446,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     padding: 0.27rem 0.58rem;
     font-size: 0.66rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #1f2f49;
     background: rgba(255, 255, 255, 0.86);
@@ -2468,7 +2468,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     background: rgba(255, 255, 255, 0.82);
     font-size: 0.71rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
     color: #2f4a6b;
 }
@@ -2579,7 +2579,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(31, 47, 73, 0.18);
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
 }
 
 .page-research-arts-focus .arts-process-stop h3 {
@@ -2809,7 +2809,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
   .page-research-psych-ownership .psych-lens-card .kpi-label {
     margin: 0 0 0.2rem;
     font-size: 0.68rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #64748b;
     font-weight: 700;
@@ -2932,7 +2932,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     padding: 0.34rem 0.58rem;
     font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
     color: #1e293b;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
@@ -2989,7 +2989,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     display: inline-block;
     margin-bottom: 0.2rem;
     font-size: 0.63rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #6366f1;
     font-weight: 700;
@@ -3143,7 +3143,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 999px;
     font-size: 0.68rem;
     font-weight: 800;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     border: 1px solid rgba(71, 85, 105, 0.25);
     background: rgba(241, 245, 249, 0.78);
@@ -3323,7 +3323,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     background: rgba(67, 56, 202, 0.12);
     color: #3730a3;
     font-size: 0.64rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
     margin-bottom: 0.5rem;
     border: 1px solid rgba(67, 56, 202, 0.2);
   }
@@ -3482,7 +3482,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     color: #0f172a;
     font-size: 0.92rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
   }
 
@@ -3587,7 +3587,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-non-hotel-fig-refresh .evidence-tier-badge {
-    letter-spacing: 0;
+    letter-spacing: 0.06em;
     border-color: rgba(255, 255, 255, 0.34);
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.2);
 }
@@ -3815,7 +3815,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     margin: 0;
     font-size: 1.01rem;
     color: #7c2d12;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
 }
 
 .page-research-buffet-focus .buffet-sim-group-head p {
@@ -3863,7 +3863,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 999px;
     font-size: 0.64rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #7c2d12;
     border: 1px solid rgba(194, 65, 12, 0.28);
@@ -3930,7 +3930,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     --focus-shell-end: rgba(245, 248, 253, 0.95);
     --focus-card-bg: rgba(255, 255, 255, 0.94);
     --focus-card-shadow: 0 12px 24px rgba(15, 28, 52, 0.1);
-    font-family: var(--font-sans);
+    font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
     color: var(--psych-dossier-ink);
     background:
         linear-gradient(rgba(15, 28, 52, 0.038) 1px, transparent 1px) 0 0 / 100% 34px,
@@ -3945,8 +3945,8 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-psych-ownership h3,
 .page-research-psych-ownership h4,
 .page-research-psych-ownership .section-heading {
-    font-family: var(--font-heading);
-    letter-spacing: 0;
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    letter-spacing: -0.03em;
     color: var(--psych-dossier-ink);
 }
 
@@ -3961,9 +3961,9 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid var(--psych-dossier-line);
     background: rgba(255, 255, 255, 0.9);
     color: #1b3058;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.68rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding-inline: 0.95rem;
 }
@@ -4016,10 +4016,10 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(15, 28, 52, 0.18);
     background: rgba(236, 242, 255, 0.72);
     color: #324d7a;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.62rem;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
@@ -4028,9 +4028,9 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(15, 28, 52, 0.24);
     background: rgba(245, 248, 255, 0.9);
     color: #1c3566;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.64rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -4057,9 +4057,9 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(15, 28, 52, 0.17);
     background: rgba(255, 255, 255, 0.88);
     color: #2e466f;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.69rem;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .page-research-psych-ownership .psych-lens-grid {
@@ -4076,14 +4076,14 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-psych-ownership .psych-lens-card .kpi-label {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.64rem;
-    letter-spacing: 0;
+    letter-spacing: 0.1em;
     color: #516482;
 }
 
 .page-research-psych-ownership .psych-lens-card .kpi-value {
-    font-family: var(--font-heading);
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
     color: #10213f;
 }
 
@@ -4132,9 +4132,9 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(15, 28, 52, 0.2);
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 10px 16px rgba(15, 28, 52, 0.14);
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.66rem;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: #23395f;
     gap: 0.26rem;
@@ -4153,7 +4153,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-psych-ownership .psych-flow-step .step-label {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     color: #1e4dbf;
 }
 
@@ -4203,14 +4203,14 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-psych-ownership .research-kpi .kpi-label {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.62rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
     color: #526686;
 }
 
 .page-research-psych-ownership .research-kpi .kpi-value {
-    font-family: var(--font-heading);
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
     font-size: 1rem;
     color: #132341;
 }
@@ -4262,15 +4262,15 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-psych-ownership .psych-evidence-grade {
     border-radius: 4px;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.62rem;
-    letter-spacing: 0;
+    letter-spacing: 0.12em;
 }
 
 .page-research-psych-ownership .psych-evidence-link {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.75rem;
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
 }
 
 .page-research-psych-ownership .research-figure-stage {
@@ -4302,7 +4302,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px dashed rgba(15, 28, 52, 0.26);
     background: rgba(248, 250, 255, 0.9);
     color: #42536b;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.73rem;
     line-height: 1.5;
 }
@@ -4323,8 +4323,8 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 7px;
     width: auto;
     min-width: 2.05rem;
-    font-family: var(--font-mono);
-    letter-spacing: 0;
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
+    letter-spacing: 0.06em;
     font-size: 0.64rem;
     background: rgba(37, 83, 200, 0.11);
     color: #1f45ac;
@@ -4424,7 +4424,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-psych-ownership .psych-industry-value {
     margin: 0;
-    font-family: var(--font-heading);
+    font-family: "Space Grotesk", "Segoe UI", sans-serif;
     font-size: clamp(1.55rem, 2.3vw, 2rem);
     line-height: 1;
     color: #10284f;
@@ -4445,19 +4445,19 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-psych-ownership .psych-industry-card .psych-industry-meta {
     margin-top: 0.5rem;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.62rem;
     text-transform: uppercase;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     color: #35538a;
 }
 
 .page-research-psych-ownership .psych-industry-source {
     display: inline-flex;
     margin-top: 0.42rem;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.67rem;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     color: #1d4eb8;
     text-decoration: none;
     border-bottom: 1px dashed rgba(29, 78, 184, 0.45);
@@ -4499,7 +4499,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-psych-ownership .psych-track-head strong {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.78rem;
     color: #17305d;
 }
@@ -4584,10 +4584,10 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border: 1px solid rgba(15, 28, 52, 0.18);
     background: linear-gradient(145deg, rgba(37, 83, 200, 0.14), rgba(198, 113, 18, 0.16));
     color: #1d3f8c;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.66rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4662,7 +4662,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     --focus-shell-end: rgba(255, 251, 244, 0.95);
     --focus-card-bg: rgba(255, 255, 255, 0.92);
     --focus-card-shadow: 0 12px 24px rgba(36, 50, 70, 0.09);
-    font-family: var(--font-sans);
+    font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
     color: var(--arts-ink);
     background:
         radial-gradient(circle at 10% -8%, rgba(255, 109, 76, 0.22), transparent 44%),
@@ -4676,8 +4676,8 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-arts-focus h3,
 .page-research-arts-focus h4,
 .page-research-arts-focus .section-heading {
-    font-family: var(--font-heading);
-    letter-spacing: 0;
+    font-family: "Fraunces", "Georgia", serif;
+    letter-spacing: -0.025em;
     color: #1f2c3e;
 }
 
@@ -4694,7 +4694,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     color: #274160;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     padding-inline: 1.02rem;
 }
@@ -4709,7 +4709,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     background: rgba(255, 255, 255, 0.88);
     color: #294463;
     font-size: 0.65rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -4809,7 +4809,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-arts-focus .arts-value-node h3 {
     font-size: 0.8rem;
-    letter-spacing: 0;
+    letter-spacing: 0.06em;
 }
 
 .page-research-arts-focus .arts-value-node p {
@@ -4855,7 +4855,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-arts-focus .arts-core-node .core-tag {
-    font-family: var(--font-heading);
+    font-family: "Caveat", "Comic Sans MS", cursive;
     font-size: 0.96rem;
     font-weight: 700;
     letter-spacing: 0;
@@ -4866,7 +4866,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-arts-focus .arts-core-node strong {
     margin-top: 0.44rem;
-    font-family: var(--font-heading);
+    font-family: "Fraunces", "Georgia", serif;
     font-size: 1.06rem;
 }
 
@@ -4923,12 +4923,12 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-arts-focus .research-kpi .kpi-label {
     font-size: 0.66rem;
-    letter-spacing: 0;
+    letter-spacing: 0.09em;
     color: #54647c;
 }
 
 .page-research-arts-focus .research-kpi .kpi-value {
-    font-family: var(--font-heading);
+    font-family: "Fraunces", "Georgia", serif;
     font-size: 1rem;
 }
 
@@ -4974,7 +4974,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 999px;
     border: 1px dashed rgba(36, 50, 70, 0.28);
     background: rgba(255, 255, 255, 0.9);
-    font-family: var(--font-heading);
+    font-family: "Caveat", "Comic Sans MS", cursive;
     text-transform: none;
     letter-spacing: 0;
     font-size: 1rem;
@@ -4985,7 +4985,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 999px;
     border: 1px dashed rgba(36, 50, 70, 0.28);
     background: rgba(255, 255, 255, 0.86);
-    font-family: var(--font-heading);
+    font-family: "Caveat", "Comic Sans MS", cursive;
     font-size: 1.06rem;
     letter-spacing: 0;
     text-transform: none;
@@ -5046,7 +5046,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 .page-research-arts-focus .arts-process-stop .stop-stage {
     border-radius: 999px;
     border: 1px dashed rgba(36, 50, 70, 0.22);
-    font-family: var(--font-heading);
+    font-family: "Caveat", "Comic Sans MS", cursive;
     font-size: 1rem;
     letter-spacing: 0;
 }
@@ -5104,7 +5104,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     border-radius: 999px;
     border: 1px dashed rgba(36, 50, 70, 0.24);
     padding: 0.12rem 0.54rem;
-    font-family: var(--font-heading);
+    font-family: "Caveat", "Comic Sans MS", cursive;
     font-size: 0.92rem;
     letter-spacing: 0;
     text-transform: none;
@@ -5115,7 +5115,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 
 .page-research-arts-focus .research-method-compact .method-step h3,
 .page-research-arts-focus .research-method-compact .method-step h4 {
-    font-family: var(--font-heading);
+    font-family: "Fraunces", "Georgia", serif;
     font-size: 0.99rem;
     margin-bottom: 0.32rem;
 }
@@ -5243,7 +5243,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
 }
 
 .page-research-motorbike-ban .section-heading {
-    letter-spacing: 0;
+    letter-spacing: 0.01em;
 }
 
 .page-research-motorbike-ban .research-copy-muted,
@@ -5556,7 +5556,7 @@ html.runtime-file .page-research-nutrition .nutrition-file-warning {
     color: #0f172a;
     font-weight: 700;
     margin: 0;
-    font-family: var(--font-display);
+    font-family: var(--font-display, "Chakra Petch", sans-serif);
 }
 
 .creative-card p {

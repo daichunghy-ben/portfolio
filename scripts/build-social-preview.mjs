@@ -4,30 +4,6 @@ import sharp from 'sharp';
 
 const ROOT = process.cwd();
 const outputPath = path.join(ROOT, 'assets', 'social-preview-og-v6.jpg');
-const SITE_CONFIG_PATH = path.join(ROOT, 'assets', 'data', 'site-config.json');
-const DEFAULT_WEBSITE_LABEL = 'daichunghy-ben.github.io';
-
-const readSiteConfig = async () => {
-  try {
-    return JSON.parse(await fs.readFile(SITE_CONFIG_PATH, 'utf8'));
-  } catch {
-    return {};
-  }
-};
-
-const normalizeWebsiteLabel = (siteUrl) => {
-  try {
-    const parsed = new URL(String(siteUrl || '').trim());
-    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return DEFAULT_WEBSITE_LABEL;
-    const pathname = parsed.pathname.replace(/\/+$/, '');
-    return `${parsed.host}${pathname}`;
-  } catch {
-    return DEFAULT_WEBSITE_LABEL;
-  }
-};
-
-const siteConfig = await readSiteConfig();
-const websiteLabel = normalizeWebsiteLabel(siteConfig.site_url || siteConfig.canonical_base || '');
 
 const WIDTH = 1200;
 const HEIGHT = 630;
@@ -57,7 +33,7 @@ const cardSvg = Buffer.from(`
   <text x="76" y="346" font-size="68" font-weight="700" fill="#f6f6f7" font-family="Arial, Helvetica, sans-serif">Portfolio</text>
 
   <line x1="76" y1="392" x2="706" y2="392" stroke="#d1d5db" stroke-opacity="0.35" stroke-width="2"/>
-  <text x="76" y="448" font-size="28" font-weight="500" fill="#f0f2f5" font-family="Arial, Helvetica, sans-serif">${websiteLabel}</text>
+  <text x="76" y="448" font-size="28" font-weight="500" fill="#f0f2f5" font-family="Arial, Helvetica, sans-serif">chunghy.pages.dev</text>
   <text x="76" y="492" font-size="24" font-weight="500" fill="#9ea4ae" font-family="Arial, Helvetica, sans-serif">Portfolio • Projects • Publications</text>
 
   <rect x="824" y="106" width="300" height="420" rx="24" fill="#0d0f13" stroke="#f0f0f1" stroke-width="3"/>

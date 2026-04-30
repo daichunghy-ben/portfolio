@@ -19,7 +19,7 @@
     --focus-card-bg: rgba(255, 255, 255, 0.94);
     --focus-card-shadow: 0 12px 24px rgba(9, 26, 51, 0.09);
     color: var(--uni-ink);
-    font-family: var(--font-sans);
+    font-family: "Source Sans 3", "Segoe UI", sans-serif;
     background:
         linear-gradient(rgba(16, 42, 77, 0.04) 1px, transparent 1px) 0 0 / 100% 38px,
         linear-gradient(90deg, rgba(16, 42, 77, 0.03) 1px, transparent 1px) 0 0 / 38px 100%,
@@ -33,8 +33,8 @@
 .page-research-psych-ownership h3,
 .page-research-psych-ownership h4,
 .page-research-psych-ownership .section-heading {
-    font-family: var(--font-heading);
-    letter-spacing: 0;
+    font-family: "Merriweather", "Georgia", serif;
+    letter-spacing: -0.02em;
     color: var(--uni-navy-deep);
 }
 
@@ -73,9 +73,9 @@
     border: 1px solid var(--uni-line);
     background: rgba(255, 255, 255, 0.92);
     color: #21406e;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.67rem;
-    letter-spacing: 0;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
     padding-inline: 0.92rem;
 }
@@ -90,9 +90,9 @@
     border: 1px solid rgba(16, 42, 77, 0.24);
     background: rgba(255, 255, 255, 0.9);
     color: #1d3d6b;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.63rem;
-    letter-spacing: 0;
+    letter-spacing: 0.09em;
     text-transform: uppercase;
 }
 
@@ -127,19 +127,19 @@
     border: 1px solid rgba(16, 42, 77, 0.28);
     background: rgba(16, 42, 77, 0.08);
     color: #224573;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.6rem;
     font-weight: 600;
-    letter-spacing: 0;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .page-research-psych-ownership .psych-uni-kicker {
     margin: 0 0 0.48rem;
     color: #305485;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.63rem;
-    letter-spacing: 0;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -155,9 +155,9 @@
 .page-research-psych-ownership .psych-abstract-label {
     margin: 0 0 0.24rem;
     color: #2a4f7f;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.6rem;
-    letter-spacing: 0;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
@@ -191,9 +191,9 @@
     border: 1px solid rgba(16, 42, 77, 0.18);
     background: rgba(255, 255, 255, 0.9);
     color: #2f4a70;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.68rem;
-    letter-spacing: 0;
+    letter-spacing: 0.02em;
 }
 
 .page-research-psych-ownership .psych-lens-grid {
@@ -212,15 +212,15 @@
 .page-research-psych-ownership .psych-lens-card .kpi-label {
     margin: 0 0 0.24rem;
     color: #516583;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.63rem;
-    letter-spacing: 0;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
 .page-research-psych-ownership .psych-lens-card .kpi-value {
     margin: 0;
-    font-family: var(--font-heading);
+    font-family: "Merriweather", "Georgia", serif;
     font-size: 0.94rem;
     color: #122846;
     line-height: 1.4;
@@ -298,9 +298,9 @@
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 10px 16px rgba(9, 26, 51, 0.12);
     color: #2a446a;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.64rem;
-    letter-spacing: 0;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
@@ -337,10 +337,10 @@
 }
 
 .page-research-psych-ownership .psych-flow-step .step-label {
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     color: #2752a0;
     font-size: 0.61rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
 }
 
 .page-research-psych-ownership .psych-flow-step p {
@@ -357,9 +357,9 @@
 .page-research-psych-ownership .psych-section-kicker {
     margin: 0 0 0.36rem;
     color: #2f507b;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.62rem;
-    letter-spacing: 0;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 }
 
@@ -415,15 +415,15 @@
 
 .page-research-psych-ownership .research-kpi .kpi-label {
     color: #536985;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.61rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
 }
 
 .page-research-psych-ownership .research-kpi .kpi-value {
     color: #152c4c;
-    font-family: var(--font-heading);
+    font-family: "Merriweather", "Georgia", serif;
     font-size: 0.96rem;
     line-height: 1.45;
 }
@@ -494,9 +494,9 @@
 
 .page-research-psych-ownership .psych-evidence-grade {
     border-radius: 4px;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.61rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
     border-color: rgba(16, 42, 77, 0.28);
     background: rgba(242, 247, 255, 0.88);
 }
@@ -522,7 +522,7 @@
 .page-research-psych-ownership .psych-evidence-link {
     color: #1d4f95;
     border-bottom: 1px solid rgba(29, 79, 149, 0.34);
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.74rem;
 }
 
@@ -562,7 +562,7 @@
     border: 1px dashed rgba(16, 42, 77, 0.26);
     background: rgba(250, 247, 239, 0.94);
     color: #425875;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.72rem;
 }
 
@@ -608,7 +608,7 @@
 
 .page-research-psych-ownership .psych-industry-value {
     margin: 0;
-    font-family: var(--font-heading);
+    font-family: "Merriweather", "Georgia", serif;
     font-size: clamp(1.55rem, 2.4vw, 2.02rem);
     line-height: 1;
     color: #132f55;
@@ -623,16 +623,16 @@
 .page-research-psych-ownership .psych-industry-card .psych-industry-meta {
     margin-top: 0.5rem;
     color: #32517f;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.61rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
 .page-research-psych-ownership .psych-industry-source {
     margin-top: 0.43rem;
     color: #1f4e93;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.66rem;
     text-decoration: none;
     border-bottom: 1px dashed rgba(31, 78, 147, 0.5);
@@ -660,7 +660,7 @@
 
 .page-research-psych-ownership .psych-track-head strong {
     color: #17365f;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.78rem;
 }
 
@@ -730,10 +730,10 @@
     border: 1px solid rgba(16, 42, 77, 0.2);
     background: linear-gradient(145deg, rgba(16, 42, 77, 0.14), rgba(183, 138, 52, 0.2));
     color: #1c4174;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.65rem;
     font-weight: 700;
-    letter-spacing: 0;
+    letter-spacing: 0.09em;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -756,7 +756,7 @@
 
 .page-research-psych-ownership .psych-reference-list li::marker {
     color: #294c7c;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.72rem;
     font-weight: 700;
 }
@@ -787,9 +787,9 @@
 .page-research-psych-ownership .psych-citation-label {
     margin: 0 0 0.22rem;
     color: #2c507f;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.61rem;
-    letter-spacing: 0;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
 }
 
@@ -805,9 +805,9 @@
     border-color: rgba(16, 42, 77, 0.28);
     background: rgba(255, 255, 255, 0.9);
     color: #1b3f71;
-    font-family: var(--font-mono);
+    font-family: "IBM Plex Mono", "SFMono-Regular", monospace;
     font-size: 0.72rem;
-    letter-spacing: 0;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -877,7 +877,7 @@
     .page-research-psych-ownership .psych-uni-kicker,
     .page-research-psych-ownership .psych-section-kicker {
         font-size: 0.58rem;
-        letter-spacing: 0;
+        letter-spacing: 0.08em;
     }
 
     .page-research-psych-ownership .psych-hero-title {
