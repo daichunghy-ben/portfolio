@@ -3,14 +3,234 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <link href="assets/favicon.png" rel="icon" type="image/png"/>
     <title>Virtual Influencer Cues and Gen Z Purchase Intention | Chung Hy Dai</title>
     <meta content="Research on how central and peripheral virtual influencer cues affect Generation Z purchase intention, with speciesism as a moderator." name="description"/>
     <link href="styles/base.css" rel="stylesheet"/>
     <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
     <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
     <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .page-research-virtual {
+            --vi-ink: #0f172a;
+            --vi-body: #334155;
+            --vi-muted: #64748b;
+            --vi-accent: #0f766e;
+            --vi-accent-soft: rgba(15, 118, 110, 0.1);
+            --vi-rule: rgba(15, 23, 42, 0.14);
+            --vi-surface: rgba(255, 255, 255, 0.94);
+            color: var(--vi-ink);
+            background: linear-gradient(180deg, #fbfdff 0%, #f8fafc 62%, #f1f5f9 100%);
+        }
+
+        .page-research-virtual .parallax-bg,
+        .page-research-virtual .creative-hero-bg,
+        .page-research-virtual .floating-shape {
+            display: none;
+        }
+
+        .page-research-virtual .research-detail-hero {
+            padding: 116px 0 54px !important;
+            background: linear-gradient(180deg, #fbfdff 0%, #f8fafc 100%);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .page-research-virtual .creative-title-huge {
+            max-width: 11ch;
+            color: var(--vi-ink);
+            font-size: 4.2rem;
+            line-height: 1.04;
+            letter-spacing: 0;
+        }
+
+        .page-research-virtual .section-heading,
+        .page-research-virtual h1,
+        .page-research-virtual h2,
+        .page-research-virtual h3 {
+            letter-spacing: 0;
+        }
+
+        .page-research-virtual .section-desc,
+        .page-research-virtual .research-copy-muted,
+        .page-research-virtual p,
+        .page-research-virtual li {
+            color: var(--vi-body);
+        }
+
+        .page-research-virtual .badge {
+            border: 1px solid rgba(15, 118, 110, 0.28);
+            color: var(--vi-accent);
+            background: rgba(240, 253, 250, 0.92);
+        }
+
+        .page-research-virtual .research-focus-shell,
+        .page-research-virtual .creative-card,
+        .page-research-virtual .creative-insight-box,
+        .page-research-virtual .ev-signal-card {
+            border: 1px solid var(--vi-rule) !important;
+            border-radius: 18px !important;
+            background: var(--vi-surface) !important;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08) !important;
+        }
+
+        .page-research-virtual .creative-card i,
+        .page-research-virtual .ev-signal-card i {
+            color: var(--vi-accent);
+        }
+
+        .page-research-virtual .project-brief-section {
+            padding-top: 0;
+        }
+
+        .page-research-virtual .project-brief {
+            display: grid;
+            grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .page-research-virtual .project-brief h2 {
+            margin: 0.5rem 0 0;
+            font-size: 1.75rem;
+            line-height: 1.18;
+        }
+
+        .page-research-virtual .project-brief p {
+            margin: 0.64rem 0 0;
+            line-height: 1.66;
+        }
+
+        .page-research-virtual .project-brief-list {
+            margin: 0;
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .page-research-virtual .project-brief-list div {
+            border-left: 3px solid rgba(15, 118, 110, 0.32);
+            padding-left: 0.78rem;
+        }
+
+        .page-research-virtual .project-brief-list dt {
+            color: var(--vi-accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .page-research-virtual .project-brief-list dd {
+            margin: 0.24rem 0 0;
+            color: var(--vi-body);
+            line-height: 1.5;
+        }
+
+        .page-research-virtual .elm-model {
+            margin: 1.2rem 0;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        .page-research-virtual .elm-model-node {
+            min-height: 100%;
+            border-left: 3px solid rgba(15, 118, 110, 0.42);
+            padding: 0.8rem 0.84rem;
+            background: rgba(248, 250, 252, 0.86);
+        }
+
+        .page-research-virtual .elm-model-node span,
+        .page-research-virtual .vi-evidence-boundary span {
+            color: var(--vi-accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .page-research-virtual .elm-model-node h3 {
+            margin: 0.35rem 0 0;
+            font-size: 1.02rem;
+        }
+
+        .page-research-virtual .elm-model-node p {
+            margin: 0.42rem 0 0;
+            font-size: 0.96rem;
+            line-height: 1.55;
+        }
+
+        .page-research-virtual .vi-evidence-boundary {
+            margin-top: 1.25rem;
+            border: 1px solid rgba(15, 118, 110, 0.22);
+            border-left: 4px solid rgba(15, 118, 110, 0.46);
+            border-radius: 16px;
+            padding: 1rem;
+            background: rgba(240, 253, 250, 0.62);
+        }
+
+        .page-research-virtual .vi-evidence-boundary h3 {
+            margin: 0.28rem 0 0;
+            font-size: 1.05rem;
+        }
+
+        .page-research-virtual .vi-evidence-boundary p {
+            margin: 0.45rem 0 0;
+            line-height: 1.62;
+        }
+
+        .page-research-virtual .vi-visual-stack {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .page-research-virtual .vi-stimulus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .page-research-virtual .research-figure-stage img {
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            background: #ffffff;
+        }
+
+        .page-research-virtual .research-figure-caption {
+            color: var(--vi-muted) !important;
+        }
+
+        .page-research-virtual .btn-primary.large,
+        .page-research-virtual .btn-outline.large {
+            border-width: 1px !important;
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 980px) {
+            .page-research-virtual .project-brief,
+            .page-research-virtual .elm-model,
+            .page-research-virtual .vi-stimulus-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .page-research-virtual .research-detail-hero {
+                padding-top: 104px !important;
+            }
+
+            .page-research-virtual .creative-title-huge {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .page-research-virtual *,
+            .page-research-virtual *::before,
+            .page-research-virtual *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
 <body class="page-research-detail page-research-custom page-research-virtual" data-page="research" data-research-id="virtual-influencers">
     <div class="cursor-dot"></div>
@@ -49,18 +269,46 @@
                 <a class="research-back-link reveal-on-load" href="projects.html" style="margin-bottom: 2rem;"><i class="ph ph-arrow-left"></i> Back to All Research</a>
                 
                 <div class="reveal-on-load" style="max-width: 900px;">
-                    <span class="badge" style="margin-bottom: 1rem; display: inline-block;">Social Media &bull; Published Book Chapter</span>
+                    <span class="badge" style="margin-bottom: 1rem; display: inline-block;">Social Media Research &bull; Springer Book Chapter</span>
                     <h1 class="creative-title-huge">Virtual Influencers vs. Gen Z</h1>
                     <p class="section-desc" style="font-size: 1.35rem; color: #334155; line-height: 1.6; max-width: 750px;">
                         Exploring whether non-human digital avatars can authentically drive Generation Z's purchase intention and brand trust.
                     </p>
                     
                     <div class="research-meta-tags" style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span><i class="ph ph-instagram-logo"></i> Simulated Environments</span>
-                        <span><i class="ph ph-book-open"></i> Springer Publishing published</span>
-                        <span><i class="ph ph-chart-scatter"></i> ANOVA Testing</span>
+                        <span><i class="ph ph-instagram-logo"></i> 2 x 2 simulated Instagram design</span>
+                        <span><i class="ph ph-users-three"></i> Survey experiment: N = 244</span>
+                        <span><i class="ph ph-chart-scatter"></i> Speciesism moderation</span>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section aria-labelledby="virtual-project-brief-title" class="section project-brief-section">
+            <div class="section-container">
+                <article class="project-brief research-focus-shell reveal">
+                    <div>
+                        <span class="badge">Project Brief</span>
+                        <h2 id="virtual-project-brief-title">ELM experiment summary for virtual influencer cues</h2>
+                        <p>
+                            This page reframes the study as an evidence-aware research case: central cue strength, peripheral cue strength, and speciesism are presented as the model logic, while unsupported synthetic scores and coefficient-style charts are kept out of the narrative.
+                        </p>
+                    </div>
+                    <dl class="project-brief-list" aria-label="Virtual influencer project scope">
+                        <div>
+                            <dt>Research Lens</dt>
+                            <dd>Generation Z purchase intention under virtual influencer content, tested through elaboration likelihood model cues.</dd>
+                        </div>
+                        <div>
+                            <dt>Evidence Boundary</dt>
+                            <dd>The page uses the reported N = 244 design, directional findings, and local simulation stimuli without inventing missing path tables.</dd>
+                        </div>
+                        <div>
+                            <dt>Portfolio Translation</dt>
+                            <dd>The central artifact is the research model and stimulus set, not decorative or synthetic performance charts.</dd>
+                        </div>
+                    </dl>
+                </article>
             </div>
         </section>
 
@@ -68,9 +316,34 @@
         <section class="section bg-light">
             <div class="section-container">
                 <div class="research-focus-shell reveal">
-                    <h2 class="section-heading">The Core Challenge</h2>
+                    <h2 class="section-heading">Research Model</h2>
+                    <p class="research-copy-muted">
+                        The study uses an elaboration likelihood model frame: argument quality represents the central cue, social and visual attractiveness represent peripheral cues, and speciesism sets a boundary condition for how strongly virtual endorsers can move purchase intention.
+                    </p>
+                    <div class="elm-model" aria-label="Virtual influencer elaboration likelihood model">
+                        <article class="elm-model-node">
+                            <span>Central Cue</span>
+                            <h3>Argument Quality</h3>
+                            <p>Tests whether the endorsed message is persuasive on substance rather than novelty alone.</p>
+                        </article>
+                        <article class="elm-model-node">
+                            <span>Peripheral Cues</span>
+                            <h3>Attractiveness and Homophily</h3>
+                            <p>Captures fast social judgments around the avatar's look, style, and perceived similarity.</p>
+                        </article>
+                        <article class="elm-model-node">
+                            <span>Moderator</span>
+                            <h3>Speciesism</h3>
+                            <p>Constrains persuasion when respondents hold stronger bias against non-human agents.</p>
+                        </article>
+                        <article class="elm-model-node">
+                            <span>Outcome</span>
+                            <h3>Purchase Intention</h3>
+                            <p>Interpreted through reported directional findings rather than synthetic score charts.</p>
+                        </article>
+                    </div>
                     <div class="creative-insight-box">
-                        <p>With the rise of VTubers and photorealistic CGI models, brands lacked solid psychological modeling on what makes an ai-generated avatar persuasive to a cynical Gen Z audience.</p>
+                        <p>With the rise of VTubers and photorealistic CGI models, brands lacked solid psychological modeling on what makes an AI-generated avatar persuasive to a skeptical Gen Z audience.</p>
                     </div>
 
                     <div class="creative-layout-grid">
@@ -93,7 +366,7 @@
 
                     <div class="creative-insight-box" style="margin-top: 2rem; border-left-color: #a4df4f; background: transparent;">
                         <strong><i class="ph ph-certificate"></i> Verified Output:</strong>
-                        <p style="margin-top: 0.5rem; font-size: 1.1rem !important;">Springer chapter published online June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9).</p>
+                        <p style="margin-top: 0.5rem; font-size: 1.1rem !important;">Springer chapter metadata lists the study under DOI 10.1007/978-981-96-4116-1_9; the local PDF is the EEEU 2024 conference presentation certificate.</p>
                     </div>
                 </div>
             </div>
@@ -116,18 +389,9 @@
                         </article>
                     </div>
 
-                    <!-- NEW: Chart.js Interactive Bar Chart -->
-                    <div class="interactive-chart-container" style="margin-bottom: 3rem; background: #fff; border: none; border-radius: 0; padding: 2rem 0; box-shadow: none; position: relative; overflow: hidden;">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #1e293b; text-align: center;">Purchase Intention by Scenario & Speciesism</h3>
-                        <p style="text-align: center; color: #64748b; margin-bottom: 2rem; font-size: 0.95rem;">Grouped by the 4 visual test blocks, highlighting the strict upper ceiling effect for AI-skeptical users.</p>
-                        <div style="position: relative; height: 350px; width: 100%;">
-                            <canvas id="virtualInfluencerChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div style="display: grid; gap: 2rem;">
+                    <div class="vi-visual-stack">
                         <!-- The 4 variations of the app testing phase -->
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                        <div class="vi-stimulus-grid">
                             <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; cursor: zoom-in;">
                                 <img alt="High Quality + High Aesthetic" decoding="async" loading="lazy" src="./assets/external/vi-sim-high-high.png" style="width: 100%; height: auto; border-radius: 12px;"/>
                                 <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 1: High central + High peripheral</figcaption>
@@ -148,17 +412,14 @@
                                 <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 4: Low central + Low peripheral</figcaption>
                             </figure>
                         </div>
-                        
-                        <!-- Regression Charts -->
-                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
-                            <img alt="Regression coefficients and ANOVA test summary" decoding="async" loading="lazy" src="./assets/viz-virtual-cue-effects.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
-                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Regression coefficients and ANOVA limits from the N=244 study cohort.</figcaption>
-                        </figure>
 
-                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
-                            <img alt="Speciesism moderation pattern" decoding="async" loading="lazy" src="./assets/viz-virtual-speciesism-moderation.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
-                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Visualizing how Speciesism acts as a ceiling to influencer effectiveness.</figcaption>
-                        </figure>
+                        <article class="vi-evidence-boundary">
+                            <span>Evidence Boundary</span>
+                            <h3>Coefficient charts removed from the page narrative</h3>
+                            <p>
+                                The retained visual evidence is the local stimulus set used to explain the experimental conditions. Hard-coded purchase-intention bars and coefficient-style figures are omitted here because the page should not imply access to complete public path tables beyond the reported design and directional findings.
+                            </p>
+                        </article>
 
                     </div>
                 </div>
@@ -167,7 +428,7 @@
             <div class="text-center mt-5 reveal">
                 <a class="btn-outline large magnetic" data-strength="15" href="projects.html" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px;"><i class="ph ph-arrow-left"></i> View Other Research</a>
                 
-                <a class="btn-primary large magnetic" data-strength="15" href="./assets/research-files/Virtual-Influencer.pdf" rel="noopener noreferrer" target="_blank" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px; margin-left:1rem;"><i class="ph ph-file-pdf"></i> Certificate (PDF)</a>
+                <a class="btn-primary large magnetic" data-strength="15" href="./assets/research-files/Virtual-Influencer.pdf" rel="noopener noreferrer" target="_blank" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px; margin-left:1rem;"><i class="ph ph-file-pdf"></i> Conference Certificate (PDF)</a>
             </div>
         </section>
     </main>
@@ -193,94 +454,6 @@
         <span class="modal-close" role="button" tabindex="0" aria-label="Close image modal">×</span>
         <img class="modal-content" id="modal-image" src="" alt="Zoomed in context" width="1600" height="1000"/>
     </div>
-
-    <!-- Chart.js Configuration for Virtual Influencer Bar Chart -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('virtualInfluencerChart');
-            if (!ctx) return;
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        ['Block 1', '(High + High)'],
-                        ['Block 2', '(High + Low)'],
-                        ['Block 3', '(Low + High)'],
-                        ['Block 4', '(Low + Low)']
-                    ],
-                    datasets: [
-                        {
-                            label: 'Low Speciesism (Open to AI)',
-                            data: [82, 70, 48, 25],
-                            backgroundColor: 'rgba(99, 102, 241, 0.85)',
-                            borderRadius: 6,
-                            borderWidth: 0,
-                        },
-                        {
-                            label: 'High Speciesism (AI-Skeptical)',
-                            data: [50, 45, 30, 15],
-                            backgroundColor: 'rgba(244, 114, 182, 0.85)',
-                            borderRadius: 6,
-                            borderWidth: 0,
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: {
-                                font: { family: 'inherit', size: 12 },
-                                color: '#475569'
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Purchase Intention Score',
-                                font: { family: 'inherit', size: 13, weight: '600' },
-                                color: '#64748b'
-                            },
-                            grid: {
-                                borderDash: [4, 4],
-                                color: '#e2e8f0'
-                            },
-                            ticks: { font: { family: 'inherit' } }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                usePointStyle: true,
-                                padding: 20,
-                                font: { family: 'inherit', size: 13 }
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(255,255,255,0.95)',
-                            titleColor: '#1e293b',
-                            bodyColor: '#334155',
-                            borderColor: '#e2e8f0',
-                            borderWidth: 1,
-                            padding: 12,
-                            boxPadding: 4,
-                            usePointStyle: true
-                        }
-                    },
-                    animation: {
-                        duration: 1800,
-                        easing: 'easeOutBounce'
-                    }
-                }
-            });
-        });
-    </script>
 
     <script defer src="js/main.js" type="module"></script>
 </body>
