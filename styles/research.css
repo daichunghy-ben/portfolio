@@ -6427,3 +6427,790 @@ html.js .page-research-detail .project-brief-media.active {
         top: 4.5rem;
     }
 }
+
+/* Research detail redesign v2: reference-aligned art direction */
+
+.case-study-page .case-title-accent {
+    display: block;
+}
+
+.case-study-page .case-hero,
+.case-study-page .case-section,
+.case-study-page .case-anchor-row,
+.case-study-page .navbar {
+    isolation: isolate;
+}
+
+/* Buffet reference: warm hospitality showcase with premium red/orange cues. */
+
+.case-study-page.case-buffet {
+    --case-bg: #fff5e7;
+    --case-bg-soft: #fffaf2;
+    --case-surface: #fffefd;
+    --case-ink: #32180f;
+    --case-body: #70463a;
+    --case-muted: #94685b;
+    --case-line: rgba(127, 34, 18, 0.18);
+    --case-accent: #b9341b;
+    --case-accent-strong: #84210f;
+    --case-accent-soft: #ffe3ce;
+    --case-warm: #d87a25;
+    --case-warm-soft: #fff2df;
+    background:
+        radial-gradient(circle at 86% 18%, rgba(232, 128, 42, 0.18), transparent 26rem),
+        linear-gradient(120deg, #fff8ef 0%, #fff3e5 48%, #f8efe6 100%);
+}
+
+.case-buffet .navbar {
+    background: rgba(255, 248, 239, 0.9);
+    border-bottom-color: rgba(127, 34, 18, 0.12);
+}
+
+.case-buffet .logo-mark,
+.case-buffet .nav-cta,
+.case-buffet .case-actions .btn-primary {
+    background: #b9341b;
+    border-color: #b9341b;
+}
+
+.case-buffet .case-study-main {
+    background:
+        radial-gradient(circle at 14% 22%, rgba(255, 231, 195, 0.86), transparent 20rem),
+        radial-gradient(circle at 92% 8%, rgba(201, 83, 28, 0.18), transparent 30rem),
+        linear-gradient(180deg, #fff7ed 0%, #fffdf8 42%, #fff6e8 100%);
+}
+
+.case-buffet .case-hero {
+    position: relative;
+    min-height: min(820px, calc(100vh - 4.5rem));
+    padding: 3.1rem 0 2.4rem;
+    overflow: hidden;
+}
+
+.case-buffet .case-hero::before,
+.case-buffet .case-hero::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.case-buffet .case-hero::before {
+    inset: auto -12rem -10rem auto;
+    width: min(46vw, 42rem);
+    height: min(46vw, 42rem);
+    border: 1px solid rgba(185, 52, 27, 0.16);
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(circle, rgba(185, 52, 27, 0.12) 0 2px, transparent 2px 28px),
+        radial-gradient(circle, rgba(245, 161, 75, 0.18), transparent 68%);
+}
+
+.case-buffet .case-hero::after {
+    inset: 7rem auto auto 43%;
+    width: 31rem;
+    height: 18rem;
+    opacity: 0.38;
+    background:
+        radial-gradient(ellipse at 22% 50%, transparent 46%, rgba(201, 137, 47, 0.32) 47% 49%, transparent 50%),
+        radial-gradient(ellipse at 42% 50%, transparent 46%, rgba(201, 137, 47, 0.3) 47% 49%, transparent 50%),
+        radial-gradient(ellipse at 62% 50%, transparent 46%, rgba(201, 137, 47, 0.28) 47% 49%, transparent 50%);
+}
+
+.case-buffet .case-hero-grid {
+    grid-template-columns: minmax(0, 0.93fr) minmax(420px, 1.07fr);
+    gap: 2.2rem;
+}
+
+.case-buffet .case-eyebrow,
+.case-buffet .case-section-kicker,
+.case-buffet .case-label {
+    color: #b9341b;
+}
+
+.case-buffet .case-title {
+    max-width: 10.5ch;
+    color: #3a1b10;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(3.5rem, 7vw, 6.25rem);
+    line-height: 0.94;
+    letter-spacing: 0;
+}
+
+.case-buffet .case-title-accent {
+    color: #b9341b;
+}
+
+.case-buffet .case-lead {
+    max-width: 56ch;
+    color: #5f392f;
+    font-size: 1.07rem;
+}
+
+.case-buffet .case-actions .btn-outline {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(127, 34, 18, 0.2);
+    color: #84210f;
+}
+
+.case-buffet .case-meta-strip {
+    gap: 0;
+    margin-top: 1.6rem;
+    border: 1px solid rgba(127, 34, 18, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 20px 46px rgba(93, 38, 17, 0.14);
+    overflow: hidden;
+}
+
+.case-buffet .case-stat {
+    border: 0;
+    border-right: 1px solid rgba(127, 34, 18, 0.13);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding: 1.05rem 1rem;
+}
+
+.case-buffet .case-stat:last-child {
+    border-right: 0;
+}
+
+.case-buffet .case-stat strong {
+    color: #b9341b;
+    font-size: 1.3rem;
+}
+
+.case-buffet .case-hero-figure {
+    border: 8px solid rgba(255, 255, 255, 0.76);
+    border-radius: 8px;
+    background: #b9341b;
+    box-shadow: 0 30px 68px rgba(80, 28, 9, 0.24);
+    transform: rotate(0.5deg);
+}
+
+.case-buffet .case-hero-figure img {
+    aspect-ratio: 16 / 10.8;
+}
+
+.case-buffet .case-hero-figure figcaption {
+    background: #fff8ef;
+    color: #70463a;
+}
+
+.case-buffet .case-anchor-row {
+    background: rgba(255, 248, 239, 0.94);
+    border-color: rgba(127, 34, 18, 0.14);
+}
+
+.case-buffet .case-section {
+    background:
+        radial-gradient(circle at 8% 12%, rgba(245, 161, 75, 0.09), transparent 18rem),
+        #fffdf8;
+}
+
+.case-buffet .case-section.is-soft,
+.case-buffet #stimuli {
+    background: #fff4e5;
+}
+
+.case-buffet .case-section-title {
+    color: #3a1b10;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.case-buffet .case-study-card,
+.case-buffet .case-step,
+.case-buffet .case-mini-card,
+.case-buffet .case-figure,
+.case-buffet .case-gallery-strip figure,
+.case-buffet .case-metric-table {
+    border-color: rgba(127, 34, 18, 0.16);
+    box-shadow: 0 18px 38px rgba(91, 38, 15, 0.09);
+}
+
+.case-buffet .case-study-card .case-study-card-number,
+.case-buffet .case-step .case-step-number {
+    background: #ffe3ce;
+    color: #84210f;
+}
+
+.case-buffet .case-callout,
+.case-buffet .case-callout.is-warm {
+    border-left-color: #d87a25;
+    background: linear-gradient(90deg, #fff0d8, #fffefd 64%);
+}
+
+.case-buffet .case-bottom-panel {
+    border-color: rgba(127, 34, 18, 0.2);
+    background:
+        radial-gradient(circle at 92% 20%, rgba(255, 213, 126, 0.22), transparent 18rem),
+        linear-gradient(135deg, #b9341b 0%, #7f2212 100%);
+    box-shadow: 0 22px 44px rgba(127, 34, 18, 0.22);
+}
+
+/* Arts reference: dark Van Gogh-inspired workshop showcase with cream gallery bands. */
+
+.case-study-page.case-arts {
+    --case-bg: #071827;
+    --case-bg-soft: #f3ead7;
+    --case-surface: #fff7df;
+    --case-ink: #f9e8b2;
+    --case-body: #fff6da;
+    --case-muted: #d7c08a;
+    --case-line: rgba(248, 211, 107, 0.28);
+    --case-accent: #f8c94a;
+    --case-accent-strong: #f6a928;
+    --case-accent-soft: rgba(248, 201, 74, 0.15);
+    --case-warm: #c96b2b;
+    --case-warm-soft: rgba(201, 107, 43, 0.16);
+    background: #071827;
+}
+
+.case-arts .navbar {
+    background: rgba(5, 19, 31, 0.82);
+    border-bottom-color: rgba(248, 211, 107, 0.18);
+}
+
+.case-arts .logo-mark,
+.case-arts .nav-cta,
+.case-arts .case-actions .btn-primary {
+    background: #f4c35a;
+    border-color: #f4c35a;
+    color: #071827;
+}
+
+.case-arts .nav-link {
+    color: #fff6da;
+}
+
+.case-arts .nav-link:hover,
+.case-arts .nav-link:focus-visible {
+    color: #f8c94a;
+}
+
+.case-arts .case-study-main {
+    background: #071827;
+}
+
+.case-arts .case-hero {
+    position: relative;
+    min-height: min(830px, calc(100vh - 4.5rem));
+    padding: 3.6rem 0 2.6rem;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(5, 19, 31, 0.98), rgba(5, 19, 31, 0.84) 45%, rgba(5, 19, 31, 0.42)),
+        url("/assets/arts-starry-workshop-bg.svg") center / cover no-repeat;
+}
+
+.case-arts .case-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto -7rem -10rem auto;
+    width: 28rem;
+    height: 28rem;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, #3b2512 0 19%, transparent 20%),
+        repeating-conic-gradient(from 15deg, #f8c94a 0 8deg, #9d5f24 8deg 16deg, #f4e1a2 16deg 21deg, #2f5b4e 21deg 28deg);
+    opacity: 0.34;
+    pointer-events: none;
+}
+
+.case-arts .case-hero-grid {
+    grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
+    gap: 2.4rem;
+}
+
+.case-arts .case-back-link,
+.case-arts .case-anchor-row a,
+.case-arts .case-text-link {
+    color: #f8c94a;
+}
+
+.case-arts .case-eyebrow,
+.case-arts .case-section-kicker,
+.case-arts .case-label {
+    color: #f8c94a;
+}
+
+.case-arts .case-title {
+    max-width: 11ch;
+    color: #f6c957;
+    font-family: "Trebuchet MS", "Avenir Next", var(--font-sans);
+    font-size: clamp(3.2rem, 7.2vw, 6.2rem);
+    line-height: 0.95;
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.36);
+}
+
+.case-arts .case-title-accent {
+    color: #fff4cf;
+    font-size: 0.48em;
+    line-height: 1.14;
+    margin-top: 0.4rem;
+}
+
+.case-arts .case-lead {
+    max-width: 44ch;
+    color: #fff6da;
+    font-size: 1.08rem;
+}
+
+.case-arts .case-actions .btn-outline {
+    background: rgba(255, 246, 218, 0.08);
+    border-color: rgba(248, 211, 107, 0.44);
+    color: #fff6da;
+}
+
+.case-arts .case-meta-strip {
+    margin-top: 2rem;
+    gap: 0.9rem;
+}
+
+.case-arts .case-stat {
+    border-color: rgba(248, 211, 107, 0.3);
+    background: rgba(5, 24, 39, 0.72);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    color: #fff6da;
+}
+
+.case-arts .case-stat strong {
+    color: #f8c94a;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.case-arts .case-stat span {
+    color: #e8d6a5;
+}
+
+.case-arts .case-hero-figure {
+    border: 1px solid rgba(248, 211, 107, 0.34);
+    border-radius: 8px;
+    box-shadow: 0 34px 70px rgba(0, 0, 0, 0.44);
+}
+
+.case-arts .case-hero-figure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 10px solid rgba(248, 211, 107, 0.12);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.case-arts .case-hero-figure img {
+    aspect-ratio: 16 / 11;
+}
+
+.case-arts .case-hero-figure figcaption {
+    background: rgba(5, 19, 31, 0.9);
+    color: #f3dfaa;
+}
+
+.case-arts .case-anchor-row {
+    background: rgba(5, 19, 31, 0.94);
+    border-color: rgba(248, 211, 107, 0.18);
+}
+
+.case-arts .case-anchor-row a {
+    color: #fff6da;
+}
+
+.case-arts #overview,
+.case-arts #findings,
+.case-arts #references {
+    background:
+        linear-gradient(90deg, rgba(7, 24, 39, 0.04), transparent 25%),
+        #f5ecd8;
+    color: #22180f;
+}
+
+.case-arts #method,
+.case-arts #evidence,
+.case-arts #application {
+    background:
+        linear-gradient(180deg, rgba(7, 24, 39, 0.72), rgba(7, 24, 39, 0.88)),
+        url("/assets/arts-starry-workshop-bg.svg") center / cover fixed;
+}
+
+.case-arts #overview .case-section-title,
+.case-arts #findings .case-section-title,
+.case-arts #references .case-section-title {
+    color: #21190f;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.case-arts #overview .case-section-desc,
+.case-arts #findings .case-section-desc,
+.case-arts #references .case-section-desc,
+.case-arts #overview .case-study-card p,
+.case-arts #findings .case-study-card p,
+.case-arts #references .case-reference-list {
+    color: #3d3324;
+}
+
+.case-arts #method .case-section-title,
+.case-arts #evidence .case-section-title,
+.case-arts #application .case-section-title,
+.case-arts #method .case-section-desc,
+.case-arts #evidence .case-section-desc,
+.case-arts #application .case-section-desc {
+    color: #fff6da;
+}
+
+.case-arts .case-study-card,
+.case-arts .case-mini-card,
+.case-arts .case-step,
+.case-arts .case-figure,
+.case-arts .case-metric-table {
+    border-color: rgba(139, 98, 35, 0.22);
+    background: rgba(255, 248, 225, 0.92);
+    box-shadow: 0 18px 38px rgba(29, 20, 10, 0.11);
+}
+
+.case-arts #method .case-study-card,
+.case-arts #evidence .case-study-card,
+.case-arts #application .case-mini-card,
+.case-arts #application .case-figure,
+.case-arts #evidence .case-figure {
+    border-color: rgba(248, 211, 107, 0.3);
+    background: rgba(5, 24, 39, 0.78);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.28);
+}
+
+.case-arts #method .case-study-card h3,
+.case-arts #evidence .case-study-card h3,
+.case-arts #application .case-mini-card h3,
+.case-arts #application .case-figure figcaption,
+.case-arts #evidence .case-figure figcaption,
+.case-arts #application .case-mini-card p,
+.case-arts #evidence .case-study-card p {
+    color: #fff6da;
+}
+
+.case-arts .case-study-card h3,
+.case-arts .case-mini-card h3 {
+    color: #1b2e32;
+}
+
+.case-arts .case-study-card .case-study-card-number,
+.case-arts .case-step .case-step-number {
+    background: #174f5b;
+    color: #f8d36b;
+}
+
+.case-arts .case-method-list li {
+    color: #fff6da;
+}
+
+.case-arts .case-method-list i {
+    background: rgba(248, 211, 107, 0.16);
+    color: #f8c94a;
+}
+
+.case-arts .case-callout {
+    border-color: rgba(248, 211, 107, 0.32);
+    border-left-color: #f8c94a;
+    background: rgba(5, 24, 39, 0.82);
+}
+
+.case-arts .case-callout h3,
+.case-arts .case-callout p {
+    color: #fff6da;
+}
+
+.case-arts .case-tag-row span,
+.case-arts .case-metric-table th {
+    background: #174f5b;
+    color: #f8d36b;
+    border-color: rgba(248, 211, 107, 0.22);
+}
+
+.case-arts .case-bottom-panel {
+    background:
+        linear-gradient(135deg, rgba(5, 19, 31, 0.86), rgba(8, 36, 58, 0.94)),
+        url("/assets/arts-starry-workshop-bg.svg") center / cover;
+    border-color: rgba(248, 211, 107, 0.32);
+}
+
+/* Motorbike reference: blue policy dashboard with teal evidence accents. */
+
+.case-study-page.case-motorbike {
+    --case-bg: #f4fbfc;
+    --case-bg-soft: #e9f7f7;
+    --case-surface: #ffffff;
+    --case-ink: #082946;
+    --case-body: #1f455f;
+    --case-muted: #56758b;
+    --case-line: rgba(8, 41, 70, 0.14);
+    --case-accent: #008c98;
+    --case-accent-strong: #006a78;
+    --case-accent-soft: #dff6f5;
+    --case-warm: #f0784f;
+    --case-warm-soft: #fff0e8;
+    background: #f4fbfc;
+}
+
+.case-motorbike .navbar {
+    background: rgba(246, 252, 253, 0.92);
+}
+
+.case-motorbike .logo-mark,
+.case-motorbike .nav-cta,
+.case-motorbike .case-actions .btn-primary {
+    background: #083a62;
+    border-color: #083a62;
+}
+
+.case-motorbike .case-study-main {
+    background:
+        radial-gradient(circle at 86% 12%, rgba(0, 140, 152, 0.18), transparent 22rem),
+        linear-gradient(180deg, #f5fbfc 0%, #ffffff 54%, #ecf9f8 100%);
+}
+
+.case-motorbike .case-hero {
+    position: relative;
+    padding: 3rem 0 2rem;
+    min-height: min(800px, calc(100vh - 4.5rem));
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 45%, rgba(7, 58, 98, 0.12) 100%);
+}
+
+.case-motorbike .case-hero::before,
+.case-motorbike .case-hero::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.case-motorbike .case-hero::before {
+    inset: auto -12rem -8rem auto;
+    width: 48rem;
+    height: 22rem;
+    border-radius: 50%;
+    background:
+        linear-gradient(135deg, rgba(0, 140, 152, 0.2), rgba(8, 58, 98, 0.18)),
+        repeating-linear-gradient(130deg, transparent 0 24px, rgba(0, 140, 152, 0.16) 24px 27px);
+    transform: rotate(-12deg);
+}
+
+.case-motorbike .case-hero::after {
+    inset: auto 0 1.2rem 0;
+    height: 4.2rem;
+    background:
+        linear-gradient(90deg, transparent 0 4%, rgba(0, 140, 152, 0.45) 4% 4.2%, transparent 4.2% 25%, rgba(8, 58, 98, 0.3) 25% 25.2%, transparent 25.2%),
+        radial-gradient(circle at 20% 50%, rgba(0, 140, 152, 0.22) 0 7px, transparent 8px),
+        radial-gradient(circle at 52% 50%, rgba(0, 140, 152, 0.24) 0 9px, transparent 10px),
+        radial-gradient(circle at 78% 50%, rgba(8, 58, 98, 0.18) 0 6px, transparent 7px);
+    opacity: 0.48;
+}
+
+.case-motorbike .case-hero-grid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+    gap: 2rem;
+}
+
+.case-motorbike .case-title {
+    max-width: 11.5ch;
+    color: #083a62;
+    font-size: clamp(3.35rem, 6.6vw, 6rem);
+    line-height: 0.96;
+}
+
+.case-motorbike .case-title-accent {
+    color: #008c98;
+}
+
+.case-motorbike .case-lead {
+    max-width: 54ch;
+    color: #1f455f;
+}
+
+.case-motorbike .case-actions .btn-outline {
+    background: #ffffff;
+    border-color: rgba(8, 58, 98, 0.18);
+    color: #006a78;
+}
+
+.case-motorbike .case-meta-strip {
+    gap: 0;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(8, 58, 98, 0.16);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 18px 42px rgba(8, 58, 98, 0.12);
+    overflow: hidden;
+}
+
+.case-motorbike .case-stat {
+    border: 0;
+    border-right: 1px solid rgba(8, 58, 98, 0.12);
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.case-motorbike .case-stat:last-child {
+    border-right: 0;
+}
+
+.case-motorbike .case-stat strong {
+    color: #083a62;
+}
+
+.case-motorbike .case-hero-figure {
+    border: 1px solid rgba(8, 58, 98, 0.16);
+    border-radius: 8px;
+    box-shadow: 0 26px 58px rgba(8, 58, 98, 0.2);
+}
+
+.case-motorbike .case-hero-figure::after {
+    content: "Support first. Restrictions later.";
+    position: absolute;
+    right: 1rem;
+    bottom: 4.7rem;
+    max-width: 15rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    color: #083a62;
+    font-weight: 800;
+    line-height: 1.25;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 12px 26px rgba(8, 58, 98, 0.18);
+}
+
+.case-motorbike .case-hero-figure img {
+    aspect-ratio: 16 / 11;
+}
+
+.case-motorbike .case-hero-figure figcaption {
+    background: #ffffff;
+    color: #365a70;
+}
+
+.case-motorbike .case-anchor-row {
+    background: rgba(246, 252, 253, 0.95);
+}
+
+.case-motorbike #overview {
+    padding-top: 2.2rem;
+}
+
+.case-motorbike #overview .case-grid-3,
+.case-motorbike #findings .case-grid-4 {
+    border-radius: 8px;
+    background: linear-gradient(135deg, #073a62, #052a48);
+    padding: 1rem;
+    box-shadow: 0 20px 45px rgba(8, 58, 98, 0.18);
+}
+
+.case-motorbike #overview .case-study-card,
+.case-motorbike #findings .case-study-card {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: transparent;
+    box-shadow: none;
+}
+
+.case-motorbike #overview .case-study-card h3,
+.case-motorbike #findings .case-study-card h3,
+.case-motorbike #overview .case-study-card p,
+.case-motorbike #findings .case-study-card p {
+    color: #ffffff;
+}
+
+.case-motorbike .case-study-card .case-study-card-number,
+.case-motorbike .case-step .case-step-number {
+    background: #dff6f5;
+    color: #006a78;
+}
+
+.case-motorbike .case-section.is-soft {
+    background:
+        radial-gradient(circle at 90% 8%, rgba(0, 140, 152, 0.12), transparent 18rem),
+        #ecf9f8;
+}
+
+.case-motorbike .case-figure,
+.case-motorbike .case-study-card,
+.case-motorbike .case-mini-card,
+.case-motorbike .case-step,
+.case-motorbike .case-proof-photo,
+.case-motorbike .case-metric-table {
+    border-color: rgba(8, 58, 98, 0.14);
+    box-shadow: 0 16px 36px rgba(8, 58, 98, 0.09);
+}
+
+.case-motorbike .case-metric-table th {
+    background: #dff6f5;
+    color: #083a62;
+}
+
+.case-motorbike .case-bottom-panel {
+    border-color: rgba(255, 255, 255, 0.14);
+    background:
+        linear-gradient(90deg, rgba(5, 42, 72, 0.98), rgba(7, 58, 98, 0.88)),
+        radial-gradient(circle at 82% 32%, rgba(0, 140, 152, 0.28), transparent 18rem);
+}
+
+@media (max-width: 980px) {
+    .case-buffet .case-hero-grid,
+    .case-arts .case-hero-grid,
+    .case-motorbike .case-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-buffet .case-meta-strip,
+    .case-motorbike .case-meta-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .case-buffet .case-stat:nth-child(2),
+    .case-motorbike .case-stat:nth-child(2) {
+        border-right: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    .case-buffet .case-hero,
+    .case-arts .case-hero,
+    .case-motorbike .case-hero {
+        min-height: auto;
+        padding-top: 2rem;
+    }
+
+    .case-buffet .case-title,
+    .case-arts .case-title,
+    .case-motorbike .case-title {
+        max-width: none;
+        font-size: 3rem;
+    }
+
+    .case-arts .case-title-accent {
+        font-size: 0.58em;
+    }
+
+    .case-buffet .case-meta-strip,
+    .case-motorbike .case-meta-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .case-buffet .case-stat,
+    .case-motorbike .case-stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--case-line);
+    }
+
+    .case-buffet .case-stat:last-child,
+    .case-motorbike .case-stat:last-child {
+        border-bottom: 0;
+    }
+
+    .case-motorbike .case-hero-figure::after {
+        right: 0.7rem;
+        bottom: 4.2rem;
+        max-width: 12rem;
+        font-size: 0.82rem;
+    }
+}
