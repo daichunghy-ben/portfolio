@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "last_updated": "2026-04-22",
+  "site_url": "https://daichunghy-ben.github.io/",
+  "canonical_base": "https://daichunghy-ben.github.io/",
+  "site_name": "Chung Hy Dai",
+  "site_alternate_name": "Chung Hy Dai Portfolio",
+  "site_tagline": "Market Research and Consumer Insights Analyst",
+  "site_keywords": [
+    "Chung Hy Dai",
+    "Dai Chung Hy",
+    "Chung Hy Dai portfolio",
+    "Chung Hy Dai market research",
+    "Chung Hy Dai consumer insights",
+    "market research",
+    "market research portfolio",
+    "market research analyst",
+    "consumer insights analyst",
+    "consumer insights",
+    "insight reporting",
+    "research reporting",
+    "AI-assisted analysis",
+    "applied analytics",
+    "research portfolio",
+    "survey analysis",
+    "text analytics",
+    "data storytelling",
+    "executive summaries",
+    "business evidence",
+    "Vietnam",
+    "Vietnam market research",
+    "Ho Chi Minh City",
+    "Ho Chi Minh City market research",
+    "qualitative research",
+    "quantitative research"
+  ],
+  "site_description": "Portfolio of Chung Hy Dai, a market research and consumer insights analyst focused on market research, insight reporting, AI-assisted analysis, and applied analytics for business decisions.",
+  "feed_title": "Chung Hy Dai Insights",
+  "feed_description": "Short insights on market research, insight reporting, AI-assisted analysis, and applied analytics from the portfolio of Chung Hy Dai.",
+  "default_og_image": "./assets/social-preview-og-v8.jpg?fbrefresh=20260225v8",
+  "same_as": [
+    "https://github.com/daichunghy-ben",
+    "https://www.linkedin.com/in/chung-hy-d-17792826b/",
+    "https://orcid.org/0009-0009-6790-8981"
+  ],
+  "analytics": {
+    "provider": "",
+    "plausible_domain": "daichunghy-ben.github.io",
+    "plausible_script_url": "https://plausible.io/js/script.js",
+    "google_measurement_id": ""
+  },
+  "owner": {
+    "name": "Chung Hy Dai",
+    "job_title": "Market Research and Consumer Insights Analyst",
+    "alternate_names": [
+      "Dai Chung Hy"
+    ],
+    "knows_about": [
+      "Market research",
+      "Consumer insights",
+      "Applied analytics",
+      "Survey design",
+      "Experimental design",
+      "Segmentation",
+      "Choice modeling",
+      "Research reporting",
+      "Insight reporting",
+      "AI-assisted analysis"
+    ],
+    "email": "daichunghy@gmail.com",
+    "location": "Ho Chi Minh City, Vietnam"
+  },
+  "notes": "site_url and canonical_base point to the live root-level GitHub Pages deployment and are used as a production fallback when deployment env vars are unavailable."
+}

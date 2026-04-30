@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Influencer retention lever priority matrix</title>
+  <desc id="desc">Illustrative matrix mapping retention impact against implementation effort for influencer campaign levers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset="0.48" stop-color="#f5f3ff"/>
+      <stop offset="1" stop-color="#fff1f2"/>
+    </linearGradient>
+    <linearGradient id="shellStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bae6fd"/>
+      <stop offset="1" stop-color="#f5d0fe"/>
+    </linearGradient>
+    <filter id="panelShadow" x="-15%" y="-20%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <filter id="pointShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.2"/>
+    </filter>
+    <marker id="axisArrow" markerWidth="12" markerHeight="12" refX="7" refY="4" orient="auto">
+      <path d="M0 0L0 8L8 4Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+
+  <g font-family="'Manrope', 'Inter', 'Segoe UI', Arial, sans-serif">
+    <g filter="url(#panelShadow)">
+      <rect x="44" y="36" width="1512" height="908" rx="34" fill="#ffffff" stroke="url(#shellStroke)" stroke-width="2"/>
+    </g>
+
+    <text x="86" y="108" font-size="46" font-weight="800" fill="#0f172a">Execution Lever Priority Matrix</text>
+    <text x="86" y="144" font-size="21" fill="#334155">Illustrative translation: prioritize retention impact first, then optimize conversion timing.</text>
+
+    <rect x="86" y="166" width="292" height="38" rx="12" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <text x="106" y="191" font-size="16" font-weight="700" fill="#6d28d9">Evidence tier: Illustrative</text>
+
+    <rect x="394" y="166" width="716" height="38" rx="12" fill="#f8fafc" stroke="#cbd5e1"/>
+    <text x="414" y="191" font-size="16" font-weight="700" fill="#334155">Use after confirming weak CE or declining repeat behavior in reported diagnostics.</text>
+
+    <rect x="120" y="232" width="1040" height="620" rx="24" fill="#f8fafc" stroke="#dbeafe" stroke-width="2"/>
+
+    <rect x="120" y="232" width="520" height="310" rx="24" fill="#dcfce7" fill-opacity="0.48"/>
+    <rect x="640" y="232" width="520" height="310" rx="24" fill="#fef3c7" fill-opacity="0.55"/>
+    <rect x="120" y="542" width="520" height="310" rx="24" fill="#dbeafe" fill-opacity="0.5"/>
+    <rect x="640" y="542" width="520" height="310" rx="24" fill="#fee2e2" fill-opacity="0.55"/>
+
+    <line x1="220" y1="780" x2="1110" y2="780" stroke="#475569" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+    <line x1="220" y1="780" x2="220" y2="294" stroke="#475569" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+
+    <line x1="640" y1="294" x2="640" y2="780" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 10"/>
+    <line x1="220" y1="542" x2="1110" y2="542" stroke="#94a3b8" stroke-width="2" stroke-dasharray="10 10"/>
+
+    <text x="1120" y="786" font-size="17" fill="#334155">Implementation effort</text>
+    <text transform="translate(146 300) rotate(-90)" font-size="17" fill="#334155">Retention impact</text>
+
+    <text x="232" y="306" font-size="14" fill="#64748b">Higher impact</text>
+    <text x="988" y="772" font-size="14" fill="#64748b">Higher effort</text>
+
+    <rect x="252" y="252" width="264" height="34" rx="10" fill="#bbf7d0"/>
+    <text x="384" y="274" text-anchor="middle" font-size="17" font-weight="800" fill="#166534">Scale first</text>
+
+    <rect x="716" y="252" width="264" height="34" rx="10" fill="#fde68a"/>
+    <text x="848" y="274" text-anchor="middle" font-size="17" font-weight="800" fill="#92400e">Build carefully</text>
+
+    <rect x="252" y="560" width="264" height="34" rx="10" fill="#bfdbfe"/>
+    <text x="384" y="582" text-anchor="middle" font-size="17" font-weight="800" fill="#1e3a8a">Maintain</text>
+
+    <rect x="716" y="560" width="264" height="34" rx="10" fill="#fecaca"/>
+    <text x="848" y="582" text-anchor="middle" font-size="17" font-weight="800" fill="#9f1239">Defer</text>
+
+    <polyline points="360,364 510,394 630,438 748,492 900,610 1010,666" fill="none" stroke="#9333ea" stroke-width="3.5" stroke-dasharray="7 8"/>
+
+    <g filter="url(#pointShadow)">
+      <circle cx="360" cy="364" r="36" fill="#0891b2"/>
+      <circle cx="510" cy="394" r="34" fill="#0ea5e9"/>
+      <circle cx="630" cy="438" r="34" fill="#22c55e"/>
+      <circle cx="748" cy="492" r="32" fill="#14b8a6"/>
+      <circle cx="900" cy="610" r="30" fill="#ec4899"/>
+      <circle cx="1010" cy="666" r="28" fill="#f43f5e"/>
+    </g>
+
+    <text x="360" y="372" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">1</text>
+    <text x="510" y="402" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">2</text>
+    <text x="630" y="446" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">3</text>
+    <text x="748" y="500" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">4</text>
+    <text x="900" y="618" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">5</text>
+    <text x="1010" y="674" text-anchor="middle" font-size="19" font-weight="800" fill="#ffffff">6</text>
+
+    <rect x="1190" y="232" width="290" height="620" rx="22" fill="#ffffff" stroke="#e2e8f0"/>
+    <text x="1222" y="276" font-size="21" font-weight="800" fill="#0f172a">Suggested sequence</text>
+
+    <text x="1222" y="316" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">1. Creator-audience fit</tspan>
+      <tspan x="1222" dy="24">Lock topic and audience congruence.</tspan>
+    </text>
+
+    <text x="1222" y="378" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">2. Authenticity consistency</tspan>
+      <tspan x="1222" dy="24">Align tone, claims, and product reality.</tspan>
+    </text>
+
+    <text x="1222" y="440" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">3. Interaction loops</tspan>
+      <tspan x="1222" dy="24">Fund replies, referrals, and dialog cadence.</tspan>
+    </text>
+
+    <text x="1222" y="502" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">4. Expectation repair content</tspan>
+      <tspan x="1222" dy="24">Address friction before conversion pushes.</tspan>
+    </text>
+
+    <text x="1222" y="564" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">5. Social proof bursts</tspan>
+      <tspan x="1222" dy="24">Use after fit and authenticity stabilize.</tspan>
+    </text>
+
+    <text x="1222" y="626" font-size="17" fill="#334155">
+      <tspan font-weight="800" fill="#0f172a">6. CTA timing optimization</tspan>
+      <tspan x="1222" dy="24">Last-mile tuning, not first intervention.</tspan>
+    </text>
+
+    <rect x="120" y="872" width="1360" height="54" rx="14" fill="#f8fafc" stroke="#d1d5db"/>
+    <text x="146" y="906" font-size="16" fill="#475569">Priority positions are illustrative. Calibrate final ordering with campaign-specific evidence and observed CE movement.</text>
+  </g>
+</svg>

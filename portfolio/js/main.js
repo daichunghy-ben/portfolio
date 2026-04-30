@@ -1,0 +1,144 @@
+import {
+    createEnv,
+    initSeoMetaNormalization,
+    initSmoothScroll,
+    initMagnetic,
+    initTilt,
+    initReveal,
+    initImageDefaults,
+    initPrintButtons,
+    initLinkSecurity,
+    initTooltips
+} from './core.js';
+import { initNav } from './nav.js';
+import { initLanguageGate } from './language-gate.js';
+
+window.__portfolioMainModuleLoaded = true;
+
+document.documentElement.classList.add('js');
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const page = document.body.getAttribute('data-page') || 'home';
+    const researchId = document.body.getAttribute('data-research-id') || '';
+    const env = createEnv();
+    const languageGate = initLanguageGate();
+
+    if (languageGate.redirecting) return;
+
+    initSeoMetaNormalization();
+    initSmoothScroll(env);
+    initMagnetic(env);
+    initTilt(env);
+    initReveal(env);
+    initImageDefaults(page);
+    initPrintButtons();
+    initLinkSecurity();
+    initTooltips(env);
+    initNav(env);
+
+    try {
+        const { initResearchManifest } = await import('./research-manifest.js');
+        await initResearchManifest(page);
+    } catch (error) {
+        console.warn('Research manifest init skipped due to error:', error);
+    }
+
+    if (page === 'home' || page === 'projects') {
+        try {
+            const { initResearchCarousel } = await import('./carousel.js');
+            initResearchCarousel(env);
+        } catch (error) {
+            console.error('Carousel initialization failed:', error);
+        }
+
+        try {
+            const { initModal } = await import('./modal.js');
+            initModal(env);
+        } catch (error) {
+            console.error('Modal initialization failed:', error);
+        }
+
+        try {
+            const { initParallax } = await import('./parallax.js');
+            initParallax(env, page);
+        } catch (error) {
+            console.warn('Parallax initialization skipped due to error:', error);
+        }
+
+        return;
+    }
+
+    if (page === 'research') {
+        const pageModules = [];
+
+        if (researchId === 'ev-choice') {
+            pageModules.push({
+                label: 'EV interaction',
+                importPromise: import('./research-ev-interaction.js'),
+                init(module) {
+                    if (typeof module.initEvChoiceInteraction === 'function') {
+                        module.initEvChoiceInteraction();
+                    }
+                }
+            });
+        }
+
+        if (researchId === 'motorbike-phaseout') {
+            pageModules.push({
+                label: 'Motorbike interaction',
+                importPromise: import('./research-motorbike-interaction.js'),
+                init(module) {
+                    if (typeof module.initMotorbikePolicyInteraction === 'function') {
+                        module.initMotorbikePolicyInteraction();
+                    }
+                }
+            });
+        }
+
+        if (researchId === 'nutrition-diet') {
+            pageModules.push({
+                label: 'Nutrition interaction',
+                importPromise: import('./research-nutrition-interaction.js'),
+                init(module) {
+                    if (typeof module.initNutritionInteraction === 'function') {
+                        module.initNutritionInteraction();
+                    }
+                }
+            });
+        }
+
+        const [detailModule, motionModule, ...pageModuleResults] = await Promise.allSettled([
+            import('./research-detail.js'),
+            import('./research-motion.js'),
+            ...pageModules.map((entry) => entry.importPromise)
+        ]);
+
+        if (detailModule.status === 'fulfilled' && typeof detailModule.value.initResearchDetail === 'function') {
+            const runDetailInit = () => detailModule.value.initResearchDetail(page);
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(runDetailInit, { timeout: 1500 });
+            } else {
+                window.setTimeout(runDetailInit, 320);
+            }
+        } else if (detailModule.status === 'rejected') {
+            console.error('Research detail initialization failed:', detailModule.reason);
+        }
+
+        if (motionModule.status === 'fulfilled' && typeof motionModule.value.initResearchMotion === 'function') {
+            motionModule.value.initResearchMotion(env, page);
+        } else if (motionModule.status === 'rejected') {
+            console.error('Research motion initialization failed:', motionModule.reason);
+        }
+
+        pageModuleResults.forEach((result, index) => {
+            const config = pageModules[index];
+            if (!config) return;
+
+            if (result.status === 'fulfilled') {
+                config.init(result.value);
+            } else {
+                console.error(`${config.label} initialization failed:`, result.reason);
+            }
+        });
+    }
+});

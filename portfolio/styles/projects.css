@@ -1,0 +1,327 @@
+/* Projects archive - editorial domain layout */
+body[data-page="projects"] .archive-main {
+    padding-bottom: 3rem;
+}
+
+body[data-page="projects"] .archive-hero {
+    padding: clamp(1.5rem, 4vw, 3rem) 0 clamp(2rem, 5vw, 4rem);
+    border-bottom: 1px solid rgba(15, 31, 42, 0.1);
+}
+
+body[data-page="projects"] .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    min-height: 40px;
+    padding: 0.5rem 0.82rem;
+    border: 1px solid rgba(15, 118, 110, 0.2);
+    border-radius: 999px;
+    background: #eef7f5;
+    color: var(--accent-primary);
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+body[data-page="projects"] .archive-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.48fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
+    align-items: start;
+    margin-top: 2rem;
+}
+
+body[data-page="projects"] .archive-hero h1 {
+    max-width: 16ch;
+    margin: 0.75rem 0 0;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.7rem, 5.4vw, 4.9rem);
+    font-weight: 750;
+    line-height: 1.07;
+    letter-spacing: 0;
+}
+
+body[data-page="projects"] .archive-hero p:not(.eyebrow) {
+    max-width: 67ch;
+    margin: 1.25rem 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+body[data-page="projects"] .archive-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+}
+
+body[data-page="projects"] .archive-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 38px;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgba(15, 31, 42, 0.1);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+body[data-page="projects"] .archive-note {
+    padding: 1.25rem;
+    border: 1px solid rgba(15, 31, 42, 0.1);
+    border-radius: 8px;
+    background: #f7f8f5;
+}
+
+body[data-page="projects"] .archive-note--visual {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: 0;
+    min-height: 320px;
+}
+
+body[data-page="projects"] .archive-note--visual picture,
+body[data-page="projects"] .archive-note--visual img {
+    display: block;
+    width: 100%;
+}
+
+body[data-page="projects"] .archive-note--visual img {
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+body[data-page="projects"] .archive-domain-map,
+body[data-page="projects"] .archive-domain,
+body[data-page="projects"] .archive-priority {
+    padding: clamp(2.2rem, 5vw, 4rem) 0;
+    border-bottom: 1px solid rgba(15, 31, 42, 0.1);
+}
+
+body[data-page="projects"] .archive-priority {
+    padding-top: clamp(1.5rem, 4vw, 2.8rem);
+}
+
+body[data-page="projects"] .archive-domain-map {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(220px, 0.35fr) minmax(0, 1fr);
+    gap: clamp(1.4rem, 4vw, 3rem);
+    align-items: start;
+}
+
+body[data-page="projects"] .archive-domain-map::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 1.2rem;
+    width: min(34vw, 320px);
+    height: min(34vw, 320px);
+    border: 1px solid rgba(15, 118, 110, 0.12);
+    border-radius: 50%;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+body[data-page="projects"] .archive-domain-map h2,
+body[data-page="projects"] .archive-domain-head h2 {
+    margin: 0.45rem 0 0;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(1.65rem, 3vw, 2.55rem);
+    font-weight: 720;
+    line-height: 1.15;
+    letter-spacing: 0;
+}
+
+body[data-page="projects"] .domain-map-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+body[data-page="projects"] .domain-map-grid a {
+    display: grid;
+    gap: 0.42rem;
+    min-height: 112px;
+    padding: 1rem;
+    border: 1px solid rgba(15, 31, 42, 0.1);
+    border-top: 3px solid rgba(15, 118, 110, 0.45);
+    border-radius: 8px;
+    background: #ffffff;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+body[data-page="projects"] .domain-map-grid a:hover,
+body[data-page="projects"] .domain-map-grid a:focus-visible {
+    transform: translateY(-2px);
+    border-color: rgba(15, 118, 110, 0.36);
+}
+
+body[data-page="projects"] .domain-map-grid strong {
+    color: var(--text-primary);
+    font-size: 0.96rem;
+}
+
+body[data-page="projects"] .domain-map-grid span {
+    align-self: end;
+    color: var(--accent-primary);
+    font-size: 0.76rem;
+    font-weight: 850;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+body[data-page="projects"] .archive-domain-head {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+body[data-page="projects"] .archive-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+body[data-page="projects"] .archive-card-grid.two-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-page="projects"] .archive-card-grid--priority {
+    margin-top: 1rem;
+}
+
+body[data-page="projects"] .archive-card p strong {
+    color: var(--text-primary);
+}
+
+body[data-page="projects"] .archive-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    min-height: 100%;
+    border: 1px solid rgba(15, 31, 42, 0.1);
+    border-radius: 8px;
+    background: #ffffff;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body[data-page="projects"] .archive-card:hover,
+body[data-page="projects"] .archive-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: rgba(15, 118, 110, 0.34);
+    box-shadow: 0 16px 34px rgba(15, 31, 42, 0.07);
+}
+
+body[data-page="projects"] .archive-card--wide {
+    grid-column: span 1;
+}
+
+body[data-page="projects"] .archive-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    object-fit: cover;
+    background: #eef2f2;
+    filter: saturate(0.92) contrast(0.98);
+}
+
+body[data-page="projects"] .archive-card div {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+body[data-page="projects"] .archive-card h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.22;
+    letter-spacing: 0;
+}
+
+body[data-page="projects"] .archive-card p {
+    margin: 0.7rem 0 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+body[data-page="projects"] .archive-card small {
+    margin-top: auto;
+    padding-top: 0.95rem;
+    color: var(--text-light);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1180px) {
+    body[data-page="projects"] .domain-map-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body[data-page="projects"] .archive-card-grid,
+    body[data-page="projects"] .archive-card-grid.two-up {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    body[data-page="projects"] .archive-hero-grid,
+    body[data-page="projects"] .archive-domain-map {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="projects"] .archive-note--visual {
+        display: none;
+    }
+
+    body[data-page="projects"] .archive-hero h1 {
+        max-width: 14ch;
+        font-size: clamp(2.45rem, 11vw, 4rem);
+    }
+}
+
+@media (max-width: 700px) {
+    body[data-page="projects"] .archive-hero {
+        padding-top: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    body[data-page="projects"] .archive-hero-grid {
+        margin-top: 1.15rem;
+    }
+
+    body[data-page="projects"] .archive-domain-head {
+        display: grid;
+        align-items: start;
+    }
+
+    body[data-page="projects"] .domain-map-grid,
+    body[data-page="projects"] .archive-card-grid,
+    body[data-page="projects"] .archive-card-grid.two-up {
+        grid-template-columns: 1fr;
+    }
+
+    body[data-page="projects"] .archive-tags span,
+    body[data-page="projects"] .domain-map-grid a {
+        min-height: auto;
+    }
+}

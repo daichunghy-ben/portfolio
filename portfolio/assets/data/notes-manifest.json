@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "last_updated": "2026-04-22",
+  "notes": [
+    {
+      "id": "ev-choice-vietnam-note",
+      "slug": "insight-ev-choice-vietnam",
+      "title": "EV Choice Experiment in Vietnam: What Design, Range, and Charging Tell Us",
+      "summary": "Brief insight linking the EV discrete choice experiment to product positioning and message design for early EV buyers in Vietnam.",
+      "description": "Brief insight by Chung Hy Dai on how young consumers in Vietnam trade off EV design, range, charging, and price in a discrete choice experiment.",
+      "hub_id": "policy",
+      "related_research_ids": [
+        "ev-choice",
+        "motorbike-phaseout"
+      ],
+      "keywords": [
+        "EV choice experiment in Vietnam",
+        "electric vehicle consumer research",
+        "EV design range charging trade-offs",
+        "Vietnam consumer insights"
+      ],
+      "published_at": "2026-04-22T08:00:00+07:00",
+      "modified_at": "2026-04-22T08:00:00+07:00",
+      "image": "./assets/optimized/ev-choice-experiment-optimized.webp"
+    },
+    {
+      "id": "student-diet-quality-note",
+      "slug": "insight-student-diet-quality-vietnam",
+      "title": "Student Diet Quality in Vietnam: Where Nutrition Knowledge Helps",
+      "summary": "Brief insight translating the nutrition study into a clearer view of which knowledge and activity factors are associated with better student diet quality.",
+      "description": "Brief insight by Chung Hy Dai on student diet quality in Vietnam, focusing on nutrition knowledge, physical activity, and behavior patterns linked to healthier eating.",
+      "hub_id": "health",
+      "related_research_ids": [
+        "nutrition-diet",
+        "buffet-nudging"
+      ],
+      "keywords": [
+        "student diet quality in Vietnam",
+        "nutrition behavior research",
+        "nutrition knowledge and physical activity",
+        "health behavior insights"
+      ],
+      "published_at": "2026-04-22T08:10:00+07:00",
+      "modified_at": "2026-04-22T08:10:00+07:00",
+      "image": "./assets/external/mirror/images-unsplash-com-photo-1682264995744-f3919622ec6b-e885e73a1f68.jpg"
+    },
+    {
+      "id": "virtual-influencer-trust-note",
+      "slug": "insight-virtual-influencer-trust",
+      "title": "Virtual Influencer Trust: How Gen Z Trust Precedes Purchase Intention",
+      "summary": "Brief insight on how credibility, trust cues, and creator framing shape virtual influencer response among Gen Z audiences.",
+      "description": "Brief insight by Chung Hy Dai on virtual influencer trust, credibility, and purchase intention in creator economy research focused on Gen Z audiences.",
+      "hub_id": "creator",
+      "related_research_ids": [
+        "virtual-influencers",
+        "influencer-strategy"
+      ],
+      "keywords": [
+        "virtual influencer trust",
+        "Gen Z purchase intention",
+        "creator economy research",
+        "virtual influencer credibility"
+      ],
+      "published_at": "2026-04-22T08:20:00+07:00",
+      "modified_at": "2026-04-22T08:20:00+07:00",
+      "image": "./assets/portfolio-virtual-influencer-editorial.png"
+    }
+  ]
+}

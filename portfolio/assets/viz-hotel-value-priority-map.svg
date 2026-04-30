@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 980" role="img" aria-labelledby="title desc">
+  <title id="title">Hotel value-versus-risk priority map</title>
+  <desc id="desc">Illustrative strategic value versus delivery risk matrix with segment bubbles used for communication of sequencing priorities.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset="0.55" stop-color="#eef2ff"/>
+      <stop offset="1" stop-color="#ecfeff"/>
+    </linearGradient>
+    <linearGradient id="shellStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#bae6fd"/>
+      <stop offset="1" stop-color="#c7d2fe"/>
+    </linearGradient>
+    <filter id="shellShadow" x="-15%" y="-20%" width="130%" height="145%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.13"/>
+    </filter>
+    <filter id="bubbleShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.18"/>
+    </filter>
+    <radialGradient id="bubbleA" cx="0.3" cy="0.25" r="0.9">
+      <stop offset="0" stop-color="#7dd3fc" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0284c7" stop-opacity="0.38"/>
+    </radialGradient>
+    <radialGradient id="bubbleB" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0f766e" stop-opacity="0.38"/>
+    </radialGradient>
+    <radialGradient id="bubbleC" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#93c5fd" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#1d4ed8" stop-opacity="0.36"/>
+    </radialGradient>
+    <radialGradient id="bubbleD" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#fca5a5" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#b91c1c" stop-opacity="0.36"/>
+    </radialGradient>
+    <radialGradient id="bubbleE" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#67e8f9" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0e7490" stop-opacity="0.34"/>
+    </radialGradient>
+    <radialGradient id="bubbleF" cx="0.3" cy="0.2" r="0.9">
+      <stop offset="0" stop-color="#c4b5fd" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#6d28d9" stop-opacity="0.34"/>
+    </radialGradient>
+    <marker id="axisArrow" markerWidth="11" markerHeight="11" refX="6" refY="3.5" orient="auto">
+      <path d="M0 0L0 7L7 3.5Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="980" fill="url(#bg)"/>
+  <g font-family="'Space Grotesk', Inter, Arial, sans-serif">
+    <g filter="url(#shellShadow)">
+      <rect x="48" y="44" width="1504" height="892" rx="34" fill="#ffffff" stroke="url(#shellStroke)" stroke-width="2"/>
+    </g>
+
+    <text x="88" y="106" font-size="44" font-weight="700" fill="#0f172a">Value vs Risk Priority Map</text>
+    <text x="88" y="142" font-size="20" fill="#334155">Illustrative overlay to sequence segment-focused interventions after reported diagnostics</text>
+
+    <rect x="88" y="166" width="694" height="38" rx="11" fill="#e0f2fe"/>
+    <text x="108" y="190" font-size="16" font-weight="600" fill="#0c4a6e">Communication-only index transformation. Keep reported evidence as operating ground truth.</text>
+
+    <rect x="120" y="228" width="1360" height="640" rx="22" fill="#f8fafc" stroke="#dbeafe" stroke-width="2"/>
+
+    <rect x="120" y="228" width="680" height="320" rx="20" fill="#dcfce7" fill-opacity="0.42"/>
+    <rect x="800" y="228" width="680" height="320" rx="20" fill="#fef3c7" fill-opacity="0.45"/>
+    <rect x="120" y="548" width="680" height="320" rx="20" fill="#e0f2fe" fill-opacity="0.48"/>
+    <rect x="800" y="548" width="680" height="320" rx="20" fill="#fee2e2" fill-opacity="0.44"/>
+
+    <line x1="200" y1="808" x2="1415" y2="808" stroke="#64748b" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+    <line x1="200" y1="808" x2="200" y2="280" stroke="#64748b" stroke-width="2.5" marker-end="url(#axisArrow)"/>
+    <line x1="800" y1="280" x2="800" y2="808" stroke="#94a3b8" stroke-width="2" stroke-dasharray="9 10"/>
+    <line x1="200" y1="548" x2="1415" y2="548" stroke="#94a3b8" stroke-width="2" stroke-dasharray="9 10"/>
+
+    <text x="1420" y="814" font-size="17" fill="#334155">Delivery risk index</text>
+    <text transform="translate(134 282) rotate(-90)" font-size="17" fill="#334155">Strategic value index</text>
+    <text x="1368" y="784" font-size="13" fill="#64748b">Higher risk</text>
+    <text x="212" y="296" font-size="13" fill="#64748b">Higher value</text>
+
+    <rect x="236" y="252" width="230" height="36" rx="10" fill="#bbf7d0"/>
+    <text x="351" y="275" text-anchor="middle" font-size="18" font-weight="700" fill="#166534">Scale and stabilize</text>
+    <rect x="872" y="252" width="248" height="36" rx="10" fill="#fde68a"/>
+    <text x="996" y="275" text-anchor="middle" font-size="18" font-weight="700" fill="#92400e">Differentiate carefully</text>
+    <rect x="236" y="572" width="220" height="36" rx="10" fill="#bae6fd"/>
+    <text x="346" y="595" text-anchor="middle" font-size="18" font-weight="700" fill="#075985">Maintain efficiently</text>
+    <rect x="872" y="572" width="218" height="36" rx="10" fill="#fecaca"/>
+    <text x="981" y="595" text-anchor="middle" font-size="18" font-weight="700" fill="#9f1239">Fix before scaling</text>
+
+    <circle cx="560" cy="432" r="106" fill="url(#bubbleA)" stroke="#0369a1" stroke-width="3.2" filter="url(#bubbleShadow)"/>
+    <text x="560" y="425" text-anchor="middle" font-size="26" font-weight="700" fill="#0c4a6e">Minimalists</text>
+    <text x="560" y="459" text-anchor="middle" font-size="19" font-weight="600" fill="#0e7490">43.7%</text>
+
+    <circle cx="912" cy="372" r="62" fill="url(#bubbleB)" stroke="#0f766e" stroke-width="3" filter="url(#bubbleShadow)"/>
+    <text x="912" y="379" text-anchor="middle" font-size="20" font-weight="700" fill="#115e59">Gastronomy</text>
+
+    <circle cx="1004" cy="468" r="58" fill="url(#bubbleC)" stroke="#1d4ed8" stroke-width="3" filter="url(#bubbleShadow)"/>
+    <text x="1004" y="474" text-anchor="middle" font-size="19" font-weight="700" fill="#1e3a8a">Convenience</text>
+
+    <circle cx="1248" cy="656" r="46" fill="url(#bubbleD)" stroke="#b91c1c" stroke-width="3" filter="url(#bubbleShadow)"/>
+    <text x="1248" y="650" text-anchor="middle" font-size="14" font-weight="700" fill="#7f1d1d">
+      <tspan x="1248" dy="0">Room</tspan>
+      <tspan x="1248" dy="16">Inspectors</tspan>
+    </text>
+
+    <circle cx="716" cy="694" r="50" fill="url(#bubbleE)" stroke="#0e7490" stroke-width="3" filter="url(#bubbleShadow)"/>
+    <text x="716" y="701" text-anchor="middle" font-size="18" font-weight="700" fill="#155e75">Homebodies</text>
+
+    <circle cx="1134" cy="320" r="54" fill="url(#bubbleF)" stroke="#6d28d9" stroke-width="3" filter="url(#bubbleShadow)"/>
+    <text x="1134" y="314" text-anchor="middle" font-size="14" font-weight="700" fill="#4c1d95">
+      <tspan x="1134" dy="0">Hospitality</tspan>
+      <tspan x="1134" dy="16">Driven</tspan>
+    </text>
+
+    <rect x="1264" y="186" width="210" height="70" rx="14" fill="#f8fafc" stroke="#cbd5e1"/>
+    <circle cx="1292" cy="210" r="8" fill="#0284c7"/>
+    <text x="1308" y="215" font-size="14" fill="#334155">Bubble size ~= segment share</text>
+    <line x1="1284" y1="232" x2="1310" y2="232" stroke="#64748b" stroke-width="2"/>
+    <text x="1316" y="236" font-size="13" fill="#64748b">Position = value and risk index</text>
+  </g>
+</svg>

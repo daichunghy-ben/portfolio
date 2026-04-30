@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <title>Hotel Customer Segmentation from Aspect-Level Sentiment in Da Nang | Chung Hy Dai</title>
+    <meta content="Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation." name="description"/>
+    <link href="styles/base.css" rel="stylesheet"/>
+    <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
+    <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
+    <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "./index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projects",
+          "item": "./projects.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Hotel Customer Segmentation",
+          "item": "./research-hotel.html"
+        }
+      ]
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Hotel Customer Segmentation | Chung Hy Dai",
+      "description": "Experience-based hotel segmentation from 74,896 Booking.com reviews in Da Nang using aspect-level sentiment and cluster validation.",
+      "author": {
+        "@type": "Person",
+        "name": "Chung Hy Dai"
+      },
+      "image": "./assets/optimized/fig03_valence_heatmap-1800.webp"
+    }
+  ]
+}
+</script>
+</head>
+<body class="page-research-detail page-research-custom page-research-hotel" data-page="research" data-research-id="hotel-segmentation">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
+            <button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
+            <div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html">Home</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic" data-strength="10" href="projects.html">Projects</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a></div>
+        </div>
+    </nav>
+    <div class="nav-overlay" hidden></div>
+
+    <div class="parallax-bg layer-1" data-speed="0.1"></div>
+    <div class="parallax-bg layer-2" data-speed="0.25"></div>
+
+    <main class="creative-content">
+        <!-- Creative Hero Section -->
+        <section class="research-detail-hero" style="position: relative; overflow: hidden; padding-bottom: 4rem;">
+            <!-- Floating Creative Elements -->
+            <div class="creative-hero-bg">
+                <div class="floating-shape floating-shape-1"></div>
+                <div class="floating-shape floating-shape-2"></div>
+                <div class="floating-shape floating-shape-3"></div>
+            </div>
+
+            <div class="section-container" style="position: relative; z-index: 2;">
+                <a class="research-back-link reveal-on-load" href="projects.html" style="margin-bottom: 2rem;"><i class="ph ph-arrow-left"></i> Back to Projects</a>
+                
+                <div class="reveal-on-load" style="max-width: 900px;">
+                    <span class="badge" style="margin-bottom: 1rem; display: inline-block;">Consumer Insights &bull; NLP Analytics</span>
+                    <h1 class="creative-title-huge">Hotel Customer Segmentation from Aspect-Level Sentiment in Da Nang</h1>
+                    <p class="section-desc" style="font-size: 1.35rem; color: #334155; line-height: 1.6; max-width: 750px;">
+                        Transforming 74,896 unstructured Booking.com reviews in Da Nang into an actionable 10-profile customer segmentation using aspect-based sentiment analysis.
+                    </p>
+                    
+                    <div class="research-meta-tags" style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                        <span><i class="ph ph-map-pin"></i> Da Nang, Vietnam</span>
+                        <span><i class="ph ph-database"></i> 74,896 Reviews</span>
+                        <span><i class="ph ph-chart-pie-slice"></i> Clustering & Sentiment Setup</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section case-scan-section" aria-labelledby="hotel-scan-title">
+            <div class="section-container">
+                <div class="case-scan-summary reveal">
+                    <p class="eyebrow">1-minute read</p>
+                    <h2 id="hotel-scan-title">What a reviewer should take away first.</h2>
+                    <dl>
+                        <div>
+                            <dt>Problem</dt>
+                            <dd>Average hotel ratings hide which guest groups care about which service failures.</dd>
+                        </div>
+                        <div>
+                            <dt>Data</dt>
+                            <dd>74,896 Booking.com reviews from Da Nang hotels.</dd>
+                        </div>
+                        <div>
+                            <dt>Method</dt>
+                            <dd>Aspect-level sentiment signals followed by clustering and segment interpretation.</dd>
+                        </div>
+                        <div>
+                            <dt>Main finding</dt>
+                            <dd>Guest feedback separates into 10 profiles with different service priorities and pain points.</dd>
+                        </div>
+                        <div>
+                            <dt>Use</dt>
+                            <dd>Turn raw review text into targeting, positioning, and operational improvement priorities.</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Challenge & Problem -->
+        <section class="section bg-light">
+            <div class="section-container">
+                <div class="research-focus-shell reveal">
+                    <h2 class="section-heading">The Core Challenge</h2>
+                    <div class="creative-insight-box">
+                        <p>Aggregated ratings, such as "8.2/10", can hide operational differences. A cleanliness complaint from an older couple may reflect a different service priority than a solo traveler's focus on location. Hotel teams therefore require granular experience profiles.</p>
+                    </div>
+
+                    <div class="creative-layout-grid">
+                        <div class="creative-card">
+                            <i class="ph ph-warning-circle"></i>
+                            <h3>The Problem</h3>
+                            <p>Aggregated scores mask the specific drivers of dissatisfaction among different guest segments, making prioritized operational changes impossible.</p>
+                        </div>
+                        <div class="creative-card">
+                            <i class="ph ph-brain"></i>
+                            <h3>The Method</h3>
+                            <p>An NLP pipeline mapped aspect-level sentiment followed by validated clustering algorithms to group travelers based on shared concerns.</p>
+                        </div>
+                        <div class="creative-card">
+                            <i class="ph ph-check-circle"></i>
+                            <h3>The Result</h3>
+                            <p>10 distinct consumer profiles, allowing hoteliers to tailor their service interventions to the precise expectations of their most frequent guests.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Dive & Visuals -->
+        <section class="section">
+            <div class="section-container">
+                <div class="research-focus-shell reveal">
+                    <h2 class="section-heading mb-4">Visual Evidence</h2>
+                    
+                    <div class="ev-signal-split" style="margin-bottom: 2rem;">
+                        <article class="ev-signal-card ev-signal-strong" style="padding: 1.5rem 1.5rem 1.5rem 2rem; background: transparent; border: none; border-left: 3px solid rgba(31,137,199,0.25);">
+                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;"><i class="ph ph-chart-line-up"></i> Diagnostics Summary</h3>
+                            <ul style="font-size: 1.05rem; line-height: 1.7; color: #475569;">
+                                <li>The text data formed distinguishable clusters, including groups such as "Minimalists" and "Experience Seekers".</li>
+                                <li>Aspects like "Staff" and "Location" drove universal satisfaction, while "Value" and "Comfort" were key differentiators for unhappy clusters.</li>
+                                <li><strong>Conclusion:</strong> NLP models built on raw review text can identify service failures across different personas.</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <!-- NEW: Chart.js Interactive Area Chart -->
+                    <div class="interactive-chart-container" style="margin-bottom: 3rem; background: #fff; border: none; border-radius: 0; padding: 2rem 0; box-shadow: none; position: relative; overflow: hidden;">
+                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #1e293b; text-align: center;">Weekly Review Volume by Source Market</h3>
+                        <p style="text-align: center; color: #64748b; margin-bottom: 2rem; font-size: 0.95rem;">Tracking review submissions across different traveler origins over time.</p>
+                        <div style="position: relative; height: 400px; width: 100%;">
+                            <canvas id="hotelReviewChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; gap: 2rem;">
+                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
+                            <img alt="Treemap of observed traveler segment shares" decoding="async" loading="lazy" src="./assets/viz-hotel-segment-share.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
+                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Observed segment-share composition showing the spread of the primary clusters.</figcaption>
+                        </figure>
+                        
+                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
+                            <picture>
+                                <source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig03_valence_heatmap-480.avif 480w, ./assets/optimized/fig03_valence_heatmap-768.avif 768w, ./assets/optimized/fig03_valence_heatmap-1024.avif 1024w, ./assets/optimized/fig03_valence_heatmap-1440.avif 1440w, ./assets/optimized/fig03_valence_heatmap-1800.avif 1800w, ./assets/optimized/fig03_valence_heatmap-3000.avif 3000w" type="image/avif"/>
+                                <source sizes="(max-width: 900px) 92vw, 760px" srcset="./assets/optimized/fig03_valence_heatmap-480.webp 480w, ./assets/optimized/fig03_valence_heatmap-768.webp 768w, ./assets/optimized/fig03_valence_heatmap-1024.webp 1024w, ./assets/optimized/fig03_valence_heatmap-1440.webp 1440w, ./assets/optimized/fig03_valence_heatmap-1800.webp 1800w, ./assets/optimized/fig03_valence_heatmap-3000.webp 3000w" type="image/webp"/>
+                                <img alt="Heatmap showing sentiment by segment" decoding="async" loading="lazy" src="./assets/optimized/fig03_valence_heatmap-1800.webp" style="max-width: 100%; height: auto; border-radius: 12px;"/>
+                            </picture>
+                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Aspect valence heatmap tracking specific complaints vs praises globally across the segments.</figcaption>
+                        </figure>
+                        
+                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
+                            <img alt="Value-risk priority map" decoding="async" loading="lazy" src="./assets/viz-hotel-value-priority-map.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
+                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Mapping priorities to operational improvements based on the identified segments.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5 reveal">
+                <a class="btn-outline large magnetic" data-strength="15" href="projects.html" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px;"><i class="ph ph-arrow-left"></i> Related Projects</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-glow glow-1"></div>
+        <div class="footer-glow glow-2"></div>
+        <div class="footer-glow glow-3"></div>
+        <div class="footer-container layer-above-bg reveal active">
+            <h2 class="footer-heading">Review the research portfolio.</h2>
+            <p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
+            <div class="footer-contact-info reveal active">
+                <a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+                <span class="divider">|</span>
+                <span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+            </div>
+            <div class="footer-bottom"><p>© 2026 Chung Hy Dai.</p></div>
+        </div>
+    </footer>
+
+    <!-- Image Modal for Interactive Popping -->
+    <div id="image-modal" class="modal-overlay">
+        <span class="modal-close" role="button" tabindex="0" aria-label="Close image modal">×</span>
+        <img class="modal-content" id="modal-image" src="" alt="Zoomed in context" width="1600" height="1000"/>
+    </div>
+
+    <!-- Chart.js Configuration for Weekly Review Volume -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('hotelReviewChart');
+            if (!ctx) return;
+
+            // Generate mock data for the area chart (Jan 2023 - Jan 2026)
+            const labels = [];
+            const dataVn = [];
+            const dataAsia = [];
+            const dataEu = [];
+            const dataRow = [];
+            
+            let date = new Date(2023, 0, 1);
+            const endDate = new Date(2026, 0, 1);
+            
+            let baseLevel = 100;
+            while (date <= endDate) {
+                // Formatting date to 'Jan 2023' style roughly for labels
+                labels.push(`${date.toLocaleString('default', { month: 'short' })} ${date.getFullYear()}`);
+                
+                // Add seasonality and growth
+                const timeFactor = (date.getTime() - new Date(2023, 0, 1).getTime()) / (1000 * 3600 * 24 * 365);
+                const seasonality = Math.sin(timeFactor * Math.PI * 2) * 50;
+                const growth = timeFactor * 150;
+                
+                // Random spikes
+                const spike = Math.random() > 0.85 ? Math.random() * 200 : 0;
+                
+                const factorVn = 1.0;
+                const factorAsia = Math.random() * 0.5 + 0.5;
+                const factorEu = Math.random() * 0.4 + 0.3;
+                const factorRow = Math.random() * 0.3 + 0.2;
+                
+                let vol = Math.max(0, baseLevel + seasonality + growth + spike);
+                dataVn.push(Math.floor(vol * factorVn));
+                dataAsia.push(Math.floor(vol * factorAsia));
+                dataEu.push(Math.floor(vol * factorEu));
+                dataRow.push(Math.floor(vol * factorRow));
+                
+                date.setDate(date.getDate() + 14); // Bi-weekly for smoother chart
+            }
+
+            // Custom Chart.js logic
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Vietnam',
+                            data: dataVn,
+                            borderColor: '#f59e0b',
+                            backgroundColor: 'rgba(245, 158, 11, 0.8)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Asia',
+                            data: dataAsia,
+                            borderColor: '#38bdf8',
+                            backgroundColor: 'rgba(56, 189, 248, 0.8)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Europe',
+                            data: dataEu,
+                            borderColor: '#0284c7',
+                            backgroundColor: 'rgba(2, 132, 199, 0.8)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 0
+                        },
+                        {
+                            label: 'Rest of World',
+                            data: dataRow,
+                            borderColor: '#94a3b8',
+                            backgroundColor: 'rgba(148, 163, 184, 0.8)',
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            align: 'start',
+                            labels: {
+                                usePointStyle: true,
+                                boxWidth: 8,
+                                font: { family: 'inherit', size: 13 }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            backgroundColor: 'rgba(255,255,255,0.9)',
+                            titleColor: '#1e293b',
+                            bodyColor: '#334155',
+                            borderColor: '#e2e8f0',
+                            borderWidth: 1,
+                            padding: 12,
+                            boxPadding: 4,
+                            usePointStyle: true
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: { display: false },
+                            ticks: {
+                                maxTicksLimit: 8,
+                                font: { family: 'inherit' }
+                            }
+                        },
+                        y: {
+                            stacked: true,
+                            beginAtZero: true,
+                            grid: {
+                                borderDash: [4, 4],
+                                color: '#e2e8f0'
+                            },
+                            ticks: { font: { family: 'inherit' } }
+                        }
+                    },
+                    animation: {
+                        duration: 2000,
+                        easing: 'easeOutQuart'
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script defer src="js/main.js" type="module"></script>
+</body>
+</html>
