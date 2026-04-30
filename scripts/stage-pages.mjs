@@ -3,12 +3,12 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const OUT_DIR = path.join(ROOT, '.deploy', 'public');
-const SOURCE_DIRS = ['assets', 'dist'];
+const SOURCE_DIRS = ['assets', 'dist', 'portfolio'];
 const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
-const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-portfolio.pages.dev/';
-const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev', 'daichunghy.pages.dev'];
+const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
+const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev', 'daichunghy.pages.dev', 'daichunghy-portfolio.pages.dev'];
 const STAGED_ASSET_REFS = new Map([
   ['styles/base.css', 'dist/styles/base.css'],
   ['styles/home.css', 'dist/styles/home.css'],

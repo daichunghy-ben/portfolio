@@ -1,5 +1,5 @@
-const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev'];
-const DEFAULT_PRIMARY_SITE_URL = 'https://chunghy.pages.dev/';
+const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev', 'daichunghy.pages.dev', 'daichunghy-portfolio.pages.dev'];
+const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
 
 const normalizeSiteUrl = (value) => {
   const raw = (value || '').trim();
