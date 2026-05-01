@@ -178,74 +178,16 @@ html.js .page-research-nutrition .reveal-on-load {
     position: absolute;
     right: -12px;
     top: 0;
-    width: 520px;
-    min-height: 332px;
+    width: 540px;
+    min-height: 348px;
     z-index: 2;
     pointer-events: none;
 }
 
-.nutrition-photo,
-.nutrition-leaf {
-    position: absolute;
+.nutrition-collage-img {
     display: block;
-}
-
-.nutrition-photo {
-    object-fit: cover;
-    background: #edf0e7;
-}
-
-.nutrition-photo-main {
-    top: -4px;
-    right: 102px;
-    width: 352px;
-    height: 190px;
-    border-radius: 52% 48% 51% 49% / 48% 44% 56% 52%;
-}
-
-.nutrition-photo-campus {
-    left: 86px;
-    top: 165px;
-    width: 200px;
-    height: 130px;
-    border: 8px solid var(--diet-paper);
-    border-radius: 999px;
-    z-index: 3;
-}
-
-.nutrition-photo-bowl {
-    right: 18px;
-    top: 124px;
-    width: 300px;
-    height: 200px;
-    border: 9px solid var(--diet-paper);
-    border-radius: 999px;
-    z-index: 4;
-}
-
-.nutrition-leaf-hero {
-    right: -28px;
-    top: 8px;
-    width: 155px;
-    height: 300px;
-    object-fit: cover;
-    object-position: right center;
-    mix-blend-mode: multiply;
-    opacity: 0.65;
-    z-index: 1;
-}
-
-.nutrition-collage::after {
-    content: "";
-    position: absolute;
-    right: 24px;
-    top: 18px;
-    width: 110px;
-    height: 110px;
-    background: radial-gradient(circle, rgba(160, 113, 63, 0.42) 1px, transparent 2px);
-    background-size: 14px 14px;
-    opacity: 0.35;
-    z-index: 0;
+    width: 100%;
+    height: auto;
 }
 
 .takeaway-panel,
@@ -1105,29 +1047,10 @@ html.js .page-research-nutrition .reveal-on-load {
         font-size: 0.57rem;
     }
 
-    .nutrition-photo-main {
-        right: 36px;
-        width: 292px;
-        height: 174px;
-    }
-
-    .nutrition-photo-campus {
-        left: 10px;
-        top: 164px;
-        width: 170px;
-        height: 116px;
-    }
-
-    .nutrition-photo-bowl {
-        right: 0;
-        top: 128px;
-        width: 260px;
-        height: 184px;
-    }
-
-    .nutrition-leaf-hero {
-        right: -38px;
-        width: 135px;
+    .nutrition-collage {
+        right: -18px;
+        width: 470px;
+        min-height: 302px;
     }
 
     .takeaway-panel {
@@ -1279,32 +1202,7 @@ html.js .page-research-nutrition .reveal-on-load {
         right: auto;
         top: auto;
         width: 100%;
-        min-height: 395px;
-    }
-
-    .nutrition-photo-main {
-        right: 22px;
-        width: min(84vw, 350px);
-        height: 205px;
-    }
-
-    .nutrition-photo-campus {
-        left: 0;
-        top: 215px;
-        width: 43vw;
-        height: 116px;
-    }
-
-    .nutrition-photo-bowl {
-        right: 0;
-        top: 245px;
-        width: 58vw;
-        height: 160px;
-    }
-
-    .nutrition-leaf-hero {
-        right: -70px;
-        top: 72px;
+        min-height: 0;
     }
 
     .takeaway-panel {
