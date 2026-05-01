@@ -1416,15 +1416,49 @@ html.js .page-research-hotel-value .reveal-on-load {
 
 .page-research-hotel-value .hvf-market {
     padding-top: 3rem;
+    padding-bottom: 5.9rem;
+    overflow: hidden;
     background:
         linear-gradient(180deg, var(--hvf-paper) 0%, rgba(255, 248, 235, 0.9) 56%, rgba(236, 249, 252, 0.72) 100%);
 }
 
 .page-research-hotel-value .hvf-market-grid {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: 0.78fr 1.22fr;
     gap: 2rem;
     align-items: center;
+}
+
+.page-research-hotel-value .hvf-market-surf {
+    position: absolute;
+    right: 0;
+    bottom: -1.2rem;
+    z-index: 1;
+    width: min(72vw, 880px);
+    height: 168px;
+    overflow: hidden;
+    opacity: 0.92;
+    clip-path: polygon(0 23%, 13% 17%, 31% 21%, 48% 11%, 67% 18%, 83% 12%, 100% 20%, 100% 100%, 0 100%);
+    filter: saturate(1.08) contrast(1.03);
+}
+
+.page-research-hotel-value .hvf-market-surf::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+        linear-gradient(90deg, rgba(255, 248, 235, 0.82), rgba(255, 248, 235, 0.15) 34%, rgba(255, 248, 235, 0.02)),
+        linear-gradient(180deg, rgba(255, 248, 235, 0.04), rgba(255, 248, 235, 0.42));
+}
+
+.page-research-hotel-value .hvf-market-surf img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 61%;
 }
 
 .page-research-hotel-value .hvf-section-copy h2,
@@ -2438,6 +2472,18 @@ html.js .page-research-hotel-value .reveal-on-load {
     .page-research-hotel-value .hvf-paper-section,
     .page-research-hotel-value .hvf-blue-section {
         padding: 2.35rem 0;
+    }
+
+    .page-research-hotel-value .hvf-market {
+        padding-bottom: 4.6rem;
+    }
+
+    .page-research-hotel-value .hvf-market-surf {
+        left: 0;
+        width: 100%;
+        height: 116px;
+        bottom: -0.8rem;
+        opacity: 0.72;
     }
 
     .page-research-hotel-value .hvf-section-copy h2,
