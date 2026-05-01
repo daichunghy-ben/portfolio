@@ -1,0 +1,1074 @@
+/* Student Diet Quality: compact botanical editorial redesign */
+.page-research-nutrition {
+    --diet-paper: #fbfaf5;
+    --diet-paper-soft: #f1f3ec;
+    --diet-ink: #183149;
+    --diet-body: #273f53;
+    --diet-muted: #63766d;
+    --diet-green: #285f4f;
+    --diet-green-2: #6f8a70;
+    --diet-sage: #dfe7dc;
+    --diet-line: rgba(38, 69, 59, 0.18);
+    --diet-peach: #e69b72;
+    --diet-serif: Georgia, "Times New Roman", serif;
+    background: var(--diet-paper);
+    color: var(--diet-body);
+}
+
+.page-research-nutrition .cursor-dot,
+.page-research-nutrition .cursor-outline {
+    display: none;
+}
+
+.page-research-nutrition .reveal,
+html.js .page-research-nutrition .reveal,
+.page-research-nutrition .reveal-on-load,
+html.js .page-research-nutrition .reveal-on-load {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+}
+
+.page-research-nutrition .navbar {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    width: min(730px, calc(100% - 34px));
+    transform: translateX(-50%);
+    z-index: 20;
+    padding: 0;
+    border: 1px solid rgba(24, 49, 73, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 18px 34px rgba(24, 49, 73, 0.12);
+    backdrop-filter: blur(18px);
+}
+
+.page-research-nutrition .nav-container {
+    min-height: 54px;
+    padding: 0 22px;
+}
+
+.page-research-nutrition .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.page-research-nutrition .logo-mark {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    background: #f2f3ed;
+    color: var(--diet-green);
+    font-size: 0.78rem;
+    line-height: 1;
+    box-shadow: 0 8px 18px rgba(24, 49, 73, 0.12);
+}
+
+.page-research-nutrition .nav-links {
+    position: static;
+    flex: 0 1 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.65rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    overflow: visible;
+}
+
+.page-research-nutrition .nav-links[hidden] {
+    display: flex !important;
+}
+
+.page-research-nutrition .nav-toggle {
+    display: none;
+}
+
+.page-research-nutrition .nav-link {
+    position: relative;
+    color: var(--diet-ink);
+    font-family: var(--diet-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.page-research-nutrition .nav-link[href="projects.html"]::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.42rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--diet-peach);
+    transform: translateX(-50%);
+}
+
+.page-research-nutrition .nutrition-story-main {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 8% 25%, rgba(111, 138, 112, 0.07), transparent 25rem),
+        linear-gradient(180deg, #fffdfa 0%, var(--diet-paper) 50%, #fffdfa 100%);
+}
+
+.page-research-nutrition .research-detail-hero,
+.page-research-nutrition .story-takeaway,
+.page-research-nutrition .story-section,
+.page-research-nutrition .story-closing {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.page-research-nutrition .section-container {
+    width: min(1080px, calc(100% - 56px));
+    max-width: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.page-research-nutrition .nutrition-story-hero {
+    position: relative;
+    min-height: 575px;
+    padding: 96px 0 26px;
+    display: grid;
+    align-items: center;
+    overflow: hidden;
+    background: transparent;
+}
+
+.page-research-nutrition .nutrition-organic-peach {
+    position: absolute;
+    right: -72px;
+    top: 96px;
+    width: 230px;
+    height: 260px;
+    background: rgba(230, 155, 114, 0.24);
+    border-radius: 45% 55% 54% 46% / 40% 36% 64% 60%;
+}
+
+.page-research-nutrition .nutrition-hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(350px, 0.9fr) minmax(470px, 1.1fr);
+    gap: 2.1rem;
+    align-items: center;
+}
+
+.page-research-nutrition .nutrition-hero-copy {
+    max-width: 450px;
+    padding-top: 12px;
+}
+
+.page-research-nutrition .story-kicker {
+    margin: 0 0 1rem;
+    color: var(--diet-green-2);
+    font-family: var(--font-mono);
+    font-size: 0.69rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.9;
+    text-transform: uppercase;
+}
+
+.page-research-nutrition h1,
+.page-research-nutrition h2,
+.page-research-nutrition h3 {
+    color: var(--diet-ink);
+    font-family: var(--diet-serif);
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.page-research-nutrition .nutrition-hero-copy h1 {
+    margin: 0;
+    max-width: 470px;
+    font-size: clamp(2.55rem, 4.15vw, 3.8rem);
+    line-height: 1;
+}
+
+.page-research-nutrition .story-hero-lede {
+    max-width: 385px;
+    margin: 1rem 0 1.35rem;
+    color: var(--diet-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.62;
+}
+
+.page-research-nutrition .nutrition-meta-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    max-width: 410px;
+    padding: 0;
+    border: 0;
+}
+
+.page-research-nutrition .nutrition-meta-row span {
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--diet-line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.64);
+    color: var(--diet-ink);
+    font-size: 0.62rem;
+    font-weight: 800;
+    line-height: 1.22;
+    text-align: left;
+}
+
+.page-research-nutrition .nutrition-meta-row i {
+    flex: 0 0 auto;
+    color: var(--diet-green-2);
+    font-size: 1.12rem;
+}
+
+.page-research-nutrition .nutrition-hero-collage {
+    position: relative;
+    min-height: 455px;
+}
+
+.page-research-nutrition .nutrition-hero-photo {
+    position: absolute;
+    display: block;
+    object-fit: cover;
+    background: #e8ece4;
+}
+
+.page-research-nutrition .nutrition-hero-photo-main {
+    top: 0;
+    right: 86px;
+    width: 360px;
+    height: 260px;
+    border-radius: 48% 52% 46% 54% / 42% 42% 58% 58%;
+}
+
+.page-research-nutrition .nutrition-hero-photo-campus {
+    left: 28px;
+    top: 250px;
+    width: 228px;
+    height: 156px;
+    border: 10px solid var(--diet-paper);
+    border-radius: 48% 52% 48% 52% / 58% 42% 58% 42%;
+    z-index: 2;
+}
+
+.page-research-nutrition .nutrition-hero-photo-bowl {
+    right: 0;
+    bottom: 2px;
+    width: 330px;
+    height: 255px;
+    border: 10px solid var(--diet-paper);
+    border-radius: 50% 50% 45% 55% / 48% 44% 56% 52%;
+    z-index: 3;
+}
+
+.page-research-nutrition .nutrition-hero-botanical {
+    position: absolute;
+    right: -72px;
+    top: 80px;
+    width: 185px;
+    height: 310px;
+    object-fit: cover;
+    object-position: right bottom;
+    mix-blend-mode: multiply;
+    opacity: 0.78;
+    z-index: 1;
+}
+
+.page-research-nutrition .story-takeaway {
+    position: relative;
+    width: min(1080px, calc(100% - 56px));
+    margin: 0 auto;
+    padding: 0;
+}
+
+.page-research-nutrition .story-takeaway-grid {
+    display: grid;
+    grid-template-columns: 0.92fr 1.65fr;
+    gap: 2.3rem;
+    align-items: center;
+    width: 100%;
+    padding: 2.28rem 2.75rem;
+    border-radius: 22px;
+    background: linear-gradient(105deg, rgba(227, 232, 222, 0.96), rgba(249, 250, 244, 0.94));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.page-research-nutrition .story-takeaway h2 {
+    max-width: 300px;
+    margin: 0;
+    font-size: clamp(1.72rem, 2.55vw, 2.32rem);
+    line-height: 1.05;
+}
+
+.page-research-nutrition .story-takeaway .story-kicker::after,
+.page-research-nutrition .story-section-center .story-kicker::after,
+.page-research-nutrition .story-section-copy .story-kicker::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 2px;
+    margin-top: 0.7rem;
+    background: var(--diet-green);
+}
+
+.page-research-nutrition .story-takeaway-items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+}
+
+.page-research-nutrition .story-takeaway-item {
+    min-height: 120px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 0.75rem;
+    padding: 0 1.2rem;
+    border-left: 1px solid var(--diet-line);
+    text-align: center;
+}
+
+.page-research-nutrition .story-takeaway-item:first-child {
+    border-left: 0;
+}
+
+.page-research-nutrition .story-takeaway-item i,
+.page-research-nutrition .story-path-step i {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    background: var(--diet-green);
+    color: #fff;
+    font-size: 1.72rem;
+}
+
+.page-research-nutrition .story-takeaway-item:nth-child(2) i {
+    background: var(--diet-peach);
+}
+
+.page-research-nutrition .story-takeaway-item p {
+    max-width: 150px;
+    margin: 0;
+    color: var(--diet-ink);
+    font-size: 0.8rem;
+    font-weight: 650;
+    line-height: 1.45;
+}
+
+.page-research-nutrition .story-section {
+    position: relative;
+    padding: 2.65rem 0 0;
+}
+
+.page-research-nutrition .story-split-grid {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 1.7rem;
+    align-items: center;
+    min-height: 385px;
+}
+
+.page-research-nutrition .story-section-copy h2,
+.page-research-nutrition .story-section-center h2 {
+    margin: 0;
+    font-size: clamp(2rem, 3.35vw, 2.72rem);
+    line-height: 1.02;
+}
+
+.page-research-nutrition .story-section-copy p {
+    max-width: 220px;
+    margin: 0.95rem 0 1.15rem;
+    color: var(--diet-body);
+    font-size: 0.8rem;
+    font-weight: 650;
+    line-height: 1.62;
+}
+
+.page-research-nutrition .story-legend {
+    display: grid;
+    gap: 0.8rem;
+    color: var(--diet-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.page-research-nutrition .story-legend span {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.page-research-nutrition .legend-dot {
+    width: 17px;
+    height: 17px;
+    border-radius: 999px;
+}
+
+.page-research-nutrition .legend-high {
+    background: var(--diet-green);
+}
+
+.page-research-nutrition .legend-low {
+    background: #b8c7ae;
+}
+
+.page-research-nutrition .story-radar-card {
+    position: relative;
+    margin: 0;
+    min-height: 360px;
+}
+
+.page-research-nutrition .story-radar-card::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 330px;
+    height: 330px;
+    border-radius: 999px 0 999px 999px;
+    background: rgba(224, 227, 214, 0.34);
+    z-index: 0;
+}
+
+.page-research-nutrition .story-radar-card::before {
+    content: "";
+    position: absolute;
+    right: -18px;
+    bottom: -18px;
+    width: 210px;
+    height: 300px;
+    background: url("../assets/generated-nutrition/student-diet-botanical.webp") right bottom / contain no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.page-research-nutrition .story-radar {
+    position: relative;
+    z-index: 1;
+    width: min(570px, 100%);
+    min-height: 350px;
+    margin: 0 auto;
+}
+
+.page-research-nutrition .story-radar svg {
+    display: block;
+    width: min(315px, 52vw);
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.page-research-nutrition .radar-grid polygon,
+.page-research-nutrition .radar-axis line {
+    fill: none;
+    stroke: rgba(39, 63, 83, 0.22);
+    stroke-width: 1;
+}
+
+.page-research-nutrition .radar-shape {
+    fill: rgba(40, 95, 79, 0.46);
+    stroke: var(--diet-green);
+    stroke-width: 4;
+}
+
+.page-research-nutrition .radar-points circle {
+    fill: #b8b77e;
+    stroke: #fffdfa;
+    stroke-width: 2;
+}
+
+.page-research-nutrition .radar-label {
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    gap: 0.3rem;
+    color: var(--diet-ink);
+    font-size: 0.82rem;
+    font-weight: 650;
+    line-height: 1.15;
+    text-align: center;
+}
+
+.page-research-nutrition .radar-label i {
+    color: var(--diet-green-2);
+    font-size: 1.48rem;
+}
+
+.page-research-nutrition .radar-top {
+    left: 50%;
+    top: -18px;
+    transform: translateX(-50%);
+}
+
+.page-research-nutrition .radar-right {
+    right: 18px;
+    top: 116px;
+}
+
+.page-research-nutrition .radar-bottom-right {
+    right: 64px;
+    bottom: 4px;
+}
+
+.page-research-nutrition .radar-bottom-left {
+    left: 54px;
+    bottom: 8px;
+}
+
+.page-research-nutrition .radar-left {
+    left: 0;
+    top: 140px;
+}
+
+.page-research-nutrition .story-section-center {
+    max-width: 620px;
+    margin: 0 auto 1.25rem;
+    text-align: center;
+}
+
+.page-research-nutrition .story-section-center .story-kicker::after {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.page-research-nutrition .story-card-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.page-research-nutrition .story-image-card {
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid var(--diet-line);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: none;
+}
+
+.page-research-nutrition .story-image-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.page-research-nutrition .story-image-card img {
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin: 0;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+.page-research-nutrition .story-image-card div {
+    min-height: 78px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.8rem;
+    align-items: end;
+    padding: 0.9rem 1rem 1rem;
+}
+
+.page-research-nutrition .story-image-card p {
+    margin: 0;
+    color: var(--diet-ink);
+    font-size: 0.8rem;
+    font-weight: 650;
+    line-height: 1.48;
+}
+
+.page-research-nutrition .story-image-card i {
+    color: var(--diet-green-2);
+    font-size: 1.5rem;
+}
+
+.page-research-nutrition .story-pathway-section {
+    padding-bottom: 1.65rem;
+}
+
+.page-research-nutrition .story-pathway {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    max-width: 690px;
+    margin: 1.45rem auto 0;
+}
+
+.page-research-nutrition .story-pathway::before,
+.page-research-nutrition .story-pathway::after {
+    content: "";
+    position: absolute;
+    top: 45px;
+    width: 118px;
+    border-top: 1px dashed rgba(40, 95, 79, 0.42);
+}
+
+.page-research-nutrition .story-pathway::before {
+    left: 172px;
+    transform: rotate(-11deg);
+}
+
+.page-research-nutrition .story-pathway::after {
+    right: 172px;
+    transform: rotate(11deg);
+}
+
+.page-research-nutrition .story-path-step {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    gap: 0.35rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    text-align: center;
+}
+
+.page-research-nutrition .story-path-step::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    background: rgba(223, 231, 220, 0.8);
+    z-index: 0;
+}
+
+.page-research-nutrition .story-path-step span,
+.page-research-nutrition .story-path-step i,
+.page-research-nutrition .story-path-step h3,
+.page-research-nutrition .story-path-step p {
+    position: relative;
+    z-index: 1;
+}
+
+.page-research-nutrition .story-path-step span {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    margin: 0 0 -3px -64px;
+    border-radius: 999px;
+    background: var(--diet-green);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.page-research-nutrition .story-path-step:nth-child(2) span {
+    background: var(--diet-peach);
+}
+
+.page-research-nutrition .story-path-step i {
+    width: 72px;
+    height: 72px;
+    background: transparent;
+    color: var(--diet-green);
+    font-size: 2.5rem;
+}
+
+.page-research-nutrition .story-path-step h3 {
+    margin: 0.62rem 0 0;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 800;
+}
+
+.page-research-nutrition .story-path-step p {
+    max-width: 160px;
+    margin: 0;
+    color: var(--diet-body);
+    font-size: 0.76rem;
+    font-weight: 600;
+    line-height: 1.45;
+}
+
+.page-research-nutrition .story-closing-green {
+    position: relative;
+    min-height: 286px;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    padding: 3.75rem 0 1.85rem;
+    border-radius: 50% 50% 0 0 / 14% 14% 0 0;
+    background: linear-gradient(135deg, #2c6655, #0d463d 76%);
+    color: #fff;
+}
+
+.page-research-nutrition .story-closing-green::before {
+    content: "";
+    position: absolute;
+    left: -6%;
+    top: -78px;
+    width: 112%;
+    height: 136px;
+    border-radius: 0 0 50% 50%;
+    background: var(--diet-paper);
+}
+
+.page-research-nutrition .nutrition-closing-botanical {
+    position: absolute;
+    right: 0;
+    bottom: -126px;
+    width: min(390px, 46vw);
+    height: auto;
+    filter: saturate(0.9) brightness(1.2);
+    mix-blend-mode: multiply;
+    opacity: 0.58;
+}
+
+.page-research-nutrition .story-closing-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 2rem;
+    align-items: end;
+}
+
+.page-research-nutrition .story-quote-mark {
+    display: block;
+    height: 34px;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: var(--diet-serif);
+    font-size: 5rem;
+    line-height: 0.6;
+}
+
+.page-research-nutrition .story-closing h2 {
+    max-width: 620px;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.05rem, 3.55vw, 3.05rem);
+    line-height: 1.07;
+}
+
+.page-research-nutrition .story-closing p {
+    max-width: 535px;
+    margin: 0.8rem 0 1.05rem;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.page-research-nutrition .story-closing-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.82);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+}
+
+.page-research-nutrition .story-closing-contact span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.page-research-nutrition > .footer {
+    display: none;
+}
+
+@media (min-width: 761px) and (max-width: 900px) {
+    .page-research-nutrition .navbar {
+        width: min(730px, calc(100% - 34px));
+        border-radius: 999px;
+    }
+
+    .page-research-nutrition .nav-container {
+        min-height: 54px;
+        padding: 0 18px;
+    }
+
+    .page-research-nutrition .nav-links {
+        gap: 1.1rem;
+    }
+
+    .page-research-nutrition .nav-link {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.1rem;
+    }
+
+    .page-research-nutrition .section-container,
+    .page-research-nutrition .story-takeaway {
+        width: min(100% - 48px, 1080px);
+    }
+
+    .page-research-nutrition .nutrition-story-hero {
+        min-height: 560px;
+        padding-top: 92px;
+    }
+
+    .page-research-nutrition .nutrition-hero-grid {
+        grid-template-columns: minmax(446px, 1fr) minmax(310px, 0.86fr);
+        gap: 0.75rem;
+    }
+
+    .page-research-nutrition .nutrition-hero-copy h1 {
+        font-size: 2.9rem;
+    }
+
+    .page-research-nutrition .story-hero-lede {
+        max-width: 350px;
+        font-size: 0.86rem;
+    }
+
+    .page-research-nutrition .nutrition-meta-row {
+        max-width: 360px;
+        gap: 0.55rem;
+    }
+
+    .page-research-nutrition .nutrition-meta-row span {
+        min-height: 50px;
+        padding: 0.45rem 0.48rem;
+        font-size: 0.55rem;
+    }
+
+    .page-research-nutrition .nutrition-hero-collage {
+        min-height: 440px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-main {
+        right: 20px;
+        width: 286px;
+        height: 210px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-campus {
+        left: 0;
+        top: 222px;
+        width: 168px;
+        height: 118px;
+        border-width: 8px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-bowl {
+        width: 258px;
+        height: 202px;
+        border-width: 8px;
+    }
+
+    .page-research-nutrition .nutrition-hero-botanical {
+        right: -52px;
+        top: 86px;
+        width: 165px;
+    }
+
+    .page-research-nutrition .story-takeaway-grid {
+        grid-template-columns: 0.86fr 1.72fr;
+        gap: 1.3rem;
+        padding: 2.1rem 2.25rem;
+    }
+
+    .page-research-nutrition .story-takeaway h2 {
+        font-size: 1.92rem;
+    }
+
+    .page-research-nutrition .story-split-grid {
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 1.2rem;
+    }
+
+    .page-research-nutrition .story-radar svg {
+        width: 290px;
+    }
+
+    .page-research-nutrition .story-card-grid-3 {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-research-nutrition .nutrition-story-hero {
+        min-height: auto;
+        padding-top: 112px;
+    }
+
+    .page-research-nutrition .nutrition-hero-grid,
+    .page-research-nutrition .story-takeaway-grid,
+    .page-research-nutrition .story-split-grid,
+    .page-research-nutrition .story-closing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition .nutrition-hero-collage {
+        max-width: 650px;
+        min-height: 520px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .page-research-nutrition .story-card-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition .story-pathway {
+        gap: 1.4rem;
+    }
+
+    .page-research-nutrition .story-pathway::before,
+    .page-research-nutrition .story-pathway::after {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .page-research-nutrition .nav-toggle {
+        display: inline-flex;
+    }
+
+    .page-research-nutrition .navbar {
+        top: 12px;
+        width: calc(100% - 24px);
+        border-radius: 22px;
+    }
+
+    .page-research-nutrition .nav-container {
+        min-height: 58px;
+        padding: 0 16px;
+    }
+
+    .page-research-nutrition .nav-links {
+        position: absolute;
+        top: calc(100% + 0.6rem);
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.42rem;
+        padding: 0.7rem;
+        border: 1px solid rgba(16, 26, 42, 0.14);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        overflow: auto;
+    }
+
+    .page-research-nutrition .navbar.nav-open .nav-links {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .page-research-nutrition .section-container,
+    .page-research-nutrition .story-takeaway {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .page-research-nutrition .nutrition-hero-copy h1 {
+        font-size: clamp(3.05rem, 17vw, 4.15rem);
+    }
+
+    .page-research-nutrition .nutrition-meta-row,
+    .page-research-nutrition .story-takeaway-items,
+    .page-research-nutrition .story-pathway {
+        grid-template-columns: 1fr;
+    }
+
+    .page-research-nutrition .nutrition-hero-collage {
+        min-height: 430px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-main {
+        right: 24px;
+        width: min(86vw, 360px);
+        height: 245px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-campus {
+        left: 0;
+        top: 238px;
+        width: 46vw;
+        height: 135px;
+        border-width: 8px;
+    }
+
+    .page-research-nutrition .nutrition-hero-photo-bowl {
+        right: 0;
+        bottom: 0;
+        width: 58vw;
+        height: 188px;
+        border-width: 8px;
+    }
+
+    .page-research-nutrition .nutrition-hero-botanical {
+        right: -72px;
+        width: 190px;
+    }
+
+    .page-research-nutrition .story-takeaway-grid {
+        padding: 2rem 1.35rem;
+        border-radius: 22px;
+    }
+
+    .page-research-nutrition .story-takeaway-item {
+        min-height: auto;
+        padding: 1.2rem 0;
+        border-top: 1px solid var(--diet-line);
+        border-left: 0;
+    }
+
+    .page-research-nutrition .story-takeaway-item:first-child {
+        border-top: 0;
+    }
+
+    .page-research-nutrition .story-radar-card {
+        min-height: 390px;
+        overflow: hidden;
+    }
+
+    .page-research-nutrition .story-radar svg {
+        width: min(320px, 74vw);
+    }
+
+    .page-research-nutrition .radar-label {
+        font-size: 0.78rem;
+    }
+
+    .page-research-nutrition .radar-right {
+        right: 0;
+    }
+
+    .page-research-nutrition .radar-left {
+        left: 0;
+    }
+
+    .page-research-nutrition .story-closing-green {
+        border-radius: 34% 34% 0 0 / 8% 8% 0 0;
+    }
+
+    .page-research-nutrition .nutrition-closing-botanical {
+        width: 270px;
+        opacity: 0.45;
+    }
+}
