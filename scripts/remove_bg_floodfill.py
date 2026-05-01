@@ -37,5 +37,5 @@ def process_image(input_path, output_path, tolerance=20):
 
     img.save(output_path, "PNG")
 
-process_image("/Users/macos/Desktop/portfolio_hy_resources/assets/anh_cv.png", "/Users/macos/Desktop/portfolio_hy_resources/assets/anh_cv_nobg.png")
+process_image("/Users/macos/Desktop/portfolio_hy_resources_github/assets/anh_cv.png", "/Users/macos/Desktop/portfolio_hy_resources_github/assets/anh_cv_nobg.png")
 print("Background removed via floodfill successfully.")

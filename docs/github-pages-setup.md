@@ -1,10 +1,11 @@
-# GitHub Pages Setup (Copy Project)
+# GitHub Pages Setup
 
-This folder is a copy of the original portfolio. All GitHub migration work is done here so the original files remain untouched.
+This repository is the active GitHub Pages source for Chung Hy Dai's current portfolio.
 
-## 1) Create GitHub repository
-- Create a new repository named `portfolio` under account `daichunghy-ben`.
-- Push this copied folder to the `main` branch.
+## 1) Repository
+- Repository: `daichunghy-ben/daichunghy-ben.github.io`
+- Branch: `main`
+- Active website path: `/portfolio/`
 
 ## 2) Enable GitHub Pages via Actions
 - In GitHub repo: `Settings` -> `Pages`.
@@ -23,10 +24,10 @@ If `SITE_URL` is not set, canonical/OG tags remain in source-default mode.
 - Workflow builds `.deploy/public` using `scripts/stage-pages.mjs` and publishes it.
 
 ## 5) Final URL
-- Project repo URL format:
-  - `https://daichunghy-ben.github.io/portfolio/`
-- User/Org site repo URL format (repo name exactly `<username>.github.io`):
-  - `https://daichunghy-ben.github.io/`
+- Current production URL:
+  - `https://daichunghy-ben.github.io/portfolio/index.html`
+- Root URL:
+  - `https://daichunghy-ben.github.io/` is not the current website target. Root-level HTML pages are intentionally excluded from deployment to avoid maintaining a second version.
 
 ## 6) Local verification before push
 ```bash

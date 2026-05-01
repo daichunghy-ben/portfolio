@@ -4,7 +4,8 @@ import { spawn } from 'node:child_process';
 
 const ROOT = process.cwd();
 const PUBLIC_DIR = path.join(ROOT, '.deploy', 'public');
-const HTML_EXCLUDE = new Set(['index_patched.html']);
+const HTML_EXCLUDE = new Set(['404.html', 'index_patched.html']);
+const ACTIVE_SITE_PATH = '/portfolio';
 
 const SKIP_PROTOCOL_RE = /^(mailto:|tel:|javascript:|data:)/i;
 const HTML_ATTR_RE = /\b(?:href|src|poster)\s*=\s*("([^"]*)"|'([^']*)')/gi;
@@ -154,7 +155,8 @@ const getFreePort = async () => {
 };
 
 const listSeedPages = async () => {
-  const entries = await fs.readdir(PUBLIC_DIR, { withFileTypes: true });
+  const portfolioDir = path.join(PUBLIC_DIR, ACTIVE_SITE_PATH.slice(1));
+  const entries = await fs.readdir(portfolioDir, { withFileTypes: true });
   return entries
     .filter((entry) => entry.isFile())
     .map((entry) => entry.name)
@@ -162,15 +164,15 @@ const listSeedPages = async () => {
     .filter((name) => !name.includes('.report.html'))
     .filter((name) => !HTML_EXCLUDE.has(name))
     .sort()
-    .map((name) => `/${name}`);
+    .map((name) => `${ACTIVE_SITE_PATH}/${name}`);
 };
 
 const crawl = async (baseUrl) => {
   const base = new URL(baseUrl);
   const origin = base.origin;
   const queue = await listSeedPages();
-  if (!queue.includes('/index.html')) queue.unshift('/index.html');
-  if (!queue.includes('/')) queue.unshift('/');
+  const activeIndex = `${ACTIVE_SITE_PATH}/index.html`;
+  if (!queue.includes(activeIndex)) queue.unshift(activeIndex);
 
   const visited = new Set();
   const failures = [];

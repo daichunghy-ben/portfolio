@@ -4,13 +4,13 @@
 Standardize machine-readable identity and research evidence signals for recruiter trust, search consistency, and claim governance.
 
 ## Baseline Scope
-- Applies to local pages in `/Users/macos/Desktop/portfolio_hy_resources`.
-- Deployment domain is unknown in this audit cycle, so `url` fields are policy placeholders until `site_url` is set.
+- Applies to current local pages in `/Users/macos/Desktop/portfolio_hy_resources_github/portfolio`.
+- Production canonical base is `https://daichunghy-ben.github.io/portfolio/`.
 
 ## Required Data Sources
-1. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/site-config.json`
-2. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/research-manifest.json`
-3. `/Users/macos/Desktop/portfolio_hy_resources/assets/data/claims-registry.json`
+1. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/site-config.json`
+2. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/research-manifest.json`
+3. `/Users/macos/Desktop/portfolio_hy_resources_github/assets/data/claims-registry.json`
 
 ## Page-Type Schema Rules
 

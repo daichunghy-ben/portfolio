@@ -7,7 +7,7 @@ const SOURCE_DIRS = ['assets', 'dist', 'portfolio'];
 const STATIC_FILES = ['404.html', 'robots.txt', '_headers', '_redirects'];
 const HTML_EXCLUDE = new Set(['index_patched.html']);
 const SITEMAP_EXCLUDE = new Set(['404.html', 'index_patched.html']);
-const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/';
+const DEFAULT_PRIMARY_SITE_URL = 'https://daichunghy-ben.github.io/portfolio/';
 const DEFAULT_LEGACY_HOSTS = ['chunghy-portfolio.pages.dev', 'chunghy.pages.dev', 'daichunghy.pages.dev', 'daichunghy-portfolio.pages.dev'];
 const STAGED_ASSET_REFS = new Map([
   ['styles/base.css', 'dist/styles/base.css'],
@@ -33,14 +33,10 @@ const shouldSkipFile = (name) => {
 const shouldSkipDir = (name) => name.startsWith('.');
 
 const listDeployHtmlFiles = async () => {
-  const entries = await fs.readdir(ROOT, { withFileTypes: true });
-  return entries
-    .filter((entry) => entry.isFile())
-    .map((entry) => entry.name)
-    .filter((name) => name.endsWith('.html'))
-    .filter((name) => !HTML_EXCLUDE.has(name))
-    .filter((name) => !name.includes('.report.html'))
-    .sort();
+  // The active site lives under /portfolio/. Do not deploy duplicate root-level
+  // HTML pages; they create a second website version and cause agents to edit
+  // the wrong files. Root 404 is copied separately via STATIC_FILES.
+  return [];
 };
 
 const ensureCleanOutDir = async () => {
@@ -83,7 +79,15 @@ const rewriteAssetRefsInHtml = (html) => {
     rewritten = replaceQuotedAssetRef(rewritten, `./${sourceRef}`, `./${distRef}`);
   }
 
-  return rewritten;
+  return rewritten
+    .split('"dist/')
+    .join('"../dist/')
+    .split("'dist/")
+    .join("'../dist/")
+    .split('"assets/favicon.png"')
+    .join('"../assets/favicon.png"')
+    .split("'assets/favicon.png'")
+    .join("'../assets/favicon.png'");
 };
 
 const copyTree = async (sourceDir, targetDir, counters) => {
@@ -140,6 +144,17 @@ const listFilesRecursive = async (dirPath) => {
     }
   }
   return items;
+};
+
+const listTopLevelHtmlFiles = async (dirPath) => {
+  const entries = await fs.readdir(dirPath, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((name) => name.endsWith('.html'))
+    .filter((name) => !name.includes('.report.html'))
+    .filter((name) => !SITEMAP_EXCLUDE.has(name))
+    .sort();
 };
 
 const normalizeSiteUrl = (value) => {
@@ -255,6 +270,9 @@ const resolvePageUrlForFile = (siteUrl, htmlFileName, html) => {
 
   try {
     const resolvedUrl = new URL(canonicalHref, fallbackUrl).href;
+    if (!resolvedUrl.startsWith(siteUrl)) {
+      return fallbackUrl;
+    }
     if (htmlFileName.toLowerCase() === 'index.html') {
       const indexFileUrl = new URL('index.html', siteUrl).href;
       if (resolvedUrl === indexFileUrl || resolvedUrl === fallbackUrl) {
@@ -269,23 +287,19 @@ const resolvePageUrlForFile = (siteUrl, htmlFileName, html) => {
 
 const generateRobotsTxt = async (siteUrl) => {
   const robotsPath = path.join(OUT_DIR, 'robots.txt');
-  const sitemapUrl = new URL('sitemap.xml', siteUrl).href;
+  const sitemapUrl = new URL('/sitemap.xml', siteUrl).href;
   const content = `User-agent: *\nAllow: /\nSitemap: ${sitemapUrl}\n`;
   await fs.writeFile(robotsPath, content, 'utf8');
 };
 
 const generateSitemapXml = async (siteUrl) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name)
-    .sort();
+  const portfolioDir = path.join(OUT_DIR, 'portfolio');
+  const htmlFiles = (await dirExists(portfolioDir)) ? await listTopLevelHtmlFiles(portfolioDir) : [];
 
   const pages = [];
 
   for (const htmlFile of htmlFiles) {
-    if (SITEMAP_EXCLUDE.has(htmlFile)) continue;
-
-    const filePath = path.join(OUT_DIR, htmlFile);
+    const filePath = path.join(portfolioDir, htmlFile);
     const html = await fs.readFile(filePath, 'utf8');
     const pageUrl = absolutePageUrlForFile(siteUrl, htmlFile);
     const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
@@ -310,13 +324,11 @@ const generateSitemapXml = async (siteUrl) => {
 };
 
 const applyMetadataForSiteUrl = async (siteUrl, legacyHosts) => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name)
-    .sort();
+  const portfolioDir = path.join(OUT_DIR, 'portfolio');
+  const htmlFiles = (await dirExists(portfolioDir)) ? await listTopLevelHtmlFiles(portfolioDir) : [];
 
   for (const htmlFile of htmlFiles) {
-    const filePath = path.join(OUT_DIR, htmlFile);
+    const filePath = path.join(portfolioDir, htmlFile);
     let html = await fs.readFile(filePath, 'utf8');
 
     const canonicalUrl = resolvePageUrlForFile(siteUrl, htmlFile, html);
@@ -371,12 +383,11 @@ const updateDeploySiteConfig = async (siteUrl) => {
 };
 
 const rewriteStagedHtmlAssetRefs = async () => {
-  const htmlFiles = (await fs.readdir(OUT_DIR, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.html') && !entry.name.includes('.report.html'))
-    .map((entry) => entry.name);
+  const portfolioDir = path.join(OUT_DIR, 'portfolio');
+  const htmlFiles = (await dirExists(portfolioDir)) ? await listTopLevelHtmlFiles(portfolioDir) : [];
 
   for (const htmlFile of htmlFiles) {
-    const filePath = path.join(OUT_DIR, htmlFile);
+    const filePath = path.join(portfolioDir, htmlFile);
     const html = await fs.readFile(filePath, 'utf8');
     const rewritten = rewriteAssetRefsInHtml(html);
     if (rewritten !== html) {
