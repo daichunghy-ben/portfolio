@@ -5,16 +5,15 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="assets/favicon.png" rel="icon" type="image/png"/>
 <title>Hotel Value Segmentation Framework | Chung Hy Dai</title>
-<meta content="Framework explainer for translating hotel review text into value-oriented traveler segments. Companion to the Da Nang segmentation study." name="description"/>
+<meta content="Compact companion framework for translating hotel review text into value-oriented traveler segment stories linked to the Da Nang segmentation study." name="description"/>
 <link href="styles/base.css" rel="stylesheet"/>
 <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
 <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link href="./research-hotel-value.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="Hotel Value Framework | Chung Hy Dai" property="og:title"/>
-<meta content="Framework explainer for translating hotel review text into value-oriented traveler segments." property="og:description"/>
+<meta content="Hotel Value Segmentation Framework | Chung Hy Dai" property="og:title"/>
+<meta content="Compact companion framework for translating hotel review text into value-oriented traveler segment stories." property="og:description"/>
 <meta content="./research-hotel-value.html" property="og:url"/>
 </head>
 <body class="page-research-detail page-research-custom page-research-hotel-value" data-page="research" data-research-id="hotel-value-framework">
@@ -23,127 +22,216 @@
 <nav class="navbar">
 <div class="nav-container">
 <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
-<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-<div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html">Home</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
-<a class="nav-link magnetic" data-strength="10" href="projects.html">Projects</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a></div>
 </div>
 </nav>
 <div class="nav-overlay" hidden></div>
-<div class="parallax-bg layer-1" data-speed="0.1"></div>
-<div class="parallax-bg layer-2" data-speed="0.25"></div>
-<div class="parallax-bg layer-3" data-speed="-0.15"></div>
-<div class="parallax-bg layer-4" data-speed="0.1"></div>
-<main>
-<section class="research-detail-hero">
-<div class="section-container">
-<a class="research-back-link reveal-on-load" href="projects.html"><i class="ph ph-arrow-left"></i> Back to Projects</a>
-<div class="research-detail-header reveal-on-load">
-<span class="badge">Companion framework · NLP value lens · Hospitality strategy</span>
-<h1 class="section-heading">Hotel Value Segmentation Framework</h1>
-<p class="section-desc max-w-lg">
-This page is a framework explainer, not a standalone empirical dataset. It translates text signals into value constructs
-that support the canonical Da Nang segmentation study.
-</p>
-<div class="research-meta-tags">
-<span><i class="ph ph-compass"></i> Companion to segmentation pipeline</span>
-<span><i class="ph ph-flow-arrow"></i> Text to value architecture</span>
-<span><i class="ph ph-link"></i> Linked study: Hotel Market Segmentation</span>
+<main class="hotel-value-main">
+<section class="hvf-hero" aria-labelledby="hotel-value-title">
+<picture class="hvf-hero-bg" aria-hidden="true">
+<source sizes="100vw" srcset="./assets/optimized/research-hotel-value-coast-480.avif 480w, ./assets/optimized/research-hotel-value-coast-768.avif 768w, ./assets/optimized/research-hotel-value-coast-1024.avif 1024w, ./assets/optimized/research-hotel-value-coast-1440.avif 1440w, ./assets/optimized/research-hotel-value-coast-1672.avif 1672w" type="image/avif"/>
+<source sizes="100vw" srcset="./assets/optimized/research-hotel-value-coast-480.webp 480w, ./assets/optimized/research-hotel-value-coast-768.webp 768w, ./assets/optimized/research-hotel-value-coast-1024.webp 1024w, ./assets/optimized/research-hotel-value-coast-1440.webp 1440w, ./assets/optimized/research-hotel-value-coast-1672.webp 1672w" type="image/webp"/>
+<img alt="" decoding="async" fetchpriority="high" height="941" src="./assets/research-hotel-value-coast.png" width="1672"/>
+</picture>
+<div class="hvf-nav-strip">
+<a class="hvf-brand" href="projects.html"><i class="ph ph-flower-lotus" aria-hidden="true"></i> Da Nang Hospitality Research</a>
+<div class="hvf-anchor-links" aria-label="Page sections">
+<a href="#value-moment">Overview</a>
+<a href="#guest-voices">Signals</a>
+<a href="#segment-stories">Stories</a>
+<a href="#framework-storyboard">Method</a>
+</div>
+<a class="hvf-nav-cta" href="research-hotel.html">Canonical Study <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+</div>
+<div class="hvf-wrap hvf-hero-grid">
+<div class="hvf-hero-copy reveal-on-load">
+<a class="hvf-back-link" href="projects.html"><i class="ph ph-arrow-left" aria-hidden="true"></i> Back to research</a>
+<p class="hvf-kicker">A companion framework</p>
+<h1 id="hotel-value-title">Hotel Value Segmentation <em>Framework</em></h1>
+<p class="hvf-lede">We translate guest review language into value-based meaning, organizing what travelers care about most in Da Nang hotels.</p>
+<div class="hvf-proof-row" aria-label="Framework proof points">
+<span><i class="ph ph-tree-structure" aria-hidden="true"></i> Text to value architecture</span>
+<span><i class="ph ph-link" aria-hidden="true"></i> Linked to canonical segmentation study</span>
+<span><i class="ph ph-compass-tool" aria-hidden="true"></i> For decision-making that delivers</span>
 </div>
 </div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-container">
-<div class="research-focus-shell reveal">
-<span class="badge">Positioning</span>
-<h2 class="section-heading section-heading-compact">Why This Exists</h2>
-<p class="research-copy-muted">
-Operational teams often require a stable vocabulary that bridges raw reviews and action design. This framework extracts
-functional, emotional, and social value dimensions so segmentation outputs are easier to operationalize.
-</p>
-<div class="research-kpi-strip kpi-tight" data-evidence-tier="conceptual">
-<article class="research-kpi">
-<p class="kpi-label">Role</p>
-<p class="kpi-value">Framework translator</p>
-</article>
-<article class="research-kpi">
-<p class="kpi-label">Data Status</p>
-<p class="kpi-value">No independent dataset</p>
-</article>
-<article class="research-kpi">
-<p class="kpi-label">Use Case</p>
-<p class="kpi-value">Segment interpretation</p>
-</article>
-<article class="research-kpi">
-<p class="kpi-label">Evidence Tier</p>
-<p class="kpi-value">Conceptual</p>
-</article>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section bg-light">
-<div class="section-container">
-<div class="research-focus-shell reveal">
-<div class="section-header mb-5 text-center">
-<span class="badge">Framework Visualization</span>
-<h2 class="section-heading section-heading-focus">From Text Signals to Value-Oriented Actions</h2>
-</div>
-<figure class="research-figure-stage" data-evidence-tier="conceptual">
-<img alt="Hotel review NLP framework mapping textual signals into value segment actions" decoding="async" loading="lazy" src="./assets/viz-hotel-value-segments.svg" width="960" height="620"/>
-<figcaption class="research-figure-caption">
-Conceptual architecture: input review narratives, extract value dimensions, and produce segment-ready strategic cues.
-</figcaption>
+<div class="hvf-polaroid-stack reveal-on-load" aria-label="Hospitality context collage">
+<figure class="hvf-polaroid hvf-polaroid-large">
+<img alt="Bright Da Nang beachfront and hotel skyline" decoding="async" src="./assets/research-hotel-value-coast.png"/>
 </figure>
-<p class="research-copy-muted" style="margin-top: 0.9rem;">
-The framework reads unstructured review language as a behavioral signal, converts it into functional, emotional, and social value
-dimensions, and then translates those signatures into segment-level offer, service, and messaging priorities.
-</p>
-<p class="research-copy-muted" style="margin-top: 0.58rem;">
-Empirical validation remains in the canonical segmentation study, while this page serves as a concise interpretation layer for
-decision communication.
-</p>
-<div style="margin-top: 2rem; background: rgba(255,255,255,0.9); border: 1px solid #e2e8f0; border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-<h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: #1e293b; text-align: center;">Value Dimension Composition</h3>
-<p style="text-align: center; color: #64748b; margin-bottom: 1.5rem; font-size: 0.9rem;">Relative weight of functional, emotional, and social value dimensions extracted from review narratives.</p>
-<div style="position: relative; height: 320px; width: 100%; max-width: 450px; margin: 0 auto;"><canvas id="valuePolarChart"></canvas></div>
+<figure class="hvf-polaroid hvf-polaroid-small">
+<img alt="Da Nang hotel breakfast table with coastal view" decoding="async" sizes="245px" src="./assets/hvf-breakfast-table.png" srcset="./assets/optimized/hvf-breakfast-table-480.webp 480w, ./assets/optimized/hvf-breakfast-table-768.webp 768w, ./assets/optimized/hvf-breakfast-table-1024.webp 1024w, ./assets/optimized/hvf-breakfast-table-1440.webp 1440w"/>
+</figure>
+<div class="hvf-note-card">
+<p>Da Nang - where memorable stays meet meaningful value.</p>
+<i class="ph ph-heart" aria-hidden="true"></i>
 </div>
 </div>
 </div>
 </section>
 
-<section class="section">
-<div class="section-container">
-<div class="research-focus-shell reveal">
-<div class="section-header mb-5 text-center">
-<span class="badge">Related Study</span>
-<h2 class="section-heading section-heading-focus">Use This with the Segmentation Core</h2>
+<section class="hvf-paper-section hvf-market" id="value-moment" aria-labelledby="value-moment-title">
+<div class="hvf-wrap hvf-market-grid">
+<div class="hvf-section-copy reveal">
+<p class="hvf-eyebrow">The research moment</p>
+<h2 id="value-moment-title">Why the framework needs this</h2>
+<p>Average scores rarely explain why one guest sees value in comfort while another sees it in local food, location, or service care.</p>
+<p><strong>This page is a companion interpretation layer.</strong> Reported measurement remains in the canonical segmentation study; this framework makes the output easier to discuss and act on.</p>
+<p class="hvf-source-note">Evidence boundary: conceptual framework linked to the Da Nang hotel segmentation stream.</p>
 </div>
-<h3 class="visually-hidden">Application sequence</h3>
-<div class="research-implication-stack">
-<article class="phase">
-<h4>1. Read the empirical base first</h4>
-<p>Start with the Da Nang segmentation study for reported sample scope, model outputs, and observed segment distribution.</p>
+<div class="hvf-stat-row reveal" aria-label="Linked study scope">
+<article class="hvf-stat-card">
+<i class="ph ph-chat-text" aria-hidden="true"></i>
+<strong>74,896</strong>
+<span>reviews in linked study</span>
+<small>reported study scope</small>
 </article>
-<article class="phase">
-<h4>2. Apply the value lens</h4>
-<p>Use this framework to interpret segment narratives and convert technical outputs into operational playbooks.</p>
+<article class="hvf-stat-card">
+<i class="ph ph-buildings" aria-hidden="true"></i>
+<strong>458</strong>
+<span>Da Nang hotels</span>
+<small>reported study scope</small>
 </article>
-<article class="phase">
-<h4>3. Calibrate interventions by evidence tier</h4>
-<p>Keep reported metrics in the core study; use this page as a conceptual interpretation aid for decision communication.</p>
+<article class="hvf-stat-card">
+<i class="ph ph-users-three" aria-hidden="true"></i>
+<strong>10</strong>
+<span>reported segments</span>
+<small>interpreted with value lens</small>
 </article>
 </div>
-<div class="text-center" style="margin-top: 1rem;">
-<a class="btn-primary magnetic" data-strength="15" href="research-hotel.html"><i class="ph ph-arrow-right"></i> Open Canonical Segmentation Study</a>
+</div>
+</section>
+
+<section class="hvf-paper-section hvf-voices" id="guest-voices" aria-labelledby="guest-voices-title">
+<div class="hvf-wrap">
+<div class="hvf-voice-head reveal">
+<div class="hvf-section-copy">
+<p class="hvf-eyebrow">What guests are really saying</p>
+<h2 id="guest-voices-title">From guest voices to value dimensions</h2>
+<p>Reviews are grouped into a practical value vocabulary so hotel teams can see which experiences shape each traveler story.</p>
+</div>
+<div class="hvf-sticky-board" aria-label="Example review signals">
+<p class="hvf-sticky">"The bed was so comfortable. I slept better than at home."</p>
+<p class="hvf-sticky">"Staff were so kind and remembered my name."</p>
+<p class="hvf-sticky">"Loved the local food recommendations."</p>
+<p class="hvf-sticky">"Steps from the beach, and lots of cafes."</p>
+<p class="hvf-sticky">"Great value for money. Will definitely return."</p>
 </div>
 </div>
-<div class="text-center mt-5 reveal">
-<a class="btn-outline large magnetic" data-strength="15" href="projects.html"><i class="ph ph-arrow-left"></i> Back to Projects</a>
+<div class="hvf-dimension-row reveal" aria-label="Core value dimensions">
+<article><i class="ph ph-bed" aria-hidden="true"></i><h3>Comfort</h3><p>Restful, high-quality rooms and sleep.</p></article>
+<article><i class="ph ph-hand-heart" aria-hidden="true"></i><h3>Service Care</h3><p>Warm, attentive, helpful service.</p></article>
+<article><i class="ph ph-fork-knife" aria-hidden="true"></i><h3>Local Food</h3><p>Taste of Da Nang, recommendations.</p></article>
+<article><i class="ph ph-map-pin" aria-hidden="true"></i><h3>Location Ease</h3><p>Close to beach, city sights, convenience.</p></article>
+<article><i class="ph ph-leaf" aria-hidden="true"></i><h3>Ambience</h3><p>Relaxing, beautiful atmosphere.</p></article>
+<article><i class="ph ph-tag" aria-hidden="true"></i><h3>Overall Value</h3><p>Worth the price, meets expectations.</p></article>
+</div>
+</div>
+</section>
+
+<section class="hvf-blue-section" id="segment-stories" aria-labelledby="segment-stories-title">
+<div class="hvf-wrap hvf-segment-grid">
+<div class="hvf-blue-copy reveal">
+<p class="hvf-eyebrow">From text signals to</p>
+<h2 id="segment-stories-title">Segment Stories</h2>
+<p>NLP transforms unstructured review text into value profiles and segment narratives, making guest needs easier to understand and act on.</p>
+</div>
+<div class="hvf-story-cards reveal" aria-label="Illustrative value segment stories">
+<article class="hvf-story-card">
+<img alt="Traveler relaxing near a Da Nang beach resort pool" decoding="async" loading="lazy" sizes="(max-width: 760px) 330px, 280px" src="./assets/hvf-segment-relaxed-comfort.png" srcset="./assets/optimized/hvf-segment-relaxed-comfort-480.webp 480w, ./assets/optimized/hvf-segment-relaxed-comfort-768.webp 768w, ./assets/optimized/hvf-segment-relaxed-comfort-1024.webp 1024w, ./assets/optimized/hvf-segment-relaxed-comfort-1440.webp 1440w"/>
+<span>01</span>
+<h3>Relaxed Comfort Seekers</h3>
+<p>Unwind. Recharge. Indulge.</p>
+<div><b>Comfort</b><b>Ambience</b><b>Service Care</b></div>
+<ul><li>Prioritize restful rooms and tranquil ambience.</li><li>Value thoughtful service and small touches.</li><li>Often leisure travelers, couples, solo relaxers.</li></ul>
+</article>
+<article class="hvf-story-card">
+<img alt="Traveler enjoying local Da Nang food recommendations" decoding="async" loading="lazy" sizes="(max-width: 760px) 330px, 280px" src="./assets/hvf-segment-local-experience.png" srcset="./assets/optimized/hvf-segment-local-experience-480.webp 480w, ./assets/optimized/hvf-segment-local-experience-768.webp 768w, ./assets/optimized/hvf-segment-local-experience-1024.webp 1024w, ./assets/optimized/hvf-segment-local-experience-1440.webp 1440w"/>
+<span>02</span>
+<h3>Local Experience Hunters</h3>
+<p>Explore. Taste. Connect.</p>
+<div><b>Local Food</b><b>Location Ease</b><b>Ambience</b></div>
+<ul><li>Seek authentic food and local experiences.</li><li>Active explorers, city and nature lovers.</li><li>Value atmosphere and local recommendations.</li></ul>
+</article>
+<article class="hvf-story-card">
+<img alt="Business traveler working in a premium Da Nang hotel lobby" decoding="async" loading="lazy" sizes="(max-width: 760px) 330px, 280px" src="./assets/hvf-segment-reliability.png" srcset="./assets/optimized/hvf-segment-reliability-480.webp 480w, ./assets/optimized/hvf-segment-reliability-768.webp 768w, ./assets/optimized/hvf-segment-reliability-1024.webp 1024w, ./assets/optimized/hvf-segment-reliability-1440.webp 1440w"/>
+<span>03</span>
+<h3>Reliability-First Travelers</h3>
+<p>Efficient. Reliable. Seamless.</p>
+<div><b>Service Care</b><b>Comfort</b><b>Location Ease</b></div>
+<ul><li>Need responsive service, comfort, and efficiency.</li><li>Value convenient access and predictable quality.</li><li>Short stays, repeat visits, loyalty driven.</li></ul>
+</article>
+</div>
+</div>
+<p class="hvf-handline">Different guests. Different priorities. Clear actions.</p>
+</section>
+
+<section class="hvf-paper-section hvf-storyboard" id="framework-storyboard" aria-labelledby="framework-storyboard-title">
+<div class="hvf-wrap hvf-storyboard-grid">
+<div class="hvf-section-copy reveal">
+<p class="hvf-eyebrow">Our framework storyboard</p>
+<h2 id="framework-storyboard-title">Turning reviews into actions</h2>
+</div>
+<div class="hvf-method-collage reveal">
+<figure class="hvf-storyboard-collage">
+<img alt="Watercolor scrapbook illustration of the hotel review-to-action workflow" decoding="async" loading="lazy" sizes="(max-width: 1040px) 100vw, 820px" src="./assets/hvf-storyboard-collage.png" srcset="./assets/optimized/hvf-storyboard-collage-480.webp 480w, ./assets/optimized/hvf-storyboard-collage-768.webp 768w, ./assets/optimized/hvf-storyboard-collage-1024.webp 1024w, ./assets/optimized/hvf-storyboard-collage-1440.webp 1440w, ./assets/optimized/hvf-storyboard-collage-1800.webp 1800w"/>
+</figure>
+<ol class="hvf-method-strip">
+<li><span>1</span><i class="ph ph-clipboard-text" aria-hidden="true"></i><h3>Collect Reviews</h3><p>Gather guest reviews across periods.</p></li>
+<li><span>2</span><i class="ph ph-magnifying-glass" aria-hidden="true"></i><h3>Identify Themes</h3><p>Extract topics, entities, and sentiment patterns.</p></li>
+<li><span>3</span><i class="ph ph-compass" aria-hidden="true"></i><h3>Translate to Value</h3><p>Map themes to value dimensions.</p></li>
+<li><span>4</span><i class="ph ph-users" aria-hidden="true"></i><h3>Interpret Segments</h3><p>Group guests into value-based stories.</p></li>
+<li><span>5</span><i class="ph ph-list-checks" aria-hidden="true"></i><h3>Design Actions</h3><p>Prioritize product, service, and messaging.</p></li>
+</ol>
+</div>
+</div>
+</section>
+
+<section class="hvf-paper-section hvf-impact" aria-labelledby="value-impact-title">
+<div class="hvf-wrap hvf-impact-grid">
+<article class="hvf-composer reveal">
+<p class="hvf-eyebrow">Value dimension compositor</p>
+<h2 id="value-impact-title">What drives guest value?</h2>
+<div class="hvf-donut" aria-label="Illustrative value-dimension weights">
+<span><i class="ph ph-buildings" aria-hidden="true"></i></span>
+</div>
+<ul class="hvf-weight-list">
+<li><b style="--dot:#2f9ce5"></b>Comfort <strong>24%</strong></li>
+<li><b style="--dot:#74c7d8"></b>Service Care <strong>21%</strong></li>
+<li><b style="--dot:#2fb58d"></b>Location Ease <strong>18%</strong></li>
+<li><b style="--dot:#f2bf66"></b>Ambience <strong>14%</strong></li>
+<li><b style="--dot:#e9984e"></b>Local Food <strong>13%</strong></li>
+<li><b style="--dot:#d7726d"></b>Overall Value <strong>10%</strong></li>
+</ul>
+<p class="hvf-source-note">Illustrative weighting for framework communication, not a standalone empirical estimate.</p>
+</article>
+<article class="hvf-action-panel reveal">
+<p class="hvf-eyebrow">How hotels can act on this</p>
+<h2>From insight to impact</h2>
+<div class="hvf-action-row"><i class="ph ph-door-open" aria-hidden="true"></i><h3>Product</h3><p>Invest in features that matter most to your top segments.</p></div>
+<div class="hvf-action-row"><i class="ph ph-heart" aria-hidden="true"></i><h3>Service</h3><p>Train teams around the moments guests remember.</p></div>
+<div class="hvf-action-row"><i class="ph ph-megaphone" aria-hidden="true"></i><h3>Messaging</h3><p>Speak to the values your guests care about clearly and consistently.</p></div>
+</article>
+<div class="hvf-impact-photos reveal">
+<img alt="Warm hotel service moment at a coastal front desk" decoding="async" loading="lazy" sizes="(max-width: 760px) 310px, 210px" src="./assets/hvf-impact-service.png" srcset="./assets/optimized/hvf-impact-service-480.webp 480w, ./assets/optimized/hvf-impact-service-768.webp 768w, ./assets/optimized/hvf-impact-service-1024.webp 1024w, ./assets/optimized/hvf-impact-service-1440.webp 1440w"/>
+<img alt="Premium Da Nang hotel room with ocean-view balcony" decoding="async" loading="lazy" sizes="(max-width: 760px) 310px, 210px" src="./assets/hvf-impact-room.png" srcset="./assets/optimized/hvf-impact-room-480.webp 480w, ./assets/optimized/hvf-impact-room-768.webp 768w, ./assets/optimized/hvf-impact-room-1024.webp 1024w, ./assets/optimized/hvf-impact-room-1440.webp 1440w"/>
+</div>
+</div>
+</section>
+
+<section class="hvf-cta" aria-labelledby="hotel-value-cta-title">
+<picture aria-hidden="true">
+<source sizes="100vw" srcset="./assets/optimized/research-hotel-value-coast-768.webp 768w, ./assets/optimized/research-hotel-value-coast-1440.webp 1440w, ./assets/optimized/research-hotel-value-coast-1672.webp 1672w" type="image/webp"/>
+<img alt="" decoding="async" loading="lazy" src="./assets/research-hotel-value-coast.png"/>
+</picture>
+<div class="hvf-wrap hvf-cta-grid reveal">
+<div>
+<h2 id="hotel-value-cta-title">See the full story behind the segments</h2>
+<p>Explore the canonical Da Nang Hotel Segmentation Study for methods, data, and reported results.</p>
+<a class="hvf-primary-link" href="research-hotel.html">Explore the Canonical Study <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+</div>
+<div class="hvf-postcard">
+<small>Da Nang, Vietnam</small>
+<p>Better insights.<br/>Better stays.<br/>Stronger hospitality.</p>
 </div>
 </div>
 </section>
@@ -155,10 +243,8 @@ decision communication.
 <div class="footer-container layer-above-bg reveal active">
 <h2 class="footer-heading">Review the research portfolio.</h2>
 <p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
-<div class="footer-actions">
-
-</div>
 <div class="footer-contact-info reveal active">
+<span class="hvf-footer-brand"><i class="ph ph-flower-lotus" aria-hidden="true"></i> Da Nang Hospitality Research</span>
 <a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
 <span class="divider">|</span>
 <a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
@@ -168,32 +254,6 @@ decision communication.
 <div class="footer-bottom"><p>© 2026 Chung Hy Dai.</p></div>
 </div>
 </footer>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const ctx = document.getElementById('valuePolarChart');
-    if (!ctx) return;
-    new Chart(ctx, {
-        type: 'polarArea',
-        data: {
-            labels: ['Functional Value', 'Emotional Value', 'Social Value', 'Epistemic Value', 'Conditional Value'],
-            datasets: [{
-                data: [42, 28, 15, 9, 6],
-                backgroundColor: ['rgba(14,165,233,0.7)','rgba(244,114,182,0.7)','rgba(16,185,129,0.7)','rgba(251,146,60,0.7)','rgba(139,92,246,0.7)'],
-                borderWidth: 1, borderColor: '#fff'
-            }]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            plugins: {
-                legend: { position: 'bottom', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } },
-                tooltip: { backgroundColor: 'rgba(255,255,255,0.95)', titleColor: '#1e293b', bodyColor: '#334155', borderColor: '#e2e8f0', borderWidth: 1, padding: 10 }
-            },
-            scales: { r: { ticks: { display: false }, grid: { color: 'rgba(0,0,0,0.04)' } } },
-            animation: { animateScale: true, duration: 1800 }
-        }
-    });
-});
-</script>
 <script defer src="js/main.js" type="module"></script>
 </body>
 </html>
