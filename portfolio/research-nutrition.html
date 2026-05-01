@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
     <title>Student Diet Quality in Vietnam | Chung Hy Dai</title>
-    <meta content="FCBEM 2025 proceedings-linked research summary on nutrition knowledge, physical activity, and diet quality among Vietnamese university students." name="description"/>
+    <meta content="Infographic research summary on nutrition knowledge, physical activity, and diet quality among Vietnamese university students." name="description"/>
     <link href="styles/base.css" rel="stylesheet"/>
     <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
     <link href="styles/research-nutrition-story.css" rel="stylesheet"/>
@@ -16,7 +16,7 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Primary navigation">
         <div class="nav-container">
             <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
             <button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
@@ -30,129 +30,168 @@
     </nav>
     <div class="nav-overlay" hidden></div>
 
-    <main class="story-main nutrition-story-main">
-        <section class="research-detail-hero story-hero story-hero-light nutrition-story-hero" aria-labelledby="nutrition-title">
-            <div class="nutrition-organic nutrition-organic-peach" aria-hidden="true"></div>
-            <div class="section-container nutrition-hero-grid">
-                <div class="story-hero-copy nutrition-hero-copy reveal-on-load">
-                    <p class="story-kicker">Health behavior <span aria-hidden="true">/</span> Consumer insights<br/>Statistical modeling</p>
-                    <h1 id="nutrition-title">Student Diet<br/>Quality in Vietnam</h1>
-                    <p class="story-hero-lede">Surveying 280 university students to uncover the real drivers of diet quality and physical activity across Vietnamese campuses.</p>
-                    <div class="story-meta-row nutrition-meta-row" aria-label="Project facts">
-                        <span><i class="ph ph-map-pin" aria-hidden="true"></i> Ho Chi Minh City,<br/>Vietnam</span>
-                        <span><i class="ph ph-users-three" aria-hidden="true"></i> 280<br/>Students</span>
-                        <span><i class="ph ph-chart-line-up" aria-hidden="true"></i> Regression<br/>Analysis</span>
+    <main class="nutrition-infographic">
+        <section class="nutrition-hero" aria-labelledby="nutrition-title">
+            <div class="nutrition-hero-copy">
+                <p class="nutrition-kicker">Health behavior / Consumer insights / Statistical modeling</p>
+                <h1 id="nutrition-title">Student Diet Quality<br/>in Vietnam</h1>
+                <p class="nutrition-lede">Surveying 280 university students to understand how nutrition knowledge, physical activity, and daily food choices shape diet quality across urban campuses in Vietnam.</p>
+                <div class="nutrition-facts" aria-label="Project facts">
+                    <span><i class="ph ph-map-pin" aria-hidden="true"></i><b>Ho Chi Minh City<br/>Hanoi - Da Nang</b></span>
+                    <span><i class="ph ph-users-three" aria-hidden="true"></i><b>280<br/>Students</b></span>
+                    <span><i class="ph ph-calendar-blank" aria-hidden="true"></i><b>Ages<br/>18-25</b></span>
+                    <span><i class="ph ph-chart-line-up" aria-hidden="true"></i><b>Regression<br/>Analysis</b></span>
+                </div>
+            </div>
+            <div class="nutrition-collage" aria-label="Generated visual collage for the student diet quality study">
+                <img class="nutrition-photo nutrition-photo-main" alt="Vietnamese university student eating a healthy bowl on campus" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-hero.webp"/>
+                <img class="nutrition-photo nutrition-photo-campus" alt="Vietnamese university campus courtyard" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-campus.webp"/>
+                <img class="nutrition-photo nutrition-photo-bowl" alt="Balanced bowl with vegetables tofu grains and herbs" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-bowl.webp"/>
+                <img class="nutrition-leaf nutrition-leaf-hero" alt="" aria-hidden="true" decoding="async" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
+            </div>
+        </section>
+
+        <section class="takeaway-panel" aria-labelledby="takeaway-title">
+            <img class="takeaway-leaf" alt="" aria-hidden="true" loading="lazy" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
+            <div class="takeaway-copy">
+                <p class="nutrition-kicker">1-minute takeaway</p>
+                <h2 id="takeaway-title">Diet quality is shaped by knowledge, routines, and environment.</h2>
+            </div>
+            <div class="takeaway-items">
+                <article><i class="ph ph-book-open-text" aria-hidden="true"></i><p>Knowledge is moderate</p></article>
+                <article><i class="ph ph-flame" aria-hidden="true"></i><p>Calorie knowledge is weakest</p></article>
+                <article><i class="ph ph-scales" aria-hidden="true"></i><p>Foods to limit outnumber protective foods</p></article>
+                <article><i class="ph ph-person-simple-run" aria-hidden="true"></i><p>Physical activity supports better diet quality</p></article>
+            </div>
+        </section>
+
+        <section class="study-strip" aria-label="Study design and sample">
+            <div class="study-methods">
+                <h2>How the study worked</h2>
+                <div class="method-grid">
+                    <article class="method-card"><i class="ph ph-head-circuit" aria-hidden="true"></i><h3>Nutrition knowledge</h3><p>20 adapted CoNKS items, score 0-20</p></article>
+                    <article class="method-card method-card-warm"><i class="ph ph-person-simple-run" aria-hidden="true"></i><h3>Physical activity</h3><p>IPAQ-SF, MET-minutes per week</p></article>
+                    <article class="method-card"><i class="ph ph-bowl-food" aria-hidden="true"></i><h3>Diet quality</h3><p>DQQ and GDR metrics across 29 food groups</p></article>
+                </div>
+            </div>
+            <aside class="sample-card" aria-label="Sample profile">
+                <h2>Who we studied</h2>
+                <div class="gender-grid">
+                    <span><i class="ph ph-gender-female" aria-hidden="true"></i><b>59.6%</b><small>female</small></span>
+                    <span><i class="ph ph-gender-male" aria-hidden="true"></i><b>40.4%</b><small>male</small></span>
+                </div>
+                <p>Physical activity level</p>
+                <div class="activity-grid">
+                    <span><b>50.4%</b><small>low</small></span>
+                    <span><b>45.7%</b><small>moderate</small></span>
+                    <span><b>3.9%</b><small>high</small></span>
+                </div>
+            </aside>
+        </section>
+
+        <section class="data-section" aria-labelledby="data-title">
+            <div class="section-rule-title">
+                <span></span>
+                <h2 id="data-title">What the data reveals</h2>
+                <span></span>
+            </div>
+
+            <div class="data-grid">
+                <article class="data-card diet-summary">
+                    <div class="card-heading"><span>A</span><h3>Diet quality summary</h3></div>
+                    <div class="metric-grid">
+                        <div><small>FGDS</small><b>6.1</b><p>students consumed about 6 of 10 diverse food-group clusters</p></div>
+                        <div><small>GDR score</small><b>6.76 <em>/18</em></b><p>substantial room for improvement</p></div>
+                        <div><small>GDR-Healthy</small><b>3.9</b><p>protective food groups</p></div>
+                        <div class="metric-warm"><small>GDR-Limit</small><b>6.1</b><p>foods to restrict</p></div>
                     </div>
-                </div>
-                <div class="nutrition-hero-collage reveal-on-load" aria-label="Generated visual collage of Vietnamese student diet quality research">
-                    <img class="nutrition-hero-photo nutrition-hero-photo-main" alt="Vietnamese university student eating a healthy salad bowl in a campus cafeteria" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-hero.webp"/>
-                    <img class="nutrition-hero-photo nutrition-hero-photo-campus" alt="Vietnamese university campus courtyard at lunchtime" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-campus.webp"/>
-                    <img class="nutrition-hero-photo nutrition-hero-photo-bowl" alt="Balanced healthy bowl with vegetables, tofu, grains, and herbs" decoding="async" fetchpriority="high" src="./assets/generated-nutrition/student-diet-bowl.webp"/>
-                    <img class="nutrition-hero-botanical" alt="" aria-hidden="true" decoding="async" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
-                </div>
-            </div>
-        </section>
-
-        <section class="story-takeaway reveal" aria-labelledby="nutrition-takeaway-title">
-            <div class="section-container story-takeaway-grid">
-                <div>
-                    <p class="story-kicker">1-minute takeaway</p>
-                    <h2 id="nutrition-takeaway-title">Diet quality is shaped by knowledge, routines, and environment.</h2>
-                </div>
-                <div class="story-takeaway-items">
-                    <article class="story-takeaway-item"><i class="ph ph-apple-logo" aria-hidden="true"></i><p>Nutrition knowledge is low.</p></article>
-                    <article class="story-takeaway-item"><i class="ph ph-fork-knife" aria-hidden="true"></i><p>Daily choices lean toward convenience.</p></article>
-                    <article class="story-takeaway-item"><i class="ph ph-sneaker-move" aria-hidden="true"></i><p>Small nudges can make a big difference.</p></article>
-                </div>
-            </div>
-        </section>
-
-        <section class="story-section story-section-split" aria-labelledby="nutrition-drivers-title">
-            <div class="section-container story-split-grid">
-                <div class="story-section-copy reveal">
-                    <p class="story-kicker">Key insight</p>
-                    <h2 id="nutrition-drivers-title">What drives diet quality?</h2>
-                    <p>Our model shows the key factors that move the needle while keeping the claim at the association level.</p>
-                    <div class="story-legend">
-                        <span><b class="legend-dot legend-high"></b> Higher impact signal</span>
-                        <span><b class="legend-dot legend-low"></b> Lower or contextual signal</span>
+                    <div class="balance-bar" aria-label="Protective foods versus foods to limit">
+                        <span class="balance-green"></span><span class="balance-green"></span><span class="balance-orange"></span><span class="balance-orange"></span>
                     </div>
-                </div>
-                <figure class="story-figure story-radar-card reveal" aria-label="Diet quality driver radar">
-                    <div class="story-radar">
-                        <svg viewBox="0 0 420 420" role="img" aria-label="Radar chart of diet quality drivers">
-                            <g class="radar-grid"><polygon points="210,36 376,156 313,350 107,350 44,156"></polygon><polygon points="210,82 332,170 286,312 134,312 88,170"></polygon><polygon points="210,128 288,184 259,274 161,274 132,184"></polygon><polygon points="210,174 244,198 232,236 188,236 176,198"></polygon></g>
-                            <g class="radar-axis"><line x1="210" y1="210" x2="210" y2="36"></line><line x1="210" y1="210" x2="376" y2="156"></line><line x1="210" y1="210" x2="313" y2="350"></line><line x1="210" y1="210" x2="107" y2="350"></line><line x1="210" y1="210" x2="44" y2="156"></line></g>
-                            <polygon class="radar-shape" points="210,82 300,181 274,298 142,302 101,174"></polygon>
-                            <g class="radar-points"><circle cx="210" cy="82" r="7"></circle><circle cx="300" cy="181" r="7"></circle><circle cx="274" cy="298" r="7"></circle><circle cx="142" cy="302" r="7"></circle><circle cx="101" cy="174" r="7"></circle></g>
-                        </svg>
-                        <span class="radar-label radar-top"><i class="ph ph-plant" aria-hidden="true"></i> Diet quality</span>
-                        <span class="radar-label radar-right"><i class="ph ph-person-simple-walk" aria-hidden="true"></i> Physical activity</span>
-                        <span class="radar-label radar-bottom-right"><i class="ph ph-bowl-food" aria-hidden="true"></i> Fast food avoidance</span>
-                        <span class="radar-label radar-bottom-left"><i class="ph ph-shield-check" aria-hidden="true"></i> Health resilience</span>
-                        <span class="radar-label radar-left"><i class="ph ph-list-checks" aria-hidden="true"></i> Meal planning</span>
+                    <p class="panel-note">Foods to limit are higher than protective foods.</p>
+                </article>
+
+                <article class="data-card knowledge-breakdown">
+                    <div class="card-heading"><span>B</span><h3>Nutrition knowledge breakdown</h3></div>
+                    <div class="bar-list">
+                        <div class="bar-row"><p>Procedural knowledge</p><span><i style="--value:85.5%"></i></span><b>85.5%</b></div>
+                        <div class="bar-row"><p>Nutrient-content knowledge</p><span><i style="--value:69.7%"></i></span><b>69.7%</b></div>
+                        <div class="bar-row bar-row-warm"><p>Calorie knowledge</p><span><i style="--value:46.1%"></i></span><b>46.1%</b></div>
                     </div>
-                </figure>
+                    <p class="callout"><i class="ph ph-leaf" aria-hidden="true"></i> Students understand basic healthy eating principles, but struggle more with calories and nutrient specifics.</p>
+                </article>
+
+                <article class="data-card eating-signals">
+                    <div class="card-heading"><span>C</span><h3>Eating pattern signals</h3></div>
+                    <div class="signal-list">
+                        <div class="signal-row protective"><i class="ph ph-plant" aria-hidden="true"></i><p>Vegetables</p><span><b style="--value:21.2%"></b></span><em>21.2%</em></div>
+                        <div class="signal-row protective"><i class="ph ph-seedling" aria-hidden="true"></i><p>Legumes, nuts, seeds</p><span><b style="--value:27.7%"></b></span><em>27.7%</em></div>
+                        <div class="signal-row limit"><i class="ph ph-hamburger" aria-hidden="true"></i><p>Processed meats</p><span><b style="--value:65%"></b></span><em>65.0%</em></div>
+                        <div class="signal-row limit"><i class="ph ph-cookie" aria-hidden="true"></i><p>Processed snacks and sweets</p><span><b style="--value:53.7%"></b></span><em>53.7%</em></div>
+                        <div class="signal-row limit"><i class="ph ph-coffee" aria-hidden="true"></i><p>Sugar-sweetened beverages</p><span><b style="--value:40%"></b></span><em>40.0%</em></div>
+                        <div class="signal-row limit"><i class="ph ph-bowl-steam" aria-hidden="true"></i><p>Fast food</p><span><b style="--value:29.6%"></b></span><em>29.6%</em></div>
+                    </div>
+                    <div class="signal-legend"><span><b></b> Protective foods under-consumed</span><span><b></b> Foods to limit over-consumed</span></div>
+                </article>
+
+                <article class="data-card predictors">
+                    <div class="card-heading"><span>D</span><h3>Predictors of better diet quality</h3></div>
+                    <div class="predictor-list">
+                        <div class="predictor-row"><p><i class="ph ph-person-simple-run" aria-hidden="true"></i> Physical activity</p><span><b style="--x:92%"></b></span><em>beta = 0.0029<br/><small>p &lt; 0.001</small></em></div>
+                        <div class="predictor-row"><p><i class="ph ph-calendar" aria-hidden="true"></i> Age</p><span><b style="--x:82%"></b></span><em>beta = 0.1284<br/><small>p = 0.005</small></em></div>
+                        <div class="predictor-row"><p><i class="ph ph-book-open-text" aria-hidden="true"></i> Nutrition knowledge</p><span><b style="--x:72%"></b></span><em>beta = 0.1102<br/><small>p = 0.014</small></em></div>
+                        <div class="predictor-row muted"><p><i class="ph ph-user" aria-hidden="true"></i> Sex</p><span><b style="--x:48%"></b></span><em>Not significant</em></div>
+                    </div>
+                    <p class="callout"><i class="ph ph-leaf" aria-hidden="true"></i> More active students, older students, and those with stronger nutrition knowledge tend to have better diet quality. <strong>Model R2 = 0.538</strong></p>
+                </article>
             </div>
         </section>
 
-        <section class="story-section" aria-labelledby="nutrition-evidence-title">
-            <div class="section-container">
-                <div class="story-section-center reveal">
-                    <p class="story-kicker">Campus reality</p>
-                    <h2 id="nutrition-evidence-title">Evidence at a glance</h2>
-                </div>
-                <div class="story-card-grid story-card-grid-3">
-                    <article class="story-card story-image-card reveal"><img alt="Generated campus meal options for student diet quality research" decoding="async" loading="eager" src="./assets/generated-nutrition/student-diet-meals.webp"/><div><p>Time pressure favors quick, less nutritious choices.</p><i class="ph ph-leaf" aria-hidden="true"></i></div></article>
-                    <article class="story-card story-image-card reveal"><img alt="Generated balanced bowl for Vietnamese student diet quality research" decoding="async" loading="lazy" src="./assets/generated-nutrition/student-diet-bowl.webp"/><div><p>Healthy options are available, but not the default.</p><i class="ph ph-leaf" aria-hidden="true"></i></div></article>
-                    <article class="story-card story-image-card reveal"><img alt="Generated Vietnamese university campus context for the diet quality study" decoding="async" loading="lazy" src="./assets/generated-nutrition/student-diet-campus.webp"/><div><p>Knowledge and activity vary widely across students.</p><i class="ph ph-leaf" aria-hidden="true"></i></div></article>
-                </div>
+        <section class="shortfall-section" aria-labelledby="shortfall-title">
+            <img class="shortfall-leaf shortfall-left" alt="" aria-hidden="true" loading="lazy" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
+            <img class="shortfall-leaf shortfall-right" alt="" aria-hidden="true" loading="lazy" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
+            <div class="section-rule-title">
+                <span></span>
+                <h2 id="shortfall-title">Why diet quality is falling short</h2>
+                <span></span>
+            </div>
+            <div class="shortfall-grid">
+                <article><i class="ph ph-shopping-cart" aria-hidden="true"></i><h3>Convenience wins</h3><p>Processed meats, snacks, and sugary drinks are common on campus.</p></article>
+                <article><i class="ph ph-leaf" aria-hidden="true"></i><h3>Protective foods lag</h3><p>Vegetables, legumes, and fruit remain below ideal levels in student diets.</p></article>
+                <article><i class="ph ph-head-circuit" aria-hidden="true"></i><h3>Knowledge-action gap</h3><p>Students know some basics, but daily choices are shaped by campus reality and routine.</p></article>
             </div>
         </section>
 
-        <section class="story-section story-pathway-section" aria-labelledby="nutrition-pathway-title">
-            <div class="section-container">
-                <div class="story-section-center reveal">
-                    <p class="story-kicker">Intervention pathway</p>
-                    <h2 id="nutrition-pathway-title">Three levers for healthier campuses</h2>
-                </div>
-                <div class="story-pathway">
-                    <article class="story-path-step reveal"><span>1</span><i class="ph ph-bowl-steam" aria-hidden="true"></i><h3>Healthy Defaults</h3><p>Make nutritious choices the easy choice.</p></article>
-                    <article class="story-path-step reveal"><span>2</span><i class="ph ph-book-open-text" aria-hidden="true"></i><h3>Nutrition Education</h3><p>Build practical knowledge for everyday decisions.</p></article>
-                    <article class="story-path-step reveal"><span>3</span><i class="ph ph-sneaker" aria-hidden="true"></i><h3>Activity Nudges</h3><p>Encourage movement in simple, fun ways.</p></article>
-                </div>
+        <section class="implication-section" aria-labelledby="implications-title">
+            <div class="section-rule-title compact-title">
+                <span></span>
+                <h2 id="implications-title">Design implications for healthier campuses</h2>
+                <span></span>
+            </div>
+            <div class="implication-row">
+                <article><span>1</span><i class="ph ph-bowl-food" aria-hidden="true"></i><h3>Healthy defaults</h3><p>Make nutritious meals the easy option at cafeterias.</p></article>
+                <article><span>2</span><i class="ph ph-book-open-text" aria-hidden="true"></i><h3>Nutrition education</h3><p>Close gaps in calorie and nutrient understanding.</p></article>
+                <article><span>3</span><i class="ph ph-sneaker" aria-hidden="true"></i><h3>Active campus routines</h3><p>Promote movement as part of daily student life.</p></article>
+                <article><span>4</span><i class="ph ph-storefront" aria-hidden="true"></i><h3>Better food environments</h3><p>Reduce friction around healthier food access.</p></article>
             </div>
         </section>
 
-        <section class="story-closing story-closing-green reveal">
-            <img class="nutrition-closing-botanical" alt="" aria-hidden="true" loading="lazy" src="./assets/generated-nutrition/student-diet-botanical.webp"/>
-            <div class="section-container story-closing-grid">
-                <div><span class="story-quote-mark" aria-hidden="true">"</span><h2>Better knowledge. Better habits.<br/>Better health for every student.</h2><p>Evidence-driven nudges can turn small choices today into lifelong well-being.</p></div>
-                <div class="story-closing-contact"><span><i class="ph ph-envelope" aria-hidden="true"></i> daichunghy@gmail.com</span><span><i class="ph ph-map-pin" aria-hidden="true"></i> Ho Chi Minh City, Vietnam</span></div>
+        <section class="closing-band" aria-label="Research takeaway">
+            <img alt="Healthy student meal and water on a study table" loading="lazy" src="./assets/generated-nutrition/student-diet-meals.webp"/>
+            <div>
+                <h2>Better student diets require more than awareness alone.</h2>
+                <p>Knowledge, activity, and supportive campus environments must work together.</p>
             </div>
+            <i class="ph ph-leaf" aria-hidden="true"></i>
         </section>
+
+        <footer class="nutrition-footer">
+            <div><span class="leaf-mark"><i class="ph ph-leaf" aria-hidden="true"></i></span><p><b>Hy Chung Dai</b><br/>Health Behavior Researcher</p></div>
+            <p>Statistical Modeling</p>
+            <p>Consumer Insights</p>
+            <p>Research for healthier choices and better campus lives.</p>
+        </footer>
     </main>
-
-    <footer class="footer">
-        <div class="footer-glow glow-1"></div>
-        <div class="footer-glow glow-2"></div>
-        <div class="footer-glow glow-3"></div>
-        <div class="footer-container layer-above-bg reveal active">
-            <h2 class="footer-heading">Review the research portfolio.</h2>
-            <p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
-            <div class="footer-contact-info reveal active">
-                <a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
-                <span class="divider">|</span>
-                <span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
-            </div>
-            <div class="footer-bottom"><p>&copy; 2026 Chung Hy Dai.</p></div>
-        </div>
-    </footer>
-
-    <div id="image-modal" class="modal-overlay">
-        <span class="modal-close" role="button" tabindex="0" aria-label="Close image modal">x</span>
-        <img class="modal-content" id="modal-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Zoomed in context" width="1600" height="1000"/>
-    </div>
 
     <script defer src="js/main.js" type="module"></script>
 </body>
