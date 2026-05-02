@@ -1900,11 +1900,13 @@ html.js .page-research-hotel-value .reveal-on-load {
 
 .page-research-hotel-value .hvf-storyboard {
     position: relative;
-    padding: 4rem 0 3.4rem;
+    margin-top: -1px;
+    padding: 4.25rem 0 3.25rem;
     background:
         radial-gradient(circle at 0 38%, rgba(56, 120, 82, 0.12), transparent 14rem),
         radial-gradient(circle at 98% 16%, rgba(160, 103, 43, 0.12), transparent 11rem),
         linear-gradient(180deg, #fff7e8, #fffaf0 72%, #f8eddf);
+    clip-path: polygon(0 18px, 11% 8px, 28% 19px, 43% 10px, 61% 21px, 78% 9px, 100% 18px, 100% 100%, 0 100%);
     overflow: hidden;
 }
 
@@ -1939,9 +1941,14 @@ html.js .page-research-hotel-value .reveal-on-load {
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 0.24fr 1fr;
-    gap: 1.15rem;
+    grid-template-columns: minmax(245px, 0.32fr) 1fr;
+    gap: 1.45rem;
     align-items: center;
+}
+
+.page-research-hotel-value .hvf-storyboard .hvf-section-copy {
+    transform: rotate(-0.8deg);
+    transform-origin: 0 50%;
 }
 
 .page-research-hotel-value .hvf-method-collage {
@@ -1976,7 +1983,7 @@ html.js .page-research-hotel-value .reveal-on-load {
 .page-research-hotel-value .hvf-storyboard-collage img {
     display: block;
     width: 100%;
-    height: 170px;
+    height: 186px;
     object-fit: cover;
     object-position: center;
 }
@@ -1984,18 +1991,18 @@ html.js .page-research-hotel-value .reveal-on-load {
 .page-research-hotel-value .hvf-method-strip {
     position: relative;
     list-style: none;
-    margin: -1.1rem 1rem 0;
-    padding: 1.08rem 0.9rem 0.92rem;
+    margin: -1.35rem 0.7rem 0;
+    padding: 1.16rem 0.95rem 0.98rem;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 0.72rem;
-    border-radius: 24px 18px 28px 20px;
+    border-radius: 30px 18px 32px 20px;
     border: 1px solid rgba(13, 52, 68, 0.12);
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 250, 240, 0.7)),
         repeating-linear-gradient(0deg, transparent 0 25px, rgba(13, 52, 68, 0.04) 26px 27px);
     box-shadow: 0 18px 30px rgba(13, 52, 68, 0.13);
-    transform: rotate(0.4deg);
+    transform: rotate(0.55deg);
     z-index: 2;
 }
 
@@ -2031,6 +2038,13 @@ html.js .page-research-hotel-value .reveal-on-load {
 .page-research-hotel-value .hvf-method-strip li:nth-child(3) {
     margin-top: -0.35rem;
     border-radius: 22px 12px 20px 14px;
+    transform: rotate(-1.8deg);
+}
+
+.page-research-hotel-value .hvf-method-strip li:nth-child(5) {
+    margin-top: 0.25rem;
+    border-radius: 14px 24px 18px 22px;
+    transform: rotate(0.9deg);
 }
 
 .page-research-hotel-value .hvf-method-strip li::after {
@@ -2079,10 +2093,11 @@ html.js .page-research-hotel-value .reveal-on-load {
 
 .page-research-hotel-value .hvf-impact {
     position: relative;
-    padding-top: 3.8rem;
+    padding: 4.25rem 0 4rem;
     background:
-        radial-gradient(circle at 10% 80%, rgba(21, 111, 95, 0.1), transparent 15rem),
-        radial-gradient(circle at 84% 8%, rgba(37, 146, 159, 0.12), transparent 17rem),
+        radial-gradient(circle at 10% 80%, rgba(21, 111, 95, 0.12), transparent 15rem),
+        radial-gradient(circle at 84% 8%, rgba(37, 146, 159, 0.14), transparent 17rem),
+        linear-gradient(105deg, rgba(255, 247, 232, 0.6), transparent 38%),
         #f8eddf;
     overflow: hidden;
 }
@@ -2093,12 +2108,12 @@ html.js .page-research-hotel-value .reveal-on-load {
     top: -1px;
     left: 0;
     width: 100%;
-    height: 42px;
+    height: 62px;
     background:
-        radial-gradient(120% 38px at 12% 0, #fff7e8 66%, transparent 68%),
-        radial-gradient(120% 38px at 40% 0, #fff7e8 66%, transparent 68%),
-        radial-gradient(120% 38px at 68% 0, #fff7e8 66%, transparent 68%),
-        radial-gradient(120% 38px at 96% 0, #fff7e8 66%, transparent 68%);
+        radial-gradient(120% 48px at 12% 0, #fff7e8 64%, transparent 66%),
+        radial-gradient(120% 58px at 40% 0, #fff7e8 64%, transparent 66%),
+        radial-gradient(120% 46px at 68% 0, #fff7e8 64%, transparent 66%),
+        radial-gradient(120% 56px at 96% 0, #fff7e8 64%, transparent 66%);
 }
 
 .page-research-hotel-value .hvf-impact-grid {
@@ -2106,7 +2121,7 @@ html.js .page-research-hotel-value .reveal-on-load {
     z-index: 1;
     display: grid;
     grid-template-columns: 0.92fr 1.08fr 0.46fr;
-    gap: 1.15rem;
+    gap: 1.3rem;
     align-items: center;
 }
 
@@ -2183,8 +2198,9 @@ html.js .page-research-hotel-value .reveal-on-load {
 .page-research-hotel-value .hvf-action-panel {
     background: #e9f7ef;
     box-shadow: 0 14px 28px rgba(19, 82, 68, 0.12);
-    border-radius: 22px 32px 20px 28px;
-    transform: rotate(0.7deg);
+    border-radius: 24px 36px 22px 30px;
+    margin-top: -0.7rem;
+    transform: rotate(1deg);
 }
 
 .page-research-hotel-value .hvf-action-row {
@@ -2218,11 +2234,12 @@ html.js .page-research-hotel-value .reveal-on-load {
 .page-research-hotel-value .hvf-impact-photos {
     position: relative;
     min-height: 344px;
+    transform: rotate(0.8deg);
 }
 
 .page-research-hotel-value .hvf-impact-photos img {
     position: absolute;
-    width: 100%;
+    width: 106%;
     height: 180px;
     min-height: 0;
     object-fit: cover;
@@ -2232,15 +2249,15 @@ html.js .page-research-hotel-value .reveal-on-load {
 }
 
 .page-research-hotel-value .hvf-impact-photos img:first-child {
-    top: 0;
-    right: 0.1rem;
-    transform: rotate(2.5deg);
+    top: 0.2rem;
+    right: -0.55rem;
+    transform: rotate(3.5deg);
 }
 
 .page-research-hotel-value .hvf-impact-photos img:last-child {
-    right: -0.25rem;
-    bottom: 0;
-    transform: rotate(-2.5deg);
+    right: 0.15rem;
+    bottom: -0.15rem;
+    transform: rotate(-3deg);
     border-radius: 18px 28px 16px 24px;
 }
 
