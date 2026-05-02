@@ -12319,6 +12319,11 @@ html.js .page-research-detail .project-brief-media.active {
     overflow-x: hidden;
 }
 
+.case-motorbike.motorbike-poster-page > .footer,
+.case-motorbike.motorbike-poster-page .mbp-reference-list {
+    display: none;
+}
+
 .case-motorbike.motorbike-poster-page .navbar {
     top: 0;
     left: 0;
