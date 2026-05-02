@@ -1,0 +1,483 @@
+body.project-left-banner {
+    --eco-bg: #fbf7ee;
+    --eco-paper: #fffdf8;
+    --eco-ink: #071b35;
+    --eco-muted: #43556b;
+    --eco-soft: #e6dac7;
+    --eco-line: rgba(67, 85, 107, 0.22);
+    --eco-teal: #08776e;
+    --eco-gold: #b98532;
+    --eco-sidebar: 292px;
+    padding-left: var(--eco-sidebar);
+}
+
+body.project-left-banner .project-home-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 70;
+    width: var(--eco-sidebar);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    align-content: start;
+    box-sizing: border-box;
+    padding: 3.75rem 2.15rem 2.05rem;
+    border-right: 1px solid var(--eco-line);
+    color: var(--eco-ink);
+    background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.88), rgba(251, 247, 238, 0.76)),
+        rgba(255, 253, 248, 0.72);
+    overflow: hidden;
+}
+
+body.project-left-banner .project-home-sidebar::before,
+body.project-left-banner .project-home-sidebar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.project-left-banner .project-home-sidebar::before {
+    background:
+        radial-gradient(ellipse 132px 158px at -18px 12px, rgba(75, 122, 122, 0.28) 0 63%, transparent 64%),
+        radial-gradient(ellipse 106px 126px at 36px 72px, rgba(89, 139, 134, 0.14) 0 58%, transparent 59%),
+        radial-gradient(ellipse at 100% 95%, rgba(94, 133, 132, 0.18) 0 23%, transparent 24%),
+        radial-gradient(ellipse at 42% 100%, rgba(93, 134, 132, 0.16) 0 22%, transparent 23%);
+}
+
+body.project-left-banner .project-home-sidebar::after {
+    background:
+        radial-gradient(circle at 59% 2.8%, rgba(185, 133, 50, 0.58) 0 2px, transparent 3px),
+        radial-gradient(circle at 67% 1.7%, rgba(185, 133, 50, 0.38) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 75% 3.8%, rgba(185, 133, 50, 0.46) 0 2px, transparent 3px),
+        radial-gradient(circle at 48% 61%, rgba(185, 133, 50, 0.6) 0 3px, transparent 4px),
+        radial-gradient(circle at 57% 66%, rgba(185, 133, 50, 0.62) 0 3px, transparent 4px),
+        radial-gradient(circle at 78% 61%, rgba(185, 133, 50, 0.5) 0 3px, transparent 4px);
+    opacity: 0.82;
+}
+
+body.project-left-banner .project-home-sidebar > * {
+    position: relative;
+    z-index: 1;
+}
+
+body.project-left-banner .side-profile {
+    text-align: center;
+    padding-bottom: 1.7rem;
+}
+
+body.project-left-banner .side-avatar {
+    position: relative;
+    box-sizing: border-box;
+    width: 136px;
+    height: 136px;
+    margin: 0 auto 1.18rem;
+    padding: 9px;
+    border: 1px solid rgba(230, 218, 199, 0.95);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.9);
+    box-shadow:
+        0 0 0 10px rgba(255, 253, 248, 0.64),
+        0 0 0 12px rgba(230, 218, 199, 0.54),
+        0 18px 38px rgba(48, 42, 32, 0.12);
+}
+
+body.project-left-banner .side-avatar picture,
+body.project-left-banner .side-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+body.project-left-banner .side-avatar picture {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+body.project-left-banner .side-avatar img {
+    border-radius: inherit;
+    object-fit: cover;
+    object-position: 52% 38%;
+}
+
+body.project-left-banner .side-avatar::before {
+    content: "";
+    position: absolute;
+    inset: -22px;
+    border: 1px solid rgba(185, 133, 50, 0.2);
+    border-right-color: rgba(8, 119, 110, 0.18);
+    border-radius: inherit;
+    transform: rotate(-13deg);
+}
+
+body.project-left-banner .side-avatar::after {
+    content: "";
+    position: absolute;
+    right: -32px;
+    bottom: -5px;
+    width: 58px;
+    height: 72px;
+    border-right: 1px solid rgba(185, 133, 50, 0.5);
+    border-bottom: 1px solid rgba(185, 133, 50, 0.38);
+    border-radius: 58% 44% 68% 40%;
+    transform: rotate(-34deg);
+}
+
+body.project-left-banner .side-avatar span {
+    position: absolute;
+    right: 9px;
+    bottom: 23px;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    border: 4px solid var(--eco-paper);
+    border-radius: 999px;
+    background: var(--eco-teal);
+}
+
+body.project-left-banner .side-profile h1 {
+    margin: 0;
+    color: var(--eco-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.88rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0;
+}
+
+body.project-left-banner .side-profile p {
+    margin: 0.65rem 0 0;
+    color: var(--eco-teal);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+body.project-left-banner .side-profile p::after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 1px;
+    margin: 1.12rem auto 0;
+    background: var(--eco-gold);
+}
+
+body.project-left-banner .side-nav {
+    display: grid;
+    gap: 0.6rem;
+    width: 214px;
+    margin: 0 auto;
+    padding: 1.34rem 0 0.8rem;
+}
+
+body.project-left-banner .side-nav a {
+    position: relative;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    align-items: center;
+    gap: 0.82rem;
+    min-height: 41px;
+    padding: 0 1rem;
+    border: 1px solid rgba(223, 213, 198, 0.9);
+    border-radius: 9px;
+    color: var(--eco-ink);
+    background: rgba(255, 253, 248, 0.82);
+    box-shadow:
+        0 10px 20px rgba(48, 42, 32, 0.085),
+        inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.91rem;
+    font-weight: 650;
+    line-height: 1;
+    text-decoration: none;
+}
+
+body.project-left-banner .side-nav a::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 6px;
+    width: 3px;
+    height: calc(100% - 12px);
+    border-radius: 999px;
+    background: transparent;
+}
+
+body.project-left-banner .side-nav a.is-active::before,
+body.project-left-banner .side-nav a:hover::before,
+body.project-left-banner .side-nav a:focus-visible::before {
+    background: var(--eco-teal);
+}
+
+body.project-left-banner .side-nav a.is-active,
+body.project-left-banner .side-nav a:hover,
+body.project-left-banner .side-nav a:focus-visible {
+    border-color: rgba(8, 119, 110, 0.24);
+    background: rgba(255, 253, 248, 0.96);
+    color: var(--eco-teal);
+}
+
+body.project-left-banner .side-nav i {
+    color: var(--eco-ink);
+    font-size: 1.15rem;
+}
+
+body.project-left-banner .side-nav a.is-active i,
+body.project-left-banner .side-nav a:hover i,
+body.project-left-banner .side-nav a:focus-visible i {
+    color: var(--eco-teal);
+}
+
+body.project-left-banner .side-art {
+    position: relative;
+    align-self: end;
+    min-height: 286px;
+    margin: 0 -2.15rem -0.25rem;
+    pointer-events: none;
+}
+
+body.project-left-banner .side-art::before,
+body.project-left-banner .side-art::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-repeat: no-repeat;
+    opacity: 0.78;
+}
+
+body.project-left-banner .side-art::before {
+    bottom: 56px;
+    height: 208px;
+    background:
+        linear-gradient(150deg, transparent 0 47%, rgba(50, 103, 107, 0.28) 48% 62%, transparent 63%) 0 42px / 214px 116px no-repeat,
+        linear-gradient(135deg, transparent 0 44%, rgba(75, 125, 127, 0.25) 45% 63%, transparent 64%) 58px 26px / 238px 132px no-repeat,
+        linear-gradient(22deg, transparent 0 36%, rgba(113, 151, 148, 0.18) 37% 58%, transparent 59%) -22px 72px / 336px 86px no-repeat,
+        radial-gradient(ellipse at 34% 78%, rgba(62, 117, 120, 0.18) 0 19%, transparent 20%),
+        radial-gradient(ellipse at 62% 85%, rgba(77, 132, 135, 0.16) 0 23%, transparent 24%);
+}
+
+body.project-left-banner .side-art::after {
+    bottom: 32px;
+    height: 122px;
+    background:
+        linear-gradient(178deg, transparent 0 31%, rgba(255, 253, 248, 0.35) 32% 42%, transparent 43%),
+        radial-gradient(ellipse at 28% 64%, rgba(53, 112, 120, 0.22) 0 32%, transparent 33%),
+        radial-gradient(ellipse at 50% 64%, rgba(251, 247, 238, 0.62) 0 26%, transparent 27%),
+        radial-gradient(ellipse at 76% 58%, rgba(61, 122, 126, 0.21) 0 31%, transparent 32%);
+}
+
+body.project-left-banner .wash {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+body.project-left-banner .wash-a {
+    right: 30px;
+    bottom: 103px;
+    width: 10px;
+    height: 64px;
+    border-radius: 1px 1px 0 0;
+    background: linear-gradient(180deg, rgba(32, 94, 98, 0.54), rgba(32, 94, 98, 0.22));
+    box-shadow:
+        -18px 16px 0 -1px rgba(32, 94, 98, 0.38),
+        -36px 31px 0 -2px rgba(32, 94, 98, 0.28),
+        -54px 47px 0 -3px rgba(32, 94, 98, 0.18);
+}
+
+body.project-left-banner .wash-b {
+    left: 112px;
+    top: 22px;
+    width: 122px;
+    height: 76px;
+    border-top: 1px dashed rgba(185, 133, 50, 0.28);
+    transform: rotate(22deg);
+}
+
+body.project-left-banner .wash-b::before,
+body.project-left-banner .wash-b::after {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    background: rgba(185, 133, 50, 0.64);
+}
+
+body.project-left-banner .wash-b::before {
+    left: 7px;
+    top: -4px;
+    width: 7px;
+    height: 7px;
+    box-shadow: 57px 8px 0 -1px rgba(185, 133, 50, 0.58), 104px -9px 0 0 rgba(185, 133, 50, 0.5);
+}
+
+body.project-left-banner .wash-b::after {
+    left: 102px;
+    top: 48px;
+    width: 11px;
+    height: 11px;
+    border: 1px solid rgba(185, 133, 50, 0.5);
+    background: transparent;
+}
+
+body.project-left-banner .reed {
+    position: absolute;
+    bottom: 10px;
+    width: 1px;
+    height: 104px;
+    background: rgba(135, 93, 35, 0.82);
+    transform-origin: bottom;
+}
+
+body.project-left-banner .reed::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    left: -3px;
+    width: 7px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(135, 93, 35, 0.55);
+    transform: rotate(24deg);
+}
+
+body.project-left-banner .reed-a {
+    left: 86px;
+    bottom: 31px;
+    height: 92px;
+    transform: rotate(-21deg);
+}
+
+body.project-left-banner .reed-b {
+    left: 155px;
+    bottom: 28px;
+    height: 122px;
+    transform: rotate(16deg);
+}
+
+body.project-left-banner .reed-c {
+    left: 198px;
+    bottom: 34px;
+    height: 85px;
+    transform: rotate(34deg);
+}
+
+body.project-left-banner .side-quote {
+    position: relative;
+    width: 210px;
+    box-sizing: border-box;
+    margin: 0 auto 0.35rem;
+    padding: 1.28rem 1.22rem 1.12rem;
+    border: 1px solid rgba(230, 218, 199, 0.96);
+    border-radius: 24px 24px 24px 8px;
+    color: #48637a;
+    background: rgba(255, 253, 248, 0.9);
+    box-shadow: 0 18px 36px rgba(48, 42, 32, 0.12);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.52;
+}
+
+body.project-left-banner .side-quote::before {
+    content: "\201C";
+    display: inline-block;
+    margin-right: 0.32rem;
+    color: var(--eco-teal);
+    font-size: 1.7rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 0;
+    vertical-align: -0.35rem;
+}
+
+body.project-left-banner .side-quote::after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin-top: 0.82rem;
+    background: var(--eco-gold);
+}
+
+@media (max-width: 860px) {
+    body.project-left-banner {
+        padding-left: 0;
+    }
+
+    body.project-left-banner .project-home-sidebar {
+        position: relative;
+        width: auto;
+        height: auto;
+        display: block;
+        padding: 1.25rem 1rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--eco-soft);
+    }
+
+    body.project-left-banner .side-profile {
+        display: grid;
+        grid-template-columns: 78px 1fr;
+        column-gap: 1rem;
+        align-items: center;
+        padding-bottom: 1rem;
+        text-align: left;
+    }
+
+    body.project-left-banner .side-avatar {
+        width: 78px;
+        height: 78px;
+        grid-row: span 2;
+        margin: 0;
+        padding: 4px;
+        box-shadow: 0 0 0 1px rgba(230, 218, 199, 0.9);
+    }
+
+    body.project-left-banner .side-avatar::before,
+    body.project-left-banner .side-avatar::after {
+        display: none;
+    }
+
+    body.project-left-banner .side-avatar span {
+        right: 2px;
+        bottom: 11px;
+        width: 10px;
+        height: 10px;
+        border-width: 3px;
+    }
+
+    body.project-left-banner .side-profile h1 {
+        font-size: 1.46rem;
+    }
+
+    body.project-left-banner .side-nav {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 0.45rem;
+        width: auto;
+        padding: 1rem 0 0;
+    }
+
+    body.project-left-banner .side-nav a {
+        display: flex;
+        justify-content: center;
+        gap: 0;
+        min-height: 44px;
+        padding: 0;
+        border: 1px solid var(--eco-soft);
+        border-radius: 999px;
+        background: rgba(255, 253, 248, 0.72);
+    }
+
+    body.project-left-banner .side-nav a::before,
+    body.project-left-banner .side-nav span,
+    body.project-left-banner .side-art,
+    body.project-left-banner .side-quote {
+        display: none;
+    }
+}
