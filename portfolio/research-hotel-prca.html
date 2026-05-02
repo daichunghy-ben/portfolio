@@ -33,6 +33,7 @@
     --poster-rule: rgba(38, 52, 48, 0.14);
     --poster-rule-strong: rgba(55, 71, 65, 0.24);
     --poster-shadow: 0 16px 34px rgba(37, 39, 34, 0.08);
+    --poster-leaf-sprig: url("data:image/svg+xml,%3Csvg width='154' height='244' viewBox='0 0 154 244' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M77 236C68 187 74 140 95 94C109 62 127 35 145 10' stroke='%23b88950' stroke-width='1.15' stroke-linecap='round'/%3E%3Cpath d='M87 179C61 178 44 187 32 205C57 206 75 197 87 179Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M79 154C51 147 28 153 9 171C36 179 62 170 79 154Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M89 127C64 116 41 117 19 130C44 143 70 140 89 127Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M101 99C78 85 55 81 31 90C53 108 79 111 101 99Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M113 73C98 50 79 37 55 33C69 58 90 73 113 73Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M116 151C136 137 145 119 144 96C122 110 112 129 116 151Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M106 188C130 180 144 164 149 142C124 150 110 165 106 188Z' stroke='%23b88950' stroke-width='1'/%3E%3Cpath d='M94 218C116 218 133 209 145 190C121 190 104 199 94 218Z' stroke='%23b88950' stroke-width='1'/%3E%3C/svg%3E");
 }
 
 html {
@@ -94,7 +95,10 @@ body.page-research-prca-poster {
     overflow: hidden;
     border: 1px solid rgba(87, 102, 93, 0.16);
     border-radius: 18px;
-    background: var(--poster-paper);
+    background:
+        radial-gradient(circle at 93% 8%, rgba(184, 137, 80, 0.09), transparent 24%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(250, 246, 238, 0.88)),
+        var(--poster-paper);
     box-shadow: 0 28px 70px rgba(42, 40, 34, 0.11);
     padding: 18px 18px 22px;
 }
@@ -126,6 +130,45 @@ body.page-research-prca-poster {
     transform: rotate(15deg);
 }
 
+.poster-botanical {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    width: 154px;
+    height: 244px;
+    background-image: var(--poster-leaf-sprig);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.18;
+}
+
+.poster-botanical-left {
+    left: -34px;
+    top: 690px;
+    transform: rotate(-6deg);
+}
+
+.poster-botanical-right {
+    right: -38px;
+    top: 1010px;
+    transform: scaleX(-1) rotate(-4deg);
+}
+
+.poster-botanical-lower {
+    right: -20px;
+    bottom: 132px;
+    transform: scaleX(-1) rotate(6deg);
+    opacity: 0.2;
+}
+
+.research-detail-hero,
+.kpi-strip,
+.poster-rows,
+.poster-cta {
+    position: relative;
+    z-index: 1;
+}
+
 .research-detail-hero.prca-hero {
     padding: 0;
     position: relative;
@@ -153,6 +196,10 @@ body.page-research-prca-poster {
     color: var(--poster-green);
 }
 
+.poster-back-link i {
+    font-size: 0.92rem;
+}
+
 .prca-hero-grid {
     margin-top: 16px;
     display: grid;
@@ -164,9 +211,10 @@ body.page-research-prca-poster {
 .prca-kicker {
     margin-bottom: 14px;
     color: var(--poster-green);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     font-weight: 800;
     text-transform: uppercase;
+    letter-spacing: 0.09em;
 }
 
 .prca-hero-title {
@@ -225,6 +273,16 @@ body.page-research-prca-poster {
     font-size: 1rem;
 }
 
+.fact-icon {
+    width: 25px;
+    height: 25px;
+    border-color: rgba(23, 42, 45, 0.42);
+    border-radius: 6px;
+    background: rgba(255, 253, 248, 0.5);
+    color: #26383b;
+    font-size: 0.95rem;
+}
+
 .prca-hero-facts small,
 .poster-label,
 .metric-label,
@@ -248,19 +306,30 @@ body.page-research-prca-poster {
 
 .prca-hero-media {
     position: relative;
-    min-height: 400px;
+    min-height: 410px;
     border-radius: 24px;
     overflow: hidden;
     background: #d7e1d9;
+    box-shadow: inset 0 0 0 1px rgba(255, 253, 248, 0.42);
 }
 
 .prca-hero-media img {
     display: block;
     width: 100%;
-    height: 400px;
+    height: 410px;
     object-fit: cover;
-    object-position: 48% 50%;
+    object-position: 48% 48%;
     filter: saturate(1.03) contrast(1.02);
+}
+
+.prca-hero-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, rgba(8, 30, 27, 0.12), transparent 33%, rgba(255, 253, 248, 0.06)),
+        linear-gradient(0deg, rgba(13, 47, 43, 0.12), transparent 33%);
 }
 
 .hero-insights {
@@ -274,6 +343,15 @@ body.page-research-prca-poster {
     box-shadow: 0 22px 48px rgba(20, 25, 22, 0.26);
     padding: 18px 18px 15px;
     backdrop-filter: blur(8px);
+}
+
+.hero-insights::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255, 247, 232, 0.1);
+    border-radius: 6px;
+    pointer-events: none;
 }
 
 .hero-insights h2 {
@@ -351,20 +429,34 @@ body.page-research-prca-poster {
     margin-top: 24px;
     border: 1px solid rgba(184, 137, 80, 0.28);
     border-radius: 8px;
-    background: #fffaf2;
+    background:
+        linear-gradient(180deg, rgba(255, 253, 248, 0.78), rgba(255, 247, 236, 0.92)),
+        #fffaf2;
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
-    box-shadow: var(--poster-shadow);
+    box-shadow: var(--poster-shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    overflow: hidden;
 }
 
 .metric-tile {
     min-width: 0;
+    position: relative;
     display: grid;
-    grid-template-columns: 34px minmax(0, 1fr);
-    gap: 10px;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 9px;
     align-items: center;
-    padding: 14px 13px;
+    padding: 14px 11px;
     border-right: 1px solid rgba(184, 137, 80, 0.24);
+}
+
+.metric-tile::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.76);
 }
 
 .metric-tile:last-child {
@@ -372,20 +464,21 @@ body.page-research-prca-poster {
 }
 
 .metric-icon {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     color: var(--poster-deep);
     background: #f4f7ef;
+    box-shadow: 0 0 0 4px rgba(255, 253, 248, 0.75);
 }
 
 .metric-label {
     margin-bottom: 2px;
-    white-space: nowrap;
+    line-height: 1.12;
 }
 
 .metric-value {
     color: #1a2c32;
-    font-size: 1.02rem;
+    font-size: 0.98rem;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -403,6 +496,7 @@ body.page-research-prca-poster {
 }
 
 .poster-row {
+    position: relative;
     display: grid;
     grid-template-columns: 166px minmax(0, 1fr);
     border: 1px solid rgba(74, 96, 88, 0.14);
@@ -412,7 +506,19 @@ body.page-research-prca-poster {
     overflow: hidden;
 }
 
+.poster-row::before {
+    content: "";
+    position: absolute;
+    left: 166px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(184, 137, 80, 0.36), transparent);
+    pointer-events: none;
+}
+
 .row-label {
+    position: relative;
     min-width: 0;
     padding: 14px 16px;
     border-right: 1px solid rgba(74, 96, 88, 0.12);
@@ -443,6 +549,9 @@ body.page-research-prca-poster {
 .row-body {
     min-width: 0;
     padding: 12px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.36), transparent 54%),
+        rgba(255, 253, 248, 0.46);
 }
 
 .glance-grid {
@@ -457,7 +566,9 @@ body.page-research-prca-poster {
     list-style: none;
     border: 1px solid rgba(74, 96, 88, 0.12);
     border-radius: 8px;
-    background: #fffdfa;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 250, 242, 0.72)),
+        #fffdfa;
 }
 
 .glance-points li {
@@ -485,7 +596,9 @@ body.page-research-prca-poster {
 .core-table {
     border: 1px solid rgba(74, 96, 88, 0.12);
     border-radius: 8px;
-    background: #fffdfa;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 250, 242, 0.68)),
+        #fffdfa;
     padding: 11px;
 }
 
@@ -534,14 +647,27 @@ body.page-research-prca-poster {
 }
 
 .kano-card {
+    position: relative;
+    overflow: hidden;
     min-height: 132px;
     border: 1px solid var(--tone-rule);
     border-radius: 8px;
-    background: var(--tone-bg);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.74), transparent 44%),
+        var(--tone-bg);
     padding: 13px;
     display: grid;
     align-content: start;
     gap: 8px;
+}
+
+.kano-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.48), transparent 38%);
+    pointer-events: none;
 }
 
 .kano-card h3 {
@@ -615,17 +741,47 @@ body.page-research-prca-poster {
 }
 
 .coef-board {
+    position: relative;
     min-width: 0;
     border: 1px solid rgba(74, 96, 88, 0.12);
     border-radius: 8px;
-    background: #fffdfa;
-    padding: 12px;
+    background:
+        linear-gradient(90deg, rgba(185, 109, 85, 0.035), transparent 48%, rgba(82, 123, 104, 0.045)),
+        #fffdfa;
+    padding: 22px 12px 12px;
+    overflow: hidden;
+}
+
+.coef-board::before {
+    content: "PRCA coefficients by attribute";
+    position: absolute;
+    left: 14px;
+    top: 8px;
+    color: #53615f;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.coef-board::after {
+    content: "";
+    position: absolute;
+    top: 36px;
+    bottom: 11px;
+    left: calc(50% - 18px);
+    width: 36px;
+    border: 1px solid rgba(74, 96, 88, 0.11);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.72);
+    pointer-events: none;
 }
 
 .coef-header,
 .coef-row {
+    position: relative;
+    z-index: 1;
     display: grid;
-    grid-template-columns: 112px minmax(0, 1fr) 36px minmax(0, 1fr) 64px;
+    grid-template-columns: 112px minmax(0, 1fr) 36px minmax(0, 1fr) 92px;
     gap: 10px;
     align-items: center;
 }
@@ -659,7 +815,9 @@ body.page-research-prca-poster {
     position: relative;
     height: 10px;
     border-radius: 999px;
-    background: rgba(82, 96, 92, 0.11);
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.52), transparent),
+        rgba(82, 96, 92, 0.11);
     overflow: hidden;
 }
 
@@ -668,6 +826,7 @@ body.page-research-prca-poster {
     top: 0;
     bottom: 0;
     border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .bar-track.penalty span {
@@ -696,6 +855,7 @@ body.page-research-prca-poster {
     border-radius: 999px;
     color: #526560;
     background: #fffdfa;
+    box-shadow: 0 0 0 3px rgba(255, 253, 248, 0.72);
 }
 
 .coef-value {
@@ -706,13 +866,33 @@ body.page-research-prca-poster {
 }
 
 .highlight-card {
+    position: relative;
+    overflow: hidden;
     border-radius: 8px;
-    background: var(--poster-deep);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), transparent 42%),
+        var(--poster-deep);
     color: #fff7e8;
     padding: 14px;
     display: grid;
     gap: 10px;
     align-content: start;
+    box-shadow: inset 0 0 0 1px rgba(255, 247, 232, 0.08);
+}
+
+.highlight-card::after {
+    content: "";
+    position: absolute;
+    right: -48px;
+    bottom: -82px;
+    width: 154px;
+    height: 244px;
+    background-image: var(--poster-leaf-sprig);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.11;
+    transform: scaleX(-1) rotate(12deg);
+    pointer-events: none;
 }
 
 .highlight-card h3 {
@@ -764,10 +944,13 @@ body.page-research-prca-poster {
 
 .landscape-card,
 .ladder-card {
+    position: relative;
     min-width: 0;
     border: 1px solid rgba(74, 96, 88, 0.12);
     border-radius: 8px;
-    background: #fffdfa;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(255, 250, 242, 0.62)),
+        #fffdfa;
     padding: 12px;
 }
 
@@ -793,8 +976,31 @@ body.page-research-prca-poster {
     overflow: hidden;
 }
 
+.landscape-plot::before,
+.landscape-plot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.landscape-plot::before {
+    background:
+        radial-gradient(ellipse at 18% 24%, rgba(185, 109, 85, 0.18) 0 10%, transparent 11% 18%, rgba(185, 109, 85, 0.1) 19% 26%, transparent 27%),
+        radial-gradient(ellipse at 76% 22%, rgba(82, 123, 104, 0.2) 0 10%, transparent 11% 20%, rgba(82, 123, 104, 0.1) 21% 31%, transparent 32%),
+        radial-gradient(ellipse at 70% 72%, rgba(82, 123, 104, 0.14) 0 9%, transparent 10% 20%, rgba(82, 123, 104, 0.08) 21% 31%, transparent 32%);
+}
+
+.landscape-plot::after {
+    opacity: 0.24;
+    background:
+        repeating-radial-gradient(ellipse at 17% 28%, transparent 0 22px, rgba(185, 109, 85, 0.24) 23px 24px, transparent 25px 43px),
+        repeating-radial-gradient(ellipse at 78% 28%, transparent 0 24px, rgba(82, 123, 104, 0.24) 25px 26px, transparent 27px 48px);
+}
+
 .plot-axis {
     position: absolute;
+    z-index: 2;
     color: #52615f;
     font-size: 0.62rem;
     font-weight: 800;
@@ -817,6 +1023,7 @@ body.page-research-prca-poster {
 
 .plot-zone {
     position: absolute;
+    z-index: 2;
     border-radius: 8px;
     padding: 9px 11px;
     font-size: 0.7rem;
@@ -849,6 +1056,7 @@ body.page-research-prca-poster {
 
 .plot-point {
     position: absolute;
+    z-index: 3;
     left: var(--x);
     top: var(--y);
     display: inline-flex;
@@ -960,6 +1168,8 @@ body.page-research-prca-poster {
     height: 36px;
     background: #fffdfa;
     color: #244844;
+    border-color: rgba(184, 137, 80, 0.42);
+    box-shadow: 0 0 0 4px rgba(255, 253, 248, 0.72);
 }
 
 .method-step h3 {
@@ -984,11 +1194,24 @@ body.page-research-prca-poster {
 }
 
 .implication-card {
+    position: relative;
+    overflow: hidden;
     border: 1px solid var(--tone-rule);
     border-radius: 8px;
-    background: var(--tone-bg);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.72), transparent 42%),
+        var(--tone-bg);
     padding: 13px;
     min-height: 126px;
+}
+
+.implication-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 48%);
+    pointer-events: none;
 }
 
 .implication-card h3 {
@@ -1019,17 +1242,48 @@ body.page-research-prca-poster {
 }
 
 .poster-cta {
+    position: relative;
     margin-top: 14px;
     border-radius: 16px;
     overflow: hidden;
     background:
-        linear-gradient(90deg, rgba(12, 37, 33, 0.97), rgba(23, 65, 57, 0.96)),
+        linear-gradient(90deg, rgba(12, 37, 33, 0.98), rgba(23, 65, 57, 0.95)),
         url("./assets/hotel_resort_background.png") center/cover;
     color: #fff7e8;
     padding: 20px 24px 16px;
+    box-shadow: inset 0 0 0 1px rgba(255, 247, 232, 0.08);
+}
+
+.poster-cta::before,
+.poster-cta::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 154px;
+    height: 244px;
+    background-image: var(--poster-leaf-sprig);
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.28;
+}
+
+.poster-cta::before {
+    left: -28px;
+    bottom: -118px;
+    filter: brightness(1.55) saturate(0.85);
+    transform: rotate(-72deg);
+}
+
+.poster-cta::after {
+    right: -26px;
+    top: -78px;
+    filter: brightness(1.45) saturate(0.85);
+    transform: scaleX(-1) rotate(-62deg);
 }
 
 .cta-row {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 18px;
@@ -1061,6 +1315,7 @@ body.page-research-prca-poster {
     font-weight: 800;
     text-decoration: none;
     transition: transform 180ms ease, background 180ms ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24);
 }
 
 .cta-button:hover {
@@ -1069,6 +1324,8 @@ body.page-research-prca-poster {
 }
 
 .cta-meta {
+    position: relative;
+    z-index: 1;
     margin-top: 17px;
     padding-top: 12px;
     border-top: 1px solid rgba(255, 247, 232, 0.2);
@@ -1147,6 +1404,10 @@ body.page-research-prca-poster {
         border-bottom: 1px solid rgba(74, 96, 88, 0.12);
     }
 
+    .poster-row::before {
+        display: none;
+    }
+
     .prca-hero-media,
     .prca-hero-media img {
         min-height: 0;
@@ -1162,6 +1423,14 @@ body.page-research-prca-poster {
     }
 
     .coef-header {
+        display: none;
+    }
+
+    .coef-board {
+        padding-top: 28px;
+    }
+
+    .coef-board::after {
         display: none;
     }
 
@@ -1199,6 +1468,10 @@ body.page-research-prca-poster {
     .prca-poster {
         border-radius: 14px;
         padding: 12px;
+    }
+
+    .poster-botanical {
+        display: none;
     }
 
     .prca-hero-title {
@@ -1326,6 +1599,9 @@ body.page-research-prca-poster {
 <body class="page-research-prca-poster" data-page="research" data-research-id="hotel-prca">
 <main class="prca-poster-shell">
 <article class="prca-poster">
+<span class="poster-botanical poster-botanical-left" aria-hidden="true"></span>
+<span class="poster-botanical poster-botanical-right" aria-hidden="true"></span>
+<span class="poster-botanical poster-botanical-lower" aria-hidden="true"></span>
 <section class="research-detail-hero prca-hero reveal active">
 <a class="poster-back-link magnetic" data-strength="8" href="projects.html#research"><i class="ph ph-arrow-left"></i> Back to Projects</a>
 <div class="prca-hero-grid">
