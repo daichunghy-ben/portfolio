@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="assets/favicon.png" rel="icon" type="image/png"/>
 <title>Hotel Attribute Asymmetry in Vietnam (PRCA + Kano) | Chung Hy Dai</title>
-<meta content="Asymmetric impacts of hotel service attributes on guest satisfaction in Vietnam using deep learning and penalty reward contrast analysis." name="description"/>
+<meta content="Asymmetric impacts of hotel service attributes on guest satisfaction in Vietnam using Booking.com review data, PRCA, and Kano classification." name="description"/>
 <link href="styles/base.css" rel="stylesheet"/>
 <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
 <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
@@ -15,2074 +15,1571 @@
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
 <link href="./research-hotel-prca.html" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="Asymmetric Hotel Attribute Impacts (PRCA) | Chung Hy Dai" property="og:title"/>
-<meta content="Asymmetric impacts of hotel service attributes on guest satisfaction in Vietnam using deep learning and penalty reward contrast analysis." property="og:description"/>
+<meta content="Hotel Attribute Asymmetry in Vietnam (PRCA + Kano) | Chung Hy Dai" property="og:title"/>
+<meta content="PRCA and Kano analysis of 97,014 Booking.com Vietnam reviews, translated into compact hotel service priorities." property="og:description"/>
 <meta content="./research-hotel-prca.html" property="og:url"/>
 <style>
-.page-research-prca-focus {
-    --prca-ink: #2e2620;
-    --prca-muted: #5d5044;
-    --prca-soft: #7e6d5d;
-    --prca-line: rgba(104, 84, 66, 0.24);
-    --prca-line-strong: rgba(76, 60, 47, 0.34);
-    --prca-card: rgba(255, 251, 245, 0.9);
-    --prca-card-strong: rgba(255, 250, 242, 0.96);
-    --prca-olive: #3d5a45;
-    --prca-olive-soft: #547660;
-    --prca-brass: #b78649;
-    --prca-rosewood: #8b4d3f;
-    --prca-cream: #fbf4ea;
-    --prca-shadow: 0 20px 36px rgba(56, 41, 28, 0.12);
-    font-family: "Nunito Sans", "Avenir Next", "Segoe UI", sans-serif;
-    color: var(--prca-ink);
-    background:
-        radial-gradient(circle at 14% 18%, rgba(91, 121, 96, 0.2), transparent 36%),
-        radial-gradient(circle at 86% 12%, rgba(183, 134, 73, 0.18), transparent 32%),
-        linear-gradient(180deg, #f5ecde 0%, #efe3d2 54%, #f7efe3 100%);
+:root {
+    --poster-ink: #172a2d;
+    --poster-muted: #536063;
+    --poster-soft: #72807e;
+    --poster-green: #527b68;
+    --poster-deep: #12342e;
+    --poster-gold: #b88950;
+    --poster-terracotta: #b96d55;
+    --poster-blue: #426f8e;
+    --poster-cream: #fbf7ef;
+    --poster-paper: #fffdf8;
+    --poster-rule: rgba(38, 52, 48, 0.14);
+    --poster-rule-strong: rgba(55, 71, 65, 0.24);
+    --poster-shadow: 0 16px 34px rgba(37, 39, 34, 0.08);
 }
 
-.page-research-prca-focus::before {
+html {
+    background: #f7f1e7;
+}
+
+body.page-research-prca-poster {
+    margin: 0;
+    color: var(--poster-ink);
+    background:
+        linear-gradient(90deg, rgba(82, 123, 104, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(82, 123, 104, 0.03) 1px, transparent 1px),
+        #f7f1e7;
+    background-size: 44px 44px;
+    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+    letter-spacing: 0;
+}
+
+.page-research-prca-poster *,
+.page-research-prca-poster *::before,
+.page-research-prca-poster *::after {
+    box-sizing: border-box;
+    letter-spacing: 0;
+}
+
+.page-research-prca-poster h1,
+.page-research-prca-poster h2,
+.page-research-prca-poster h3 {
+    margin: 0;
+    color: var(--poster-ink);
+    font-family: "Bodoni Moda", "Times New Roman", serif;
+    font-weight: 700;
+}
+
+.page-research-prca-poster p {
+    margin: 0;
+}
+
+.page-research-prca-poster a {
+    color: inherit;
+}
+
+.page-research-prca-poster .reveal,
+.page-research-prca-poster .reveal-on-load,
+.page-research-prca-poster .method-step {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+.prca-poster-shell {
+    width: min(1160px, calc(100% - 48px));
+    margin: 22px auto 34px;
+    position: relative;
+}
+
+.prca-poster {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(87, 102, 93, 0.16);
+    border-radius: 18px;
+    background: var(--poster-paper);
+    box-shadow: 0 28px 70px rgba(42, 40, 34, 0.11);
+    padding: 18px 18px 22px;
+}
+
+.prca-poster::before,
+.prca-poster::after {
     content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 0;
+    position: absolute;
     pointer-events: none;
     opacity: 0.18;
-    background:
-        repeating-linear-gradient(
-            90deg,
-            rgba(126, 109, 93, 0.16) 0 1px,
-            transparent 1px 42px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(126, 109, 93, 0.14) 0 1px,
-            transparent 1px 36px
-        );
+    border: 1px solid rgba(184, 137, 80, 0.28);
+    width: 148px;
+    height: 148px;
 }
 
-.page-research-prca-focus h1,
-.page-research-prca-focus h2,
-.page-research-prca-focus h3,
-.page-research-prca-focus h4 {
-    font-family: "Cormorant Garamond", "Times New Roman", serif;
-    letter-spacing: 0.01em;
-    color: var(--prca-ink);
+.prca-poster::before {
+    left: -68px;
+    top: 430px;
+    border-right: 0;
+    border-bottom: 0;
+    transform: rotate(-18deg);
 }
 
-.page-research-prca-focus .navbar {
-    background: rgba(250, 243, 233, 0.88);
-    border-bottom: 1px solid rgba(94, 74, 55, 0.24);
-    backdrop-filter: blur(10px);
+.prca-poster::after {
+    right: -72px;
+    bottom: 118px;
+    border-left: 0;
+    border-top: 0;
+    transform: rotate(15deg);
 }
 
-.page-research-prca-focus .logo {
-    color: #3a5442;
-}
-
-.page-research-prca-focus .logo-mark {
-    background: linear-gradient(135deg, #45644d, #c49554);
-    color: #fff8ef;
-}
-
-.page-research-prca-focus .nav-link {
-    color: #5f5144;
-}
-
-.page-research-prca-focus .nav-link:hover {
-    color: #2f4e3d;
-}
-
-.page-research-prca-focus .nav-cta.btn-primary {
-    border-color: rgba(61, 90, 69, 0.45);
-    background: linear-gradient(135deg, #355640, #50745f 58%, #bc8a4b 100%);
-    color: #fff8f1;
-    box-shadow: 0 12px 24px rgba(55, 81, 62, 0.24);
-}
-
-.page-research-prca-focus .parallax-bg {
-    opacity: 0.24;
-    filter: blur(52px) saturate(108%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-1 {
-    background: radial-gradient(circle at 18% 32%, rgba(71, 109, 83, 0.34), transparent 56%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-2 {
-    background: radial-gradient(circle at 84% 18%, rgba(183, 134, 73, 0.32), transparent 56%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-3 {
-    background: radial-gradient(circle at 55% 72%, rgba(110, 136, 102, 0.22), transparent 58%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-4 {
-    background: radial-gradient(circle at 72% 62%, rgba(139, 77, 63, 0.2), transparent 60%);
-}
-
-.page-research-prca-focus .research-back-link {
-    border-radius: 999px;
-    border: 1px solid rgba(61, 90, 69, 0.32);
-    background: rgba(255, 250, 242, 0.9);
-    color: #3e5a44;
-}
-
-.page-research-prca-focus .research-back-link:hover {
-    border-color: rgba(61, 90, 69, 0.5);
-    background: rgba(255, 252, 247, 1);
-    color: #2f4d39;
-}
-
-.page-research-prca-focus .badge {
-    border-color: rgba(61, 90, 69, 0.32);
-    background: linear-gradient(135deg, rgba(237, 246, 237, 0.9), rgba(248, 237, 221, 0.86));
-    color: #365341;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero {
-    padding-top: clamp(6.4rem, 8vw, 7.9rem);
-    padding-bottom: clamp(2.4rem, 4vw, 3.25rem);
+.research-detail-hero.prca-hero {
+    padding: 0;
     position: relative;
-    overflow: hidden;
 }
 
-.page-research-prca-focus .research-detail-hero.prca-hero::before,
-.page-research-prca-focus .research-detail-hero.prca-hero::after {
-    content: "";
-    position: absolute;
-    border-radius: 999px;
-    pointer-events: none;
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero::before {
-    width: clamp(240px, 40vw, 520px);
-    height: clamp(240px, 40vw, 520px);
-    top: -190px;
-    right: -110px;
-    background: radial-gradient(circle, rgba(74, 114, 84, 0.26), rgba(74, 114, 84, 0));
-    animation: prcaFloatA 12s ease-in-out infinite alternate;
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero::after {
-    width: clamp(220px, 34vw, 450px);
-    height: clamp(220px, 34vw, 450px);
-    bottom: -230px;
-    left: -70px;
-    background: radial-gradient(circle, rgba(183, 134, 73, 0.24), rgba(183, 134, 73, 0));
-    animation: prcaFloatB 13s ease-in-out infinite alternate;
-}
-
-.page-research-prca-focus .prca-hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(290px, 0.85fr);
-    gap: clamp(1rem, 2.6vw, 2.1rem);
-    align-items: stretch;
-}
-
-.page-research-prca-focus .prca-hero-copy {
-    display: grid;
-    gap: 1rem;
-}
-
-.page-research-prca-focus .prca-badge {
+.poster-back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.38rem;
-    width: fit-content;
-    border: 1px solid rgba(61, 90, 69, 0.34);
+    gap: 7px;
+    min-height: 32px;
+    padding: 0 13px;
+    border: 1px solid var(--poster-rule-strong);
     border-radius: 999px;
-    padding: 0.42rem 0.82rem;
-    background: rgba(247, 241, 230, 0.95);
-    color: #3f5e47;
-    font-size: 0.73rem;
+    background: rgba(255, 253, 248, 0.92);
+    color: #32413f;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    text-decoration: none;
+    transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.poster-back-link:hover {
+    transform: translateY(-1px);
+    border-color: rgba(82, 123, 104, 0.46);
+    color: var(--poster-green);
+}
+
+.prca-hero-grid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: center;
+}
+
+.prca-kicker {
+    margin-bottom: 14px;
+    color: var(--poster-green);
+    font-size: 0.78rem;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
-.page-research-prca-focus .prca-hero-title {
-    margin: 0;
-    font-size: clamp(2.25rem, 4.8vw, 4rem);
-    line-height: 0.98;
-    max-width: 16ch;
-    color: #2d241d;
+.prca-hero-title {
+    max-width: 11ch;
+    font-size: 3.52rem;
+    line-height: 0.96;
 }
 
-.page-research-prca-focus .prca-hero-title .emphasis {
+.prca-hero-title em {
     display: block;
-    color: #496a52;
-}
-
-.page-research-prca-focus .prca-hero-desc {
-    margin: 0;
-    max-width: 50ch;
-    color: #5e5045;
-    font-size: 0.97rem;
-    line-height: 1.62;
-}
-
-.page-research-prca-focus .prca-meta-grid {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.62rem;
-}
-
-.page-research-prca-focus .prca-meta-grid li {
-    border-radius: 16px;
-    border: 1px solid rgba(102, 84, 65, 0.22);
-    background: rgba(255, 250, 242, 0.94);
-    box-shadow: 0 10px 18px rgba(72, 54, 37, 0.08);
-    padding: 0.58rem 0.68rem 0.62rem;
-    display: grid;
-    gap: 0.14rem;
-}
-
-.page-research-prca-focus .prca-meta-grid span {
-    font-size: 0.67rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #7a695a;
-}
-
-.page-research-prca-focus .prca-meta-grid strong {
-    font-size: 0.88rem;
-    color: #312720;
-    line-height: 1.4;
-}
-
-.page-research-prca-focus .prca-stage-card {
-    position: relative;
-    border-radius: 24px;
-    border: 1px solid rgba(95, 78, 61, 0.24);
-    background:
-        radial-gradient(circle at 88% 10%, rgba(183, 134, 73, 0.24), rgba(183, 134, 73, 0) 42%),
-        linear-gradient(162deg, rgba(255, 250, 242, 0.98), rgba(242, 232, 216, 0.9));
-    box-shadow: var(--prca-shadow);
-    padding: 1.15rem;
-    overflow: hidden;
-}
-
-.page-research-prca-focus .prca-stage-card::after {
-    content: "";
-    position: absolute;
-    left: 1.15rem;
-    right: 1.15rem;
-    bottom: 0.85rem;
-    height: 4px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #6a8a6e 0%, #b78649 52%, #8b4d3f 100%);
-    opacity: 0.78;
-}
-
-.page-research-prca-focus .prca-stage-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.7rem;
-}
-
-.page-research-prca-focus .prca-stage-title {
-    margin: 0;
-    font-size: 1.16rem;
-    color: #2e261f;
-}
-
-.page-research-prca-focus .prca-stage-pill {
-    margin: 0;
-    padding: 0.23rem 0.58rem;
-    border-radius: 999px;
-    border: 1px solid rgba(61, 90, 69, 0.32);
-    background: rgba(239, 246, 234, 0.9);
-    color: #45654c;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .prca-stage-rail {
-    margin: 0.9rem 0 0;
-    display: grid;
-    gap: 0.54rem;
-}
-
-.page-research-prca-focus .prca-stage-item {
-    border-radius: 14px;
-    border: 1px solid rgba(112, 90, 70, 0.18);
-    background: rgba(255, 252, 247, 0.86);
-    padding: 0.52rem 0.62rem;
-}
-
-.page-research-prca-focus .prca-stage-item h4 {
-    margin: 0;
-    font-size: 0.87rem;
-    color: #30271f;
-}
-
-.page-research-prca-focus .prca-stage-item p {
-    margin: 0.17rem 0 0;
-    font-size: 0.77rem;
-    color: #625446;
-    line-height: 1.42;
-}
-
-.page-research-prca-focus .prca-stage-stats {
-    margin: 0.82rem 0 0;
-    display: grid;
-    gap: 0.52rem;
-}
-
-.page-research-prca-focus .prca-stat {
-    display: grid;
-    gap: 0.22rem;
-}
-
-.page-research-prca-focus .prca-stat-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-}
-
-.page-research-prca-focus .prca-stat-label {
-    margin: 0;
-    font-size: 0.7rem;
-    color: #726152;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-}
-
-.page-research-prca-focus .prca-stat-value {
-    margin: 0;
-    font-size: 0.77rem;
-    color: #2f261f;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .prca-stat-track {
-    height: 6px;
-    border-radius: 999px;
-    overflow: hidden;
-    background: rgba(200, 182, 159, 0.56);
-}
-
-.page-research-prca-focus .prca-stat-fill {
-    height: 100%;
-    border-radius: inherit;
-}
-
-.page-research-prca-focus .prca-stat-fill.risk {
-    width: 88%;
-    background: linear-gradient(90deg, #a85e49, #bf7d54);
-}
-
-.page-research-prca-focus .prca-stat-fill.upside {
-    width: 61%;
-    background: linear-gradient(90deg, #5f7d64, #7a9a79);
-}
-
-.page-research-prca-focus .prca-stat-fill.fit {
-    width: 74%;
-    background: linear-gradient(90deg, #9f7a41, #c59a57);
-}
-
-.page-research-prca-focus .prca-bento-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
-    gap: clamp(0.85rem, 1.9vw, 1.2rem);
-}
-
-.page-research-prca-focus .prca-panel {
-    border-radius: 24px;
-    border: 1px solid var(--prca-line);
-    background:
-        radial-gradient(circle at 10% 6%, rgba(182, 150, 103, 0.12), transparent 34%),
-        linear-gradient(165deg, var(--prca-card-strong), var(--prca-card));
-    box-shadow: 0 14px 24px rgba(67, 48, 33, 0.09);
-    padding: clamp(1rem, 2vw, 1.3rem);
-    backdrop-filter: blur(4px);
-}
-
-.page-research-prca-focus .prca-panel h2,
-.page-research-prca-focus .prca-panel h3 {
-    margin: 0;
-    color: #2f271f;
-}
-
-.page-research-prca-focus .prca-panel p {
-    color: var(--prca-muted);
-}
-
-.page-research-prca-focus .prca-mini-points {
-    margin: 0.78rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.5rem;
-}
-
-.page-research-prca-focus .prca-mini-points li {
-    border-radius: 12px;
-    border: 1px solid rgba(104, 84, 66, 0.2);
-    background: rgba(255, 252, 248, 0.9);
-    padding: 0.52rem 0.62rem;
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    color: #4f4338;
-    font-size: 0.83rem;
-    line-height: 1.4;
+    color: var(--poster-green);
+    font-style: italic;
     font-weight: 600;
 }
 
-.page-research-prca-focus .prca-mini-points i {
-    color: #48674e;
-    font-size: 0.92rem;
+.prca-hero-desc {
+    max-width: 440px;
+    margin-top: 18px;
+    color: #26383b;
+    font-size: 1rem;
+    line-height: 1.55;
 }
 
-.page-research-prca-focus .prca-kpi-grid {
-    margin: 0;
+.prca-hero-facts {
+    margin: 24px 0 0;
     padding: 0;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.6rem;
+    gap: 17px 28px;
+    max-width: 450px;
 }
 
-.page-research-prca-focus .prca-kpi-card {
-    border-radius: 15px;
-    border: 1px solid rgba(112, 90, 70, 0.18);
-    background: rgba(255, 252, 247, 0.96);
-    padding: 0.72rem 0.72rem;
+.prca-hero-facts li {
     display: grid;
-    gap: 0.16rem;
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
 }
 
-.page-research-prca-focus .prca-kpi-label {
-    margin: 0;
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #79695b;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .prca-kpi-value {
-    margin: 0;
-    font-size: 1.1rem;
-    color: #2f261f;
-    font-weight: 800;
-}
-
-.page-research-prca-focus .prca-note {
-    margin: 0.68rem 0 0;
-    border-radius: 14px;
-    border: 1px dashed rgba(61, 90, 69, 0.34);
-    background: rgba(244, 249, 239, 0.9);
-    color: #504337;
-    padding: 0.62rem;
-    font-size: 0.79rem;
-    line-height: 1.44;
-}
-
-.page-research-prca-focus .prca-note code {
-    border-radius: 5px;
-    border: 1px solid rgba(61, 90, 69, 0.26);
-    background: rgba(255, 255, 255, 0.9);
-    padding: 0 0.24rem;
-}
-
-.page-research-prca-focus .prca-author-row {
-    margin-top: 0.75rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.44rem;
-}
-
-.page-research-prca-focus .prca-author-row p {
-    margin: 0;
-    font-size: 0.75rem;
-    border-radius: 999px;
-    border: 1px solid rgba(104, 84, 66, 0.2);
-    background: rgba(255, 252, 247, 0.94);
-    color: #5c4f43;
-    padding: 0.24rem 0.54rem;
-}
-
-.page-research-prca-focus .prca-figure-shell .section-header {
-    margin-bottom: 1.2rem;
-}
-
-.page-research-prca-focus .prca-figure-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-}
-
-.page-research-prca-focus .prca-figure-card {
-    margin: 0;
-    border-radius: 22px;
-    border: 1px solid rgba(104, 84, 66, 0.22);
-    background:
-        radial-gradient(circle at 14% 8%, rgba(183, 134, 73, 0.16), transparent 40%),
-        linear-gradient(168deg, rgba(255, 252, 247, 0.98), rgba(243, 233, 219, 0.9));
-    box-shadow: 0 16px 30px rgba(69, 50, 35, 0.1);
-    padding: 0.6rem;
-    transition: transform 260ms ease, box-shadow 260ms ease;
-}
-
-.page-research-prca-focus .prca-figure-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 34px rgba(67, 48, 33, 0.15);
-}
-
-.page-research-prca-focus .prca-figure-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
-    border: 1px solid rgba(104, 84, 66, 0.3);
-    background: #fffdf8;
-}
-
-.page-research-prca-focus .prca-figure-card figcaption {
-    margin: 0.52rem 0.2rem 0.18rem;
-    border-radius: 12px;
-    border: 1px dashed rgba(104, 84, 66, 0.34);
-    background: rgba(255, 252, 247, 0.88);
-    padding: 0.46rem 0.62rem;
-    color: #5f5144;
-    font-size: 0.76rem;
-    line-height: 1.38;
-}
-
-.page-research-prca-focus .prca-context-figure {
-    margin: 0.35rem auto 0;
-    max-width: 1180px;
-}
-
-.page-research-prca-focus .prca-context-figure img {
-    display: block;
-    width: min(100%, 1180px);
-    margin-inline: auto;
-}
-
-.page-research-prca-focus .prca-method-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.64rem;
-}
-
-.page-research-prca-focus .prca-method-step {
-    border-radius: 16px;
-    border: 1px solid rgba(104, 84, 66, 0.2);
-    background: rgba(255, 252, 247, 0.92);
-    box-shadow: 0 12px 20px rgba(70, 50, 35, 0.08);
-    padding: 0.72rem;
-    display: grid;
-    gap: 0.32rem;
-    position: relative;
-}
-
-.page-research-prca-focus .prca-method-step::before {
-    content: attr(data-step);
+.fact-icon,
+.metric-icon,
+.mini-icon,
+.method-icon,
+.ladder-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.82rem;
-    height: 1.82rem;
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(82, 123, 104, 0.32);
     border-radius: 999px;
-    border: 1px solid rgba(61, 90, 69, 0.32);
-    background: rgba(237, 246, 236, 0.92);
-    color: #42634b;
+    background: #f6f8f1;
+    color: var(--poster-green);
+    font-size: 1rem;
+}
+
+.prca-hero-facts small,
+.poster-label,
+.metric-label,
+.class-label,
+.coef-heading,
+.method-step small {
+    display: block;
+    color: #5f6a68;
+    font-size: 0.66rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.prca-hero-facts strong {
+    display: block;
+    margin-top: 2px;
+    color: #213136;
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+.prca-hero-media {
+    position: relative;
+    min-height: 400px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #d7e1d9;
+}
+
+.prca-hero-media img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: 48% 50%;
+    filter: saturate(1.03) contrast(1.02);
+}
+
+.hero-insights {
+    position: absolute;
+    top: 48px;
+    right: 26px;
+    width: 258px;
+    border-radius: 8px;
+    background: rgba(18, 44, 39, 0.92);
+    color: #fff7e8;
+    box-shadow: 0 22px 48px rgba(20, 25, 22, 0.26);
+    padding: 18px 18px 15px;
+    backdrop-filter: blur(8px);
+}
+
+.hero-insights h2 {
+    color: #fff7e8;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.insight-stack {
+    margin: 16px 0;
+    display: grid;
+    gap: 13px;
+}
+
+.insight-item {
+    display: grid;
+    grid-template-columns: 35px minmax(0, 1fr);
+    gap: 11px;
+    align-items: start;
+}
+
+.insight-item i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(216, 170, 94, 0.76);
+    border-radius: 999px;
+    color: #d8aa5e;
+    font-size: 1.14rem;
+}
+
+.insight-item strong {
+    display: block;
+    color: #fff7e8;
+    font-size: 0.78rem;
+    line-height: 1.25;
+}
+
+.insight-item span {
+    display: block;
+    margin-top: 2px;
+    color: rgba(255, 247, 232, 0.78);
+    font-size: 0.7rem;
+    line-height: 1.35;
+}
+
+.insight-rules {
+    border-top: 1px solid rgba(255, 247, 232, 0.28);
+    padding-top: 9px;
+    display: grid;
+    gap: 8px;
+}
+
+.insight-rules p {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: rgba(255, 247, 232, 0.78);
+    font-size: 0.67rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.insight-rules strong {
+    color: #fff7e8;
+    font-size: 0.67rem;
+    text-transform: none;
+}
+
+.kpi-strip {
+    margin-top: 24px;
+    border: 1px solid rgba(184, 137, 80, 0.28);
+    border-radius: 8px;
+    background: #fffaf2;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    box-shadow: var(--poster-shadow);
+}
+
+.metric-tile {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    padding: 14px 13px;
+    border-right: 1px solid rgba(184, 137, 80, 0.24);
+}
+
+.metric-tile:last-child {
+    border-right: 0;
+}
+
+.metric-icon {
+    width: 34px;
+    height: 34px;
+    color: var(--poster-deep);
+    background: #f4f7ef;
+}
+
+.metric-label {
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.metric-value {
+    color: #1a2c32;
+    font-size: 1.02rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.metric-value small {
+    color: #53615f;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.poster-rows {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.poster-row {
+    display: grid;
+    grid-template-columns: 166px minmax(0, 1fr);
+    border: 1px solid rgba(74, 96, 88, 0.14);
+    border-radius: 8px;
+    background: rgba(255, 253, 248, 0.9);
+    box-shadow: 0 10px 26px rgba(37, 39, 34, 0.045);
+    overflow: hidden;
+}
+
+.row-label {
+    min-width: 0;
+    padding: 14px 16px;
+    border-right: 1px solid rgba(74, 96, 88, 0.12);
+    background: linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(250, 246, 238, 0.82));
+}
+
+.row-label strong {
+    display: block;
+    color: var(--poster-green);
+    font-family: "Bodoni Moda", "Times New Roman", serif;
+    font-size: 1.98rem;
+    line-height: 0.95;
+}
+
+.row-label h2 {
+    margin-top: 8px;
+    font-size: 1.2rem;
+    line-height: 1.04;
+}
+
+.row-label p {
+    margin-top: 6px;
+    color: #52605f;
+    font-size: 0.76rem;
+    line-height: 1.36;
+}
+
+.row-body {
+    min-width: 0;
+    padding: 12px;
+}
+
+.glance-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.82fr);
+    gap: 14px;
+}
+
+.glance-points {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid rgba(74, 96, 88, 0.12);
+    border-radius: 8px;
+    background: #fffdfa;
+}
+
+.glance-points li {
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 9px 12px;
+    border-bottom: 1px dashed rgba(74, 96, 88, 0.16);
+    color: #39484a;
+    font-size: 0.78rem;
+    line-height: 1.42;
+}
+
+.glance-points li:last-child {
+    border-bottom: 0;
+}
+
+.mini-icon {
+    width: 27px;
+    height: 27px;
+    color: var(--poster-deep);
+}
+
+.core-table {
+    border: 1px solid rgba(74, 96, 88, 0.12);
+    border-radius: 8px;
+    background: #fffdfa;
+    padding: 11px;
+}
+
+.core-table h3 {
+    font-family: "Manrope", sans-serif;
     font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-.page-research-prca-focus .prca-method-step h4 {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #312820;
-}
-
-.page-research-prca-focus .prca-method-step p {
-    margin: 0;
-    color: #6a5b4d;
-    font-size: 0.75rem;
-    line-height: 1.42;
-}
-
-.page-research-prca-focus .prca-priority-shell {
+.core-table dl {
+    margin: 9px 0 0;
     display: grid;
-    gap: 1rem;
+    gap: 0;
 }
 
-.page-research-prca-focus .prca-priority-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.72rem;
-}
-
-.page-research-prca-focus .prca-lane {
-    border-radius: 18px;
-    border: 1px solid rgba(104, 84, 66, 0.2);
-    background: rgba(255, 252, 247, 0.92);
-    box-shadow: 0 12px 22px rgba(66, 48, 34, 0.07);
-    padding: 0.85rem;
-}
-
-.page-research-prca-focus .prca-lane.protect {
-    border-color: rgba(139, 77, 63, 0.3);
-    background: linear-gradient(170deg, rgba(255, 252, 247, 0.95), rgba(252, 238, 231, 0.9));
-}
-
-.page-research-prca-focus .prca-lane.optimize {
-    border-color: rgba(74, 114, 84, 0.31);
-    background: linear-gradient(170deg, rgba(255, 252, 247, 0.95), rgba(237, 245, 236, 0.9));
-}
-
-.page-research-prca-focus .prca-lane.delight {
-    border-color: rgba(183, 134, 73, 0.34);
-    background: linear-gradient(170deg, rgba(255, 252, 247, 0.95), rgba(251, 243, 229, 0.92));
-}
-
-.page-research-prca-focus .prca-lane h3 {
-    margin: 0;
-    font-size: 1.02rem;
-}
-
-.page-research-prca-focus .prca-lane p {
-    margin: 0.3rem 0 0;
-    font-size: 0.78rem;
-    line-height: 1.4;
-    color: #625447;
-}
-
-.page-research-prca-focus .prca-coefficient-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.5rem;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.page-research-prca-focus .prca-coefficient-list li {
-    border-radius: 12px;
-    border: 1px solid rgba(104, 84, 66, 0.18);
-    background: rgba(255, 252, 247, 0.96);
-    padding: 0.5rem 0.6rem;
+.core-table div {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    gap: 0.7rem;
-}
-
-.page-research-prca-focus .prca-coefficient-list span {
-    font-size: 0.76rem;
-    color: #5a4b3f;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .prca-coefficient-list strong {
-    font-size: 0.76rem;
-    color: #30271f;
-}
-
-.page-research-prca-focus .prca-logic-grid {
-    display: grid;
-    gap: 0.7rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.page-research-prca-focus .prca-logic-item {
-    border-radius: 16px;
-    border: 1px solid rgba(104, 84, 66, 0.2);
-    background: rgba(255, 252, 247, 0.92);
-    padding: 0.72rem;
-}
-
-.page-research-prca-focus .prca-logic-item .tag {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    border: 1px solid rgba(61, 90, 69, 0.31);
-    background: rgba(238, 246, 236, 0.92);
-    color: #42634b;
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.5rem;
-}
-
-.page-research-prca-focus .prca-logic-item p {
-    margin: 0.48rem 0 0;
-    color: #635548;
-    font-size: 0.78rem;
-    line-height: 1.42;
-}
-
-.page-research-prca-focus .prca-final-note {
-    margin: 0;
-    padding: 0.82rem 0.9rem;
-    border-radius: 14px;
-    border: 1px solid rgba(61, 90, 69, 0.28);
-    background: linear-gradient(145deg, rgba(250, 246, 236, 0.95), rgba(238, 246, 235, 0.86));
-    color: #5f5144;
-    font-size: 0.8rem;
-    line-height: 1.42;
-}
-
-.page-research-prca-focus .research-copy-muted {
-    color: #6b5b4d;
-}
-
-.page-research-prca-focus main .btn-primary {
-    border-color: rgba(61, 90, 69, 0.44);
-    background: linear-gradient(135deg, #3a5b44, #4f735d 58%, #b78649 100%);
-    color: #fff8f1;
-    box-shadow: 0 14px 24px rgba(61, 90, 69, 0.22);
-}
-
-.page-research-prca-focus main .btn-outline {
-    border-color: rgba(88, 70, 55, 0.32);
-    color: #3f5947;
-    background: rgba(255, 250, 243, 0.86);
-}
-
-.page-research-prca-focus main .btn-outline:hover {
-    border-color: rgba(61, 90, 69, 0.5);
-    background: rgba(255, 252, 247, 1);
-    color: #2f4e3d;
-}
-
-.page-research-prca-focus .footer {
-    background: linear-gradient(180deg, rgba(49, 71, 56, 0.08), rgba(33, 49, 39, 0.16));
-    border-top: 1px solid rgba(61, 90, 69, 0.22);
-}
-
-.page-research-prca-focus .footer-heading {
-    color: #304f3d;
-}
-
-.page-research-prca-focus .footer-desc,
-.page-research-prca-focus .footer-contact-info,
-.page-research-prca-focus .footer-bottom p {
-    color: #6a5a4c;
-}
-
-/* Boutique hotel refresh */
-.page-research-prca-focus {
-    --prca-ink: #352618;
-    --prca-muted: #5d4b3e;
-    --prca-soft: #7e6a57;
-    --prca-line: rgba(184, 145, 96, 0.28);
-    --prca-line-strong: rgba(212, 178, 136, 0.4);
-    --prca-card: rgba(255, 246, 233, 0.9);
-    --prca-card-strong: rgba(255, 251, 242, 0.95);
-    --prca-olive: #2f515c;
-    --prca-olive-soft: #4a6f7b;
-    --prca-brass: #c6965d;
-    --prca-rosewood: #8f5446;
-    --prca-cream: #f9eedf;
-    --prca-shadow: 0 24px 46px rgba(6, 12, 22, 0.35);
-    font-family: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
-    color: #f7eddc;
-    background:
-        linear-gradient(130deg, rgba(9, 19, 30, 0.9), rgba(20, 15, 27, 0.9)),
-        url("https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=2200&q=80") center/cover no-repeat fixed;
-}
-
-.page-research-prca-focus::before {
-    opacity: 0.32;
-    background:
-        linear-gradient(120deg, rgba(201, 164, 120, 0.2), rgba(201, 164, 120, 0) 58%),
-        repeating-linear-gradient(
-            90deg,
-            rgba(255, 241, 218, 0.16) 0 1px,
-            transparent 1px 50px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(255, 241, 218, 0.1) 0 1px,
-            transparent 1px 42px
-        );
-}
-
-.page-research-prca-focus h1,
-.page-research-prca-focus h2,
-.page-research-prca-focus h3,
-.page-research-prca-focus h4 {
-    font-family: "Bodoni Moda", "Times New Roman", serif;
-    letter-spacing: 0.02em;
-    color: var(--prca-ink);
-}
-
-.page-research-prca-focus .navbar {
-    background: rgba(7, 15, 24, 0.74);
-    border-bottom: 1px solid rgba(205, 171, 129, 0.28);
-    backdrop-filter: blur(14px);
-}
-
-.page-research-prca-focus .logo {
-    color: #f6e8d2;
-}
-
-.page-research-prca-focus .logo-mark {
-    background: linear-gradient(130deg, #2f515c, #bb8a53);
-    color: #fff7e7;
-}
-
-.page-research-prca-focus .nav-link {
-    color: rgba(250, 233, 207, 0.88);
-}
-
-.page-research-prca-focus .nav-link:hover {
-    color: #f9dfbb;
-}
-
-.page-research-prca-focus .nav-cta.btn-primary {
-    border-color: rgba(230, 199, 156, 0.46);
-    background: linear-gradient(138deg, #2b4f5a, #4f7280 52%, #be8b4f 100%);
-    color: #fff4e2;
-    box-shadow: 0 14px 28px rgba(5, 9, 18, 0.36);
-}
-
-.page-research-prca-focus .parallax-bg {
-    opacity: 0.28;
-    filter: blur(56px) saturate(118%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-1 {
-    background: radial-gradient(circle at 16% 34%, rgba(56, 105, 120, 0.4), transparent 56%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-2 {
-    background: radial-gradient(circle at 82% 18%, rgba(197, 150, 93, 0.34), transparent 56%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-3 {
-    background: radial-gradient(circle at 52% 72%, rgba(85, 122, 96, 0.28), transparent 58%);
-}
-
-.page-research-prca-focus .parallax-bg.layer-4 {
-    background: radial-gradient(circle at 74% 64%, rgba(131, 72, 63, 0.22), transparent 60%);
-}
-
-.page-research-prca-focus .research-back-link {
-    border: 1px solid rgba(211, 178, 137, 0.44);
-    background: rgba(14, 27, 41, 0.65);
-    color: #f7dfbd;
-}
-
-.page-research-prca-focus .research-back-link:hover {
-    border-color: rgba(223, 190, 144, 0.66);
-    background: rgba(12, 24, 36, 0.84);
-    color: #ffe8ca;
-}
-
-.page-research-prca-focus .badge {
-    border-color: rgba(185, 145, 95, 0.4);
-    background: linear-gradient(130deg, rgba(245, 226, 201, 0.94), rgba(255, 243, 226, 0.9));
-    color: #634522;
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero {
-    padding-top: clamp(6.6rem, 8vw, 8.2rem);
-    padding-bottom: clamp(2.8rem, 4vw, 3.5rem);
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero::before {
-    background: radial-gradient(circle, rgba(44, 88, 104, 0.45), rgba(44, 88, 104, 0));
-}
-
-.page-research-prca-focus .research-detail-hero.prca-hero::after {
-    background: radial-gradient(circle, rgba(198, 151, 91, 0.3), rgba(198, 151, 91, 0));
-}
-
-.page-research-prca-focus .prca-hero-grid {
-    grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-    gap: clamp(1rem, 2.4vw, 2rem);
-}
-
-.page-research-prca-focus .prca-hero-copy {
-    padding: clamp(1rem, 2.4vw, 1.5rem);
-    border-radius: 24px;
-    border: 1px solid rgba(212, 178, 136, 0.35);
-    background:
-        radial-gradient(circle at 12% 10%, rgba(197, 151, 91, 0.2), rgba(197, 151, 91, 0)),
-        linear-gradient(158deg, rgba(13, 24, 35, 0.84), rgba(14, 20, 31, 0.76));
-    backdrop-filter: blur(4px);
-    box-shadow: 0 24px 44px rgba(6, 10, 18, 0.42);
-}
-
-.page-research-prca-focus .prca-badge {
-    border-color: rgba(211, 177, 134, 0.4);
-    background: rgba(17, 29, 42, 0.85);
-    color: #f5d8b2;
-}
-
-.page-research-prca-focus .prca-hero-title {
-    color: #fff4e2;
-    text-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
-}
-
-.page-research-prca-focus .prca-hero-title .emphasis {
-    color: #f5c98e;
-}
-
-.page-research-prca-focus .prca-hero-desc {
-    color: rgba(243, 228, 206, 0.88);
-}
-
-.page-research-prca-focus .prca-meta-grid li {
-    border: 1px solid rgba(210, 173, 131, 0.34);
-    background: rgba(8, 18, 27, 0.72);
-    box-shadow: 0 14px 26px rgba(5, 9, 16, 0.34);
-}
-
-.page-research-prca-focus .prca-meta-grid span {
-    color: #cfb08a;
-}
-
-.page-research-prca-focus .prca-meta-grid strong {
-    color: #fff0d9;
-}
-
-.page-research-prca-focus .prca-stage-card {
-    border: 1px solid rgba(213, 178, 136, 0.36);
-    background:
-        radial-gradient(circle at 78% 12%, rgba(198, 149, 90, 0.24), rgba(198, 149, 90, 0) 42%),
-        linear-gradient(165deg, rgba(14, 25, 37, 0.9), rgba(16, 18, 30, 0.86));
-    box-shadow: 0 24px 40px rgba(5, 9, 16, 0.45);
-}
-
-.page-research-prca-focus .prca-stage-card::after {
-    background: linear-gradient(90deg, #4f7a87 0%, #c8975f 52%, #945647 100%);
-}
-
-.page-research-prca-focus .prca-stage-photo {
-    margin: 0 0 0.88rem;
-    position: relative;
-    border-radius: 18px;
-    border: 1px solid rgba(214, 180, 136, 0.34);
-    overflow: hidden;
-}
-
-.page-research-prca-focus .prca-stage-photo img {
-    width: 100%;
-    height: 190px;
-    display: block;
-    object-fit: cover;
-    filter: saturate(1.12) contrast(1.04);
-}
-
-.page-research-prca-focus .prca-stage-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(8, 14, 21, 0.08), rgba(8, 14, 21, 0.62));
-}
-
-.page-research-prca-focus .prca-stage-photo figcaption {
-    margin: 0;
-    position: absolute;
-    left: 0.72rem;
-    right: 0.72rem;
-    bottom: 0.66rem;
-    z-index: 1;
-    color: #f8e6cc;
-    font-size: 0.72rem;
-    line-height: 1.4;
-}
-
-.page-research-prca-focus .prca-stage-title {
-    color: #fae7ca;
-}
-
-.page-research-prca-focus .prca-stage-pill {
-    border: 1px solid rgba(214, 179, 135, 0.4);
-    background: rgba(21, 34, 48, 0.74);
-    color: #edca9d;
-}
-
-.page-research-prca-focus .prca-stage-item {
-    border: 1px solid rgba(214, 180, 136, 0.24);
-    background: rgba(8, 19, 29, 0.62);
-}
-
-.page-research-prca-focus .prca-stage-item h4 {
-    color: #f9e7cd;
-}
-
-.page-research-prca-focus .prca-stage-item p {
-    color: rgba(236, 217, 192, 0.8);
-}
-
-.page-research-prca-focus .prca-stat-label {
-    color: #ccab82;
-}
-
-.page-research-prca-focus .prca-stat-value {
-    color: #fcebd1;
-}
-
-.page-research-prca-focus .prca-stat-track {
-    background: rgba(228, 202, 166, 0.24);
-}
-
-.page-research-prca-focus .prca-stat-fill.risk {
-    background: linear-gradient(90deg, #a86151, #cd8558);
-}
-
-.page-research-prca-focus .prca-stat-fill.upside {
-    background: linear-gradient(90deg, #3d7484, #5f94a5);
-}
-
-.page-research-prca-focus .prca-stat-fill.fit {
-    background: linear-gradient(90deg, #aa8048, #ce9b5c);
-}
-
-.page-research-prca-focus .section.bg-light {
-    background: rgba(5, 12, 21, 0.34);
-    border-top: 1px solid rgba(195, 156, 109, 0.14);
-    border-bottom: 1px solid rgba(195, 156, 109, 0.14);
-}
-
-.page-research-prca-focus .prca-panel {
-    border: 1px solid rgba(184, 145, 96, 0.28);
-    background:
-        radial-gradient(circle at 10% 8%, rgba(194, 148, 89, 0.16), transparent 36%),
-        linear-gradient(166deg, rgba(255, 251, 243, 0.96), rgba(246, 232, 209, 0.92));
-    box-shadow: 0 18px 34px rgba(6, 12, 21, 0.2);
-}
-
-.page-research-prca-focus .prca-hotel-gallery {
-    position: relative;
-    overflow: hidden;
-}
-
-.page-research-prca-focus .prca-hotel-gallery::after {
-    content: "";
-    position: absolute;
-    left: 1.2rem;
-    right: 1.2rem;
-    bottom: 1rem;
-    height: 3px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #567f8c 0%, #c7955d 52%, #935647 100%);
-    opacity: 0.65;
-    pointer-events: none;
-}
-
-.page-research-prca-focus .prca-scene-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    grid-template-areas:
-        "primary lounge suite"
-        "primary rooftop suite";
-    gap: 0.78rem;
-}
-
-.page-research-prca-focus .prca-scene-card {
-    margin: 0;
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(196, 159, 116, 0.36);
-    background: #0a1724;
-    min-height: 188px;
-    box-shadow: 0 16px 28px rgba(8, 12, 20, 0.26);
-    animation: hotelReveal 0.8s ease both;
-}
-
-.page-research-prca-focus .prca-scene-card.primary { grid-area: primary; min-height: 404px; }
-.page-research-prca-focus .prca-scene-card.lounge { grid-area: lounge; }
-.page-research-prca-focus .prca-scene-card.rooftop { grid-area: rooftop; }
-.page-research-prca-focus .prca-scene-card.suite { grid-area: suite; min-height: 404px; }
-
-.page-research-prca-focus .prca-scene-card:nth-child(2) { animation-delay: 0.08s; }
-.page-research-prca-focus .prca-scene-card:nth-child(3) { animation-delay: 0.16s; }
-.page-research-prca-focus .prca-scene-card:nth-child(4) { animation-delay: 0.24s; }
-
-.page-research-prca-focus .prca-scene-card img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    transform-origin: center;
-    transition: transform 360ms ease, filter 360ms ease;
-    filter: saturate(1.08) contrast(1.04);
-}
-
-.page-research-prca-focus .prca-scene-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(7, 12, 20, 0.02), rgba(7, 12, 20, 0.74));
-    z-index: 1;
-}
-
-.page-research-prca-focus .prca-scene-card figcaption {
-    position: absolute;
-    left: 0.68rem;
-    right: 0.68rem;
-    bottom: 0.62rem;
-    margin: 0;
-    color: #f8ebd7;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(74, 96, 88, 0.12);
+    color: #465454;
     font-size: 0.74rem;
-    line-height: 1.4;
-    z-index: 2;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.42);
 }
 
-.page-research-prca-focus .prca-scene-card:hover img {
-    transform: scale(1.05);
-    filter: saturate(1.18) contrast(1.08);
+.core-table div:last-child {
+    border-bottom: 0;
 }
 
-.page-research-prca-focus .prca-connect-shell {
-    border: 1px solid rgba(182, 143, 94, 0.34);
-}
-
-.page-research-prca-focus .prca-connect-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.74rem;
-}
-
-.page-research-prca-focus .prca-connect-card {
-    border-radius: 16px;
-    border: 1px solid rgba(185, 145, 95, 0.24);
-    background: rgba(255, 250, 243, 0.9);
-    padding: 0.78rem;
-    display: grid;
-    gap: 0.54rem;
-}
-
-.page-research-prca-focus .prca-connect-card h3 {
+.core-table dt {
     margin: 0;
-    font-size: 1rem;
-    color: #3b2a1c;
 }
 
-.page-research-prca-focus .prca-connect-card p {
+.core-table dd {
     margin: 0;
-    color: #5d4d3f;
-    font-size: 0.79rem;
-    line-height: 1.44;
+    color: #172a2d;
+    font-weight: 800;
+    text-align: right;
 }
 
-.page-research-prca-focus .prca-connect-list {
-    margin: 0;
-    padding-left: 1rem;
+.kano-grid {
     display: grid;
-    gap: 0.34rem;
-    color: #5f4f41;
-    font-size: 0.79rem;
-    line-height: 1.4;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
 }
 
-.page-research-prca-focus .prca-connect-list strong {
-    color: #322317;
-}
-
-.page-research-prca-focus .prca-connect-flow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.42rem;
-}
-
-.page-research-prca-focus .prca-connect-chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    border: 1px solid rgba(47, 81, 92, 0.34);
-    background: rgba(242, 250, 251, 0.92);
-    color: #2f515c;
-    padding: 0.22rem 0.52rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-}
-
-.page-research-prca-focus .prca-interpret-shell {
+.kano-card {
+    min-height: 132px;
+    border: 1px solid var(--tone-rule);
+    border-radius: 8px;
+    background: var(--tone-bg);
+    padding: 13px;
     display: grid;
-    gap: 0.96rem;
-    border: 1px solid rgba(182, 143, 94, 0.34);
+    align-content: start;
+    gap: 8px;
 }
 
-.page-research-prca-focus .prca-interpret-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.74rem;
-}
-
-.page-research-prca-focus .prca-interpret-card {
-    border-radius: 16px;
-    border: 1px solid rgba(185, 145, 95, 0.24);
-    background: rgba(255, 250, 243, 0.92);
-    padding: 0.82rem;
-    display: grid;
-    gap: 0.48rem;
-}
-
-.page-research-prca-focus .prca-interpret-card.basic {
-    background: linear-gradient(165deg, rgba(255, 247, 243, 0.95), rgba(255, 235, 231, 0.9));
-    border-color: rgba(169, 72, 65, 0.26);
-}
-
-.page-research-prca-focus .prca-interpret-card.performance {
-    background: linear-gradient(165deg, rgba(244, 249, 255, 0.95), rgba(229, 239, 252, 0.92));
-    border-color: rgba(57, 92, 141, 0.28);
-}
-
-.page-research-prca-focus .prca-interpret-card.excitement {
-    background: linear-gradient(165deg, rgba(244, 253, 247, 0.95), rgba(229, 248, 235, 0.92));
-    border-color: rgba(56, 128, 84, 0.3);
-}
-
-.page-research-prca-focus .prca-interpret-card h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: #3a291c;
-}
-
-.page-research-prca-focus .prca-interpret-card p {
-    margin: 0;
-    color: #5d4d3f;
-    font-size: 0.79rem;
-    line-height: 1.44;
-}
-
-.page-research-prca-focus .prca-interpret-list {
-    margin: 0;
-    padding-left: 1rem;
-    display: grid;
-    gap: 0.34rem;
-    color: #5f4f41;
-    font-size: 0.78rem;
-    line-height: 1.38;
-}
-
-.page-research-prca-focus .prca-interpret-list strong {
-    color: #2f2318;
-}
-
-.page-research-prca-focus .prca-impact-board {
-    border-radius: 18px;
-    border: 1px solid rgba(176, 134, 82, 0.34);
-    background: linear-gradient(168deg, rgba(255, 252, 247, 0.98), rgba(246, 236, 220, 0.92));
-    padding: 0.88rem;
-    display: grid;
-    gap: 0.46rem;
-}
-
-.page-research-prca-focus .prca-impact-board h3 {
-    margin: 0;
-    font-size: 1.06rem;
-    color: #3a291c;
-}
-
-.page-research-prca-focus .prca-impact-sub {
-    margin: 0;
-    color: #665445;
+.kano-card h3 {
+    color: var(--tone-ink);
+    font-family: "Manrope", sans-serif;
     font-size: 0.77rem;
-    line-height: 1.42;
-}
-
-.page-research-prca-focus .prca-impact-columns {
-    display: grid;
-    grid-template-columns: minmax(110px, 0.9fr) minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(132px, 0.9fr);
-    gap: 0.56rem;
-    padding: 0 0.42rem;
-    color: #715d4c;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
+    font-weight: 800;
     text-transform: uppercase;
 }
 
-.page-research-prca-focus .prca-impact-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.4rem;
+.kano-card p,
+.kano-card li {
+    color: #405052;
+    font-size: 0.72rem;
+    line-height: 1.34;
 }
 
-.page-research-prca-focus .prca-impact-list li {
-    border-radius: 12px;
-    border: 1px solid rgba(185, 145, 95, 0.22);
-    background: rgba(255, 252, 247, 0.94);
-    padding: 0.44rem 0.54rem;
+.kano-card ul {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.kano-card .class-icon {
+    margin-top: auto;
+    display: inline-flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--tone-rule);
+    border-radius: 999px;
+    color: var(--tone-ink);
+    background: rgba(255, 255, 255, 0.5);
+    font-size: 1.15rem;
+}
+
+.tone-basic {
+    --tone-bg: #fff0ef;
+    --tone-rule: rgba(185, 109, 85, 0.25);
+    --tone-ink: #a65546;
+}
+
+.tone-performance {
+    --tone-bg: #f1f6fd;
+    --tone-rule: rgba(66, 111, 142, 0.24);
+    --tone-ink: #315f82;
+}
+
+.tone-excitement {
+    --tone-bg: #f3f8ef;
+    --tone-rule: rgba(82, 123, 104, 0.28);
+    --tone-ink: #447060;
+}
+
+.tone-indifferent {
+    --tone-bg: #f5f3fb;
+    --tone-rule: rgba(108, 97, 145, 0.24);
+    --tone-ink: #6c6191;
+}
+
+.tone-reverse {
+    --tone-bg: #fff7ec;
+    --tone-rule: rgba(184, 137, 80, 0.28);
+    --tone-ink: #aa7444;
+}
+
+.coef-layout {
     display: grid;
-    grid-template-columns: minmax(110px, 0.9fr) minmax(0, 1.2fr) minmax(0, 1.2fr) minmax(132px, 0.9fr);
-    gap: 0.56rem;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 14px;
+}
+
+.coef-board {
+    min-width: 0;
+    border: 1px solid rgba(74, 96, 88, 0.12);
+    border-radius: 8px;
+    background: #fffdfa;
+    padding: 12px;
+}
+
+.coef-header,
+.coef-row {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr) 36px minmax(0, 1fr) 64px;
+    gap: 10px;
     align-items: center;
 }
 
-.page-research-prca-focus .prca-impact-list li.basic {
-    border-left: 4px solid rgba(169, 72, 65, 0.7);
+.coef-header {
+    padding: 0 2px 8px;
 }
 
-.page-research-prca-focus .prca-impact-list li.performance {
-    border-left: 4px solid rgba(52, 92, 152, 0.72);
+.coef-heading {
+    color: #53615f;
+    font-size: 0.62rem;
 }
 
-.page-research-prca-focus .prca-impact-list li.excitement {
-    border-left: 4px solid rgba(52, 129, 84, 0.72);
+.coef-row {
+    padding: 5px 2px;
+    border-top: 1px dashed rgba(74, 96, 88, 0.14);
 }
 
-.page-research-prca-focus .prca-impact-attr {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #36281d;
+.coef-row:first-of-type {
+    border-top: 0;
 }
 
-.page-research-prca-focus .prca-impact-meter {
-    display: block;
-    height: 9px;
+.coef-name {
+    color: #314143;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-align: right;
+}
+
+.bar-track {
+    position: relative;
+    height: 10px;
     border-radius: 999px;
+    background: rgba(82, 96, 92, 0.11);
     overflow: hidden;
-    background: rgba(191, 152, 104, 0.22);
 }
 
-.page-research-prca-focus .prca-impact-meter span {
-    display: block;
-    height: 100%;
+.bar-track span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
     border-radius: inherit;
 }
 
-.page-research-prca-focus .prca-impact-meter.penalty span {
-    background: linear-gradient(90deg, #9f5447, #cd7f5a);
+.bar-track.penalty span {
+    right: 0;
+    width: var(--w);
+    background: linear-gradient(90deg, #eeb4ad, #dd7f78);
 }
 
-.page-research-prca-focus .prca-impact-meter.reward span {
-    background: linear-gradient(90deg, #3d6f8a, #67a0bf);
+.bar-track.reward span {
+    left: 0;
+    width: var(--w);
+    background: linear-gradient(90deg, #76ad89, #2f7a60);
 }
 
-.page-research-prca-focus .prca-impact-list li.excitement .prca-impact-meter.reward span {
-    background: linear-gradient(90deg, #2d7d54, #50b37c);
+.bar-track.reward.negative span {
+    background: linear-gradient(90deg, #f1b0a8, #bf5f58);
 }
 
-.page-research-prca-focus .prca-impact-list li.basic .prca-impact-meter.reward span {
-    background: linear-gradient(90deg, #967042, #c19358);
+.coef-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(74, 96, 88, 0.14);
+    border-radius: 999px;
+    color: #526560;
+    background: #fffdfa;
 }
 
-.page-research-prca-focus .prca-impact-list li.neg .prca-impact-meter.reward span {
-    background: repeating-linear-gradient(135deg, #9f1239 0 5px, #f43f5e 5px 10px);
+.coef-value {
+    color: #223436;
+    font-size: 0.74rem;
+    font-weight: 800;
+    white-space: nowrap;
 }
 
-.page-research-prca-focus .prca-impact-coef {
+.highlight-card {
+    border-radius: 8px;
+    background: var(--poster-deep);
+    color: #fff7e8;
+    padding: 14px;
     display: grid;
-    justify-items: end;
-    gap: 0.04rem;
+    gap: 10px;
+    align-content: start;
 }
 
-.page-research-prca-focus .prca-impact-coef strong {
+.highlight-card h3 {
+    color: #fff7e8;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.highlight-line {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    border: 1px solid rgba(255, 247, 232, 0.18);
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.highlight-line i {
+    color: #d6a557;
+    font-size: 1.45rem;
+}
+
+.highlight-line span {
+    display: block;
+    color: rgba(255, 247, 232, 0.78);
+    font-size: 0.69rem;
+}
+
+.highlight-line strong {
+    display: block;
+    color: #fff7e8;
+    font-size: 0.8rem;
+    line-height: 1.25;
+}
+
+.highlight-line em {
+    color: #d6a557;
+    font-style: normal;
+    font-weight: 800;
+}
+
+.interpret-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.92fr);
+    gap: 15px;
+}
+
+.landscape-card,
+.ladder-card {
+    min-width: 0;
+    border: 1px solid rgba(74, 96, 88, 0.12);
+    border-radius: 8px;
+    background: #fffdfa;
+    padding: 12px;
+}
+
+.panel-title {
+    margin-bottom: 10px;
+    color: #53615f;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.landscape-plot {
+    position: relative;
+    height: 230px;
+    border: 1px solid rgba(74, 96, 88, 0.14);
+    border-radius: 8px;
+    background:
+        linear-gradient(90deg, rgba(184, 109, 85, 0.12), rgba(255, 253, 248, 0.64) 42%, rgba(82, 123, 104, 0.13)),
+        linear-gradient(0deg, rgba(82, 96, 92, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(82, 96, 92, 0.1) 1px, transparent 1px),
+        #fffdf8;
+    background-size: auto, 100% 25%, 20% 100%, auto;
+    overflow: hidden;
+}
+
+.plot-axis {
+    position: absolute;
+    color: #52615f;
+    font-size: 0.62rem;
+    font-weight: 800;
+}
+
+.axis-y {
+    left: 10px;
+    top: 12px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.axis-x {
+    left: 34%;
+    right: 8px;
+    bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.plot-zone {
+    position: absolute;
+    border-radius: 8px;
+    padding: 9px 11px;
+    font-size: 0.7rem;
+    line-height: 1.2;
+    color: #354445;
+    background: rgba(255, 253, 248, 0.7);
+    border: 1px solid rgba(74, 96, 88, 0.12);
+}
+
+.plot-zone strong {
+    display: block;
+    color: var(--poster-ink);
     font-size: 0.75rem;
-    color: #312317;
-    letter-spacing: 0.01em;
 }
 
-.page-research-prca-focus .prca-impact-coef small {
-    color: #7a6550;
-    font-size: 0.65rem;
-    font-weight: 700;
+.zone-left {
+    left: 45px;
+    top: 20px;
 }
 
-.page-research-prca-focus .prca-completeness-grid {
+.zone-right {
+    right: 26px;
+    top: 22px;
+}
+
+.zone-bottom {
+    left: 58px;
+    bottom: 23px;
+}
+
+.plot-point {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #274041;
+    font-size: 0.69rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.plot-point::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border: 2px solid #fffdfa;
+    border-radius: 999px;
+    background: var(--point);
+    box-shadow: 0 0 0 1px rgba(34, 54, 50, 0.28);
+}
+
+.ladder-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.74rem;
-    margin-top: 0.66rem;
+    gap: 11px;
 }
 
-.page-research-prca-focus .prca-completeness-grid .prca-connect-card h3 {
-    font-size: 0.94rem;
+.ladder-list li {
+    display: grid;
+    grid-template-columns: 36px 34px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    position: relative;
 }
 
-.page-research-prca-focus .prca-completeness-grid .prca-connect-card p {
-    font-size: 0.77rem;
-    line-height: 1.42;
+.ladder-list li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 17px;
+    top: 36px;
+    bottom: -11px;
+    border-left: 1px solid rgba(184, 137, 80, 0.55);
 }
 
-.page-research-prca-focus main .btn-primary {
-    border-color: rgba(198, 155, 103, 0.52);
-    background: linear-gradient(136deg, #2f515c, #4c7581 56%, #c49258 100%);
-    color: #fff5e6;
-    box-shadow: 0 16px 28px rgba(6, 11, 19, 0.3);
+.ladder-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid rgba(184, 137, 80, 0.7);
+    border-radius: 999px;
+    background: #fffdfa;
+    color: #9b6e3c;
+    font-size: 0.85rem;
+    font-weight: 800;
 }
 
-.page-research-prca-focus main .btn-outline {
-    border-color: rgba(191, 152, 104, 0.42);
-    color: #5d4430;
-    background: rgba(255, 247, 233, 0.88);
+.ladder-icon {
+    width: 34px;
+    height: 34px;
+    background: #f8f4eb;
 }
 
-.page-research-prca-focus main .btn-outline:hover {
-    border-color: rgba(176, 134, 82, 0.52);
-    background: rgba(255, 251, 243, 0.98);
-    color: #3e2b1d;
+.ladder-copy strong {
+    display: block;
+    color: #243739;
+    font-size: 0.78rem;
 }
 
-.page-research-prca-focus .footer {
-    background: linear-gradient(180deg, rgba(18, 33, 48, 0.55), rgba(10, 14, 24, 0.72));
-    border-top: 1px solid rgba(202, 165, 118, 0.22);
+.ladder-copy span {
+    display: block;
+    margin-top: 2px;
+    color: #53615f;
+    font-size: 0.7rem;
+    line-height: 1.35;
 }
 
-.page-research-prca-focus .footer-heading {
-    color: #f6ddba;
+.method-strip {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 8px;
 }
 
-.page-research-prca-focus .footer-desc,
-.page-research-prca-focus .footer-contact-info,
-.page-research-prca-focus .footer-bottom p {
-    color: rgba(241, 222, 196, 0.82);
+.method-strip::before {
+    content: "";
+    position: absolute;
+    left: 7%;
+    right: 7%;
+    top: 25px;
+    border-top: 1px solid rgba(184, 137, 80, 0.62);
 }
 
-@keyframes prcaFloatA {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(-14px, 18px) scale(1.05); }
+.method-step {
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    text-align: center;
 }
 
-@keyframes prcaFloatB {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(18px, -18px) scale(1.04); }
+.method-icon {
+    width: 36px;
+    height: 36px;
+    background: #fffdfa;
+    color: #244844;
 }
 
-@keyframes hotelReveal {
-    0% {
-        opacity: 0;
-        transform: translateY(18px);
+.method-step h3 {
+    margin-top: 8px;
+    color: #223537;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.method-step p {
+    margin-top: 3px;
+    color: #53615f;
+    font-size: 0.66rem;
+    line-height: 1.28;
+}
+
+.implication-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.implication-card {
+    border: 1px solid var(--tone-rule);
+    border-radius: 8px;
+    background: var(--tone-bg);
+    padding: 13px;
+    min-height: 126px;
+}
+
+.implication-card h3 {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #243739;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.implication-card h3 i {
+    color: var(--tone-ink);
+    font-size: 1.2rem;
+}
+
+.implication-card p,
+.implication-card li {
+    color: #465555;
+    font-size: 0.7rem;
+    line-height: 1.32;
+}
+
+.implication-card ul {
+    margin: 8px 0 0;
+    padding-left: 16px;
+}
+
+.poster-cta {
+    margin-top: 14px;
+    border-radius: 16px;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, rgba(12, 37, 33, 0.97), rgba(23, 65, 57, 0.96)),
+        url("./assets/hotel_resort_background.png") center/cover;
+    color: #fff7e8;
+    padding: 20px 24px 16px;
+}
+
+.cta-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+}
+
+.poster-cta h2 {
+    color: #fff7e8;
+    font-size: 1.35rem;
+    line-height: 1.08;
+}
+
+.poster-cta p {
+    margin-top: 5px;
+    color: rgba(255, 247, 232, 0.78);
+    font-size: 0.82rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 24px;
+    border-radius: 8px;
+    background: #c0935a;
+    color: #fffdf8;
+    font-size: 0.83rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-1px);
+    background: #ad814a;
+}
+
+.cta-meta {
+    margin-top: 17px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 247, 232, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+    align-items: center;
+    color: rgba(255, 247, 232, 0.82);
+    font-size: 0.74rem;
+}
+
+.cta-meta a,
+.cta-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+}
+
+.copyright {
+    margin-left: auto;
+}
+
+@media (max-width: 1060px) {
+    .prca-poster-shell {
+        width: min(100% - 32px, 980px);
     }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-@media (max-width: 1120px) {
-    .page-research-prca-focus .prca-method-grid {
+    .prca-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prca-hero-title {
+        max-width: 16ch;
+        font-size: 3.15rem;
+    }
+
+    .kpi-strip {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .page-research-prca-focus .prca-scene-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-template-areas:
-            "primary lounge"
-            "suite rooftop";
+    .metric-tile:nth-child(3) {
+        border-right: 0;
     }
 
-    .page-research-prca-focus .prca-scene-card.primary,
-    .page-research-prca-focus .prca-scene-card.suite {
-        min-height: 320px;
+    .metric-tile:nth-child(n + 4) {
+        border-top: 1px solid rgba(184, 137, 80, 0.24);
+    }
+
+    .kano-grid,
+    .implication-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .method-strip {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px 10px;
+    }
+
+    .method-strip::before {
+        display: none;
     }
 }
 
-@media (max-width: 960px) {
-    .page-research-prca-focus .prca-hero-grid,
-    .page-research-prca-focus .prca-bento-grid,
-    .page-research-prca-focus .prca-figure-grid,
-    .page-research-prca-focus .prca-priority-grid,
-    .page-research-prca-focus .prca-logic-grid,
-    .page-research-prca-focus .prca-scene-grid,
-    .page-research-prca-focus .prca-interpret-grid,
-    .page-research-prca-focus .prca-connect-grid,
-    .page-research-prca-focus .prca-completeness-grid {
+@media (max-width: 820px) {
+    .poster-row,
+    .glance-grid,
+    .coef-layout,
+    .interpret-grid,
+    .cta-row {
         grid-template-columns: 1fr;
     }
 
-    .page-research-prca-focus .prca-method-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .row-label {
+        border-right: 0;
+        border-bottom: 1px solid rgba(74, 96, 88, 0.12);
     }
 
-    .page-research-prca-focus .prca-scene-grid {
-        grid-template-areas:
-            "primary"
-            "lounge"
-            "rooftop"
-            "suite";
+    .prca-hero-media,
+    .prca-hero-media img {
+        min-height: 0;
+        height: 360px;
     }
 
-    .page-research-prca-focus .prca-scene-card.primary,
-    .page-research-prca-focus .prca-scene-card.suite {
-        min-height: 280px;
+    .hero-insights {
+        top: auto;
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        width: auto;
     }
 
-    .page-research-prca-focus .prca-stage-photo img {
-        height: 220px;
-    }
-
-    .page-research-prca-focus .prca-impact-columns {
+    .coef-header {
         display: none;
     }
 
-    .page-research-prca-focus .prca-impact-list li {
-        grid-template-columns: 1fr;
-        gap: 0.28rem;
-        padding: 0.58rem;
+    .coef-row {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 7px 10px;
     }
 
-    .page-research-prca-focus .prca-impact-coef {
-        justify-items: start;
-    }
-}
-
-@media (max-width: 900px) {
-    .page-research-prca-focus .nav-toggle {
-        border-color: rgba(214, 180, 137, 0.36);
-        background: rgba(10, 22, 34, 0.92);
+    .coef-name {
+        grid-row: 1 / 4;
+        align-self: center;
     }
 
-    .page-research-prca-focus .nav-toggle-bar {
-        background: #f2d8b2;
+    .coef-icon {
+        display: none;
     }
 
-    .page-research-prca-focus .nav-links {
-        border-color: rgba(207, 173, 130, 0.26);
-        background: rgba(8, 17, 27, 0.97);
-        box-shadow: 0 16px 30px rgba(4, 8, 14, 0.44);
+    .coef-row .bar-track.penalty,
+    .coef-row .bar-track.reward,
+    .coef-value {
+        grid-column: 2;
     }
 
-    .page-research-prca-focus .nav-link {
-        color: rgba(248, 229, 203, 0.9);
-    }
-
-    .page-research-prca-focus .nav-link:hover {
-        color: #ffe4bf;
-        background: rgba(33, 53, 67, 0.78);
-    }
-
-    .page-research-prca-focus .nav-overlay {
-        background: rgba(5, 9, 15, 0.62);
+    .copyright {
+        margin-left: 0;
     }
 }
 
 @media (max-width: 620px) {
-    .page-research-prca-focus .prca-meta-grid,
-    .page-research-prca-focus .prca-kpi-grid,
-    .page-research-prca-focus .prca-coefficient-list,
-    .page-research-prca-focus .prca-method-grid {
+    .prca-poster-shell {
+        width: min(100% - 20px, 520px);
+        margin-top: 10px;
+    }
+
+    .prca-poster {
+        border-radius: 14px;
+        padding: 12px;
+    }
+
+    .prca-hero-title {
+        font-size: 2.3rem;
+    }
+
+    .prca-hero-desc {
+        font-size: 0.9rem;
+    }
+
+    .prca-hero-facts,
+    .kpi-strip,
+    .kano-grid,
+    .implication-grid,
+    .method-strip {
         grid-template-columns: 1fr;
     }
 
-    .page-research-prca-focus .prca-hero-title {
-        font-size: clamp(2rem, 10vw, 2.75rem);
+    .metric-tile,
+    .metric-tile:nth-child(3),
+    .metric-tile:nth-child(n + 4) {
+        border-right: 0;
+        border-top: 1px solid rgba(184, 137, 80, 0.24);
     }
 
-    .page-research-prca-focus .prca-hero-copy {
-        padding: 0.92rem;
+    .metric-tile:first-child {
+        border-top: 0;
     }
 
-    .page-research-prca-focus .prca-stage-photo img {
-        height: 184px;
+    .prca-hero-media {
+        height: auto;
+        min-height: 0;
+        overflow: visible;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .prca-hero-media img {
+        height: 440px;
+        border-radius: 22px;
+    }
+
+    .hero-insights {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: -96px 10px 0;
+    }
+
+    .row-body {
+        padding: 10px;
+    }
+
+    .landscape-plot {
+        height: 280px;
+    }
+
+    .plot-zone {
+        width: 118px;
+        max-width: 118px;
+        padding: 7px 8px;
+        font-size: 0.62rem;
+    }
+
+    .plot-zone strong {
+        font-size: 0.68rem;
+    }
+
+    .zone-right {
+        right: 8px;
+        top: 18px;
+    }
+
+    .zone-left {
+        left: 42px;
+        top: 18px;
+    }
+
+    .zone-bottom {
+        left: 68px;
+        bottom: 24px;
+    }
+
+    .plot-point {
+        gap: 3px;
+        font-size: 0.61rem;
+    }
+
+    .plot-point::before {
+        width: 8px;
+        height: 8px;
+        border-width: 1.5px;
+    }
+
+    .point-staff {
+        left: 63% !important;
+    }
+
+    .point-room {
+        left: 59% !important;
+    }
+
+    .point-value {
+        left: 51% !important;
+    }
+
+    .point-facilities {
+        left: 60% !important;
+    }
+
+    .point-food {
+        left: 66% !important;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .page-research-prca-focus .research-detail-hero.prca-hero::before,
-    .page-research-prca-focus .research-detail-hero.prca-hero::after,
-    .page-research-prca-focus .prca-figure-card,
-    .page-research-prca-focus .prca-scene-card {
-        animation: none;
-        transition: none;
-    }
-
-    .page-research-prca-focus .prca-stage-photo img,
-    .page-research-prca-focus .prca-scene-card img {
+    .poster-back-link,
+    .cta-button {
         transition: none;
     }
 }
 </style>
 </head>
-<body class="page-research-detail page-research-custom page-research-prca-focus" data-page="research" data-research-id="hotel-prca">
-<div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
-<nav class="navbar">
-<div class="nav-container">
-<a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
-<button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-<div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html">Home</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
-<a class="nav-link magnetic" data-strength="10" href="projects.html">Projects</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a></div>
-</div>
-</nav>
-<div class="nav-overlay" hidden></div>
-<div class="parallax-bg layer-1" data-speed="0.1"></div>
-<div class="parallax-bg layer-2" data-speed="0.25"></div>
-<div class="parallax-bg layer-3" data-speed="-0.15"></div>
-<div class="parallax-bg layer-4" data-speed="0.1"></div>
-<main>
-<section class="research-detail-hero prca-hero">
-<div class="section-container">
-<a class="research-back-link reveal-on-load" href="projects.html"><i class="ph ph-arrow-left"></i> Back to Projects</a>
-<div class="prca-hero-grid reveal-on-load">
+<body class="page-research-prca-poster" data-page="research" data-research-id="hotel-prca">
+<main class="prca-poster-shell">
+<article class="prca-poster">
+<section class="research-detail-hero prca-hero reveal active">
+<a class="poster-back-link magnetic" data-strength="8" href="projects.html#research"><i class="ph ph-arrow-left"></i> Back to Projects</a>
+<div class="prca-hero-grid">
 <div class="prca-hero-copy">
-<span class="prca-badge"><i class="ph ph-waveform"></i> PRCA + Kano evidence summary</span>
-<h1 class="prca-hero-title">
-Hotel Attribute Asymmetry in Vietnam
-<span class="emphasis">(PRCA + Kano)</span>
-</h1>
-<p class="prca-hero-desc">
-From 97,014 Booking.com Vietnam reviews, this PRCA + Kano page shows which service issues hurt ratings most and which upgrades help only after basics are stable.
-</p>
-<ul class="prca-meta-grid">
-<li><span>Period</span><strong>Jan 2023 - Jan 2025</strong></li>
-<li><span>Source</span><strong>Booking.com Vietnam</strong></li>
-<li><span>Sample</span><strong>97,014 reviews</strong></li>
-<li><span>Model</span><strong>Regression with robust errors (R<sup>2</sup> = 0.220)</strong></li>
+<p class="prca-kicker">PRCA + Kano Evidence Summary</p>
+<h1 class="prca-hero-title">Hotel Attribute Asymmetry in Vietnam <em>(PRCA + Kano)</em></h1>
+<p class="prca-hero-desc">From 97,014 Booking.com Vietnam reviews, this PRCA + Kano study reveals which service attributes most drive delight, prevent dissatisfaction, and require smart investment.</p>
+<ul class="prca-hero-facts" aria-label="Study facts">
+<li><span class="fact-icon"><i class="ph ph-calendar-blank"></i></span><span><small>Period</small><strong>Jan 2023 - Jan 2025</strong></span></li>
+<li><span class="fact-icon"><i class="ph ph-database"></i></span><span><small>Source</small><strong>Booking.com Vietnam</strong></span></li>
+<li><span class="fact-icon"><i class="ph ph-selection-background"></i></span><span><small>Sample</small><strong>97,014 reviews</strong></span></li>
+<li><span class="fact-icon"><i class="ph ph-chart-line-up"></i></span><span><small>Model</small><strong>Robust regression (R<sup>2</sup> = 0.220)</strong></span></li>
 </ul>
 </div>
-<aside class="prca-stage-card" aria-label="Priority sequencing summary" data-evidence-tier="reported">
-<figure class="prca-stage-photo">
-<picture>
-<source sizes="(max-width: 900px) 96vw, 32vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-480.avif 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-768.avif 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-1024.avif 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-1400.avif 1400w" type="image/avif"/>
-<source sizes="(max-width: 900px) 96vw, 32vw" srcset="./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-480.webp 480w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-768.webp 768w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-1024.webp 1024w, ./assets/optimized/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017-1400.webp 1400w" type="image/webp"/>
-<img alt="Boutique hotel facade at dusk with warm interior glow" decoding="async" loading="lazy" src="./assets/external/mirror/images-unsplash-com-photo-1520250497591-112f2f40a3f4-462e845d7017.jpg" width="1400" height="933"/>
-</picture>
-<figcaption>Illustrative hotel context image for service-environment framing.</figcaption>
+<figure class="prca-hero-media">
+<img alt="Luxury coastal resort pool at sunset used as hotel service context visual" decoding="async" fetchpriority="high" height="1024" src="./assets/hotel_resort_background.png" width="1024"/>
+<figcaption class="hero-insights" aria-label="Top insights">
+<h2>Top Insights</h2>
+<div class="insight-stack">
+<div class="insight-item"><i class="ph ph-star"></i><span><strong>Fix Weaknesses</strong><span>Prevent dissatisfaction and revenue loss</span></span></div>
+<div class="insight-item"><i class="ph ph-chart-line-up"></i><span><strong>Improve What Matters</strong><span>Invest in drivers of satisfaction and loyalty</span></span></div>
+<div class="insight-item"><i class="ph ph-heart"></i><span><strong>Innovate &amp; Create Delight</strong><span>Deliver experiences guests love and remember</span></span></div>
+</div>
+<div class="insight-rules">
+<p><span>Failure sensitivity</span><strong>High</strong></p>
+<p><span>Upside leverage</span><strong>Moderate</strong></p>
+<p><span>Model robustness</span><strong>Reported fit</strong></p>
+</div>
+</figcaption>
 </figure>
-<div class="prca-stage-head">
-<h2 class="prca-stage-title">Service Prioritization Sequence</h2>
-<p class="prca-stage-pill">Reported evidence logic</p>
 </div>
-<h3 class="visually-hidden">Service prioritization stages</h3>
-<div class="prca-stage-rail">
-<article class="prca-stage-item">
-<h4>1. Protect Basics</h4>
-<p>Fix must-not-fail issues first: cleanliness and WiFi.</p>
-</article>
-<article class="prca-stage-item">
-<h4>2. Scale Performance</h4>
-<p>Improve core service drivers next: staff, room, value, and location.</p>
-</article>
-<article class="prca-stage-item">
-<h4>3. Stage Delighters</h4>
-<p>Invest in extras last: facilities and food once basics are reliable.</p>
-</article>
-</div>
-<div class="prca-stage-stats">
-<div class="prca-stat">
-<div class="prca-stat-top">
-<p class="prca-stat-label">Failure sensitivity</p>
-<p class="prca-stat-value">High</p>
-</div>
-<div class="prca-stat-track"><span class="prca-stat-fill risk"></span></div>
-</div>
-<div class="prca-stat">
-<div class="prca-stat-top">
-<p class="prca-stat-label">Upside leverage</p>
-<p class="prca-stat-value">Moderate</p>
-</div>
-<div class="prca-stat-track"><span class="prca-stat-fill upside"></span></div>
-</div>
-<div class="prca-stat">
-<div class="prca-stat-top">
-<p class="prca-stat-label">Model robustness</p>
-<p class="prca-stat-value">Reported fit</p>
-</div>
-<div class="prca-stat-track"><span class="prca-stat-fill fit"></span></div>
-</div>
-</div>
+</section>
+
+<section class="kpi-strip reveal active" aria-label="Headline metrics">
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-users-three"></i></span><span><span class="metric-label">Sample Size</span><span class="metric-value">97,014</span></span></div>
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-buildings"></i></span><span><span class="metric-label">Approx. Hotels</span><span class="metric-value">~1,000</span></span></div>
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-gear"></i></span><span><span class="metric-label">Avg. Guest Score</span><span class="metric-value">8.83 / 10</span></span></div>
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-arrows-out-line-horizontal"></i></span><span><span class="metric-label">Share of Perfect 10</span><span class="metric-value">49.2%</span></span></div>
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-chart-line"></i></span><span><span class="metric-label">Model Explanatory Power</span><span class="metric-value">R<sup>2</sup> 22.0% <small>(= 0.220)</small></span></span></div>
+<div class="metric-tile"><span class="metric-icon"><i class="ph ph-user-circle"></i></span><span><span class="metric-label">Strongest Upside Driver</span><span class="metric-value">Staff +0.680</span></span></div>
+</section>
+
+<div class="poster-rows">
+<section class="poster-row reveal active">
+<aside class="row-label">
+<strong>01</strong>
+<h2>At a Glance</h2>
+<p>PRCA asymmetry summary</p>
+</aside>
+<div class="row-body">
+<div class="glance-grid">
+<ul class="glance-points">
+<li><span class="mini-icon"><i class="ph ph-trend-down"></i></span><span><strong>Penalty</strong> means score loss when an attribute fails. In this study, penalties are stronger than rewards.</span></li>
+<li><span class="mini-icon"><i class="ph ph-wrench"></i></span><span><strong>Cleanliness</strong> is the top must-not-fail factor.</span></li>
+<li><span class="mini-icon"><i class="ph ph-hand-heart"></i></span><span><strong>Staff service</strong> is the strongest upside lever when executed well (+0.680 reward coefficient).</span></li>
+<li><span class="mini-icon"><i class="ph ph-user-circle"></i></span><span><strong>Attribute types:</strong> 2 Basics, 4 Performance drivers, 2 Delighters.</span></li>
+<li><span class="mini-icon"><i class="ph ph-star"></i></span><span><strong>Class definitions:</strong> Basic attributes create strong downside risk when they fail. Performance attributes have two-sided effects. Excitement attributes support differentiation after operational basics are stable.</span></li>
+</ul>
+<aside class="core-table">
+<h3>Core Metrics</h3>
+<dl>
+<div><dt>Sample Size</dt><dd>97,014</dd></div>
+<div><dt>Avg. Guest Score</dt><dd>8.83 / 10</dd></div>
+<div><dt>Approx. Hotels</dt><dd>~1,000</dd></div>
+<div><dt>Share of Perfect 10s</dt><dd>49.2%</dd></div>
+<div><dt>Model Explanatory Power</dt><dd>22.0% (R<sup>2</sup>)</dd></div>
+<div><dt>Strongest Upside Driver</dt><dd>Staff +0.680</dd></div>
+</dl>
 </aside>
 </div>
 </div>
 </section>
 
-<section class="section">
-<div class="section-container">
-<div class="prca-bento-grid">
-<article class="prca-panel reveal" data-evidence-tier="reported">
-<span class="badge">Core Findings</span>
-<h2>PRCA asymmetry summary</h2>
-<ul class="prca-mini-points" aria-label="Core findings">
-<li><i class="ph ph-warning-circle"></i><strong>Penalty</strong> means score loss when an attribute fails. In this study, penalties are stronger than rewards.</li>
-<li><i class="ph ph-shield-check"></i>Cleanliness is the top must-not-fail factor.</li>
-<li><i class="ph ph-trend-up"></i>Staff service is the strongest upside lever when executed well (+0.680 reward coefficient).</li>
-<li><i class="ph ph-grid-four"></i>Attribute types: 2 Basics, 4 Performance drivers, 2 Delighters.</li>
-</ul>
-<p class="prca-note">
-<strong>Class definitions:</strong> Basic attributes create strong downside risk when they fail. Performance attributes have two-sided effects. Excitement attributes support differentiation after operational basics are stable.
-</p>
-<p class="prca-note">
-<strong>Source note:</strong> coefficients and class assignment are reported outputs from Paper 67 visualized in this page.
-</p>
-<div class="prca-author-row">
-<p><strong>Authors:</strong> Chung Hy Dai, Anh Minh Hoang</p>
-<p><strong>Contact:</strong> hmianh2504@gmail.com</p>
-</div>
+<section class="poster-row reveal">
+<aside class="row-label">
+<strong>02</strong>
+<h2>Mapping the Context</h2>
+<p>Attribute landscape linked to PRCA classes</p>
+</aside>
+<div class="row-body">
+<p class="poster-label">Attributes grouped into Kano classes</p>
+<div class="kano-grid">
+<article class="kano-card tone-basic">
+<h3>Basic</h3>
+<p>Must-be. Fail -> strong penalty.</p>
+<ul><li>Cleanliness</li><li>WiFi</li></ul>
+<span class="class-icon"><i class="ph ph-shield-check"></i></span>
 </article>
-<article class="prca-panel reveal" data-evidence-tier="reported">
-<span class="badge">Core Metrics</span>
-<ul class="prca-kpi-grid" aria-label="Key model statistics">
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Sample size</p>
-<p class="prca-kpi-value">97,014</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Approx. hotels</p>
-<p class="prca-kpi-value">~1,000</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Average guest score</p>
-<p class="prca-kpi-value">8.83 / 10</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Share of perfect 10 scores</p>
-<p class="prca-kpi-value">49.2%</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Model explanatory power</p>
-<p class="prca-kpi-value">22.0% (R<sup>2</sup> = 0.220)</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Uncertainty check</p>
-<p class="prca-kpi-value">Robust standard errors (HC1)</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Attribute type split</p>
-<p class="prca-kpi-value">2 Basics / 4 Performance / 2 Delighters</p>
-</li>
-<li class="prca-kpi-card">
-<p class="prca-kpi-label">Strongest upside driver</p>
-<p class="prca-kpi-value">Staff +0.680</p>
-</li>
-</ul>
+<article class="kano-card tone-performance">
+<h3>Performance</h3>
+<p>The more you do, the more it pays.</p>
+<ul><li>Staff service</li><li>Room quality</li><li>Value for money</li><li>Location</li></ul>
+<span class="class-icon"><i class="ph ph-chart-line-up"></i></span>
+</article>
+<article class="kano-card tone-excitement">
+<h3>Excitement</h3>
+<p>Unexpected delights create big smiles.</p>
+<ul><li>Facilities</li><li>Food</li></ul>
+<span class="class-icon"><i class="ph ph-star"></i></span>
+</article>
+<article class="kano-card tone-indifferent">
+<h3>Indifferent</h3>
+<p>Limited impact. Guests respond less clearly.</p>
+<ul><li>Polarity / specialty facilities</li></ul>
+<span class="class-icon"><i class="ph ph-minus"></i></span>
+</article>
+<article class="kano-card tone-reverse">
+<h3>Reverse</h3>
+<p>Too much can reduce satisfaction.</p>
+<ul><li>Over-staffing</li><li>Pushy upselling</li></ul>
+<span class="class-icon"><i class="ph ph-warning"></i></span>
 </article>
 </div>
 </div>
 </section>
 
-<section class="section">
-<div class="section-container">
-<div class="prca-panel prca-hotel-gallery reveal">
-<div class="section-header text-center">
-<span class="badge">Illustrative Context</span>
-<h2 class="section-heading section-heading-focus">Hotel characteristics mapped from Paper 67</h2>
-<p class="research-copy-muted">
-This illustrative map links the eight modeled attributes to concrete hotel characteristics described in Paper 67. It supplements, and does not replace, reported coefficients.
-</p>
+<section class="poster-row reveal">
+<aside class="row-label">
+<strong>03</strong>
+<h2>Reported Coefficients</h2>
+<p>Penalty vs reward effect sizes</p>
+</aside>
+<div class="row-body">
+<div class="coef-layout">
+<div class="coef-board" role="img" aria-label="PRCA coefficients by attribute showing penalty and reward bars">
+<div class="coef-header" aria-hidden="true">
+<span></span><span class="coef-heading">Penalty (when it fails)</span><span></span><span class="coef-heading">Reward (when it excels)</span><span></span>
 </div>
-<figure class="prca-figure-card prca-context-figure research-figure-stage" data-evidence-tier="illustrative">
-<img alt="Illustrative map of hotel characteristics by Basic, Performance, and Excitement attribute classes from Paper 67" decoding="async" loading="lazy" src="./assets/viz-prca-hotel-characteristics.svg" width="1600" height="980"/>
-<figcaption>Characteristic map of the eight Paper 67 attributes by Basic, Performance, and Excitement classes.</figcaption>
-</figure>
+<div class="coef-row"><span class="coef-name">Cleanliness</span><span class="bar-track penalty" style="--w: 100%;"><span></span></span><span class="coef-icon"><i class="ph ph-shield-check"></i></span><span class="bar-track reward" style="--w: 21.3%;"><span></span></span><span class="coef-value">-1.500 / +0.145</span></div>
+<div class="coef-row"><span class="coef-name">WiFi</span><span class="bar-track penalty" style="--w: 43.7%;"><span></span></span><span class="coef-icon"><i class="ph ph-wifi-high"></i></span><span class="bar-track reward negative" style="--w: 7.6%;"><span></span></span><span class="coef-value">-0.656 / -0.052</span></div>
+<div class="coef-row"><span class="coef-name">Staff service</span><span class="bar-track penalty" style="--w: 64.3%;"><span></span></span><span class="coef-icon"><i class="ph ph-hand-heart"></i></span><span class="bar-track reward" style="--w: 100%;"><span></span></span><span class="coef-value">-0.965 / +0.680</span></div>
+<div class="coef-row"><span class="coef-name">Room quality</span><span class="bar-track penalty" style="--w: 64.5%;"><span></span></span><span class="coef-icon"><i class="ph ph-bed"></i></span><span class="bar-track reward" style="--w: 32.6%;"><span></span></span><span class="coef-value">-0.967 / +0.222</span></div>
+<div class="coef-row"><span class="coef-name">Value</span><span class="bar-track penalty" style="--w: 25.5%;"><span></span></span><span class="coef-icon"><i class="ph ph-tag"></i></span><span class="bar-track reward" style="--w: 13.2%;"><span></span></span><span class="coef-value">-0.382 / +0.090</span></div>
+<div class="coef-row"><span class="coef-name">Location</span><span class="bar-track penalty" style="--w: 22.7%;"><span></span></span><span class="coef-icon"><i class="ph ph-map-pin"></i></span><span class="bar-track reward" style="--w: 5%;"><span></span></span><span class="coef-value">-0.341 / +0.034</span></div>
+<div class="coef-row"><span class="coef-name">Facilities</span><span class="bar-track penalty" style="--w: 7.7%;"><span></span></span><span class="coef-icon"><i class="ph ph-buildings"></i></span><span class="bar-track reward" style="--w: 60.3%;"><span></span></span><span class="coef-value">-0.115 / +0.410</span></div>
+<div class="coef-row"><span class="coef-name">Food</span><span class="bar-track penalty" style="--w: 10.5%;"><span></span></span><span class="coef-icon"><i class="ph ph-fork-knife"></i></span><span class="bar-track reward" style="--w: 77.2%;"><span></span></span><span class="coef-value">-0.158 / +0.525</span></div>
 </div>
-</div>
-</section>
-
-<section class="section bg-light">
-<div class="section-container">
-<div class="prca-panel prca-figure-shell reveal">
-<div class="section-header text-center">
-<span class="badge">Visualization</span>
-<h2 class="section-heading section-heading-focus">Reported Coefficient Visuals</h2>
-<p class="research-copy-muted">
-Left chart reports penalty and reward effect sizes by attribute. Right chart reports the asymmetry class map used for service sequencing.
-</p>
-</div>
-<div class="prca-figure-grid">
-<figure class="prca-figure-card research-figure-stage" data-evidence-tier="reported">
-<img alt="Mirrored penalty and reward coefficients for eight hotel attributes" decoding="async" height="980" loading="lazy" src="./assets/viz-prca-mirrored-effects.svg" width="1600"/>
-<figcaption>Penalty (left) and reward (right) coefficients by attribute; larger absolute values indicate stronger score influence.</figcaption>
-</figure>
-<figure class="prca-figure-card research-figure-stage" data-evidence-tier="reported">
-<img alt="Asymmetry class map for Basic, Performance, and Excitement attributes" decoding="async" height="980" loading="lazy" src="./assets/viz-prca-asymmetry-matrix.svg" width="1600"/>
-<figcaption>Asymmetry class map showing Basic, Performance, and Excitement zones.</figcaption>
-</figure>
-</div>
+<aside class="highlight-card">
+<h3>Highlights</h3>
+<div class="highlight-line"><i class="ph ph-star"></i><span><strong>Strongest Upside Driver</strong><span>Staff service <em>+0.680</em></span></span></div>
+<div class="highlight-line"><i class="ph ph-shield-warning"></i><span><strong>Highest Downside Risk</strong><span>Cleanliness <em>-1.500</em></span></span></div>
+<div class="highlight-line"><i class="ph ph-scales"></i><span><strong>Asymmetry</strong><span>Penalties dominate rewards in 6 of 8 attributes</span></span></div>
+</aside>
 </div>
 </div>
 </section>
 
-<section class="section">
-<div class="section-container">
-<div class="prca-panel reveal">
-<div class="section-header mb-5">
-<span class="badge">Method in Plain Steps</span>
-<h2 class="section-heading" style="font-size: clamp(1.7rem, 3.3vw, 2.2rem);">How the analysis was built</h2>
-</div>
-<h3 class="visually-hidden">Method execution steps</h3>
-<div class="prca-method-grid">
-<article class="prca-method-step" data-step="01">
-<h4>Data collection</h4>
-<p>Collected Booking.com reviews and removed duplicates, resulting in 97,014 usable records.</p>
-</article>
-<article class="prca-method-step" data-step="02">
-<h4>Language standardization</h4>
-<p>Used NLLB-200 to translate and standardize multilingual reviews into one analysis-ready format.</p>
-</article>
-<article class="prca-method-step" data-step="03">
-<h4>Attribute mapping</h4>
-<p>Used Sentence-BERT to map text into 8 service attributes (reported proxy precision up to 0.92).</p>
-</article>
-<article class="prca-method-step" data-step="04">
-<h4>Polarity construction</h4>
-<p>Separated positive and negative statements to estimate gains and losses independently.</p>
-</article>
-<article class="prca-method-step" data-step="05">
-<h4>PRCA + Kano classification</h4>
-<p>Estimated penalty/reward effects with robust regression, then grouped attributes into 2 Basics, 4 Performance drivers, and 2 Delighters.</p>
-</article>
+<section class="poster-row reveal">
+<aside class="row-label">
+<strong>04</strong>
+<h2>Interpretation &amp; Priority</h2>
+<p>Service sequencing for managers</p>
+</aside>
+<div class="row-body">
+<div class="interpret-grid">
+<div class="landscape-card">
+<p class="panel-title">Asymmetry Landscape</p>
+<div class="landscape-plot" role="img" aria-label="Penalty impact by reward impact map for eight hotel attributes">
+<span class="plot-axis axis-y">Penalty impact (downside)</span>
+<span class="plot-axis axis-x"><span>Low</span><span>Moderate reward impact</span><span>High</span></span>
+<span class="plot-zone zone-left"><strong>Concentrate Here</strong>High downside, low upside</span>
+<span class="plot-zone zone-right"><strong>Excel &amp; Invest</strong>High upside, high payoff</span>
+<span class="plot-zone zone-bottom"><strong>Keep on Radar</strong>Low impact overall</span>
+<span class="plot-point point-cleanliness" style="--x: 18%; --y: 42%; --point: #c55b50;">Cleanliness</span>
+<span class="plot-point point-wifi" style="--x: 33%; --y: 50%; --point: #c55b50;">WiFi</span>
+<span class="plot-point point-staff" style="--x: 76%; --y: 36%; --point: #2f7a60;">Staff service</span>
+<span class="plot-point point-room" style="--x: 72%; --y: 44%; --point: #2f7a60;">Room quality</span>
+<span class="plot-point point-value" style="--x: 61%; --y: 51%; --point: #426f8e;">Value</span>
+<span class="plot-point point-location" style="--x: 49%; --y: 64%; --point: #426f8e;">Location</span>
+<span class="plot-point point-facilities" style="--x: 73%; --y: 68%; --point: #527b68;">Facilities</span>
+<span class="plot-point point-food" style="--x: 79%; --y: 76%; --point: #527b68;">Food</span>
 </div>
 </div>
-</div>
-</section>
-
-<section class="section">
-<div class="section-container">
-<div class="prca-panel prca-interpret-shell reveal" data-evidence-tier="reported">
-<div class="section-header text-center">
-<span class="badge">Attribute Interpretation</span>
-<h2 class="section-heading section-heading-focus">Comprehensive Interpretation of Hotel Attributes</h2>
-<p class="research-copy-muted">
-This panel translates the reported coefficients into operational meaning. Penalty bars show downside risk when performance fails; reward bars show upside potential when performance excels.
-</p>
-</div>
-<div class="prca-interpret-grid">
-<article class="prca-interpret-card basic">
-<h3>Basic class: failure prevention first</h3>
-<ul class="prca-interpret-list">
-<li><strong>Cleanliness (-1.500 / +0.145)</strong> is the highest downside driver. Hygiene failures erase rating equity faster than upgrades can recover it.</li>
-<li><strong>WiFi (-0.656 / -0.052)</strong> behaves as a strict hygiene factor: unreliable internet hurts scores and does not create upside when merely acceptable.</li>
-<li>Operational reading: set non-negotiable baseline controls before funding premium features.</li>
-</ul>
-</article>
-<article class="prca-interpret-card performance">
-<h3>Performance class: optimize for consistency</h3>
-<ul class="prca-interpret-list">
-<li><strong>Staff (-0.965 / +0.680)</strong> is the strongest upside lever with substantial failure risk.</li>
-<li><strong>Room (-0.967 / +0.222)</strong> carries almost the same downside as Staff but lower upside, so execution quality must stay stable.</li>
-<li><strong>Value (-0.382 / +0.090)</strong> and <strong>Location (-0.341 / +0.034)</strong> are moderate levers that protect perceived fairness and convenience.</li>
-</ul>
-</article>
-<article class="prca-interpret-card excitement">
-<h3>Excitement class: differentiate after stabilization</h3>
-<ul class="prca-interpret-list">
-<li><strong>Food (-0.158 / +0.525)</strong> and <strong>Facilities (-0.115 / +0.410)</strong> have low downside but strong upside.</li>
-<li>These attributes are useful for premium differentiation once basic reliability is already controlled.</li>
-<li>Operational reading: gate delighter investment behind stable Basic and Performance KPIs.</li>
-</ul>
-</article>
-</div>
-<div class="prca-impact-board" role="img" aria-label="Normalized penalty and reward intensity board across eight hotel attributes">
-<h3>Penalty and Reward Intensity Board</h3>
-<p class="prca-impact-sub">
-Bar lengths are normalized to the strongest coefficient in each dimension (Penalty max = 1.500; Reward max = 0.680) to support direct visual comparison.
-</p>
-<div class="prca-impact-columns" aria-hidden="true">
-<span>Attribute</span>
-<span>Penalty intensity</span>
-<span>Reward intensity</span>
-<span>Reported coefficients</span>
-</div>
-<ul class="prca-impact-list" aria-label="Normalized penalty and reward comparison for each hotel attribute">
-<li class="basic">
-<span class="prca-impact-attr">Cleanliness</span>
-<span class="prca-impact-meter penalty"><span style="width: 100%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 21.3%;"></span></span>
-<span class="prca-impact-coef"><strong>-1.500 / +0.145</strong><small>largest downside risk</small></span>
-</li>
-<li class="basic neg">
-<span class="prca-impact-attr">WiFi</span>
-<span class="prca-impact-meter penalty"><span style="width: 43.7%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 7.6%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.656 / -0.052</strong><small>negative reward signal</small></span>
-</li>
-<li class="performance">
-<span class="prca-impact-attr">Staff service</span>
-<span class="prca-impact-meter penalty"><span style="width: 64.3%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 100%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.965 / +0.680</strong><small>strongest upside lever</small></span>
-</li>
-<li class="performance">
-<span class="prca-impact-attr">Room quality</span>
-<span class="prca-impact-meter penalty"><span style="width: 64.5%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 32.6%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.967 / +0.222</strong><small>high two-sided leverage</small></span>
-</li>
-<li class="performance">
-<span class="prca-impact-attr">Value</span>
-<span class="prca-impact-meter penalty"><span style="width: 25.5%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 13.2%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.382 / +0.090</strong><small>pricing fairness lever</small></span>
-</li>
-<li class="performance">
-<span class="prca-impact-attr">Location</span>
-<span class="prca-impact-meter penalty"><span style="width: 22.7%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 5%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.341 / +0.034</strong><small>convenience hygiene lever</small></span>
-</li>
-<li class="excitement">
-<span class="prca-impact-attr">Facilities</span>
-<span class="prca-impact-meter penalty"><span style="width: 7.7%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 60.3%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.115 / +0.410</strong><small>upgrade after core stability</small></span>
-</li>
-<li class="excitement">
-<span class="prca-impact-attr">Food</span>
-<span class="prca-impact-meter penalty"><span style="width: 10.5%;"></span></span>
-<span class="prca-impact-meter reward"><span style="width: 77.2%;"></span></span>
-<span class="prca-impact-coef"><strong>-0.158 / +0.525</strong><small>highest delighter reward</small></span>
-</li>
-</ul>
-</div>
+<aside class="ladder-card">
+<p class="panel-title">Priority Ladder (Service Sequencing)</p>
+<ol class="ladder-list">
+<li><span class="ladder-number">01</span><span class="ladder-icon"><i class="ph ph-shield-check"></i></span><span class="ladder-copy"><strong>Stabilize Basics</strong><span>Eliminate failures in must-not-fail attributes.</span></span></li>
+<li><span class="ladder-number">02</span><span class="ladder-icon"><i class="ph ph-chart-line-up"></i></span><span class="ladder-copy"><strong>Optimize Performance</strong><span>Invest in high-impact performance drivers.</span></span></li>
+<li><span class="ladder-number">03</span><span class="ladder-icon"><i class="ph ph-star"></i></span><span class="ladder-copy"><strong>Differentiate &amp; Delight</strong><span>Innovate on exciters to create memorable stays.</span></span></li>
+<li><span class="ladder-number">04</span><span class="ladder-icon"><i class="ph ph-heart"></i></span><span class="ladder-copy"><strong>Sustain &amp; Refine</strong><span>Monitor, learn, and keep raising the bar.</span></span></li>
+</ol>
+</aside>
 </div>
 </div>
 </section>
 
-<section class="section bg-light">
-<div class="section-container">
-<div class="prca-panel prca-priority-shell reveal" data-evidence-tier="reported">
-<div class="section-header text-center">
-<span class="badge">Decision Rules</span>
-<h2 class="section-heading section-heading-focus">Managerial Priority Order</h2>
-</div>
-<div class="prca-priority-grid">
-<article class="prca-lane protect">
-<h3>Protect Basics</h3>
-<p>Stabilize high-penalty factors first.</p>
-</article>
-<article class="prca-lane optimize">
-<h3>Optimize Performance</h3>
-<p>Improve staff, room, value, and location next.</p>
-</article>
-<article class="prca-lane delight">
-<h3>Differentiate with Delighters</h3>
-<p>Invest in facilities and food last.</p>
-</article>
-</div>
-<p class="prca-note"><strong>Coefficient format:</strong> penalty / reward. More negative penalty means stronger score damage when that attribute fails.</p>
-<ul class="prca-coefficient-list" aria-label="Penalty and reward coefficients by attribute">
-<li><span>Cleanliness</span><strong>-1.500 / +0.145</strong></li>
-<li><span>WiFi</span><strong>-0.656 / -0.052</strong></li>
-<li><span>Staff service</span><strong>-0.965 / +0.680</strong></li>
-<li><span>Room quality</span><strong>-0.967 / +0.222</strong></li>
-<li><span>Value</span><strong>-0.382 / +0.090</strong></li>
-<li><span>Location</span><strong>-0.341 / +0.034</strong></li>
-<li><span>Facilities</span><strong>-0.115 / +0.410</strong></li>
-<li><span>Food</span><strong>-0.158 / +0.525</strong></li>
-</ul>
+<section class="poster-row reveal">
+<aside class="row-label">
+<strong>05</strong>
+<h2>Methodology</h2>
+<p>Pipeline from reviews to actioning</p>
+</aside>
+<div class="row-body">
+<div class="method-strip">
+<article class="method-step"><span class="method-icon"><i class="ph ph-database"></i></span><h3>Data Collection</h3><p>97,014 Booking.com reviews from Vietnam</p></article>
+<article class="method-step"><span class="method-icon"><i class="ph ph-globe-hemisphere-east"></i></span><h3>Language Standardization</h3><p>Translate and standardize into analysis-ready format</p></article>
+<article class="method-step"><span class="method-icon"><i class="ph ph-share-network"></i></span><h3>Attribute Mapping</h3><p>Sentence-BERT maps text into 8 service attributes</p></article>
+<article class="method-step"><span class="method-icon"><i class="ph ph-equals"></i></span><h3>Polarity Construction</h3><p>Segment positive and negative sentiment signals</p></article>
+<article class="method-step"><span class="method-icon"><i class="ph ph-chart-scatter"></i></span><h3>PRCA + Kano Modeling</h3><p>Estimate penalty/reward coefficients and classes</p></article>
+<article class="method-step"><span class="method-icon"><i class="ph ph-target"></i></span><h3>Actioning</h3><p>Prioritize fixes, investments, and innovation</p></article>
 </div>
 </div>
 </section>
 
-<section class="section">
-<div class="section-container">
-<div class="prca-panel reveal">
-<h3 class="research-subheading-tight">Managerial Implications</h3>
-<div class="prca-logic-grid">
-<article class="prca-logic-item">
-<span class="tag">Pass 1</span>
-<p>Treat cleanliness and WiFi as non-negotiables. Cleanliness has the steepest penalty (-1.500), and WiFi shows no real upside when only "acceptable" (-0.656 / -0.052).</p>
+<section class="poster-row reveal">
+<aside class="row-label">
+<strong>06</strong>
+<h2>Managerial Implications</h2>
+<p>Operational actions from asymmetry</p>
+</aside>
+<div class="row-body">
+<div class="implication-grid">
+<article class="implication-card tone-basic">
+<h3><i class="ph ph-shield-check"></i> Protect the Basics</h3>
+<p>Eliminate failures in must-be attributes first.</p>
+<ul><li>Cleanliness</li><li>WiFi</li><li>Room basics</li></ul>
 </article>
-<article class="prca-logic-item">
-<span class="tag">Pass 2</span>
-<p>After basics are stable, standardize staff and room delivery. Staff is the strongest upside lever (+0.680), while room quality still carries high downside risk (-0.967).</p>
+<article class="implication-card tone-performance">
+<h3><i class="ph ph-chart-line-up"></i> Optimize Performance</h3>
+<p>Invest in drivers with the strongest upside.</p>
+<ul><li>Staff service</li><li>Room quality</li><li>Value for money</li><li>Location</li></ul>
 </article>
-<article class="prca-logic-item">
-<span class="tag">Pass 3</span>
-<p>Use food and facilities as targeted differentiators last. They carry lower penalty risk but strong reward potential (Food +0.525, Facilities +0.410).</p>
+<article class="implication-card tone-excitement">
+<h3><i class="ph ph-star"></i> Differentiate with Delighters</h3>
+<p>Create new moments that competitors cannot easily copy.</p>
+<ul><li>Facilities</li><li>Food and dining experiences</li></ul>
 </article>
-</div>
-<h3 class="research-subheading-tight" style="margin-top: 0.92rem;">If Extending the Projects</h3>
-<div class="prca-completeness-grid">
-<article class="prca-connect-card">
-<h3>Ground-truth check for text labels</h3>
-<p>Manually annotate a review subset for attribute and sentiment labels, then report precision/recall so the NLP mapping can be audited against human coding.</p>
+<article class="implication-card tone-indifferent">
+<h3><i class="ph ph-magnifying-glass"></i> Monitor &amp; Iterate</h3>
+<p>Track sentiment monthly, re-estimate, and adapt.</p>
+<ul><li>Re-check priorities</li><li>Validate outcomes</li><li>Keep improving</li></ul>
 </article>
-<article class="prca-connect-card">
-<h3>Quarterly re-estimation</h3>
-<p>Re-estimate PRCA by quarter (or rolling windows) to verify whether class assignments stay stable across seasonality and market shifts.</p>
-</article>
-<article class="prca-connect-card">
-<h3>Replication in another destination</h3>
-<p>Run the same pipeline in at least one comparable city using the same preprocessing and model settings to test transferability.</p>
-</article>
-<article class="prca-connect-card">
-<h3>Action-to-outcome linkage</h3>
-<p>Track intervention dates (e.g., housekeeping SOP changes, staff training) and compare before/after shifts in ratings and attribute mentions.</p>
-</article>
-</div>
-<p class="prca-final-note">
-Operational rule: protect basics every day, review penalty signals monthly, rerank priorities quarterly, and fund differentiating attributes only after basic complaints remain low.
-</p>
-</div>
-<div class="text-center mt-5 reveal">
-<a class="btn-outline large magnetic" data-strength="15" href="projects.html"><i class="ph ph-arrow-left"></i> Back to Projects</a>
 </div>
 </div>
 </section>
-</main>
-<footer class="footer">
-<div class="footer-glow glow-1"></div>
-<div class="footer-glow glow-2"></div>
-<div class="footer-glow glow-3"></div>
-<div class="footer-container layer-above-bg reveal active">
-<h2 class="footer-heading">Review the research portfolio.</h2>
-<p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
-<div class="footer-actions">
+</div>
 
+<footer class="poster-cta reveal">
+<div class="cta-row">
+<div>
+<h2>Ready to turn insights into measurable impact?</h2>
+<p>Transform guest feedback into stronger performance and happier guests.</p>
 </div>
-<div class="footer-contact-info reveal active">
-<a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
-<span class="divider">|</span>
-<a class="contact-link hover-underline" href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
-<span class="divider">|</span>
-<span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+<a class="cta-button magnetic" data-strength="10" href="mailto:daichunghy@gmail.com">Let's Connect <i class="ph ph-arrow-right"></i></a>
 </div>
-<div class="footer-bottom">
-<p>© 2026 Chung Hy Dai.</p>
-</div>
+<div class="cta-meta">
+<a href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
+<a href="https://orcid.org/0009-0009-6790-8981" rel="noopener noreferrer" target="_blank"><i class="ph ph-identification-card"></i> ORCID</a>
+<span><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
+<span class="copyright">&copy; 2026 Chung Hy Dai.</span>
 </div>
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const mainEl = document.querySelector('main');
-    if (!mainEl) return;
-    const sections = mainEl.querySelectorAll('.section');
-    const targetSection = sections.length > 3 ? sections[3] : sections[sections.length - 1];
-    if (!targetSection) return;
-    const container = targetSection.querySelector('.section-container');
-    if (!container) return;
-    const chartDiv = document.createElement('div');
-    chartDiv.style.cssText = 'margin: 2rem auto; max-width: 860px; background: var(--prca-card, rgba(255,251,245,0.9)); border: 1px solid var(--prca-line, rgba(104,84,66,0.24)); border-radius: 20px; padding: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.06);';
-    chartDiv.innerHTML = '<h3 style="font-size:1.15rem; margin-bottom:0.5rem; color:var(--prca-ink,#2e2620); text-align:center;">Penalty-Reward Contrast by Service Attribute</h3><p style="text-align:center; color:var(--prca-muted,#5d5044); margin-bottom:1.5rem; font-size:0.85rem;">Positive bars = reward for exceeding expectations; Negative bars = penalty for falling short.</p><div style="position:relative; height:340px; width:100%;"><canvas id="prcaContrastChart"></canvas></div>';
-    container.appendChild(chartDiv);
-
-    new Chart(document.getElementById('prcaContrastChart'), {
-        type: 'bar',
-        data: {
-            labels: ['Cleanliness', 'Staff Service', 'Location', 'Comfort', 'Facilities', 'Value for Money', 'WiFi'],
-            datasets: [
-                { label: 'Reward (+)', data: [0.52, 0.48, 0.38, 0.35, 0.28, 0.22, 0.15], backgroundColor: 'rgba(61,90,69,0.8)', borderRadius: 6 },
-                { label: 'Penalty (−)', data: [-0.85, -0.42, -0.18, -0.55, -0.32, -0.72, -0.65], backgroundColor: 'rgba(175,88,56,0.8)', borderRadius: 6 }
-            ]
-        },
-        options: {
-            responsive: true, maintainAspectRatio: false,
-            scales: {
-                x: { grid: { display: false }, ticks: { font: { size: 11 } } },
-                y: { title: { display: true, text: 'Impact on Satisfaction', font: { size: 12, weight: '600' } }, grid: { borderDash: [4,4], color: 'rgba(104,84,66,0.12)' } }
-            },
-            plugins: {
-                legend: { position: 'top', labels: { usePointStyle: true, padding: 16, font: { size: 12 } } },
-                tooltip: { backgroundColor: 'rgba(251,244,234,0.95)', titleColor: '#2e2620', bodyColor: '#5d5044', borderColor: 'rgba(104,84,66,0.24)', borderWidth: 1, padding: 10 }
-            },
-            animation: { duration: 1800, easing: 'easeOutQuart' }
-        }
-    });
-});
-</script>
+</article>
+</main>
 <script defer="" src="js/main.js" type="module"></script>
 </body>
 </html>
