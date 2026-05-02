@@ -946,6 +946,10 @@ body[data-page="home"] .project-card img {
     object-fit: cover;
 }
 
+body[data-page="home"] .project-card picture {
+    display: block;
+}
+
 body[data-page="home"] .project-card > i {
     position: absolute;
     top: 0.8rem;
@@ -1115,6 +1119,11 @@ body[data-page="home"] .certificate-proof img {
     filter: saturate(0.88) contrast(0.94);
 }
 
+body[data-page="home"] .certificate-proof picture {
+    display: block;
+    height: 100%;
+}
+
 body[data-page="home"] .cert-kicker {
     display: inline-flex;
     margin: 0.1rem 0 0.55rem;
@@ -1229,6 +1238,10 @@ body[data-page="home"] .certificate-card img {
     object-position: 50% 10%;
     opacity: 0.2;
     transform: rotate(-5deg);
+}
+
+body[data-page="home"] .certificate-card picture {
+    display: contents;
 }
 
 body[data-page="home"] .certificate-card.has-proof {
