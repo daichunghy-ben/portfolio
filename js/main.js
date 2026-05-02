@@ -11,6 +11,7 @@ import {
     initTooltips
 } from './core.js';
 import { initNav } from './nav.js';
+import { initResearchSidebarLocale } from './portfolio-locale.js';
 
 window.__portfolioMainModuleLoaded = true;
 
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initLinkSecurity();
     initTooltips(env);
     initNav(env);
+    initResearchSidebarLocale();
 
     try {
         const { initResearchManifest } = await import('./research-manifest.js');
@@ -59,6 +61,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             initParallax(env, page);
         } catch (error) {
             console.warn('Parallax initialization skipped due to error:', error);
+        }
+
+        if (page === 'projects') {
+            try {
+                const { initProjectsArchive } = await import('./projects-archive.js');
+                initProjectsArchive(env);
+            } catch (error) {
+                console.warn('Projects archive initialization skipped due to error:', error);
+            }
         }
 
         return;

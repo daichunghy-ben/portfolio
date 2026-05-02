@@ -1935,6 +1935,16 @@ body[data-page="projects"].page-projects-showcase .archive-clear-link {
     font-weight: 800;
 }
 
+body[data-page="projects"].page-projects-showcase .archive-clear-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
 body[data-page="projects"].page-projects-showcase .featured-card-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
@@ -1995,22 +2005,32 @@ body[data-page="projects"].page-projects-showcase .archive-filter-bar {
     margin: 0.8rem 0 1.35rem;
 }
 
-body[data-page="projects"].page-projects-showcase .archive-filter-bar a {
+body[data-page="projects"].page-projects-showcase .archive-filter-bar a,
+body[data-page="projects"].page-projects-showcase .archive-filter-bar button {
     min-width: 0;
     padding: 0.56rem 1.2rem;
     border: 1px solid rgba(13, 36, 62, 0.2);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.68);
     color: var(--archive-ink);
+    font-family: inherit;
     font-size: 0.8rem;
     font-weight: 800;
     text-decoration: none;
+    cursor: pointer;
 }
 
-body[data-page="projects"].page-projects-showcase .archive-filter-bar a.is-active {
+body[data-page="projects"].page-projects-showcase .archive-filter-bar a.is-active,
+body[data-page="projects"].page-projects-showcase .archive-filter-bar button.is-active {
     border-color: var(--archive-ink);
     background: var(--archive-ink);
     color: #fffdf8;
+}
+
+body[data-page="projects"].page-projects-showcase .archive-filter-bar button:focus-visible,
+body[data-page="projects"].page-projects-showcase .archive-clear-link:focus-visible {
+    outline: 3px solid rgba(15, 127, 120, 0.28);
+    outline-offset: 3px;
 }
 
 body[data-page="projects"].page-projects-showcase .archive-all-grid {
@@ -2049,21 +2069,6 @@ body[data-page="projects"].page-projects-showcase .archive-card-icon {
 
 body[data-page="projects"].page-projects-showcase .archive-card-icon i {
     font-size: 1.28rem;
-}
-
-body[data-page="projects"].page-projects-showcase .archive-load-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-    margin: 1.4rem auto 0;
-    padding: 0.72rem 2.4rem;
-    border: 1px solid rgba(13, 36, 62, 0.16);
-    border-radius: 999px;
-    background: rgba(255, 253, 248, 0.76);
-    color: var(--archive-ink);
-    font-size: 0.88rem;
-    font-weight: 800;
-    text-decoration: none;
 }
 
 @media (min-width: 1181px) {
@@ -2136,7 +2141,8 @@ body[data-page="projects"].page-projects-showcase .archive-load-more {
         flex-direction: column;
     }
 
-    body[data-page="projects"].page-projects-showcase .archive-filter-bar a {
+    body[data-page="projects"].page-projects-showcase .archive-filter-bar a,
+    body[data-page="projects"].page-projects-showcase .archive-filter-bar button {
         flex: 1 1 auto;
         text-align: center;
     }
@@ -2452,6 +2458,46 @@ body[data-page="projects"].page-projects-showcase .archive-card-visual--market s
 
 body[data-page="projects"].page-projects-showcase .archive-cta--reference-hidden {
     display: none;
+}
+
+body[data-page="projects"].page-projects-showcase .project-language-switcher {
+    align-self: start;
+    margin-top: 1rem;
+    border-color: rgba(13, 36, 62, 0.13);
+    background: rgba(255, 253, 248, 0.84);
+}
+
+body[data-page="projects"].page-projects-showcase .sidebar-language .project-language-switcher {
+    margin-top: 0;
+}
+
+body[data-page="projects"].page-projects-showcase .project-language-switcher .language-switcher__link {
+    border: 0;
+    appearance: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-hero p:not(.eyebrow),
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-card p,
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-cta p {
+    line-height: 1.68;
+    overflow-wrap: anywhere;
+    text-wrap: pretty;
+}
+
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .sidebar-nav a,
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-card h3,
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-featured-board h2,
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-all-head h2,
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-rail-action {
+    font-family: var(--font-heading);
+    letter-spacing: 0;
+}
+
+html[lang="vi"] body[data-page="projects"].page-projects-showcase .archive-card h3 {
+    line-height: 1.18;
+    text-wrap: balance;
 }
 
 @media (max-width: 1500px) {

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-home-locale="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="assets/favicon.png" rel="icon" type="image/png"/>
 <title>Chung Hy Dai | Market Research &amp; Applied Analytics Projects</title>
 <meta content="Projects archive for Chung Hy Dai, including hospitality segmentation, EV choice, mobility policy, creator economy, health behavior, and organizational research projects." name="description"/>
 <link href="styles/base.css" rel="stylesheet"/>
@@ -19,12 +19,15 @@
 <div class="nav-container">
 <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
 <button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-<div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="6" href="index.html">Home</a>
-<a class="nav-link magnetic" data-strength="6" href="index.html#education">Education</a>
-<a class="nav-link magnetic" data-strength="6" href="#top">Projects</a>
-<a class="nav-link magnetic" data-strength="6" href="index.html#honors">Honors &amp; Awards</a>
-<a class="nav-link magnetic" data-strength="6" href="#contact">Contact</a>
-<!-- LANGUAGE_SWITCHER --></div>
+<div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="6" href="index.html" data-i18n="nav.home">Home</a>
+<a class="nav-link magnetic" data-strength="6" href="index.html#education" data-i18n="nav.education">Education</a>
+<a class="nav-link magnetic" data-strength="6" href="#top" data-i18n="nav.projects">Projects</a>
+<a class="nav-link magnetic" data-strength="6" href="index.html#honors" data-i18n="nav.honors">Honors &amp; Awards</a>
+<a class="nav-link magnetic" data-strength="6" href="#contact" data-i18n="nav.contact">Contact</a>
+<div class="language-switcher project-language-switcher" aria-label="Language">
+<button class="language-switcher__link" type="button" data-portfolio-language="vi" aria-pressed="false">VI</button>
+<button class="language-switcher__link" type="button" data-portfolio-language="en" aria-pressed="true">EN</button>
+</div></div>
 </div>
 </nav>
 <div class="nav-overlay" hidden></div>
@@ -32,7 +35,7 @@
 <aside class="portfolio-sidebar" aria-label="Archive navigation">
 <div class="sidebar-brand">
 <a class="sidebar-name" href="index.html" aria-label="Chung Hy Dai home">Chung<br/>Hy Dai</a>
-<p>Market Researcher</p>
+<p data-i18n="profile.role">Market Researcher</p>
 </div>
 <div class="sidebar-profile">
 <picture>
@@ -40,19 +43,22 @@
 <source sizes="132px" srcset="./assets/optimized/profile-portfolio-main-480.webp 480w, ./assets/optimized/profile-portfolio-main-768.webp 768w" type="image/webp"/>
 <img alt="Portrait of Chung Hy Dai" decoding="async" fetchpriority="high" height="1664" loading="eager" src="./assets/optimized/profile-portfolio-main-optimized.webp" width="1248"/>
 </picture>
-<p><strong>Project archive</strong></p>
-<p>Explore projects grouped by decision context, research methods, visuals, and evidence notes.</p>
+<p><strong data-i18n="sidebar.title">Project archive</strong></p>
+<p data-i18n="sidebar.copy">Explore projects grouped by decision context, research methods, visuals, and evidence notes.</p>
 </div>
 <nav class="sidebar-nav" aria-label="Project archive sections">
-<a href="index.html"><i class="ph ph-house" aria-hidden="true"></i><span>Home</span></a>
-<a href="index.html#education"><i class="ph ph-graduation-cap" aria-hidden="true"></i><span>Education</span></a>
-<a href="#top" class="is-current"><i class="ph ph-briefcase" aria-hidden="true"></i><span>Projects</span></a>
-<a href="index.html#honors"><i class="ph ph-trophy" aria-hidden="true"></i><span>Honors &amp; Awards</span></a>
-<a href="index.html#skills"><i class="ph ph-code" aria-hidden="true"></i><span>Skills</span></a>
-<a href="#contact"><i class="ph ph-user" aria-hidden="true"></i><span>Info</span></a>
+<a href="index.html"><i class="ph ph-house" aria-hidden="true"></i><span data-i18n="sidebar.nav.home">Home</span></a>
+<a href="index.html#education"><i class="ph ph-graduation-cap" aria-hidden="true"></i><span data-i18n="sidebar.nav.education">Education</span></a>
+<a href="#top" class="is-current"><i class="ph ph-briefcase" aria-hidden="true"></i><span data-i18n="sidebar.nav.projects">Projects</span></a>
+<a href="index.html#honors"><i class="ph ph-trophy" aria-hidden="true"></i><span data-i18n="sidebar.nav.honors">Honors &amp; Awards</span></a>
+<a href="index.html#skills"><i class="ph ph-code" aria-hidden="true"></i><span data-i18n="sidebar.nav.skills">Skills</span></a>
+<a href="#contact"><i class="ph ph-user" aria-hidden="true"></i><span data-i18n="sidebar.nav.info">Info</span></a>
 </nav>
 <div class="sidebar-language">
-<!-- LANGUAGE_SWITCHER -->
+<div class="language-switcher project-language-switcher" aria-label="Language">
+<button class="language-switcher__link" type="button" data-portfolio-language="vi" aria-pressed="false">VI</button>
+<button class="language-switcher__link" type="button" data-portfolio-language="en" aria-pressed="true">EN</button>
+</div>
 </div>
 <img class="sidebar-botanical" src="./assets/optimized/portfolio-botanical-vase-480.webp" alt="" loading="lazy" decoding="async" width="480" height="370"/>
 <address class="sidebar-contact">
@@ -63,28 +69,28 @@
 </aside>
 <main class="portfolio-main archive-main">
 <header class="archive-hero" id="research">
-<a class="back-link" href="index.html#projects"><i class="ph ph-arrow-left" aria-hidden="true"></i> Back to portfolio</a>
+<a class="back-link" href="index.html#projects"><i class="ph ph-arrow-left" aria-hidden="true"></i> <span data-i18n="hero.back">Back to portfolio</span></a>
 <div class="archive-hero-grid">
 <div class="archive-hero-copy">
-<p class="eyebrow">Projects archive</p>
-<h1>Projects Archive</h1>
-<p>A curated collection of market research and applied analytics work across hospitality, mobility, creators, health behavior, and organizational decision contexts.</p>
+<p class="eyebrow" data-i18n="hero.eyebrow">Projects archive</p>
+<h1 data-i18n="hero.title">Projects Archive</h1>
+<p data-i18n="hero.copy">A curated collection of market research and applied analytics work across hospitality, mobility, creators, health behavior, and organizational decision contexts.</p>
 <dl class="archive-metrics" aria-label="Archive summary">
-<div><dt>100+</dt><dd>Deliverables</dd></div>
-<div><dt>11+</dt><dd>Methods used</dd></div>
-<div><dt>5</dt><dd>Domains</dd></div>
+<div><dt>100+</dt><dd data-i18n="metric.deliverables">Deliverables</dd></div>
+<div><dt>11+</dt><dd data-i18n="metric.methods">Methods used</dd></div>
+<div><dt>5</dt><dd data-i18n="metric.domains">Domains</dd></div>
 </dl>
 </div>
 <aside class="archive-hero-visual archive-reference-visual" aria-label="Projects archive visual summary">
-<a class="archive-hero-photo" href="research-hotel-value.html" aria-label="Open hotel value segmentation framework">
-<img alt="Hotel value segmentation research visual with hospitality analytics" decoding="async" fetchpriority="high" height="992" loading="eager" src="./assets/optimized/archive-hotel-value-framework-1024.webp" width="1586"/>
+<a class="archive-hero-photo" href="research-hotel.html" aria-label="Open hotel customer segmentation case">
+<img alt="Resort pool at sunset representing hotel customer segmentation research" decoding="async" fetchpriority="high" height="933" loading="eager" src="./assets/optimized/external/mirror/images-unsplash-com-photo-1551882547-ff40c63fe5fa-63473611c0ca-1024.webp" width="1400"/>
 </a>
 <img class="archive-hero-botanical" src="./assets/optimized/portfolio-botanical-vase-480.webp" alt="" loading="lazy" decoding="async" width="480" height="370"/>
 <span class="archive-orbit-dot dot-a" aria-hidden="true"></span>
 <span class="archive-orbit-dot dot-b" aria-hidden="true"></span>
 <span class="archive-orbit-dot dot-c" aria-hidden="true"></span>
 <div class="archive-orbit-card archive-orbit-card--impact" aria-label="Insight impact summary">
-<strong>Insight Impact</strong>
+<strong data-i18n="visual.impact">Insight Impact</strong>
 <svg aria-hidden="true" viewBox="0 0 180 74" role="img">
 <path d="M10 56H170M10 36H170M10 16H170" fill="none" stroke="#e7dfd0" stroke-width="1"/>
 <path d="M18 52C42 48 43 22 66 30C86 37 90 50 111 38C132 26 137 15 164 18" fill="none" stroke="#0f7f78" stroke-linecap="round" stroke-width="4"/>
@@ -93,61 +99,61 @@
 <circle cx="111" cy="38" r="4" fill="#0f7f78"/>
 <circle cx="164" cy="18" r="4" fill="#0f7f78"/>
 </svg>
-<span>+24%<small> vs. last quarter</small></span>
+<span>+24%<small data-i18n="visual.quarter"> vs. last quarter</small></span>
 </div>
 <div class="archive-orbit-card archive-orbit-card--mix" aria-label="Method mix summary">
-<strong>Method Mix</strong>
+<strong data-i18n="visual.method">Method Mix</strong>
 <div class="archive-donut" aria-hidden="true"></div>
 <ul>
-<li>Surveys</li>
-<li>Analytics</li>
-<li>Interviews</li>
-<li>Others</li>
+<li data-i18n="visual.surveys">Surveys</li>
+<li data-i18n="visual.analytics">Analytics</li>
+<li data-i18n="visual.interviews">Interviews</li>
+<li data-i18n="visual.others">Others</li>
 </ul>
 </div>
 <div class="archive-orbit-card archive-orbit-card--strength" aria-label="Evidence strength summary">
-<strong>Evidence Strength</strong>
-<span><em>High</em><b style="--bar: 88%"></b></span>
-<span><em>Medium</em><b style="--bar: 62%"></b></span>
-<span><em>Emerging</em><b style="--bar: 44%"></b></span>
+<strong data-i18n="visual.evidence">Evidence Strength</strong>
+<span><em data-i18n="visual.high">High</em><b style="--bar: 88%"></b></span>
+<span><em data-i18n="visual.medium">Medium</em><b style="--bar: 62%"></b></span>
+<span><em data-i18n="visual.emerging">Emerging</em><b style="--bar: 44%"></b></span>
 </div>
 </aside>
 </div>
 </header>
 <section class="archive-featured archive-featured-board" aria-labelledby="featured-projects-title">
 <div class="archive-section-rail">
-<span class="archive-section-number" aria-hidden="true">Fast proof points</span>
+<span class="archive-section-number" aria-hidden="true" data-i18n="featured.kicker">Fast proof points</span>
 <div>
-<h2 id="featured-projects-title">Featured Cases</h2>
-<a class="archive-rail-action" href="#domains">View all featured cases <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<h2 id="featured-projects-title" data-i18n="featured.title">Featured Cases</h2>
+<a class="archive-rail-action" href="#domains"><span data-i18n="featured.all">View all featured cases</span> <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
 </div>
 </div>
 <div class="featured-card-grid">
 <a class="archive-card featured-card" href="research-hotel.html" data-rank="1">
 <span class="archive-card-icon"><i class="ph ph-buildings" aria-hidden="true"></i></span>
-<img alt="Hotel segmentation research visual with guest analytics overlays" decoding="async" fetchpriority="high" height="992" loading="eager" src="./assets/optimized/archive-hotel-segmentation-1024.webp" width="1586"/>
+<img alt="Resort pool at sunset representing hotel customer segmentation research" decoding="async" fetchpriority="high" height="933" loading="eager" src="./assets/optimized/external/mirror/images-unsplash-com-photo-1551882547-ff40c63fe5fa-63473611c0ca-1024.webp" width="1400"/>
 <div>
-<h3>Hotel customer segmentation from aspect-level sentiment</h3>
-<p>Clustered guests across 74,896 reviews.</p>
-<small>Hospitality</small>
+<h3 data-i18n="feature.hotel.title">Hotel customer segmentation from aspect-level sentiment</h3>
+<p data-i18n="feature.hotel.copy">Clustered guests across 74,896 reviews.</p>
+<small data-i18n="domain.hospitality">Hospitality</small>
 </div>
 </a>
 <a class="archive-card featured-card" href="research-ev.html" data-rank="2">
 <span class="archive-card-icon"><i class="ph ph-lightning" aria-hidden="true"></i></span>
 <img alt="EV policy acceptance research visual with charging and analytics" decoding="async" height="992" loading="eager" src="./assets/optimized/archive-ev-policy-1024.webp" width="1586"/>
 <div>
-<h3>EV consumer preference study</h3>
-<p>Choices for design, range and pricing.</p>
-<small>Mobility</small>
+<h3 data-i18n="feature.ev.title">EV consumer preference study</h3>
+<p data-i18n="feature.ev.copy">Choices for design, range and pricing.</p>
+<small data-i18n="domain.mobility">Mobility</small>
 </div>
 </a>
 <a class="archive-card featured-card" href="research-hotel-value.html" data-rank="3">
 <span class="archive-card-icon"><i class="ph ph-users-three" aria-hidden="true"></i></span>
 <img alt="Hotel value segmentation framework visual with value cues and dashboard" decoding="async" height="992" loading="eager" src="./assets/optimized/archive-hotel-value-framework-1024.webp" width="1586"/>
 <div>
-<h3>Hotel value segmentation framework</h3>
-<p>Turns review text into emotional and social value actions.</p>
-<small>Hospitality</small>
+<h3 data-i18n="feature.value.title">Hotel value segmentation framework</h3>
+<p data-i18n="feature.value.copy">Turns review text into emotional and social value actions.</p>
+<small data-i18n="domain.hospitality">Hospitality</small>
 </div>
 </a>
 </div>
@@ -156,84 +162,329 @@
 <section class="archive-all-projects" id="domains" aria-labelledby="all-projects-title">
 <div class="archive-all-head">
 <div>
-<p class="eyebrow">Browse by domain</p>
-<h2 id="all-projects-title">All Projects</h2>
+<p class="eyebrow" data-i18n="all.eyebrow">Browse by domain</p>
+<h2 id="all-projects-title" data-i18n="all.title">All Projects</h2>
 </div>
-<a class="archive-clear-link" href="#domains">Clear filters <i class="ph ph-x" aria-hidden="true"></i></a>
+<button class="archive-clear-link" type="button"><span data-i18n="all.clear">Clear filters</span> <i class="ph ph-x" aria-hidden="true"></i></button>
 </div>
 <nav class="archive-filter-bar" aria-label="Project domains">
-<a class="is-active" href="#domains">All Domains</a>
-<a href="hospitality-analytics.html">Hospitality</a>
-<a href="mobility-policy.html">Mobility</a>
-<a href="creator-economy.html">Creator Economy</a>
-<a href="health-behavior.html">Health</a>
-<a href="organizational-behavior.html">Organization</a>
+<button class="is-active" type="button" data-project-filter="all" aria-pressed="true" data-i18n="filter.all">All Domains</button>
+<button type="button" data-project-filter="hospitality" aria-pressed="false" data-i18n="domain.hospitality">Hospitality</button>
+<button type="button" data-project-filter="mobility" aria-pressed="false" data-i18n="domain.mobility">Mobility</button>
+<button type="button" data-project-filter="creator" aria-pressed="false" data-i18n="domain.creator">Creator Economy</button>
+<button type="button" data-project-filter="health" aria-pressed="false" data-i18n="domain.health">Health</button>
+<button type="button" data-project-filter="organization" aria-pressed="false" data-i18n="domain.organization">Organization</button>
 </nav>
 <div class="archive-all-grid">
-<a class="archive-card archive-project-card" href="research-hotel.html">
+<a class="archive-card archive-project-card" href="research-hotel.html" data-project-domain="hospitality" data-research-id="hotel-segmentation">
 <span class="archive-card-icon"><i class="ph ph-bed" aria-hidden="true"></i></span>
 <img alt="Hotel segmentation research visual with guest analytics overlays" decoding="async" loading="eager" src="./assets/optimized/archive-hotel-segmentation-768.webp" width="1586" height="992"/>
-<div><h3>Hotel segmentation</h3><p>Clustered guest groups to personalize experiences.</p><small>Hospitality</small></div>
+<div><h3 data-i18n="card.hotel.title">Hotel segmentation</h3><p data-i18n="card.hotel.copy">Clustered guest groups to personalize experiences.</p><small data-i18n="domain.hospitality">Hospitality</small></div>
 </a>
-<a class="archive-card archive-project-card" href="research-motorbike-ban.html">
+<a class="archive-card archive-project-card" href="research-motorbike-ban.html" data-project-domain="mobility" data-research-id="motorbike-phaseout">
+<span class="archive-card-icon"><i class="ph ph-motorcycle" aria-hidden="true"></i></span>
+<img alt="Motorbike phase-out policy research visual with Hanoi scooters and policy dashboard panels" decoding="async" loading="eager" src="./assets/optimized/archive-motorbike-policy-green-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.motorbike.title">Motorbike phase-out policy</h3><p data-i18n="card.motorbike.copy">Consumer acceptance and policy sequencing.</p><small data-i18n="domain.mobility">Mobility</small></div>
+</a>
+<a class="archive-card archive-project-card" href="research-ev.html" data-project-domain="mobility" data-research-id="ev-choice">
 <span class="archive-card-icon"><i class="ph ph-lightning" aria-hidden="true"></i></span>
-<img alt="EV phase-out policy acceptance research visual with charging and checklist overlays" decoding="async" loading="eager" src="./assets/optimized/archive-ev-policy-768.webp" width="1586" height="992"/>
-<div><h3>EV phase-out policy acceptance</h3><p>Consumer acceptance and policy sequencing.</p><small>Mobility</small></div>
+<img alt="EV consumer preference research visual with charging and choice-attribute dashboard" decoding="async" loading="eager" src="./assets/optimized/archive-ev-policy-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.ev.title">EV consumer preference study</h3><p data-i18n="card.ev.copy">Choices for design, range, pricing, and charging access.</p><small data-i18n="domain.mobility">Mobility</small></div>
 </a>
-<a class="archive-card archive-project-card" href="index.html#projects">
-<span class="archive-card-icon"><i class="ph ph-chat-circle-text" aria-hidden="true"></i></span>
-<img alt="AI research assistant dashboard visual with chat and analytics cards" decoding="async" loading="eager" src="./assets/optimized/archive-ai-assistant-768.webp" width="1568" height="1003"/>
-<div><h3>AI chatbot project assistant</h3><p>Helping teams explore data and generate insights faster.</p><small>Organization</small></div>
-</a>
-<a class="archive-card archive-project-card" href="research-nutrition.html">
+<a class="archive-card archive-project-card" href="research-nutrition.html" data-project-domain="health" data-research-id="nutrition-diet">
 <span class="archive-card-icon"><i class="ph ph-fork-knife" aria-hidden="true"></i></span>
-<img alt="Student diet quality research visual with students sharing a balanced meal" decoding="async" loading="eager" src="./assets/optimized/archive-nutrition-diet-768.webp" width="1586" height="992"/>
-<div><h3>Student diet quality in Vietnam</h3><p>Cross-sectional survey and regression modeling.</p><small>Health</small></div>
+<img alt="Student diet quality research visual with nutrition survey and analytics dashboard" decoding="async" loading="eager" src="./assets/optimized/archive-nutrition-diet-green-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.nutrition.title">Student diet quality in Vietnam</h3><p data-i18n="card.nutrition.copy">Cross-sectional survey and regression modeling.</p><small data-i18n="domain.health">Health</small></div>
 </a>
-<a class="archive-card archive-project-card" href="research-virtual-influencers.html">
+<a class="archive-card archive-project-card" href="research-virtual-influencers.html" data-project-domain="creator" data-research-id="virtual-influencers">
 <span class="archive-card-icon"><i class="ph ph-users-three" aria-hidden="true"></i></span>
-<img alt="Virtual influencer trust research visual with credibility and engagement analytics" decoding="async" loading="eager" src="./assets/optimized/archive-virtual-influencer-768.webp" width="1586" height="992"/>
-<div><h3>Virtual influencer cues, Gen Z trust</h3><p>Examines credibility cues and purchase intention.</p><small>Creator Economy</small></div>
+<img alt="Virtual influencer trust research visual with creator credibility and engagement cues" decoding="async" loading="eager" src="./assets/optimized/archive-virtual-influencer-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.virtual.title">Virtual influencer cues, Gen Z trust</h3><p data-i18n="card.virtual.copy">Examines credibility cues and purchase intention.</p><small data-i18n="domain.creator">Creator Economy</small></div>
 </a>
-<a class="archive-card archive-project-card" href="research-hotel-prca.html">
+<a class="archive-card archive-project-card" href="research-leveraging-influencer.html" data-project-domain="creator" data-research-id="influencer-strategy">
+<span class="archive-card-icon"><i class="ph ph-chart-line-up" aria-hidden="true"></i></span>
+<img alt="Influencer retention research visual with engagement and brand-transfer analytics" decoding="async" loading="lazy" src="./assets/optimized/research-influencer-retention-hero-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.influencer.title">Influencer retention and brand transfer</h3><p data-i18n="card.influencer.copy">Links experience quality, engagement, and retention.</p><small data-i18n="domain.creator">Creator Economy</small></div>
+</a>
+<a class="archive-card archive-project-card" href="research-hotel-prca.html" data-project-domain="hospitality" data-research-id="hotel-prca">
 <span class="archive-card-icon"><i class="ph ph-buildings" aria-hidden="true"></i></span>
 <img alt="Hotel attribute asymmetry research dashboard visual" decoding="async" loading="eager" src="./assets/optimized/archive-hotel-prca-768.webp" width="1586" height="992"/>
-<div><h3>Hotel attribute asymmetry in Vietnam</h3><p>Largest rating penalties when hotel attributes fail.</p><small>Hospitality</small></div>
+<div><h3 data-i18n="card.prca.title">Hotel attribute asymmetry in Vietnam</h3><p data-i18n="card.prca.copy">Largest rating penalties when hotel attributes fail.</p><small data-i18n="domain.hospitality">Hospitality</small></div>
 </a>
-<a class="archive-card archive-project-card" href="index.html#honors">
-<span class="archive-card-icon"><i class="ph ph-star" aria-hidden="true"></i></span>
-<img alt="Awards impact on brand trust research visual with trophy and growth analytics" decoding="async" loading="eager" src="./assets/optimized/archive-awards-trust-768.webp" width="1600" height="983"/>
-<div><h3>Awards impact on brand trust</h3><p>Quantifies the halo effect of recognitions.</p><small>Organization</small></div>
+<a class="archive-card archive-project-card" href="research-hotel-value.html" data-project-domain="hospitality" data-research-id="hotel-value-framework">
+<span class="archive-card-icon"><i class="ph ph-chart-pie-slice" aria-hidden="true"></i></span>
+<img alt="Hotel value segmentation framework visual with hospitality value analytics" decoding="async" loading="lazy" src="./assets/optimized/archive-hotel-value-framework-1024.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.value.title">Hotel value segmentation framework</h3><p data-i18n="card.value.copy">Maps emotional and social value into service actions.</p><small data-i18n="domain.hospitality">Hospitality</small></div>
 </a>
-<a class="archive-card archive-project-card" href="organizational-behavior.html">
-<span class="archive-card-icon"><i class="ph ph-chart-line-up" aria-hidden="true"></i></span>
-<img alt="Market sizing and opportunity mapping visual for Vietnam and Southeast Asia" decoding="async" loading="eager" src="./assets/optimized/archive-market-sizing-768.webp" width="1586" height="992"/>
-<div><h3>Market sizing and opportunity mapping</h3><p>TAM-SAM-SOM and growth scenario modeling.</p><small>Organization</small></div>
+<a class="archive-card archive-project-card" href="research-buffet.html" data-project-domain="health" data-research-id="buffet-nudging">
+<span class="archive-card-icon"><i class="ph ph-bowl-food" aria-hidden="true"></i></span>
+<img alt="Green buffet menu nudging research visual with healthier-first choice architecture" decoding="async" loading="lazy" src="./assets/optimized/archive-buffet-green-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.buffet.title">Buffet menu nudging</h3><p data-i18n="card.buffet.copy">Tests menu order effects on intake and premium choice.</p><small data-i18n="domain.health">Health</small></div>
+</a>
+<a class="archive-card archive-project-card" href="research-psych-ownership.html" data-project-domain="organization" data-research-id="psych-ownership">
+<span class="archive-card-icon"><i class="ph ph-graduation-cap" aria-hidden="true"></i></span>
+<img alt="Psychological ownership research visual with university commitment and belonging analytics" decoding="async" loading="lazy" src="./assets/optimized/archive-psych-ownership-green-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.psych.title">Psychological Ownership in Vietnam Universities</h3><p data-i18n="card.psych.copy">Translates ownership research into practical action.</p><small data-i18n="domain.organization">Organization</small></div>
+</a>
+<a class="archive-card archive-project-card" href="research-arts-workshop.html" data-project-domain="organization" data-research-id="arts-workshop">
+<span class="archive-card-icon"><i class="ph ph-palette" aria-hidden="true"></i></span>
+<img alt="Arts workshop co-creation research visual with service-design board and participation analytics" decoding="async" loading="lazy" src="./assets/optimized/archive-arts-workshop-green-768.webp" width="1586" height="992"/>
+<div><h3 data-i18n="card.arts.title">Arts Workshop Co-creation and Customer Interest</h3><p data-i18n="card.arts.copy">Shows how learning, social, and emotional value shape repeat interest.</p><small data-i18n="domain.organization">Organization</small></div>
 </a>
 </div>
-<a class="archive-load-more" href="index.html#projects">Load more projects <i class="ph ph-caret-down" aria-hidden="true"></i></a>
 </section>
 <section class="archive-cta archive-cta--reference-hidden" id="contact" aria-labelledby="archive-contact-title">
 <div class="archive-cta-copy">
 <i class="ph ph-database" aria-hidden="true"></i>
 <div>
-<h2 id="archive-contact-title">Full documentation, datasets, and code are available.</h2>
-<p>Each project page includes methods, instruments, results, and replication notes.</p>
+<h2 id="archive-contact-title" data-i18n="cta.title">Full documentation, datasets, and code are available.</h2>
+<p data-i18n="cta.copy">Each project page includes methods, instruments, results, and replication notes.</p>
 <div class="archive-cta-actions">
-<a class="btn-primary" href="#domains">Browse project map <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
-<a class="archive-contact-link" href="mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry">Contact for documentation <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></a>
+<a class="btn-primary" href="#domains"><span data-i18n="cta.browse">Browse project map</span> <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
+<a class="archive-contact-link" href="mailto:daichunghy@gmail.com?subject=Portfolio%20Inquiry"><span data-i18n="cta.contact">Contact for documentation</span> <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></a>
 </div>
 </div>
 </div>
 <dl class="archive-cta-stats" aria-label="Archive availability">
-<div><dt>100+</dt><dd>Deliverables</dd></div>
-<div><dt>11+</dt><dd>Methods used</dd></div>
-<div><dt>5</dt><dd>Domains</dd></div>
-<div><dt>Open</dt><dd>For collaboration</dd></div>
+<div><dt>100+</dt><dd data-i18n="metric.deliverables">Deliverables</dd></div>
+<div><dt>11+</dt><dd data-i18n="metric.methods">Methods used</dd></div>
+<div><dt>5</dt><dd data-i18n="metric.domains">Domains</dd></div>
+<div><dt data-i18n="cta.open">Open</dt><dd data-i18n="cta.collaboration">For collaboration</dd></div>
 </dl>
 </section>
 </main>
 </div>
+<script>
+(() => {
+    const STORAGE_KEY = 'portfolio.homeLocale.v1';
+    const DEFAULT_LOCALE = 'en';
+    const copy = {
+        en: {
+            title: 'Chung Hy Dai | Market Research & Applied Analytics Projects',
+            description: 'Projects archive for Chung Hy Dai, including hospitality segmentation, EV choice, mobility policy, creator economy, health behavior, and organizational research projects.',
+            'nav.home': 'Home',
+            'nav.education': 'Education',
+            'nav.projects': 'Projects',
+            'nav.honors': 'Honors & Awards',
+            'nav.contact': 'Contact',
+            'nav.skills': 'Skills',
+            'nav.info': 'Info',
+            'profile.role': 'Market Researcher',
+            'sidebar.title': 'Project archive',
+            'sidebar.copy': 'Explore projects grouped by decision context, research methods, visuals, and evidence notes.',
+            'sidebar.nav.home': 'Home',
+            'sidebar.nav.education': 'Education',
+            'sidebar.nav.projects': 'Projects',
+            'sidebar.nav.honors': 'Honors & Awards',
+            'sidebar.nav.skills': 'Skills',
+            'sidebar.nav.info': 'Info',
+            'hero.back': 'Back to portfolio',
+            'hero.eyebrow': 'Projects archive',
+            'hero.title': 'Projects Archive',
+            'hero.copy': 'A curated collection of market research and applied analytics work across hospitality, mobility, creators, health behavior, and organizational decision contexts.',
+            'metric.deliverables': 'Deliverables',
+            'metric.methods': 'Methods used',
+            'metric.domains': 'Domains',
+            'visual.impact': 'Insight Impact',
+            'visual.quarter': ' vs. last quarter',
+            'visual.method': 'Method Mix',
+            'visual.surveys': 'Surveys',
+            'visual.analytics': 'Analytics',
+            'visual.interviews': 'Interviews',
+            'visual.others': 'Others',
+            'visual.evidence': 'Evidence Strength',
+            'visual.high': 'High',
+            'visual.medium': 'Medium',
+            'visual.emerging': 'Emerging',
+            'featured.kicker': 'Fast proof points',
+            'featured.title': 'Featured Cases',
+            'featured.all': 'View all featured cases',
+            'feature.hotel.title': 'Hotel customer segmentation from aspect-level sentiment',
+            'feature.hotel.copy': 'Clustered guests across 74,896 reviews.',
+            'feature.ev.title': 'EV consumer preference study',
+            'feature.ev.copy': 'Choices for design, range and pricing.',
+            'feature.value.title': 'Hotel value segmentation framework',
+            'feature.value.copy': 'Turns review text into emotional and social value actions.',
+            'all.eyebrow': 'Browse by domain',
+            'all.title': 'All Projects',
+            'all.clear': 'Clear filters',
+            'filter.all': 'All Domains',
+            'domain.hospitality': 'Hospitality',
+            'domain.mobility': 'Mobility',
+            'domain.creator': 'Creator Economy',
+            'domain.health': 'Health',
+            'domain.organization': 'Organization',
+            'card.hotel.title': 'Hotel segmentation',
+            'card.hotel.copy': 'Clustered guest groups to personalize experiences.',
+            'card.motorbike.title': 'Motorbike phase-out policy',
+            'card.motorbike.copy': 'Consumer acceptance and policy sequencing.',
+            'card.ev.title': 'EV consumer preference study',
+            'card.ev.copy': 'Choices for design, range, pricing, and charging access.',
+            'card.nutrition.title': 'Student diet quality in Vietnam',
+            'card.nutrition.copy': 'Cross-sectional survey and regression modeling.',
+            'card.virtual.title': 'Virtual influencer cues, Gen Z trust',
+            'card.virtual.copy': 'Examines credibility cues and purchase intention.',
+            'card.influencer.title': 'Influencer retention and brand transfer',
+            'card.influencer.copy': 'Links experience quality, engagement, and retention.',
+            'card.prca.title': 'Hotel attribute asymmetry in Vietnam',
+            'card.prca.copy': 'Largest rating penalties when hotel attributes fail.',
+            'card.value.title': 'Hotel value segmentation framework',
+            'card.value.copy': 'Maps emotional and social value into service actions.',
+            'card.buffet.title': 'Buffet menu nudging',
+            'card.buffet.copy': 'Tests menu order effects on intake and premium choice.',
+            'card.psych.title': 'Psychological Ownership in Vietnam Universities',
+            'card.psych.copy': 'Translates ownership research into practical action.',
+            'card.arts.title': 'Arts Workshop Co-creation and Customer Interest',
+            'card.arts.copy': 'Shows how learning, social, and emotional value shape repeat interest.',
+            'cta.title': 'Full documentation, datasets, and code are available.',
+            'cta.copy': 'Each project page includes methods, instruments, results, and replication notes.',
+            'cta.browse': 'Browse project map',
+            'cta.contact': 'Contact for documentation',
+            'cta.open': 'Open',
+            'cta.collaboration': 'For collaboration'
+        },
+        vi: {
+            title: 'Chung Hy Dai | Archive Projects Market Research',
+            description: 'Archive projects của Chung Hy Dai, gồm hospitality segmentation, EV choice, mobility policy, creator economy, health behavior và organizational research.',
+            'nav.home': 'Home',
+            'nav.education': 'Học vấn',
+            'nav.projects': 'Projects',
+            'nav.honors': 'Giải thưởng',
+            'nav.contact': 'Liên hệ',
+            'nav.skills': 'Kỹ năng',
+            'nav.info': 'Liên hệ',
+            'profile.role': 'Market Researcher',
+            'sidebar.title': 'Project archive',
+            'sidebar.copy': 'Explore projects grouped by decision context, research methods, visuals, and evidence notes.',
+            'sidebar.nav.home': 'Home',
+            'sidebar.nav.education': 'Education',
+            'sidebar.nav.projects': 'Projects',
+            'sidebar.nav.honors': 'Honors & Awards',
+            'sidebar.nav.skills': 'Skills',
+            'sidebar.nav.info': 'Info',
+            'hero.back': 'Quay lại portfolio',
+            'hero.eyebrow': 'Projects archive',
+            'hero.title': 'Projects Archive',
+            'hero.copy': 'Một archive gọn cho các project market research và applied analytics trong hospitality, mobility, creators, health behavior và organizational decision contexts.',
+            'metric.deliverables': 'Deliverables',
+            'metric.methods': 'Methods used',
+            'metric.domains': 'Domains',
+            'visual.impact': 'Insight impact',
+            'visual.quarter': ' so với quý trước',
+            'visual.method': 'Method mix',
+            'visual.surveys': 'Surveys',
+            'visual.analytics': 'Analytics',
+            'visual.interviews': 'Interviews',
+            'visual.others': 'Khác',
+            'visual.evidence': 'Evidence strength',
+            'visual.high': 'High',
+            'visual.medium': 'Medium',
+            'visual.emerging': 'Emerging',
+            'featured.kicker': 'Fast proof points',
+            'featured.title': 'Featured cases',
+            'featured.all': 'Xem tất cả cases',
+            'feature.hotel.title': 'Hotel customer segmentation từ aspect-level sentiment',
+            'feature.hotel.copy': 'Cluster khách từ 74,896 reviews.',
+            'feature.ev.title': 'EV consumer preference study',
+            'feature.ev.copy': 'Lựa chọn quanh design, range và pricing.',
+            'feature.value.title': 'Hotel value segmentation framework',
+            'feature.value.copy': 'Biến review text thành action theo emotional và social value.',
+            'all.eyebrow': 'Browse by domain',
+            'all.title': 'All Projects',
+            'all.clear': 'Xóa filter',
+            'filter.all': 'All domains',
+            'domain.hospitality': 'Hospitality',
+            'domain.mobility': 'Mobility',
+            'domain.creator': 'Creator Economy',
+            'domain.health': 'Health',
+            'domain.organization': 'Organization',
+            'card.hotel.title': 'Hotel segmentation',
+            'card.hotel.copy': 'Cluster nhóm khách để cá nhân hóa trải nghiệm.',
+            'card.motorbike.title': 'Motorbike phase-out policy',
+            'card.motorbike.copy': 'Consumer acceptance và policy sequencing.',
+            'card.ev.title': 'EV consumer preference study',
+            'card.ev.copy': 'Design, range, pricing và charging access trong cùng một trade-off.',
+            'card.nutrition.title': 'Student diet quality in Vietnam',
+            'card.nutrition.copy': 'Cross-sectional survey và regression modeling.',
+            'card.virtual.title': 'Virtual influencer cues, Gen Z trust',
+            'card.virtual.copy': 'Đọc credibility cues và purchase intention.',
+            'card.influencer.title': 'Influencer retention and brand transfer',
+            'card.influencer.copy': 'Nối experience quality, engagement và retention.',
+            'card.prca.title': 'Hotel attribute asymmetry in Vietnam',
+            'card.prca.copy': 'Rating penalty lớn nhất khi hotel attributes fail.',
+            'card.value.title': 'Hotel value segmentation framework',
+            'card.value.copy': 'Map emotional/social value thành service actions.',
+            'card.buffet.title': 'Buffet menu nudging',
+            'card.buffet.copy': 'Test menu order effects với intake và premium choice.',
+            'card.psych.title': 'Psychological Ownership in Vietnam Universities',
+            'card.psych.copy': 'Dịch ownership research thành hướng hành động thực tế.',
+            'card.arts.title': 'Arts Workshop Co-creation and Customer Interest',
+            'card.arts.copy': 'Learning, social và emotional value định hình repeat interest.',
+            'cta.title': 'Full documentation, datasets và code đều có thể chia sẻ.',
+            'cta.copy': 'Mỗi project page có method, instruments, results và replication notes.',
+            'cta.browse': 'Xem project map',
+            'cta.contact': 'Liên hệ để lấy documentation',
+            'cta.open': 'Open',
+            'cta.collaboration': 'For collaboration'
+        }
+    };
+
+    const normalizeLocale = (locale) => (locale === 'en' || locale === 'vi' ? locale : DEFAULT_LOCALE);
+
+    const getStoredLocale = () => {
+        try {
+            return normalizeLocale(window.localStorage.getItem(STORAGE_KEY));
+        } catch {
+            return DEFAULT_LOCALE;
+        }
+    };
+
+    const storeLocale = (locale) => {
+        try {
+            window.localStorage.setItem(STORAGE_KEY, locale);
+        } catch {
+            // Ignore storage failures so the switcher still works in private contexts.
+        }
+    };
+
+    const setText = (dictionary) => {
+        document.querySelectorAll('[data-i18n]').forEach((node) => {
+            const value = dictionary[node.dataset.i18n];
+            if (typeof value === 'string') node.textContent = value;
+        });
+    };
+
+    const setMeta = (dictionary) => {
+        document.title = dictionary.title;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', dictionary.description);
+        document.querySelector('meta[property="og:title"]')?.setAttribute('content', dictionary.title);
+        document.querySelector('meta[property="og:description"]')?.setAttribute('content', dictionary.description);
+    };
+
+    const applyLocale = (locale, persist = false) => {
+        const nextLocale = normalizeLocale(locale);
+        const dictionary = copy[nextLocale] || copy[DEFAULT_LOCALE];
+        document.documentElement.lang = nextLocale;
+        document.documentElement.dataset.homeLocale = nextLocale;
+        setText(dictionary);
+        setMeta(dictionary);
+        document.querySelectorAll('[data-portfolio-language]').forEach((button) => {
+            const isActive = button.dataset.portfolioLanguage === nextLocale;
+            button.classList.toggle('is-active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+        if (persist) storeLocale(nextLocale);
+    };
+
+    applyLocale(getStoredLocale(), false);
+
+    document.querySelectorAll('[data-portfolio-language]').forEach((button) => {
+        button.addEventListener('click', () => {
+            applyLocale(button.dataset.portfolioLanguage, true);
+        });
+    });
+})();
+</script>
 <script defer="" src="js/main.js" type="module"></script>
 <script defer="" src="js/carousel-fallback.js"></script>
 <div class="modal-overlay" id="image-modal">

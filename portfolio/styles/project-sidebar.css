@@ -101,7 +101,7 @@ body.project-left-banner .project-home-sidebar {
     width: var(--eco-sidebar);
     height: 100vh;
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto auto 1fr auto;
     align-content: start;
     box-sizing: border-box;
     padding: 3.75rem 2.15rem 2.05rem;
@@ -111,6 +111,31 @@ body.project-left-banner .project-home-sidebar {
         linear-gradient(180deg, rgba(255, 253, 248, 0.88), rgba(251, 247, 238, 0.76)),
         rgba(255, 253, 248, 0.72);
     overflow: hidden;
+}
+
+body.project-left-banner .project-sidebar-language {
+    justify-self: center;
+    margin: -0.42rem 0 0.4rem;
+    border-color: rgba(67, 85, 107, 0.14);
+    background: rgba(255, 253, 248, 0.88);
+    box-shadow: 0 10px 22px rgba(48, 42, 32, 0.08);
+}
+
+body.project-left-banner .project-sidebar-language .language-switcher__link {
+    border: 0;
+    appearance: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+body.project-left-banner .project-sidebar-language .language-switcher__link.is-active {
+    background: var(--eco-teal);
+}
+
+html[lang="vi"] body.project-left-banner .side-nav a,
+html[lang="vi"] body.project-left-banner .project-sidebar-language .language-switcher__link {
+    font-family: var(--font-heading);
+    letter-spacing: 0;
 }
 
 body.project-left-banner .project-home-sidebar::before,
@@ -490,31 +515,45 @@ body.project-left-banner .side-quote::after {
 
 @media (max-width: 860px) {
     body.project-left-banner {
-        --eco-sidebar: 108px;
-        padding-left: var(--eco-sidebar);
+        --eco-sidebar: 0px;
+        padding-left: 0;
     }
 
     body.project-left-banner .project-home-sidebar {
-        position: fixed;
-        width: var(--eco-sidebar);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        padding: 1rem 0.68rem;
-        border-right: 1px solid var(--eco-line);
-        border-bottom: 0;
+        position: sticky;
+        top: 0;
+        left: auto;
+        z-index: 80;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: minmax(132px, auto) minmax(0, 1fr);
+        align-items: center;
+        gap: 0.85rem;
+        padding: 0.72rem 1rem;
+        border-right: 0;
+        border-bottom: 1px solid var(--eco-line);
+        background:
+            linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(251, 247, 238, 0.86)),
+            rgba(255, 253, 248, 0.88);
+        overflow: visible;
+        backdrop-filter: blur(10px);
     }
 
     body.project-left-banner .side-profile {
-        display: block;
-        padding-bottom: 0.82rem;
-        text-align: center;
+        display: grid;
+        grid-template-columns: 62px minmax(0, 1fr);
+        align-items: center;
+        gap: 0.65rem;
+        padding-bottom: 0;
+        text-align: left;
     }
 
     body.project-left-banner .side-avatar {
         width: 62px;
         height: 62px;
-        margin: 0 auto;
+        margin: 0;
         padding: 4px;
         box-shadow: 0 0 0 1px rgba(230, 218, 199, 0.9);
     }
@@ -533,8 +572,8 @@ body.project-left-banner .side-quote::after {
     }
 
     body.project-left-banner .side-profile h1 {
-        margin-top: 0.72rem;
-        font-size: 0.76rem;
+        margin: 0;
+        font-size: 0.9rem;
         line-height: 1.08;
     }
 
@@ -544,11 +583,21 @@ body.project-left-banner .side-quote::after {
     }
 
     body.project-left-banner .side-nav {
-        grid-template-columns: 1fr;
+        grid-column: 2;
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 0.52rem;
         width: auto;
         margin: 0;
-        padding: 0.4rem 0 0;
+        padding: 0;
+    }
+
+    body.project-left-banner .project-sidebar-language {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        justify-self: end;
+        margin: -0.1rem 0 0;
     }
 
     body.project-left-banner .side-nav a {
@@ -572,11 +621,17 @@ body.project-left-banner .side-quote::after {
 
 @media (max-width: 420px) {
     body.project-left-banner {
-        --eco-sidebar: 94px;
+        --eco-sidebar: 0px;
     }
 
     body.project-left-banner .project-home-sidebar {
         padding-inline: 0.55rem;
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 0.55rem;
+    }
+
+    body.project-left-banner .side-profile {
+        display: block;
     }
 
     body.project-left-banner .side-avatar {
@@ -585,7 +640,7 @@ body.project-left-banner .side-quote::after {
     }
 
     body.project-left-banner .side-profile h1 {
-        font-size: 0.7rem;
+        display: none;
     }
 
     body.project-left-banner .side-nav a {
