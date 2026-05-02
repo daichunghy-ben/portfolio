@@ -10,9 +10,8 @@
     <link as="style" href="styles/research.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/>
     <noscript><link href="styles/research.css" rel="stylesheet"/></noscript>
     <link href="assets/vendor/phosphor/regular/style.css" rel="stylesheet"/>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="page-research-detail page-research-custom page-research-virtual" data-page="research" data-research-id="virtual-influencers">
+<body class="page-research-detail page-research-virtual page-virtual-infographic" data-page="research" data-research-id="virtual-influencers">
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
@@ -20,264 +19,195 @@
         <div class="nav-container">
             <a class="logo magnetic" data-strength="20" href="index.html" aria-label="Chung Hy Dai home"><span class="logo-mark" aria-hidden="true">CH</span></a>
             <button aria-controls="site-nav-links" aria-expanded="false" aria-label="Toggle navigation" class="nav-toggle" type="button"><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span></button>
-            <div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html">Home</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
-<a class="nav-link magnetic" data-strength="10" href="projects.html">Projects</a>
-<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a></div>
+            <div class="nav-links" id="site-nav-links"><a class="nav-link magnetic" data-strength="10" href="index.html#education">Education</a>
+<a class="nav-link magnetic active" data-strength="10" href="projects.html">Projects</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#publications">Publications</a>
+<a class="nav-link magnetic" data-strength="10" href="index.html#honors">Honors and Awards</a>
+<a class="nav-link magnetic" data-strength="10" href="about.html">About</a></div>
         </div>
     </nav>
     <div class="nav-overlay" hidden></div>
 
-    <div class="parallax-bg layer-1" data-speed="0.1"></div>
-    <div class="parallax-bg layer-2" data-speed="0.25"></div>
-
-    <main class="creative-content">
-        <!-- Creative Hero Section -->
-        <section class="research-detail-hero" style="position: relative; overflow: hidden; padding-bottom: 4rem;">
-            <!-- Floating Creative Elements -->
-            <div class="creative-hero-bg">
-                <div class="floating-shape floating-shape-1"></div>
-                <div class="floating-shape floating-shape-2"></div>
-                <div class="floating-shape floating-shape-3"></div>
-            </div>
-
-            <div class="section-container" style="position: relative; z-index: 2;">
-                <a class="research-back-link reveal-on-load" href="projects.html" style="margin-bottom: 2rem;"><i class="ph ph-arrow-left"></i> Back to Projects</a>
-                
-                <div class="reveal-on-load" style="max-width: 900px;">
-                    <span class="badge" style="margin-bottom: 1rem; display: inline-block;">Creator Economy &bull; Consumer Insights &bull; Published Book Chapter</span>
-                    <h1 class="creative-title-huge">Virtual Influencer Trust and Purchase Intention</h1>
-                    <p class="section-desc" style="font-size: 1.35rem; color: #334155; line-height: 1.6; max-width: 750px;">
-                        This consumer insights study explores how virtual influencer cues shape Generation Z trust, credibility, and purchase intention.
-                    </p>
-                    
-                    <div class="research-meta-tags" style="margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.8rem;">
-                        <span><i class="ph ph-instagram-logo"></i> Simulated Environments</span>
-                        <span><i class="ph ph-book-open"></i> Springer Publishing published</span>
-                        <span><i class="ph ph-chart-scatter"></i> ANOVA Testing</span>
-                    </div>
+    <main class="vi-infographic-main">
+        <section class="vi-hero section-container reveal-on-load">
+            <div class="vi-hero-copy">
+                <div class="vi-pill-row">
+                    <span class="vi-pill teal"><i class="ph ph-sparkle"></i> Creator economy</span>
+                    <span class="vi-pill purple"><i class="ph ph-users-three"></i> Consumer insights</span>
+                    <span class="vi-pill violet"><i class="ph ph-book-open-text"></i> Published book chapter</span>
                 </div>
+                <h1 class="vi-title">Virtual Influencer<br/>Trust &amp; Purchase<br/><em>Intention</em></h1>
+                <p class="vi-subtitle">How social media content from virtual influencers shapes Generation Z's trust, credibility, and purchase intention.</p>
+                <div class="vi-chip-row" aria-label="Study details">
+                    <span><i class="ph ph-book-open"></i> Springer Chapter</span>
+                    <span><i class="ph ph-users"></i> N = 244</span>
+                    <span><i class="ph ph-squares-four"></i> 2 x 2 Factorial Design</span>
+                    <span><i class="ph ph-brain"></i> Elaboration Likelihood Model</span>
+                </div>
+                <a class="vi-output" href="https://doi.org/10.1007/978-981-96-4116-1_9" rel="noopener noreferrer" target="_blank">
+                    <span><strong>Verified Output:</strong> Springer chapter published online June 18, 2025<br/>DOI: 10.1007/978-981-96-4116-1_9</span>
+                    <i class="ph ph-arrow-square-out"></i>
+                </a>
+            </div>
+            <div class="vi-hero-art" aria-label="Virtual influencer hero visual">
+                <picture>
+                    <source media="(max-width: 720px)" srcset="./assets/optimized/virtual-influencer-hero-ai-768.webp" type="image/webp"/>
+                    <source srcset="./assets/optimized/virtual-influencer-hero-ai-1536.webp" type="image/webp"/>
+                    <img alt="AI-generated virtual influencer portrait with teal highlights and chrome styling" decoding="async" fetchpriority="high" height="1024" loading="eager" src="./assets/virtual-influencer-hero-ai.png" width="1536"/>
+                </picture>
+                <span class="vi-bubble bubble-one">Looks so real! <b>😍</b></span>
+                <span class="vi-bubble bubble-two"><i class="ph ph-heart"></i> 12.4K</span>
+                <span class="vi-bubble bubble-three"><i class="ph ph-chat-circle"></i> 1.6K</span>
+                <span class="vi-bubble bubble-four">Love the fit! <b>🥹 💜</b></span>
             </div>
         </section>
 
-        <!-- The Challenge & Problem -->
-        <section class="section bg-light">
-            <div class="section-container">
-                <div class="research-focus-shell reveal">
-                    <h2 class="section-heading">The Core Challenge</h2>
-                    <div class="creative-insight-box">
-                            <p>With the rise of VTubers and photorealistic CGI models, brands required clearer evidence on what makes a virtual influencer persuasive to a Gen Z audience.</p>
-                    </div>
-
-                    <div class="creative-layout-grid">
-                        <div class="creative-card">
-                            <i class="ph ph-warning-circle"></i>
-                            <h3>The Problem</h3>
-                            <p>Are virtual influencers effective because of novelty, or are there deeper trust levers at play? Marketers lacked evidence on the boundary limits.</p>
-                        </div>
-                        <div class="creative-card">
-                            <i class="ph ph-brain"></i>
-                            <h3>The Method</h3>
-                            <p>Constructed a survey model testing direct and mediated relationships based on simulated Instagram scenarios.</p>
-                        </div>
-                        <div class="creative-card">
-                            <i class="ph ph-check-circle"></i>
-                            <h3>The Result</h3>
-                            <p>Speciesism acts as a moderator. Credibility and argument quality outrank pure aesthetic novelty in this Gen Z purchase-intention study.</p>
-                        </div>
-                    </div>
-
-                    <div class="creative-insight-box" style="margin-top: 2rem; border-left-color: #a4df4f; background: transparent;">
-                        <strong><i class="ph ph-certificate"></i> Verified Output:</strong>
-                            <p style="margin-top: 0.5rem; font-size: 1.1rem !important;">Springer chapter published online June 18, 2025 (DOI: 10.1007/978-981-96-4116-1_9).</p>
-                    </div>
-                </div>
+        <section class="vi-section section-container reveal">
+            <div class="vi-section-title"><span></span><h2>The Core Challenge</h2><span></span></div>
+            <div class="vi-core-grid">
+                <article class="vi-core-card">
+                    <div class="vi-icon teal"><i class="ph ph-question"></i></div>
+                    <h3>The Problem</h3>
+                    <p>Virtual influencers are effective because of novelty, but marketers lacked evidence on the cues that truly drive Gen Z purchase intention.</p>
+                </article>
+                <article class="vi-core-card">
+                    <div class="vi-icon teal"><i class="ph ph-flask"></i></div>
+                    <h3>The Method</h3>
+                    <p>Simulated Instagram posts manipulated argument quality and peripheral appeal across four scenarios, then tested effects on trust and purchase intent.</p>
+                </article>
+                <article class="vi-core-card">
+                    <div class="vi-icon purple"><i class="ph ph-target"></i></div>
+                    <h3>The Result</h3>
+                    <p>Peripheral cues drive purchase intention more consistently than argument quality, while speciesism weakens persuasion for skeptical consumers.</p>
+                </article>
             </div>
         </section>
 
-        <!-- Visual Deep Dive -->
-        <section class="section">
-            <div class="section-container">
-                <div class="research-focus-shell reveal">
-                    <h2 class="section-heading mb-4">Visual Evidence & Test Environment</h2>
-                    
-                    <div class="ev-signal-split" style="margin-bottom: 2rem;">
-                        <article class="ev-signal-card ev-signal-strong" style="padding: 1.5rem 1.5rem 1.5rem 2rem; background: transparent; border: none; border-left: 3px solid rgba(31,137,199,0.25);">
-                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;"><i class="ph ph-robot"></i> Simulation Blocks & Findings</h3>
-                            <ul style="font-size: 1.05rem; line-height: 1.7; color: #475569;">
-                                <li><strong>The Visual Test:</strong> We built 4 different Instagram interface mockups to test high vs. low argument quality combined with high vs. low aesthetics.</li>
-                                <li><strong>The Findings:</strong> Pretty visuals (peripheral cues) cannot save a bad product pitch (central cue). Gen Z fundamentally evaluates digital entities functionally.</li>
-                                <li>If a user possesses high "speciesism" (bias against robots/AI), the virtual influencer's impact hits a strict upper ceiling.</li>
-                            </ul>
-                        </article>
-                    </div>
-
-                    <!-- NEW: Chart.js Interactive Bar Chart -->
-                    <div class="interactive-chart-container" style="margin-bottom: 3rem; background: #fff; border: none; border-radius: 0; padding: 2rem 0; box-shadow: none; position: relative; overflow: hidden;">
-                        <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: #1e293b; text-align: center;">Purchase Intention by Scenario & Speciesism</h3>
-                        <p style="text-align: center; color: #64748b; margin-bottom: 2rem; font-size: 0.95rem;">Grouped by the 4 visual test blocks, highlighting the strict upper ceiling effect for AI-skeptical users.</p>
-                        <div style="position: relative; height: 350px; width: 100%;">
-                            <canvas id="virtualInfluencerChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div style="display: grid; gap: 2rem;">
-                        <!-- The 4 variations of the app testing phase -->
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
-                            <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; cursor: zoom-in;">
-                                <img alt="High Quality + High Aesthetic" decoding="async" loading="lazy" src="./assets/external/vi-sim-high-high.png" style="width: 100%; height: auto; border-radius: 12px;"/>
-                                <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 1: High central + High peripheral</figcaption>
-                            </figure>
-                            
-                            <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; cursor: zoom-in;">
-                                <img alt="High Quality + Low Aesthetic" decoding="async" loading="lazy" src="./assets/external/vi-sim-high-low.png" style="width: 100%; height: auto; border-radius: 12px;"/>
-                                <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 2: High central + Low peripheral</figcaption>
-                            </figure>
-                            
-                            <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; cursor: zoom-in;">
-                                <img alt="Low Quality + High Aesthetic" decoding="async" loading="lazy" src="./assets/external/vi-sim-low-high.png" style="width: 100%; height: auto; border-radius: 12px;"/>
-                                <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 3: Low central + High peripheral</figcaption>
-                            </figure>
-                            
-                            <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; cursor: zoom-in;">
-                                <img alt="Low Quality + Low Aesthetic" decoding="async" loading="lazy" src="./assets/external/vi-sim-low-low.png" style="width: 100%; height: auto; border-radius: 12px;"/>
-                                <figcaption class="research-figure-caption" style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b; text-align: center;">Block 4: Low central + Low peripheral</figcaption>
-                            </figure>
-                        </div>
-                        
-                        <!-- Regression Charts -->
-                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
-                            <img alt="Regression coefficients and ANOVA test summary" decoding="async" loading="lazy" src="./assets/viz-virtual-cue-effects.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
-                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Regression coefficients and ANOVA limits from the N=244 study cohort.</figcaption>
-                        </figure>
-
-                        <figure class="research-figure-stage modal-trigger" style="border: none; border-radius: 0; padding: 0; background: transparent; text-align: center; cursor: zoom-in;">
-                            <img alt="Speciesism moderation pattern" decoding="async" loading="lazy" src="./assets/viz-virtual-speciesism-moderation.svg" style="max-width: 100%; height: auto; border-radius: 12px;"/>
-                            <figcaption class="research-figure-caption" style="margin-top: 1rem; font-size: 0.95rem; color: #64748b;">Visualizing how Speciesism acts as a ceiling to influencer effectiveness.</figcaption>
-                        </figure>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-5 reveal">
-                <a class="btn-outline large magnetic" data-strength="15" href="projects.html" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px;"><i class="ph ph-arrow-left"></i> Projects Archive</a>
-                
-                <a class="btn-primary large magnetic" data-strength="15" href="./assets/research-files/Virtual-Influencer.pdf" rel="noopener noreferrer" target="_blank" style="font-size: 1.1rem; padding: 1rem 2.5rem; border-width: 2px; margin-left:1rem;"><i class="ph ph-file-pdf"></i> Read Book Chapter PDF</a>
+        <section class="vi-section section-container reveal">
+            <div class="vi-section-title compact"><span></span><h2>Four Simulated Scenarios</h2><span></span></div>
+            <p class="vi-section-note">2 (Argument Quality: High vs. Low) x 2 (Peripheral Cue: Low vs. High)</p>
+            <div class="vi-scenario-grid">
+                <article class="vi-scenario-card">
+                    <header><b>1</b><h3>High Argument<br/>+ High Peripheral</h3></header>
+                    <img alt="High argument and high peripheral virtual influencer Instagram stimulus" decoding="async" loading="lazy" src="./assets/external/vi-sim-high-high.png"/>
+                    <div class="vi-social"><span><i class="ph ph-heart"></i> 0.2K</span><span><i class="ph ph-chat-circle"></i> 218</span><i class="ph ph-bookmark-simple"></i></div>
+                    <p>Clear feature claims and strong visual appeal create the cleanest persuasive condition.</p>
+                    <span class="vi-condition teal">High Central + High Peripheral</span>
+                </article>
+                <article class="vi-scenario-card">
+                    <header><b>2</b><h3>High Argument<br/>+ Low Peripheral</h3></header>
+                    <img alt="High argument and low peripheral virtual influencer Instagram stimulus" decoding="async" loading="lazy" src="./assets/external/vi-sim-high-low.png"/>
+                    <div class="vi-social"><span><i class="ph ph-heart"></i> 9.1K</span><span><i class="ph ph-chat-circle"></i> 143</span><i class="ph ph-bookmark-simple"></i></div>
+                    <p>Functional claims are strong, but weak creator fit limits emotional pull.</p>
+                    <span class="vi-condition teal">High Central + Low Peripheral</span>
+                </article>
+                <article class="vi-scenario-card">
+                    <header><b>3</b><h3>Low Argument<br/>+ High Peripheral</h3></header>
+                    <img alt="Low argument and high peripheral virtual influencer Instagram stimulus" decoding="async" loading="lazy" src="./assets/external/vi-sim-low-high.png"/>
+                    <div class="vi-social"><span><i class="ph ph-heart"></i> 15.6K</span><span><i class="ph ph-chat-circle"></i> 312</span><i class="ph ph-bookmark-simple"></i></div>
+                    <p>Attractive creator cues still move interest when the caption is thin.</p>
+                    <span class="vi-condition purple">Low Central + High Peripheral</span>
+                </article>
+                <article class="vi-scenario-card">
+                    <header><b>4</b><h3>Low Argument<br/>+ Low Peripheral</h3></header>
+                    <img alt="Low argument and low peripheral virtual influencer Instagram stimulus" decoding="async" loading="lazy" src="./assets/external/vi-sim-low-low.png"/>
+                    <div class="vi-social"><span><i class="ph ph-heart"></i> 7.2K</span><span><i class="ph ph-chat-circle"></i> 96</span><i class="ph ph-bookmark-simple"></i></div>
+                    <p>The weakest condition lacks both persuasive message quality and creator appeal.</p>
+                    <span class="vi-condition purple">Low Central + Low Peripheral</span>
+                </article>
             </div>
         </section>
+
+        <section class="vi-section section-container reveal">
+            <div class="vi-section-title"><span></span><h2>Results at a Glance</h2><span></span></div>
+            <div class="vi-results-grid">
+                <article class="vi-result-card vi-gauge-card">
+                    <h3>Peripheral Cues Drive Intention</h3>
+                    <p>Mean purchase intention (1-5 scale)</p>
+                    <div class="vi-gauges">
+                        <div class="vi-gauge high" style="--score: 68;"><strong>2.45</strong><span>High Peripheral</span></div>
+                        <div class="vi-gauge low" style="--score: 48;"><strong>2.16</strong><span>Low Peripheral</span></div>
+                    </div>
+                    <small>Peripheral cues significantly outperform low-peripheral conditions in this study.</small>
+                </article>
+                <article class="vi-result-card vi-bar-card">
+                    <h3>Relative Impact (Standardized beta)</h3>
+                    <p>Stronger positive impact</p>
+                    <div class="vi-bars">
+                        <span>Social Attractiveness <b style="--bar: 88%;">0.33 **</b></span>
+                        <span>Physical Attractiveness <b style="--bar: 66%;">0.24 **</b></span>
+                        <span>Attitude Homophily <b style="--bar: 50%;">0.18 *</b></span>
+                        <span>Argument Quality <b class="negative" style="--bar: 34%;">-0.14 *</b></span>
+                    </div>
+                    <small>* p &lt; .05, ** p &lt; .001. N = 244.</small>
+                </article>
+                <article class="vi-result-card vi-flow-card">
+                    <h3>Cues -> Purchase Intention</h3>
+                    <p>Key relationships</p>
+                    <div class="vi-flow">
+                        <div class="vi-flow-left"><span>Social<br/>Attractiveness</span><span>Physical<br/>Attractiveness</span><span>Attitude<br/>Homophily</span></div>
+                        <div class="vi-flow-center">Purchase<br/>Intention</div>
+                        <div class="vi-flow-right"><span>Speciesism<br/>(Moderator)</span></div>
+                        <div class="vi-flow-bottom"><span>Argument<br/>Quality</span></div>
+                    </div>
+                    <small><i class="ph ph-arrow-right"></i> Stronger positive <i class="ph ph-arrow-right"></i> Weaker / negative <i class="ph ph-arrow-right"></i> Moderates</small>
+                </article>
+            </div>
+        </section>
+
+        <section class="vi-section section-container reveal">
+            <div class="vi-section-title"><span></span><h2>Speciesism Moderates the Effect</h2><span></span></div>
+            <p class="vi-section-note">High-speciesism participants remain less persuaded across conditions.</p>
+            <div class="vi-moderation-grid">
+                <article class="vi-interpretation">
+                    <h3>Interpretation</h3>
+                    <p>As speciesism increases, the positive effect of persuasive cues on purchase intention weakens. Strong styling and relatability cannot fully convert skeptical consumers.</p>
+                </article>
+                <div class="vi-line-chart" role="img" aria-label="Moderation chart showing low speciesism rising more strongly than high speciesism">
+                    <svg viewBox="0 0 640 240" aria-hidden="true">
+                        <line x1="48" x2="590" y1="190" y2="190"></line>
+                        <line x1="48" x2="48" y1="28" y2="190"></line>
+                        <polyline class="teal" points="70,132 350,98 560,45"></polyline>
+                        <polyline class="purple" points="70,148 350,140 560,132"></polyline>
+                        <circle class="teal" cx="70" cy="132" r="6"></circle><circle class="teal" cx="350" cy="98" r="6"></circle><circle class="teal" cx="560" cy="45" r="6"></circle>
+                        <circle class="purple" cx="70" cy="148" r="6"></circle><circle class="purple" cx="350" cy="140" r="6"></circle><circle class="purple" cx="560" cy="132" r="6"></circle>
+                        <text x="560" y="32">Low Speciesism</text>
+                        <text class="purple-label" x="560" y="120">High Speciesism</text>
+                        <text class="axis" x="36" y="218">Low Peripheral Cues</text>
+                        <text class="axis" x="460" y="218">High Peripheral Cues</text>
+                    </svg>
+                </div>
+                <article class="vi-takeaway">
+                    <h3><i class="ph ph-lightbulb"></i> Key Takeaway</h3>
+                    <p>Speciesism acts as a ceiling. Even strong cues cannot fully unlock high-speciesism consumers.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="vi-section section-container reveal">
+            <div class="vi-section-title"><span></span><h2>Design Implications for Brands</h2><span></span></div>
+            <div class="vi-implication-grid">
+                <article><i class="ph ph-user-focus"></i><h3>Leverage Peripheral Cues</h3><p>Invest in visual appeal, likability, and value alignment to drive Gen Z purchase intention.</p></article>
+                <article><i class="ph ph-heart"></i><h3>Build Relatable AI Identities</h3><p>Strengthen attitude homophily through shared interests, tone, and community values.</p></article>
+                <article><i class="ph ph-chats-circle"></i><h3>Quality Still Matters</h3><p>Do not ignore argument quality. It builds credibility and supports long-term trust.</p></article>
+                <article><i class="ph ph-shield-check"></i><h3>Mind the Speciesism Ceiling</h3><p>Address skepticism through transparency, authenticity, and human-compatible storytelling.</p></article>
+            </div>
+        </section>
+
+        <section class="vi-signoff section-container reveal">
+            <div><span class="logo-mark">CH</span><strong>Chung Hy Dai</strong><small>Research on creator economy, consumer behavior, and emerging technology.</small></div>
+            <blockquote>"Designing virtual influence that earns trust, drives value, and respects the human mind."</blockquote>
+            <p>© 2026 Chung Hy Dai.<br/>Ho Chi Minh City, Vietnam</p>
+        </section>
+
+        <div class="vi-actions section-container reveal">
+            <a class="btn-outline large magnetic" data-strength="15" href="projects.html"><i class="ph ph-arrow-left"></i> Projects Archive</a>
+            <a class="btn-primary large magnetic" data-strength="15" href="./assets/research-files/Virtual-Influencer.pdf" rel="noopener noreferrer" target="_blank"><i class="ph ph-file-pdf"></i> Read Book Chapter PDF</a>
+        </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-glow glow-1"></div>
-        <div class="footer-glow glow-2"></div>
-        <div class="footer-glow glow-3"></div>
-        <div class="footer-container layer-above-bg reveal active">
-            <h2 class="footer-heading">Review the research portfolio.</h2>
-            <p class="footer-desc">Contact by email for research, analytics, operations, or project context.</p>
-            <div class="footer-contact-info reveal active">
-                <a class="contact-link hover-underline" href="mailto:daichunghy@gmail.com"><i class="ph ph-envelope"></i> daichunghy@gmail.com</a>
-                <span class="divider">|</span>
-                <span class="location"><i class="ph ph-map-pin"></i> Ho Chi Minh City, Vietnam</span>
-            </div>
-            <div class="footer-bottom"><p>© 2026 Chung Hy Dai.</p></div>
-        </div>
-    </footer>
+    <footer class="footer vi-hidden-footer" aria-hidden="true"></footer>
 
-    <!-- Image Modal for Interactive Popping -->
-    <div id="image-modal" class="modal-overlay">
-        <span class="modal-close" role="button" tabindex="0" aria-label="Close image modal">×</span>
-        <img class="modal-content" id="modal-image" src="" alt="Zoomed in context" width="1600" height="1000"/>
-    </div>
-
-    <!-- Chart.js Configuration for Virtual Influencer Bar Chart -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ctx = document.getElementById('virtualInfluencerChart');
-            if (!ctx) return;
-
-            new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        ['Block 1', '(High + High)'],
-                        ['Block 2', '(High + Low)'],
-                        ['Block 3', '(Low + High)'],
-                        ['Block 4', '(Low + Low)']
-                    ],
-                    datasets: [
-                        {
-                            label: 'Low Speciesism (Open to AI)',
-                            data: [82, 70, 48, 25],
-                            backgroundColor: 'rgba(99, 102, 241, 0.85)',
-                            borderRadius: 6,
-                            borderWidth: 0,
-                        },
-                        {
-                            label: 'High Speciesism (AI-Skeptical)',
-                            data: [50, 45, 30, 15],
-                            backgroundColor: 'rgba(244, 114, 182, 0.85)',
-                            borderRadius: 6,
-                            borderWidth: 0,
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: {
-                                font: { family: 'inherit', size: 12 },
-                                color: '#475569'
-                            }
-                        },
-                        y: {
-                            beginAtZero: true,
-                            max: 100,
-                            title: {
-                                display: true,
-                                text: 'Purchase Intention Score',
-                                font: { family: 'inherit', size: 13, weight: '600' },
-                                color: '#64748b'
-                            },
-                            grid: {
-                                borderDash: [4, 4],
-                                color: '#e2e8f0'
-                            },
-                            ticks: { font: { family: 'inherit' } }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                            labels: {
-                                usePointStyle: true,
-                                padding: 20,
-                                font: { family: 'inherit', size: 13 }
-                            }
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(255,255,255,0.95)',
-                            titleColor: '#1e293b',
-                            bodyColor: '#334155',
-                            borderColor: '#e2e8f0',
-                            borderWidth: 1,
-                            padding: 12,
-                            boxPadding: 4,
-                            usePointStyle: true
-                        }
-                    },
-                    animation: {
-                        duration: 1800,
-                        easing: 'easeOutBounce'
-                    }
-                }
-            });
-        });
-    </script>
-
-    <script defer src="js/main.js" type="module"></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
