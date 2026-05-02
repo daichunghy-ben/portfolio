@@ -11825,25 +11825,234 @@ html.js .page-research-detail .project-brief-media.active {
     text-transform: uppercase;
 }
 
-.case-arts #application .case-figure,
+.arts-application-board {
+    display: grid;
+    grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.arts-service-map {
+    position: relative;
+    min-height: 23rem;
+    overflow: hidden;
+    border: 1px solid rgba(244, 195, 83, 0.28);
+    border-radius: 7px;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(45, 92, 105, 0.16), transparent 9rem),
+        radial-gradient(circle at 86% 18%, rgba(216, 156, 39, 0.18), transparent 8rem),
+        radial-gradient(circle at 50% 86%, rgba(184, 95, 43, 0.12), transparent 9rem),
+        linear-gradient(180deg, rgba(255, 247, 219, 0.96), rgba(255, 248, 225, 0.9)),
+        url("/portfolio/assets/arts-workshop-paper-texture.jpg") center / 360px repeat;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+}
+
+.arts-service-map::before {
+    content: "Service-design view";
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: #1d1711;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1rem;
+    font-weight: 950;
+    letter-spacing: 0.04em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.arts-service-map::after {
+    content: "";
+    position: absolute;
+    top: 2.52rem;
+    left: 50%;
+    z-index: 2;
+    width: 4.8rem;
+    height: 0.28rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--arts-gold), transparent);
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.arts-service-path {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 4.1rem 2rem 1.1rem;
+    min-height: 6.2rem;
+    align-items: center;
+}
+
+.arts-service-path::before {
+    content: "";
+    position: absolute;
+    left: 9%;
+    right: 9%;
+    top: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(29, 23, 17, 0.58), transparent);
+    transform: translateY(-50%);
+}
+
+.arts-service-path::after {
+    content: "\2192";
+    position: absolute;
+    top: 50%;
+    right: 4.5%;
+    color: #1d1711;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.6rem;
+    transform: translateY(-52%);
+}
+
+.path-dot {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+    width: clamp(4.4rem, 8vw, 5.6rem);
+    height: clamp(4.4rem, 8vw, 5.6rem);
+    border: 2px solid rgba(255, 248, 225, 0.62);
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.18), transparent 30%),
+        conic-gradient(from 24deg, #123f56, #2d7b73, #d89c27, #a95427, #123f56);
+    color: #fff7df;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.28rem;
+    font-weight: 900;
+    line-height: 1;
+    box-shadow:
+        inset 0 0 0 7px rgba(255, 246, 223, 0.1),
+        0 10px 20px rgba(88, 59, 25, 0.16);
+}
+
+.path-dot::after {
+    content: "";
+    position: absolute;
+    inset: -0.36rem;
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 7deg, rgba(244, 195, 83, 0.16) 0 8deg, transparent 8deg 16deg);
+    z-index: -1;
+}
+
+.dot-2 {
+    background:
+        radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.18), transparent 30%),
+        conic-gradient(from 35deg, #2d7b73, #5b9583, #d2a73a, #2d7b73);
+}
+
+.dot-3 {
+    background:
+        radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.18), transparent 30%),
+        conic-gradient(from 35deg, #d89c27, #f0c34f, #c87824, #d89c27);
+}
+
+.dot-4 {
+    background:
+        radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.18), transparent 30%),
+        conic-gradient(from 35deg, #a95427, #c97535, #e0b65c, #a95427);
+}
+
+.arts-service-values {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.58rem;
+    margin: 0 2rem 1rem;
+}
+
+.arts-service-values article {
+    min-height: 5.65rem;
+    padding: 0.7rem;
+    border: 1px solid rgba(139, 91, 35, 0.16);
+    border-radius: 6px;
+    background:
+        linear-gradient(180deg, rgba(255, 248, 225, 0.88), rgba(239, 205, 131, 0.4)),
+        url("/portfolio/assets/arts-workshop-paper-texture.jpg") center / 260px repeat;
+    box-shadow: 0 8px 14px rgba(88, 59, 25, 0.08);
+}
+
+.arts-service-values h3 {
+    margin: 0;
+    color: #172033;
+    font-size: 0.74rem;
+    font-weight: 950;
+}
+
+.arts-service-values p {
+    margin: 0.28rem 0 0;
+    color: #3e4a5a;
+    font-size: 0.66rem;
+    line-height: 1.34;
+}
+
+.arts-map-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 1rem 1.2rem;
+    background: rgba(6, 23, 36, 0.92);
+    color: #fff3d0;
+    font-size: 0.96rem;
+    font-weight: 800;
+    line-height: 1.48;
+}
+
+.arts-recommendation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
 .case-arts #application .case-mini-card {
     border-color: rgba(244, 195, 83, 0.28);
     background: rgba(7, 28, 43, 0.76);
     box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
 }
 
-.case-arts #application .case-figure img {
-    background: #fff6df;
+.case-arts #application .case-mini-card {
+    min-height: 10.8rem;
+    padding: 1.05rem 1.1rem;
 }
 
-.case-arts #application .case-figure figcaption,
+.case-arts #application .case-mini-card i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(244, 195, 83, 0.36);
+    border-radius: 50%;
+    background: rgba(244, 195, 83, 0.12);
+    color: var(--arts-gold);
+    font-size: 1.18rem;
+}
+
 .case-arts #application .case-mini-card h3,
 .case-arts #application .case-mini-card p {
     color: #fff3d0;
 }
 
-.case-arts #application .case-grid-2 .case-grid-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+.case-arts #application .case-mini-card h3 {
+    font-size: 1.02rem;
+    text-transform: none;
+}
+
+.case-arts #application .case-mini-card p {
+    font-size: 0.92rem;
+    line-height: 1.55;
 }
 
 .case-arts .case-mini-card {
@@ -11854,8 +12063,46 @@ html.js .page-research-detail .project-brief-media.active {
     border: 1px solid rgba(244, 195, 83, 0.3);
     border-radius: 7px;
     background:
-        linear-gradient(135deg, rgba(6, 23, 36, 0.86), rgba(9, 40, 59, 0.9)),
+        linear-gradient(135deg, rgba(6, 23, 36, 0.68), rgba(9, 40, 59, 0.82)),
         url("/portfolio/assets/van_gogh_bg.png") center / cover;
+    color: #fff3d0;
+}
+
+.case-arts #references .case-bottom-panel .case-section-title {
+    color: #fff3d0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.75rem, 3.2vw, 3rem);
+    line-height: 1.05;
+}
+
+.case-arts #references .case-bottom-panel .case-section-desc {
+    color: #f8e9be;
+    opacity: 1;
+}
+
+.arts-bottom-icons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.72rem;
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(244, 195, 83, 0.26);
+}
+
+.arts-bottom-icons span {
+    display: grid;
+    gap: 0.3rem;
+    justify-items: center;
+    color: #f8e9be;
+    font-size: 0.72rem;
+    font-weight: 760;
+    line-height: 1.28;
+    text-align: center;
+}
+
+.arts-bottom-icons i {
+    color: var(--arts-gold);
+    font-size: 1.35rem;
 }
 
 .case-arts #references .case-reference-list {
@@ -11877,8 +12124,13 @@ html.js .page-research-detail .project-brief-media.active {
     .arts-value-grid,
     .arts-impact-grid,
     .arts-gallery-strip,
-    .case-arts .case-method-list {
+    .case-arts .case-method-list,
+    .arts-application-board {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .arts-application-board {
+        grid-template-columns: 1fr;
     }
 
     .arts-driver-card {
@@ -11934,8 +12186,74 @@ html.js .page-research-detail .project-brief-media.active {
     .arts-gallery-strip,
     .case-arts .case-method-list,
     .arts-journey,
-    .case-arts #application .case-grid-2 .case-grid-2 {
+    .arts-recommendation-grid,
+    .arts-service-values,
+    .arts-bottom-icons {
         grid-template-columns: 1fr;
+    }
+
+    .arts-service-map {
+        display: grid;
+        min-height: 0;
+        padding: 3.4rem 1rem 0;
+    }
+
+    .arts-service-map::before {
+        top: 0.95rem;
+        left: 0;
+        right: 0;
+    }
+
+    .arts-service-map::after {
+        top: 2.46rem;
+        left: 50%;
+        right: auto;
+        width: 4.8rem;
+        height: 0.28rem;
+    }
+
+    .arts-service-path {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.42rem;
+        min-height: 4.8rem;
+        height: auto;
+        margin: 0.55rem 0 0.4rem;
+    }
+
+    .arts-service-path::before {
+        left: 7%;
+        right: 7%;
+    }
+
+    .arts-service-path::after {
+        right: 1%;
+        font-size: 1.25rem;
+    }
+
+    .path-dot {
+        width: 3.55rem;
+        height: 3.55rem;
+        font-size: 1rem;
+    }
+
+    .arts-service-values {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        bottom: auto;
+        margin: 0 0.15rem 1rem;
+        z-index: 2;
+    }
+
+    .arts-map-caption {
+        position: relative;
+        margin-top: 0.2rem;
+        z-index: 2;
     }
 
     .case-arts .case-meta-strip {
