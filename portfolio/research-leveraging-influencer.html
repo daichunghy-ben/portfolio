@@ -618,12 +618,17 @@
     display: none;
 }
 
+.page-research-influencer-focus .navbar,
+.page-research-influencer-focus .nav-overlay,
+.page-research-influencer-focus .parallax-bg {
+    display: none;
+}
+
 .page-research-influencer-focus .influencer-infographic-page {
-    padding: 92px 0 42px;
+    padding: 0;
     background:
-        radial-gradient(circle at 72% 6%, rgba(196, 181, 253, 0.34), transparent 30%),
-        radial-gradient(circle at 8% 20%, rgba(255, 237, 213, 0.74), transparent 32%),
-        linear-gradient(180deg, #fffaf4 0%, #fbf7ef 100%);
+        radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.1), transparent 30%),
+        linear-gradient(180deg, #fff8ee 0%, #f5efe6 100%);
     overflow-x: hidden;
 }
 
@@ -632,8 +637,14 @@
 }
 
 .page-research-influencer-focus .infographic-sheet {
-    width: min(1180px, calc(100vw - 2rem));
+    width: min(1120px, 100vw);
     margin: 0 auto;
+    padding: clamp(1.4rem, 3vw, 2.15rem) clamp(1.15rem, 3.4vw, 2.35rem) 1.55rem;
+    background:
+        radial-gradient(circle at 78% 11%, rgba(178, 151, 255, 0.28), transparent 22%),
+        radial-gradient(circle at 15% 19%, rgba(255, 238, 212, 0.7), transparent 28%),
+        #fffaf4;
+    box-shadow: 0 20px 60px rgba(41, 33, 24, 0.12);
 }
 
 .page-research-influencer-focus .infographic-hero,
@@ -645,27 +656,26 @@
 
 .page-research-influencer-focus .infographic-hero {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
-    gap: clamp(1rem, 2.8vw, 2.2rem);
-    align-items: center;
-    min-height: 430px;
-    overflow: hidden;
-    padding: clamp(1.1rem, 2.4vw, 1.8rem);
-    border-radius: 22px;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    gap: clamp(0.8rem, 2.2vw, 1.65rem);
+    align-items: end;
+    min-height: 455px;
+    overflow: visible;
+    padding: 0;
+    border-radius: 0;
     background:
-        radial-gradient(circle at 84% 20%, rgba(147, 123, 224, 0.22), transparent 28%),
-        linear-gradient(115deg, rgba(255,255,255,0.96) 0 48%, rgba(255,246,242,0.92) 48% 100%);
+        linear-gradient(112deg, rgba(255, 255, 255, 0) 0 41%, rgba(255, 233, 220, 0.5) 41% 42%, rgba(255, 255, 255, 0) 42% 100%);
 }
 
 .page-research-influencer-focus .infographic-hero::after {
     content: "";
     position: absolute;
-    right: -8%;
-    top: 8%;
-    width: 44%;
-    height: 68%;
+    right: 2%;
+    top: 4%;
+    width: 42%;
+    height: 76%;
     border-radius: 48%;
-    background: rgba(154, 124, 229, 0.18);
+    background: rgba(154, 124, 229, 0.19);
     transform: rotate(-13deg);
 }
 
@@ -693,13 +703,13 @@
 }
 
 .page-research-influencer-focus .infographic-title {
-    max-width: 15ch;
+    max-width: 14ch;
     margin: 0;
     color: #171c27;
     font-family: "Bricolage Grotesque", "Manrope", sans-serif;
-    font-size: clamp(2.55rem, 4.7vw, 4.45rem);
+    font-size: clamp(2.45rem, 4.4vw, 4.12rem);
     font-weight: 800;
-    line-height: 0.93;
+    line-height: 0.92;
     letter-spacing: 0;
     overflow-wrap: break-word;
 }
@@ -709,12 +719,12 @@
 }
 
 .page-research-influencer-focus .infographic-lede {
-    max-width: 58ch;
-    margin: 1rem 0 0;
+    max-width: 52ch;
+    margin: 0.88rem 0 0;
     color: #263449;
-    font-size: 0.98rem;
+    font-size: 0.83rem;
     font-weight: 650;
-    line-height: 1.56;
+    line-height: 1.48;
 }
 
 .page-research-influencer-focus .infographic-meta {
@@ -741,23 +751,65 @@
 .page-research-influencer-focus .infographic-art {
     position: relative;
     z-index: 1;
-    min-height: 405px;
+    min-height: 455px;
+    align-self: stretch;
+    isolation: isolate;
 }
 
 .page-research-influencer-focus .infographic-art picture,
 .page-research-influencer-focus .infographic-art img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: min(58%, 360px);
+    height: min(92%, 430px);
 }
 
 .page-research-influencer-focus .infographic-art img {
-    min-height: 405px;
-    border-radius: 22px;
+    position: absolute;
+    right: 27%;
+    bottom: 0;
+    min-height: 0;
+    border: 7px solid rgba(255, 255, 255, 0.88);
+    border-radius: 999px 999px 120px 120px;
     object-fit: cover;
-    object-position: center;
-    mix-blend-mode: multiply;
-    filter: saturate(1.04) contrast(0.98);
+    object-position: 50% 38%;
+    mix-blend-mode: normal;
+    filter: saturate(1.06) contrast(0.98);
+    box-shadow: 0 22px 42px rgba(48, 42, 32, 0.18);
+}
+
+.page-research-influencer-focus .infographic-art::before {
+    content: "";
+    position: absolute;
+    inset: 18% 3% 4% 18%;
+    z-index: -1;
+    border-radius: 38% 46% 42% 48%;
+    background: rgba(155, 127, 230, 0.22);
+    transform: rotate(-11deg);
+}
+
+.page-research-influencer-focus .infographic-art::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 14%;
+    width: min(43%, 290px);
+    height: 192px;
+    border: 1px solid rgba(222, 204, 184, 0.92);
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(65, 52, 45, 0.86) 0 31px, transparent 32px),
+        conic-gradient(from 90deg at 52% 42%, transparent 0 36deg, rgba(255, 255, 255, 0.96) 36deg 96deg, transparent 96deg 360deg),
+        radial-gradient(circle at 20px 18px, #7f7169 0 4px, transparent 5px),
+        radial-gradient(circle at 38px 18px, #e6c6a9 0 4px, transparent 5px),
+        radial-gradient(circle at 56px 18px, #e6c6a9 0 4px, transparent 5px),
+        linear-gradient(90deg, rgba(139, 102, 82, 0.28) 0 8px, transparent 8px),
+        linear-gradient(90deg, rgba(228, 151, 113, 0.7), rgba(120, 87, 74, 0.6)) 34px 132px / 56px 40px no-repeat,
+        linear-gradient(90deg, rgba(80, 119, 146, 0.68), rgba(120, 87, 74, 0.62)) 98px 132px / 56px 40px no-repeat,
+        linear-gradient(90deg, rgba(219, 160, 100, 0.72), rgba(120, 87, 74, 0.58)) 162px 132px / 56px 40px no-repeat,
+        linear-gradient(90deg, rgba(120, 87, 74, 0.18) 34px, transparent 34px 98px, rgba(120, 87, 74, 0.18) 98px, transparent 98px 162px, rgba(120, 87, 74, 0.18) 162px, transparent 162px),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 239, 0.92));
+    background-repeat: no-repeat;
+    box-shadow: 0 18px 30px rgba(48, 42, 32, 0.12);
 }
 
 .page-research-influencer-focus .ugc-float {
@@ -778,18 +830,27 @@
 }
 
 .page-research-influencer-focus .ugc-note {
-    top: 9%;
-    left: 3%;
+    top: 18%;
+    left: 5%;
 }
 
 .page-research-influencer-focus .ugc-like {
-    right: 3%;
-    bottom: 22%;
+    right: 8%;
+    bottom: 23%;
 }
 
 .page-research-influencer-focus .ugc-comment {
-    left: 10%;
-    bottom: 8%;
+    left: 22%;
+    bottom: 11%;
+}
+
+.page-research-influencer-focus .ugc-subscribe {
+    right: 0;
+    bottom: 6%;
+    color: #fff;
+    background: #ee3f35;
+    border-color: #ee3f35;
+    box-shadow: 0 16px 26px rgba(238, 63, 53, 0.22);
 }
 
 .page-research-influencer-focus .ugc-like i {
@@ -804,10 +865,10 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0.72rem;
-    margin-top: 0.88rem;
-    padding: 0.86rem;
+    margin-top: 0.72rem;
+    padding: 0.65rem;
     border: 1px solid rgba(218, 199, 176, 0.86);
-    border-radius: 18px;
+    border-radius: 14px;
     background: rgba(255, 255, 255, 0.94);
     box-shadow: 0 16px 34px rgba(48, 42, 32, 0.09);
 }
@@ -817,8 +878,8 @@
     grid-template-columns: 56px 1fr;
     column-gap: 0.76rem;
     align-items: center;
-    min-height: 94px;
-    padding: 0.55rem 0.75rem;
+    min-height: 78px;
+    padding: 0.38rem 0.6rem;
     border-right: 1px solid rgba(218, 199, 176, 0.72);
 }
 
@@ -830,8 +891,8 @@
     grid-row: span 3;
     display: grid;
     place-items: center;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 999px;
     color: #fff;
     background: linear-gradient(135deg, #7d6be8, #42b3e5);
@@ -858,7 +919,7 @@
 
 .page-research-influencer-focus .stat-card strong {
     color: #101827;
-    font-size: 1.55rem;
+    font-size: 1.34rem;
     line-height: 1.02;
     overflow-wrap: anywhere;
 }
@@ -866,16 +927,16 @@
 .page-research-influencer-focus .infographic-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-    gap: 0.88rem;
-    margin-top: 0.88rem;
+    gap: 0.68rem;
+    margin-top: 0.68rem;
 }
 
 .page-research-influencer-focus .infographic-panel {
     border: 1px solid rgba(218, 199, 176, 0.76);
-    border-radius: 17px;
+    border-radius: 12px;
     background: rgba(255, 255, 255, 0.93);
     box-shadow: 0 12px 24px rgba(48, 42, 32, 0.07);
-    padding: 1rem;
+    padding: 0.78rem;
     overflow: hidden;
 }
 
@@ -887,10 +948,10 @@
 
 .page-research-influencer-focus .infographic-panel h2 {
     position: relative;
-    margin: 0 0 0.66rem;
+    margin: 0 0 0.48rem;
     padding-left: 0.7rem;
     color: #151b25;
-    font-size: 1.08rem;
+    font-size: 0.96rem;
     font-weight: 900;
     letter-spacing: 0;
     text-transform: uppercase;
@@ -912,17 +973,17 @@
 .page-research-influencer-focus .infographic-panel span,
 .page-research-influencer-focus .infographic-panel small {
     color: #2c3b4d;
-    font-size: 0.82rem;
+    font-size: 0.74rem;
     font-weight: 650;
-    line-height: 1.5;
+    line-height: 1.42;
     max-width: 100%;
     overflow-wrap: break-word;
 }
 
 .page-research-influencer-focus .why-list {
     display: grid;
-    gap: 0.52rem;
-    margin: 0.78rem 0 0;
+    gap: 0.38rem;
+    margin: 0.6rem 0 0;
     padding: 0;
     list-style: none;
 }
@@ -946,20 +1007,20 @@
 
 .page-research-influencer-focus .retention-callout {
     display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 0.72rem;
+    grid-template-columns: 42px 1fr;
+    gap: 0.6rem;
     align-items: center;
-    margin-top: 0.9rem;
-    padding: 0.72rem 0.82rem;
-    border-radius: 14px;
+    margin-top: 0.64rem;
+    padding: 0.58rem 0.68rem;
+    border-radius: 10px;
     background: #fff0ec;
 }
 
 .page-research-influencer-focus .retention-callout i {
     display: grid;
     place-items: center;
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     border-radius: 999px;
     color: #fff;
     background: #ed6963;
@@ -968,19 +1029,19 @@
 
 .page-research-influencer-focus .retention-callout strong {
     color: #151b25;
-    font-size: 0.94rem;
+    font-size: 0.82rem;
 }
 
 .page-research-influencer-focus .setup-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem 0.9rem;
+    gap: 0.58rem 0.74rem;
 }
 
 .page-research-influencer-focus .setup-item {
     display: grid;
-    grid-template-columns: 44px 1fr;
-    column-gap: 0.68rem;
+    grid-template-columns: 38px 1fr;
+    column-gap: 0.58rem;
     align-items: start;
 }
 
@@ -988,12 +1049,12 @@
     grid-row: span 2;
     display: grid;
     place-items: center;
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
     border-radius: 999px;
     color: #1f75ca;
     background: #e7f1ff;
-    font-size: 1.4rem;
+    font-size: 1.22rem;
 }
 
 .page-research-influencer-focus .setup-item:nth-child(2) i,
@@ -1014,25 +1075,25 @@
 
 .page-research-influencer-focus .setup-item strong {
     color: #151b25;
-    font-size: 0.86rem;
+    font-size: 0.77rem;
 }
 
 .page-research-influencer-focus .construct-list {
     display: grid;
-    gap: 0.52rem;
+    gap: 0.42rem;
 }
 
 .page-research-influencer-focus .construct-list div {
     display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: 0.62rem;
+    grid-template-columns: 36px 1fr;
+    gap: 0.48rem;
     align-items: center;
-    padding: 0.52rem;
-    border-radius: 12px;
+    padding: 0.42rem;
+    border-radius: 9px;
 }
 
 .page-research-influencer-focus .construct-list i {
-    font-size: 1.62rem;
+    font-size: 1.42rem;
 }
 
 .page-research-influencer-focus .construct-list .cx {
@@ -1065,9 +1126,9 @@
 .page-research-influencer-focus .framework-diagram {
     display: grid;
     grid-template-columns: minmax(210px, 0.86fr) minmax(140px, 0.58fr) minmax(140px, 0.58fr);
-    gap: 1rem;
+    gap: 0.84rem;
     align-items: center;
-    min-height: 250px;
+    min-height: 210px;
     margin-top: 0.35rem;
 }
 
@@ -1078,8 +1139,8 @@
 
 .page-research-influencer-focus .framework-stack span {
     border: 1px solid currentColor;
-    border-radius: 10px;
-    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    padding: 0.46rem 0.58rem;
     color: #4f46e5;
     background: rgba(255, 255, 255, 0.78);
     font-weight: 850;
@@ -1105,12 +1166,12 @@
     position: relative;
     display: grid;
     place-items: center;
-    min-height: 132px;
+    min-height: 112px;
     border: 2px solid #8856d9;
     border-radius: 999px;
     color: #5b36ba;
     background: #f7f2ff;
-    font-size: 0.88rem;
+    font-size: 0.78rem;
     font-weight: 900;
     line-height: 1.2;
     text-align: center;
@@ -1151,14 +1212,14 @@
 }
 
 .page-research-influencer-focus .wide-panel {
-    margin-top: 0.88rem;
+    margin-top: 0.68rem;
 }
 
 .page-research-influencer-focus .evidence-row,
 .page-research-influencer-focus .case-row,
 .page-research-influencer-focus .implication-row {
     display: grid;
-    gap: 0.72rem;
+    gap: 0.58rem;
 }
 
 .page-research-influencer-focus .evidence-row {
@@ -1169,32 +1230,32 @@
 .page-research-influencer-focus .case-row > div,
 .page-research-influencer-focus .implication-row > span {
     border: 1px solid rgba(218, 199, 176, 0.72);
-    border-radius: 14px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.76);
-    padding: 0.82rem;
+    padding: 0.62rem;
 }
 
 .page-research-influencer-focus .evidence-row strong {
     display: block;
     color: #151b25;
-    font-size: 0.92rem;
+    font-size: 0.8rem;
 }
 
 .page-research-influencer-focus .evidence-row .big-number {
     color: #7c4dde;
-    font-size: 2.25rem;
+    font-size: 1.98rem;
     line-height: 1;
 }
 
 .page-research-influencer-focus .evidence-row i {
     color: #7c4dde;
-    font-size: 2.7rem;
+    font-size: 2.25rem;
 }
 
 .page-research-influencer-focus .gauge {
     display: block;
-    width: 112px;
-    height: 56px;
+    width: 92px;
+    height: 46px;
     margin-bottom: 0.42rem;
     border-radius: 112px 112px 0 0;
     background: conic-gradient(from 270deg at 50% 100%, #7c4dde 0 54deg, #e9ddff 54deg 180deg, transparent 180deg);
@@ -1206,15 +1267,15 @@
 
 .page-research-influencer-focus .case-row div {
     display: grid;
-    grid-template-columns: 76px 1fr;
-    column-gap: 0.76rem;
+    grid-template-columns: 66px 1fr;
+    column-gap: 0.62rem;
     align-items: center;
 }
 
 .page-research-influencer-focus .case-row img {
     grid-row: span 2;
-    width: 76px;
-    height: 76px;
+    width: 66px;
+    height: 66px;
     border: 2px solid #fff;
     border-radius: 999px;
     object-fit: cover;
@@ -1223,7 +1284,7 @@
 
 .page-research-influencer-focus .case-row strong {
     color: #0b65bd;
-    font-size: 0.92rem;
+    font-size: 0.8rem;
 }
 
 .page-research-influencer-focus .case-row small {
@@ -1237,7 +1298,7 @@
 
 .page-research-influencer-focus .implication-row span {
     display: block;
-    min-height: 118px;
+    min-height: 92px;
     background: linear-gradient(135deg, #eef6ff, #ffffff);
 }
 
@@ -1261,12 +1322,12 @@
 .page-research-influencer-focus .implication-row strong {
     display: block;
     color: #1e64c8;
-    font-size: 0.84rem;
+    font-size: 0.72rem;
 }
 
 .page-research-influencer-focus .implication-row i {
     margin-bottom: 0.32rem;
-    font-size: 1.38rem;
+    font-size: 1.16rem;
 }
 
 .page-research-influencer-focus .infographic-signoff {
@@ -1274,7 +1335,7 @@
     grid-template-columns: 1fr minmax(240px, 0.75fr) 1fr;
     gap: 0.86rem;
     align-items: center;
-    margin-top: 0.9rem;
+    margin-top: 0.72rem;
     color: #475569;
 }
 
@@ -1512,13 +1573,14 @@
 </div>
 <div class="infographic-art" aria-label="Creator retention analytics visual">
 <picture>
-<source sizes="(max-width: 900px) 92vw, 560px" srcset="./assets/optimized/research-influencer-retention-hero-480.avif 480w, ./assets/optimized/research-influencer-retention-hero-768.avif 768w, ./assets/optimized/research-influencer-retention-hero-1024.avif 1024w, ./assets/optimized/research-influencer-retention-hero-1440.avif 1440w" type="image/avif"/>
-<source sizes="(max-width: 900px) 92vw, 560px" srcset="./assets/optimized/research-influencer-retention-hero-480.webp 480w, ./assets/optimized/research-influencer-retention-hero-768.webp 768w, ./assets/optimized/research-influencer-retention-hero-1024.webp 1024w, ./assets/optimized/research-influencer-retention-hero-1440.webp 1440w" type="image/webp"/>
-<img alt="Influencer retention research system with creator video, UGC cards, and retention analytics" decoding="async" fetchpriority="high" height="992" src="./assets/research-influencer-retention-hero.png" width="1586"/>
+<source sizes="(max-width: 900px) 58vw, 360px" srcset="./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-480.avif 480w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-768.avif 768w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1024.avif 1024w" type="image/avif"/>
+<source sizes="(max-width: 900px) 58vw, 360px" srcset="./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-480.webp 480w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-768.webp 768w, ./assets/optimized/external/hannah-olala-brandtrip-youtube-maxres-1024.webp 1024w" type="image/webp"/>
+<img alt="Vietnam creator case representing influencer marketing and UGC retention" decoding="async" fetchpriority="high" height="720" src="./assets/external/hannah-olala-brandtrip-youtube-maxres.jpg" width="1280"/>
 </picture>
 <span class="ugc-float ugc-note">New video!<br/>Link in bio</span>
 <span class="ugc-float ugc-like"><i class="ph ph-heart" aria-hidden="true"></i> 12.3K</span>
 <span class="ugc-float ugc-comment"><i class="ph ph-chat-circle" aria-hidden="true"></i> 398</span>
+<span class="ugc-float ugc-subscribe">Subscribe <i class="ph ph-bell" aria-hidden="true"></i></span>
 </div>
 </div>
 
