@@ -991,24 +991,36 @@ body[data-page="home"] .project-card span {
 }
 
 body[data-page="home"] .project-card--archive {
+    padding: 0.72rem 0.86rem 2.42rem;
     border-color: rgba(8, 119, 110, 0.28);
     background:
         linear-gradient(145deg, rgba(232, 244, 241, 0.78), rgba(255, 253, 248, 0.94) 48%),
         rgba(255, 253, 248, 0.95);
 }
-
-body[data-page="home"] .project-card--archive h3 {
-    color: #075e58;
+body[data-page="home"] .project-card--archive img {
+    height: 122px;
+    object-position: center;
 }
 
+
+body[data-page="home"] .project-card--archive h3 {
+    margin-top: 1rem;
+    color: #075e58;
+}
+body[data-page="home"] .project-card--archive p {
+    min-height: 48px;
+    line-height: 1.5;
+}
+
+
 body[data-page="home"] .project-card--archive span {
-    left: 0.78rem;
-    right: 0.78rem;
+    left: 0.86rem;
+    right: 0.86rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 32px;
-    padding: 0 0.62rem;
+    min-height: 34px;
+    padding: 0 0.68rem;
     border: 1px solid rgba(8, 119, 110, 0.16);
     border-radius: 999px;
     color: #075e58;
