@@ -6,9 +6,91 @@ body.project-left-banner {
     --eco-soft: #e6dac7;
     --eco-line: rgba(67, 85, 107, 0.22);
     --eco-teal: #08776e;
+    --eco-teal-rgb: 8, 119, 110;
     --eco-gold: #b98532;
+    --eco-gold-rgb: 185, 133, 50;
+    --eco-land-rgb: 75, 122, 122;
+    --eco-water-rgb: 32, 94, 98;
+    --eco-hill-rgb: 62, 117, 120;
+    --eco-reed-rgb: 135, 93, 35;
     --eco-sidebar: 292px;
     padding-left: var(--eco-sidebar);
+}
+
+body.project-left-banner[data-research-id="buffet-nudging"] {
+    --eco-teal: #9d3434;
+    --eco-teal-rgb: 157, 52, 52;
+    --eco-gold: #c26f3f;
+    --eco-gold-rgb: 194, 111, 63;
+    --eco-land-rgb: 151, 74, 66;
+    --eco-water-rgb: 124, 45, 42;
+    --eco-hill-rgb: 176, 91, 74;
+    --eco-reed-rgb: 143, 62, 37;
+}
+
+body.project-left-banner[data-research-id="nutrition-diet"],
+body.project-left-banner.page-topic-health {
+    --eco-teal: #2f7d4c;
+    --eco-teal-rgb: 47, 125, 76;
+    --eco-gold: #b58a3d;
+    --eco-gold-rgb: 181, 138, 61;
+    --eco-land-rgb: 77, 132, 93;
+    --eco-water-rgb: 48, 109, 75;
+    --eco-hill-rgb: 96, 150, 104;
+    --eco-reed-rgb: 123, 98, 43;
+}
+
+body.project-left-banner[data-research-id="ev-choice"],
+body.project-left-banner[data-research-id="motorbike-phaseout"],
+body.project-left-banner.page-topic-mobility {
+    --eco-teal: #276a9f;
+    --eco-teal-rgb: 39, 106, 159;
+    --eco-gold: #bf7d3a;
+    --eco-gold-rgb: 191, 125, 58;
+    --eco-land-rgb: 70, 116, 153;
+    --eco-water-rgb: 36, 84, 126;
+    --eco-hill-rgb: 84, 136, 164;
+    --eco-reed-rgb: 126, 82, 42;
+}
+
+body.project-left-banner[data-research-id="virtual-influencers"],
+body.project-left-banner[data-research-id="influencer-strategy"],
+body.project-left-banner.page-topic-creator {
+    --eco-teal: #7a4f86;
+    --eco-teal-rgb: 122, 79, 134;
+    --eco-gold: #bd7c70;
+    --eco-gold-rgb: 189, 124, 112;
+    --eco-land-rgb: 120, 89, 140;
+    --eco-water-rgb: 91, 61, 116;
+    --eco-hill-rgb: 144, 103, 146;
+    --eco-reed-rgb: 122, 71, 77;
+}
+
+body.project-left-banner[data-research-id="psych-ownership"],
+body.project-left-banner[data-research-id="arts-workshop"],
+body.project-left-banner.page-topic-organizational {
+    --eco-teal: #636b93;
+    --eco-teal-rgb: 99, 107, 147;
+    --eco-gold: #b98644;
+    --eco-gold-rgb: 185, 134, 68;
+    --eco-land-rgb: 103, 115, 150;
+    --eco-water-rgb: 77, 87, 126;
+    --eco-hill-rgb: 123, 132, 164;
+    --eco-reed-rgb: 126, 87, 46;
+}
+
+body.project-left-banner[data-research-id="hotel-segmentation"],
+body.project-left-banner[data-research-id="hotel-prca"],
+body.project-left-banner[data-research-id="hotel-value-framework"],
+body.project-left-banner.page-topic-hospitality {
+    --eco-teal: #08776e;
+    --eco-teal-rgb: 8, 119, 110;
+    --eco-gold: #b98532;
+    --eco-gold-rgb: 185, 133, 50;
+    --eco-land-rgb: 75, 122, 122;
+    --eco-water-rgb: 32, 94, 98;
+    --eco-hill-rgb: 62, 117, 120;
+    --eco-reed-rgb: 135, 93, 35;
 }
 
 body.project-left-banner .project-home-sidebar {
@@ -42,20 +124,20 @@ body.project-left-banner .project-home-sidebar::after {
 
 body.project-left-banner .project-home-sidebar::before {
     background:
-        radial-gradient(ellipse 132px 158px at -18px 12px, rgba(75, 122, 122, 0.28) 0 63%, transparent 64%),
-        radial-gradient(ellipse 106px 126px at 36px 72px, rgba(89, 139, 134, 0.14) 0 58%, transparent 59%),
-        radial-gradient(ellipse at 100% 95%, rgba(94, 133, 132, 0.18) 0 23%, transparent 24%),
-        radial-gradient(ellipse at 42% 100%, rgba(93, 134, 132, 0.16) 0 22%, transparent 23%);
+        radial-gradient(ellipse 132px 158px at -18px 12px, rgba(var(--eco-land-rgb), 0.28) 0 63%, transparent 64%),
+        radial-gradient(ellipse 106px 126px at 36px 72px, rgba(var(--eco-land-rgb), 0.14) 0 58%, transparent 59%),
+        radial-gradient(ellipse at 100% 95%, rgba(var(--eco-hill-rgb), 0.18) 0 23%, transparent 24%),
+        radial-gradient(ellipse at 42% 100%, rgba(var(--eco-hill-rgb), 0.16) 0 22%, transparent 23%);
 }
 
 body.project-left-banner .project-home-sidebar::after {
     background:
-        radial-gradient(circle at 59% 2.8%, rgba(185, 133, 50, 0.58) 0 2px, transparent 3px),
-        radial-gradient(circle at 67% 1.7%, rgba(185, 133, 50, 0.38) 0 1.5px, transparent 2.5px),
-        radial-gradient(circle at 75% 3.8%, rgba(185, 133, 50, 0.46) 0 2px, transparent 3px),
-        radial-gradient(circle at 48% 61%, rgba(185, 133, 50, 0.6) 0 3px, transparent 4px),
-        radial-gradient(circle at 57% 66%, rgba(185, 133, 50, 0.62) 0 3px, transparent 4px),
-        radial-gradient(circle at 78% 61%, rgba(185, 133, 50, 0.5) 0 3px, transparent 4px);
+        radial-gradient(circle at 59% 2.8%, rgba(var(--eco-gold-rgb), 0.58) 0 2px, transparent 3px),
+        radial-gradient(circle at 67% 1.7%, rgba(var(--eco-gold-rgb), 0.38) 0 1.5px, transparent 2.5px),
+        radial-gradient(circle at 75% 3.8%, rgba(var(--eco-gold-rgb), 0.46) 0 2px, transparent 3px),
+        radial-gradient(circle at 48% 61%, rgba(var(--eco-gold-rgb), 0.6) 0 3px, transparent 4px),
+        radial-gradient(circle at 57% 66%, rgba(var(--eco-gold-rgb), 0.62) 0 3px, transparent 4px),
+        radial-gradient(circle at 78% 61%, rgba(var(--eco-gold-rgb), 0.5) 0 3px, transparent 4px);
     opacity: 0.82;
 }
 
@@ -109,8 +191,8 @@ body.project-left-banner .side-avatar::before {
     content: "";
     position: absolute;
     inset: -22px;
-    border: 1px solid rgba(185, 133, 50, 0.2);
-    border-right-color: rgba(8, 119, 110, 0.18);
+    border: 1px solid rgba(var(--eco-gold-rgb), 0.2);
+    border-right-color: rgba(var(--eco-teal-rgb), 0.18);
     border-radius: inherit;
     transform: rotate(-13deg);
 }
@@ -122,8 +204,8 @@ body.project-left-banner .side-avatar::after {
     bottom: -5px;
     width: 58px;
     height: 72px;
-    border-right: 1px solid rgba(185, 133, 50, 0.5);
-    border-bottom: 1px solid rgba(185, 133, 50, 0.38);
+    border-right: 1px solid rgba(var(--eco-gold-rgb), 0.5);
+    border-bottom: 1px solid rgba(var(--eco-gold-rgb), 0.38);
     border-radius: 58% 44% 68% 40%;
     transform: rotate(-34deg);
 }
@@ -218,7 +300,7 @@ body.project-left-banner .side-nav a:focus-visible::before {
 body.project-left-banner .side-nav a.is-active,
 body.project-left-banner .side-nav a:hover,
 body.project-left-banner .side-nav a:focus-visible {
-    border-color: rgba(8, 119, 110, 0.24);
+    border-color: rgba(var(--eco-teal-rgb), 0.24);
     background: rgba(255, 253, 248, 0.96);
     color: var(--eco-teal);
 }
@@ -256,11 +338,11 @@ body.project-left-banner .side-art::before {
     bottom: 56px;
     height: 208px;
     background:
-        linear-gradient(150deg, transparent 0 47%, rgba(50, 103, 107, 0.28) 48% 62%, transparent 63%) 0 42px / 214px 116px no-repeat,
-        linear-gradient(135deg, transparent 0 44%, rgba(75, 125, 127, 0.25) 45% 63%, transparent 64%) 58px 26px / 238px 132px no-repeat,
-        linear-gradient(22deg, transparent 0 36%, rgba(113, 151, 148, 0.18) 37% 58%, transparent 59%) -22px 72px / 336px 86px no-repeat,
-        radial-gradient(ellipse at 34% 78%, rgba(62, 117, 120, 0.18) 0 19%, transparent 20%),
-        radial-gradient(ellipse at 62% 85%, rgba(77, 132, 135, 0.16) 0 23%, transparent 24%);
+        linear-gradient(150deg, transparent 0 47%, rgba(var(--eco-water-rgb), 0.28) 48% 62%, transparent 63%) 0 42px / 214px 116px no-repeat,
+        linear-gradient(135deg, transparent 0 44%, rgba(var(--eco-land-rgb), 0.25) 45% 63%, transparent 64%) 58px 26px / 238px 132px no-repeat,
+        linear-gradient(22deg, transparent 0 36%, rgba(var(--eco-hill-rgb), 0.18) 37% 58%, transparent 59%) -22px 72px / 336px 86px no-repeat,
+        radial-gradient(ellipse at 34% 78%, rgba(var(--eco-hill-rgb), 0.18) 0 19%, transparent 20%),
+        radial-gradient(ellipse at 62% 85%, rgba(var(--eco-land-rgb), 0.16) 0 23%, transparent 24%);
 }
 
 body.project-left-banner .side-art::after {
@@ -268,9 +350,9 @@ body.project-left-banner .side-art::after {
     height: 122px;
     background:
         linear-gradient(178deg, transparent 0 31%, rgba(255, 253, 248, 0.35) 32% 42%, transparent 43%),
-        radial-gradient(ellipse at 28% 64%, rgba(53, 112, 120, 0.22) 0 32%, transparent 33%),
+        radial-gradient(ellipse at 28% 64%, rgba(var(--eco-water-rgb), 0.22) 0 32%, transparent 33%),
         radial-gradient(ellipse at 50% 64%, rgba(251, 247, 238, 0.62) 0 26%, transparent 27%),
-        radial-gradient(ellipse at 76% 58%, rgba(61, 122, 126, 0.21) 0 31%, transparent 32%);
+        radial-gradient(ellipse at 76% 58%, rgba(var(--eco-hill-rgb), 0.21) 0 31%, transparent 32%);
 }
 
 body.project-left-banner .wash {
@@ -285,11 +367,11 @@ body.project-left-banner .wash-a {
     width: 10px;
     height: 64px;
     border-radius: 1px 1px 0 0;
-    background: linear-gradient(180deg, rgba(32, 94, 98, 0.54), rgba(32, 94, 98, 0.22));
+    background: linear-gradient(180deg, rgba(var(--eco-water-rgb), 0.54), rgba(var(--eco-water-rgb), 0.22));
     box-shadow:
-        -18px 16px 0 -1px rgba(32, 94, 98, 0.38),
-        -36px 31px 0 -2px rgba(32, 94, 98, 0.28),
-        -54px 47px 0 -3px rgba(32, 94, 98, 0.18);
+        -18px 16px 0 -1px rgba(var(--eco-water-rgb), 0.38),
+        -36px 31px 0 -2px rgba(var(--eco-water-rgb), 0.28),
+        -54px 47px 0 -3px rgba(var(--eco-water-rgb), 0.18);
 }
 
 body.project-left-banner .wash-b {
@@ -297,7 +379,7 @@ body.project-left-banner .wash-b {
     top: 22px;
     width: 122px;
     height: 76px;
-    border-top: 1px dashed rgba(185, 133, 50, 0.28);
+    border-top: 1px dashed rgba(var(--eco-gold-rgb), 0.28);
     transform: rotate(22deg);
 }
 
@@ -306,7 +388,7 @@ body.project-left-banner .wash-b::after {
     content: "";
     position: absolute;
     border-radius: 999px;
-    background: rgba(185, 133, 50, 0.64);
+    background: rgba(var(--eco-gold-rgb), 0.64);
 }
 
 body.project-left-banner .wash-b::before {
@@ -314,7 +396,7 @@ body.project-left-banner .wash-b::before {
     top: -4px;
     width: 7px;
     height: 7px;
-    box-shadow: 57px 8px 0 -1px rgba(185, 133, 50, 0.58), 104px -9px 0 0 rgba(185, 133, 50, 0.5);
+    box-shadow: 57px 8px 0 -1px rgba(var(--eco-gold-rgb), 0.58), 104px -9px 0 0 rgba(var(--eco-gold-rgb), 0.5);
 }
 
 body.project-left-banner .wash-b::after {
@@ -322,7 +404,7 @@ body.project-left-banner .wash-b::after {
     top: 48px;
     width: 11px;
     height: 11px;
-    border: 1px solid rgba(185, 133, 50, 0.5);
+    border: 1px solid rgba(var(--eco-gold-rgb), 0.5);
     background: transparent;
 }
 
@@ -331,7 +413,7 @@ body.project-left-banner .reed {
     bottom: 10px;
     width: 1px;
     height: 104px;
-    background: rgba(135, 93, 35, 0.82);
+    background: rgba(var(--eco-reed-rgb), 0.82);
     transform-origin: bottom;
 }
 
@@ -343,7 +425,7 @@ body.project-left-banner .reed::after {
     width: 7px;
     height: 30px;
     border-radius: 50%;
-    background: rgba(135, 93, 35, 0.55);
+    background: rgba(var(--eco-reed-rgb), 0.55);
     transform: rotate(24deg);
 }
 
