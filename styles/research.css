@@ -12048,7 +12048,7 @@ html.js .page-research-detail .project-brief-media.active {
     z-index: -2;
     background:
         linear-gradient(90deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.01) 34%, rgba(5, 42, 72, 0.2)),
-        url("/portfolio/assets/optimized/motorbike-ban-highres.jpg") center 48% / cover no-repeat;
+        url("/portfolio/assets/optimized/hanoi_motorbike_bg-1024.webp") center 42% / cover no-repeat;
     filter: saturate(0.95) contrast(1.02);
 }
 
@@ -13075,7 +13075,7 @@ html.js .page-research-detail .project-brief-media.active {
     border-radius: 14px;
     background:
         linear-gradient(90deg, rgba(3, 29, 53, 0.98), rgba(6, 47, 85, 0.94)),
-        url("/portfolio/assets/optimized/motorbike-ban-highres.jpg") center 58% / cover no-repeat;
+        url("/portfolio/assets/optimized/hanoi_motorbike_bg-1024.webp") center 54% / cover no-repeat;
     box-shadow: 0 20px 42px rgba(8, 47, 85, 0.18);
 }
 
